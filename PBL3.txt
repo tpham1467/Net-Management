@@ -1,0 +1,30 @@
+Quản Lí Quán Net
+
+?? Chat giữa khách hàng và nhân viên trực ca  ( dữ liệu không đc lưu lại ) 
+- Admin
++ Quản Lí ca làm việc ( huy )
++ Quản lí khách hàng ( viên )
++ Quản lí nhân viên  ( trưởng )
++ Quản lí thu chi    ( huy )
++ Quản lí sản phẩm  ( viên )
+ + đồ ăn , nước uống 
+ + phụ kiện máy tính ( thay , hỏng )
++ thống kê ( trưởng )
+
+
+- Nhân viên
++ quản lí tài khoản
+ + tạo tài khoản
+ + xóa tài khoản
+ + nạp tiền 
+ + trừ tiền
++ quản lí các máy
+ + tắt , bật
++ Thanh toán dịch vụ
++ Đăng kí ca làm việc 
++ chat ( tương lai ) 
+
+- Khách hàng
++ chọn máy
++ gọi dịch vụ
++ chat ( tương lai )
