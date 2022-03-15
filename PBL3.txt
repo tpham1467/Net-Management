@@ -2,12 +2,13 @@ Quản Lí Quán Net
 
 ?? Chat giữa khách hàng và nhân viên trực ca  
 
+anh yeu em nhieu lam 
 - Admin
 + Quản Lí ca làm việc 
 + Quản lí khách hàng 
 + Quản lí nhân viên 
-+ Quản lí thu chi    
-+ Quản lí sản phẩm  
++ Quản lí thu chi  fsdflds 
++ Quản lí sản ashdhs
 + Báo Cáo 
 
 - Nhân viên
