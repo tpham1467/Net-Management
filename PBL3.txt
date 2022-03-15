@@ -1,30 +1,99 @@
 Quản Lí Quán Net
 
-?? Chat giữa khách hàng và nhân viên trực ca  ( dữ liệu không đc lưu lại ) 
-- Admin
-+ Quản Lí ca làm việc ( huy )
-+ Quản lí khách hàng ( viên )
-+ Quản lí nhân viên  ( trưởng )
-+ Quản lí thu chi    ( huy )
-+ Quản lí sản phẩm  ( viên )
- + đồ ăn , nước uống 
- + phụ kiện máy tính ( thay , hỏng )
-+ thống kê ( trưởng )
+?? Chat giữa khách hàng và nhân viên trực ca  
 
+- Admin
++ Quản Lí ca làm việc 
++ Quản lí khách hàng 
++ Quản lí nhân viên 
++ Quản lí thu chi    
++ Quản lí sản phẩm  
++ Báo Cáo 
 
 - Nhân viên
 + quản lí tài khoản
- + tạo tài khoản
- + xóa tài khoản
- + nạp tiền 
- + trừ tiền
-+ quản lí các máy
- + tắt , bật
-+ Thanh toán dịch vụ
-+ Đăng kí ca làm việc 
-+ chat ( tương lai ) 
+  + Thêm , Sửa , Xóa , Cập Nhập
+  + nạp tiền , khóa , mở 
+///+ quản lí các máy 
++ Thanh toán dịch vụ cho khách hàng 
++ Bắt đầu ca làm việc , kết thúc ca làm việc  
+//+ chat ( tương lai ) 
 
 - Khách hàng
++ nạp tiền 
 + chọn máy
 + gọi dịch vụ
-+ chat ( tương lai )
+//+ chat ( tương lai )
+
+
+
+
+***********************************
+- Quản lý khách hàng:
+(-) Danh sách khách hàng:
+	(-) Thuộc tính :
+                + Tk , mk
+		+ Số thứ tự
+		+ ID máy
+		+ Trạng thái : $ Hoạt động
+					 $ Không hoạt động
+		+ Tên khách hàng
+		+ Tên tài khoảng (có hoặc không)
+                + Số tiền còn lại
+(-) Lịch sử dùng dịch vụ
+		+ Số máy
+		+ Tên khách hàng
+		+ Số giờ đã sử dụng (nếu hoạt động)
+		+ Tổng chi phí (bên thu phí)
+(-) Chức năng: 
+	(-) Sửa ,xóa
+	(-) Thêm khách hàng sử dụng
+************************************
+- Quản Lí Nhân Viên 
+  + Thuộc Tính 
+    + Tk , mk
+    + Họ và tên 
+    + Số Điện Thoại 
+    + Email 
+    + Ngày bắt đầu đi làm , địa chỉ , cmnd
+    + Ngày Sinh 
+  + Thêm , Sửa , Xóa , Cập Nhập
+  + Tăng lương , Giảm Lương 
+  + Chấm Công
+  + Trả Lương 
+*********************************
+
+- Quản lý sản phẩm:
+	(-) Quản lý giá :  + Gía sản phẩm nhập
+					+ Gía sản phẩm xuất
+					+ Tên sản phẩm
+					+ ID sản phẩm
+		(+) Chức năng : Xóa, sửa giá bán
+	(-) Quản lý hàng : + Tên sản phẩm
+					+ ID sản phẩm
+					+ Ngày nhập sản phẩm
+					+ Hạn sử dụng
+		(+) Sửa tên, Thêm sản phẩm khi nhập hàng
+					
++ Số thứ tự
++ Tên khách hàng sử dụng
++ Ngày sử dụng
++ Tên sản phẩm
++ Mã sản phẩm
++ Số lượng
++ Giá tiền 1 sản phẩm
+(-) Chức năng:
+	+ Sửa, xóa
+		(+) Trong chức năng sửa: + Tên sản phẩm
+							  + Mã sản phẩm
+							  + ảnh sản phẩm
+							  + Khuyến mãi (có hoặc không)
+							  + Ngày tạo biểu mẫu
+	+ Thành tiền loại sản phẩm
+
+*************************************
+
+- Báo Cáo 
+  + Doanh Thu theo ngày , tháng 
+  + thu nhập 
+  + Khách hàng nợ
