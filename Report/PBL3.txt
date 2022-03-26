@@ -2,31 +2,34 @@ Quản Lí Quán Net
 
 ?? Chat giữa khách hàng và nhân viên trực ca  
 
-anh yeu em nhieu lam 
 - Admin
 + Quản Lí ca làm việc 
 + Quản lí khách hàng 
 + Quản lí nhân viên 
-+ Quản lí thu chi  fsdflds 
-+ Quản lí sản ashdhs
++ Quản lí thu chi 
++ Quản lí sản phẩm
++ Quản Lí thiết bị
 + Báo Cáo 
 
 - Nhân viên
+
 + quản lí tài khoản
-  + Thêm , Sửa , Xóa , Cập Nhập
+  + Thêm , Xóa , Cập Nhập 
   + nạp tiền , khóa , mở 
-///+ quản lí các máy 
 + Thanh toán dịch vụ cho khách hàng 
 + Bắt đầu ca làm việc , kết thúc ca làm việc  
 //+ chat ( tương lai ) 
 
 - Khách hàng
-+ nạp tiền 
++ nạp tiền
 + chọn máy
 + gọi dịch vụ
 //+ chat ( tương lai )
 
+luồng 
+tên máy | số tiền
 
+01        20.000
 
 
 ***********************************
