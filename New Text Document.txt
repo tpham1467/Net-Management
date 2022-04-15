@@ -1,33 +1,3 @@
-Quản Lí Quán Net
-anh cho ahb
-?? Chat giữa khách hàng và nhân viên trực ca  
-dhhdbd ddj
-anh yeu em nhieu lam 
-- Admin
-+ Quản Lí ca làm việc 
-+ Quản lí khách hàng 
-+ Quản lí nhân viên 
-+ Quản lí thu chi  fsdflds 
-+ Quản lí sản ashdhs
-+ Báo Cáo 
-
-- Nhân viên
-+ quản lí tài khoản
-  + Thêm , Sửa , Xóa , Cập Nhập
-  + nạp tiền , khóa , mở 
-///+ quản lí các máy 
-+ Thanh toán dịch vụ cho khách hàng 
-+ Bắt đầu ca làm việc , kết thúc ca làm việc  
-//+ chat ( tương lai ) 
-
-- Khách hàng
-+ nạp tiền 
-+ chọn máy
-+ gọi dịch vụ
-//+ chat ( tương lai )
-
-
-
 
 ***********************************
 - Quản lý khách hàng:
@@ -98,3 +68,8 @@ anh yeu em nhieu lam
   + Doanh Thu theo ngày , tháng 
   + thu nhập 
   + Khách hàng nợ
+- Quản Lí thiết bị
+ + xem rõ tình trạng vật chất bên trong máy , ví dụ cpu hãng gì ;giá tiền ;bắt đầu dùng từ ngày nào ;tình trạng
+ + cập nhập các bộ phận  đã sữa chữa hoẵc lắp đặt mới 
+ + thêm mới máy tính để quản lí 
+ + xóa máy tính khỏi danh sách  
