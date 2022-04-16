@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetManagement", "NetManagement\NetManagement.csproj", "{A9629AC8-C2F8-40FD-A71C-6DC9A5EC6FE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9629AC8-C2F8-40FD-A71C-6DC9A5EC6FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9629AC8-C2F8-40FD-A71C-6DC9A5EC6FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9629AC8-C2F8-40FD-A71C-6DC9A5EC6FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9629AC8-C2F8-40FD-A71C-6DC9A5EC6FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22FDCA1A-7BAF-4FD8-90AB-DD5FD372A6F5}
+	EndGlobalSection
+EndGlobal
