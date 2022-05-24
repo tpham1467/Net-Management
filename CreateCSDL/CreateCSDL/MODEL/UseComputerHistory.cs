@@ -15,10 +15,13 @@ namespace CreateCSDL.MODEL
 			Computers = new HashSet<Computer>();
 			Customers = new HashSet<Customer>();
 		}
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ID_HistoryUseComputer { get; set; }
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ID_Customer { get; set; }
 		[ForeignKey("ID_Customer")]
 		public virtual ICollection<Customer> Customers { get; set; }
+		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ID_Computer { get; set; }
 		[ForeignKey("ID_Computer")]
 		public virtual ICollection<Computer> Computers { get; set; }
