@@ -18,15 +18,18 @@ namespace CreateCSDL.MODEL
         }
         [Key]
         [StringLength(50)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required(ErrorMessage = "Bạn cần điền ID_Product")]
         public int ID_Product { get; set; }
         [StringLength(50)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required(ErrorMessage = "Bạn cần điền ID_Category")]
         public int ID_Category { get; set; }
         
         [StringLength(100)]
         public string NameProduct { get; set; }
         [StringLength(50)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required(ErrorMessage = "Bạn cần điền ID_Unit")]
         public int ID_Unit { get; set; }
         public float Price { get; set; }

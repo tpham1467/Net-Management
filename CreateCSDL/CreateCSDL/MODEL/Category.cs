@@ -14,11 +14,12 @@ namespace CreateCSDL.MODEL
         [Key]
         [Required(ErrorMessage = "Bạn cần điền ID_Category")]
         [StringLength(50)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Category { get; set; }
         [StringLength(50)]
         [ForeignKey("ID_Category")]
 
-        public virtual Category Category { get; set; }
+        public virtual Product Product { get; set; }
         public string CategoryName { get; set; }
         [StringLength(200)]
         public string Description { get; set; }

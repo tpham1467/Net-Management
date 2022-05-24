@@ -15,6 +15,7 @@ namespace CreateCSDL.MODEL
         [Key]
         [Required(ErrorMessage = "Ban phai nhap ID_Unit")]
         [StringLength(50)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Unit { get; set; }
         [ForeignKey("ID_Unit")]
 
