@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp111.Model
+namespace CreateCSDL.MODEL
 {
     [Table("SalaryEmployee")]
     public class SalaryEmployee
