@@ -8,17 +8,18 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp111.Model
 {
-    [Table("SalaryEmployee")]
-    public class SalaryEmployee
+    [Table("Role")]
+    public class Role
     {
-        public SalaryEmployee()
+        public Role()
         {
-            Employees = new HashSet<Employee>();
+            Accounts = new HashSet<Account>();
         }
         [Key]
         [Required]
-        public int ID_SalaryEmployee { get; set; }
-        public float Salary { get; set; }
-        public virtual ICollection<Employee> Employees { get; set; }
+        public int ID_Role { get; set; }
+        public string NameRole { get; set; }
+        public string Desciption { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
     }
 }
