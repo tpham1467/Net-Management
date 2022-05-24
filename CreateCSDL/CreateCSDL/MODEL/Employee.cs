@@ -16,7 +16,7 @@ namespace CreateCSDL.MODEL
             Customers = new HashSet<Customer>();
     }
         [Key]
-        [Required(ErrorMessage = "Bạn cần điền ID_Employee")]
+        [Required(ErrorMessage = "Bạn cần điền ID_Employee")]   
         public string ID_Employee { get; set; }
         [Required(ErrorMessage = "Bạn cần điền ID_Account")]
         [Index(IsUnique = true)]
