@@ -64,16 +64,32 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MODEL\Account.cs" />
+    <Compile Include="MODEL\Category.cs" />
     <Compile Include="MODEL\Computer.cs" />
     <Compile Include="MODEL\CreateDB.cs" />
     <Compile Include="MODEL\CSDL.cs" />
     <Compile Include="MODEL\Customer.cs" />
     <Compile Include="MODEL\Employee.cs" />
     <Compile Include="MODEL\HistoryAccountUser.cs" />
+<<<<<<< HEAD
     <Compile Include="MODEL\StatusShift .cs" />
     <Compile Include="MODEL\SalaryEmployee.cs" />
     <Compile Include="MODEL\Shift.cs" />
+=======
+    <Compile Include="MODEL\Inventory.cs" />
+    <Compile Include="MODEL\OrderDetail.cs" />
+    <Compile Include="MODEL\Product.cs" />
+    <Compile Include="MODEL\Role.cs" />
+    <Compile Include="MODEL\SalaryEmployee.cs" />
+    <Compile Include="MODEL\ServiceProduct.cs" />
+    <Compile Include="MODEL\Shift.cs" />
+    <Compile Include="MODEL\StatusShift .cs" />
+    <Compile Include="MODEL\Unit.cs" />
+>>>>>>> origin/main
     <Compile Include="MODEL\UseComputerHistory.cs" />
+    <Compile Include="MODEL\_Order.cs" />
+    <Compile Include="MODEL\_Service.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
