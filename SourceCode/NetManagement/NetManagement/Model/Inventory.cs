@@ -18,6 +18,7 @@ namespace NetManagement.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID_Product { get; set; }
+        [Required]
         public int Amount { get; set; }
         [ForeignKey("ID_Product")]
         public virtual ICollection<Product> Products { get; set; }

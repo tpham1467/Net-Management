@@ -13,14 +13,12 @@ namespace NetManagement.Model
     public class Product
     {
         [Key]
-
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-     
         public int ID_Product { get; set; }
         [Required]
         public int ID_Category { get; set; }
-        
-        [StringLength(100)]
+        [Required]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến  100 ký tự")]
         public string NameProduct { get; set; }
         [Required]
         public int ID_Unit { get; set; }
