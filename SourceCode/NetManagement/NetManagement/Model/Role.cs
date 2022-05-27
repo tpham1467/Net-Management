@@ -18,6 +18,7 @@ namespace NetManagement.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Role { get; set; }
+        [Required]
         public string NameRole { get; set; }
         public string Desciption { get; set; }
         public virtual ICollection<Account> Accounts { get; set; }
