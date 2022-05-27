@@ -18,6 +18,7 @@ namespace NetManagement.Model
         [Key][Required]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID_Order { get; set; }
+        [Required]
         public int ID_Customer { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime DateOfOrder { get; set; }
