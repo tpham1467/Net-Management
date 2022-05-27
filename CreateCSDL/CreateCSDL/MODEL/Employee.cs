@@ -44,7 +44,8 @@ namespace CreateCSDL.MODEL
 
         [Required(ErrorMessage = "Bạn cần điền số CMND/ CCCD ")]
         public string Indentify { get; set; }
-
+         public virtual ICollection<HistoryAccountUser> HistoryAccountUser { get; set; }
+          public virtual ICollection<C_Shift> C_Shift { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
     }
 }
