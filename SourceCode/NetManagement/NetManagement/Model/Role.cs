@@ -20,7 +20,7 @@ namespace NetManagement.Model
         public int ID_Role { get; set; }
         [Required]
         public string NameRole { get; set; }
-        public string Desciption { get; set; }
+        public string Description { get; set; }
         public virtual ICollection<Account> Accounts { get; set; }
     }
 }
