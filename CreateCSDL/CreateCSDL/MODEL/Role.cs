@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp111.Model
+namespace CreateCSDL.MODEL
 {
     [Table("Role")]
     public class Role
@@ -15,8 +15,8 @@ namespace WindowsFormsApp111.Model
         {
             Accounts = new HashSet<Account>();
         }
-        [Key]
-        [Required]
+        [Key][Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID_Role { get; set; }
         public string NameRole { get; set; }
         public string Desciption { get; set; }
