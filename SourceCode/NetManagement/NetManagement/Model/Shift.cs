@@ -15,15 +15,15 @@ namespace NetManagement.Model
         public int ID_Shift { get; set; }
         [Required]
         public int ID_Employee { get; set; }
-          [ForeignKey("ID_Employee")]
+        [ForeignKey("ID_Employee")]
         public virtual Employee Employee {get; set;}
         [DataType(DataType.DateTime)]
         public DateTime Date_Work { get; set; }
-        [Required] [ Column("_Hour ")]
+        [Required] [Column("_Hour ")]
         public int Hour { get; set; }
         [Required]
         public int ID_StatusShift { get; set; }
         [ForeignKey("ID_StatusShift")]
-        public virtual StatusShift statusShift{ get; set; }
+        public virtual StatusShift StatusShift{ get; set; }
     }
 }
