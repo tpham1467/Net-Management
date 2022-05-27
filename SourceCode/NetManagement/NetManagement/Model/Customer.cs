@@ -20,6 +20,7 @@ namespace NetManagement.Model
            HistoryAccountUsers = new HashSet<HistoryAccountUser>();
        }
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Customer { get; set; }
         public int _MoneyC { get; set; }
         [Required]
