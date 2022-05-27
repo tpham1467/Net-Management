@@ -18,6 +18,10 @@ namespace NetManagement.Model
         }
         [Key]
         public int ID_Computer { get; set; }
+
+        [Required]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến  100 ký tự")]
+        [DataType(DataType.Text)]
         public string Name_PC { get; set; }
         public int ID_Customer { get; set; }
         public bool Status { get; set; }

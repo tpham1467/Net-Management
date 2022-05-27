@@ -21,6 +21,9 @@ namespace NetManagement.Model
         [ForeignKey("ID_Category")]
 
         public virtual ICollection<Product> Products { get; set; }
+
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến  100 ký tự")]
+        [DataType(DataType.Text)]
         public string CategoryName { get; set; }
         [StringLength(200)]
         public string Description { get; set; }

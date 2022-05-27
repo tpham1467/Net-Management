@@ -19,6 +19,7 @@ namespace NetManagement.Model
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID_Order { get; set; }
         public int ID_Customer { get; set; }
+        [DataType(DataType.DateTime)]
         public DateTime DateOfOrder { get; set; }
         [ForeignKey("ID_Customer")]
         public virtual Customer Customer { get; set; }

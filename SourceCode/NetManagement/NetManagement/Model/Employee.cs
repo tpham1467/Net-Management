@@ -19,13 +19,15 @@ namespace NetManagement.Model
             Orders = new HashSet<_Order>();
         }
         [Key]   
-        public string ID_Employee { get; set; }
+        public int ID_Employee { get; set; }
 
         public int ID_SalaryEmployee { get; set; }
         [ForeignKey("ID_SalaryEmployee")]
         public virtual SalaryEmployee SalaryEmployee { get; set; }
 
-        [Required(ErrorMessage = "Bạn cần điền số CMND/ CCCD ")]
+        [Required(ErrorMessage = "Employee {0} is Indentify")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến  100 ký tự")]
+        [DataType(DataType.Text)]
         public string Indentify { get; set; }
          public virtual ICollection<HistoryAccountUser> HistoryAccountUsers { get; set; }
           public virtual ICollection<Shift> Shifts { get; set; }
