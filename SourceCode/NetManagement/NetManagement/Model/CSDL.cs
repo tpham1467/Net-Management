@@ -21,22 +21,22 @@ namespace NetManagement.Model
         public CSDL()
             : base("name=CSDL")
         {
-           // Database.SetI//nitializer<CSDL>(new CreateDB());
+            Database.SetInitializer<CSDL>(new CreateDB());
         }
 
         //Thay đổi được cấu trúc CS dữ liệu
        // Có thể cắt quan hệ giữa c
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
 
-            // Tạo ILoggerFactory
-            ILoggerFactory loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+        //    // Tạo ILoggerFactory
+        //    ILoggerFactory loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
 
-            optionsBuilder   // thiết lập làm việc với SqlServer
-                          .UseLoggerFactory(loggerFactory);     // thiết lập logging
+        //    optionsBuilder   // thiết lập làm việc với SqlServer
+        //                  .UseLoggerFactory(loggerFactory);     // thiết lập logging
 
-        }
+        //}
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
