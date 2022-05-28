@@ -16,20 +16,20 @@ namespace NetManagement.Model
 
        public Customer()
        {
-           Orders = new HashSet<_Order>();
+           Orders = new HashSet<Order>();
            HistoryAccountUsers = new HashSet<HistoryAccountUser>();
+            UseComputerHistories = new HashSet<UseComputerHistory>();
        }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID_Customer { get; set; }
-        public int _MoneyC { get; set; }
+      
+        [Column("_Money")]
+        public int Money { get; set; }
         [Required]
         public int ID_Employee { get; set; }
         [ForeignKey("ID_Employee")]
         public virtual Employee Employee { get; set; }
         public virtual ICollection<HistoryAccountUser> HistoryAccountUsers {get; set;}
         public virtual ICollection<UseComputerHistory> UseComputerHistories {get; set;}
-        public virtual ICollection<_Order> Orders { get; set;}
+        public virtual ICollection<Order> Orders { get; set;}
 
 
     }

@@ -42,9 +42,8 @@ namespace NetManagement.Model
             base.OnModelCreating(modelBuilder);
         }
 
-        public virtual DbSet<Employee> Employees { get; set; }
+      
         public virtual DbSet<Computer> Computers { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<SalaryEmployee> SalaryEmployees { get; set; }
         public virtual DbSet<UseComputerHistory> UseComputerHistorys { get; set; }
         public virtual DbSet<User> Users { get; set; }
@@ -59,8 +58,7 @@ namespace NetManagement.Model
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
         
-        public virtual DbSet<_Order> Orders { get; set; }
-        public virtual DbSet<Inventory> Inventories { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.

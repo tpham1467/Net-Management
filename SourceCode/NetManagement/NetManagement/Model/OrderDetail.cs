@@ -20,7 +20,7 @@ namespace NetManagement.Model
 		[Required]
 		public int ID_Order { get; set; }
 		[ForeignKey("ID_Order")]
-		public virtual _Order _Order { get; set; }
+		public virtual Order Order { get; set; }
 		public string _Description { get; set; }
 		public int Quality { get; set; }
 		[ForeignKey("ID_Product")]

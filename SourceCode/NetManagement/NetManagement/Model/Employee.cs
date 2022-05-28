@@ -16,22 +16,21 @@ namespace NetManagement.Model
             Customers = new HashSet<Customer>();
             HistoryAccountUsers = new HashSet<HistoryAccountUser>();
             Shifts = new HashSet<Shift>();
-            Orders = new HashSet<_Order>();
+            Orders = new HashSet<Order>();
         }
-        [Key]   
-        public int ID_Employee { get; set; }
 
+        [Required]
         public int ID_SalaryEmployee { get; set; }
-        [ForeignKey("ID_SalaryEmployee")]
+        [ForeignKey("ID_SalaryEmployee")] 
         public virtual SalaryEmployee SalaryEmployee { get; set; }
 
-        [Required(ErrorMessage = "Employee {0} is Indentify")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến  100 ký tự")]
-        [DataType(DataType.Text)]
+        [Required]
+   //     [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến  100 ký tự")]
+        [Column("_Identify")]
         public string Identify { get; set; }
          public virtual ICollection<HistoryAccountUser> HistoryAccountUsers { get; set; }
           public virtual ICollection<Shift> Shifts { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
-        public virtual ICollection<_Order> Orders {get; set;}
+        public virtual ICollection<Order> Orders {get; set;}
     }
 }

@@ -22,6 +22,7 @@ namespace NetManagement.Model
         public string NameProduct { get; set; }
         [Required]
         public int ID_Unit { get; set; }
+        public int Amount { get; set; }
         public float Price { get; set; }
         [ForeignKey("ID_Unit")]
         public virtual Unit Unit { get; set; }

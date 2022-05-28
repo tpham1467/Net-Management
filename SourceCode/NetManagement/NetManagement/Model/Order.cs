@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 namespace NetManagement.Model
 {
     [Table("_Order")]
-    public class _Order
+    public class Order
     {
-        public _Order()
+        public Order()
         {
             OrderDetails = new HashSet<OrderDetail>();
         }
         [Key][Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Order { get; set; }
         [Required]
         public int ID_Customer { get; set; }
