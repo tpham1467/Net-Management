@@ -33,9 +33,9 @@ namespace NetManagement.Model
             });
             context.Customers.AddRange(new Customer[]
             {
-                new Customer{ID_Customer = 1,_MoneyC = 1234, ID_Employee =1},
-                new Customer{ID_Customer = 2,_MoneyC = 123, ID_Employee =2},
-                new Customer{ID_Customer = 3,_MoneyC = 1235, ID_Employee =3},
+                new Customer{ID_Customer = 1, Money = 1234, ID_Employee =1},
+                new Customer{ID_Customer = 2, Money = 123, ID_Employee =2},
+                new Customer{ID_Customer = 3, Money = 1235, ID_Employee =3},
             });
             context.Computers.AddRange(new Computer[]
             {
@@ -74,7 +74,39 @@ namespace NetManagement.Model
             context.StatusShifts.AddRange(new StatusShift[]{
                 new StatusShift{ID_StatusShift =1, Description = "ads"},
                 new StatusShift{ID_StatusShift =2, Description = "anahga"},
-                new StatusShift{ID_StatusShift =3, Description = "ahah"},
+                new StatusShift{ID_StatusShift =3, Description = "ahah"}
+            });
+            context.Orders.AddRange(new Order[]{
+                new Order{ID_Order =1, ID_Customer = 2, DateOfOrder = DateTime.Now},
+                new Order{ID_Order =2, ID_Customer = 3, DateOfOrder = DateTime.Now},
+                new Order{ID_Order =3, ID_Customer = 1, DateOfOrder = DateTime.Now}
+            });
+            context.Accounts.AddRange(new Account[]{
+                new Account{ID_Account =01, UserName_Acc = "Hpham123", Password_Acc = "Hpham321" , ID_Role = 1 , Id_User = 3 },
+                new Account{ID_Account =02, UserName_Acc = "Tpham123", Password_Acc = "Tpham321" , ID_Role = 2 , Id_User = 2 },
+                new Account{ID_Account =03, UserName_Acc = "VVien123", Password_Acc = "VVien321",  ID_Role = 3 , Id_User = 1 }
+            });
+            context.Categories.AddRange(new Category[]{
+                new Category{ID_Category = 1, CategoryName = "Do An", Description = "Emdeplam"},
+                new Category{ID_Category = 2, CategoryName = "Nuoc Uong", Description = "Emxinhlam"},
+                new Category{ID_Category = 3, CategoryName = "Iteam", Description = "EmAnComChua"},
+            });
+            context.HistoryAccountUsers.AddRange(new HistoryAccountUser[]{
+                new HistoryAccountUser{Id_HistoryAccountUser = 1, ID_Customer = 1, ID_Employee = 1, ID_Computer =1, Direct = true, Money = 12321, Description = "egwjeh", Date = DateTime.Now},
+                new HistoryAccountUser{Id_HistoryAccountUser = 2, ID_Customer = 2, ID_Employee = 2, ID_Computer =2, Direct = false, Money = 13541, Description = "egwdgh", Date = DateTime.Now},
+                new HistoryAccountUser{Id_HistoryAccountUser = 3, ID_Customer = 3, ID_Employee = 3, ID_Computer =3, Direct = true, Money = 14321, Description = "egwdfgh", Date = DateTime.Now}
+            });
+            context.Inventories.AddRange(new Inventory[]{
+                new Inventory{ID_Product = 1, Amount = 13},
+                new Inventory{ID_Product = 2, Amount = 43},
+                new Inventory{ID_Product = 3, Amount = 23},
+                new Inventory{ID_Product = 4, Amount = 33},
+                new Inventory{ID_Product = 5, Amount = 53}
+            });
+            context.Units.AddRange(new Unit[]{
+                new Unit{ID_Unit = 1, NameUnit = "Cai"},
+                new Unit{ID_Unit = 2, NameUnit = "Chai"},
+                new Unit{ID_Unit = 3, NameUnit = "Goi"}
             });
         }
     }

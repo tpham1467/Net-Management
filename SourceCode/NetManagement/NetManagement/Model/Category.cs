@@ -18,8 +18,6 @@ namespace NetManagement.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Category { get; set; }
-        [ForeignKey("ID_Category")]
-
         public virtual ICollection<Product> Products { get; set; }
 
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến  100 ký tự")]
