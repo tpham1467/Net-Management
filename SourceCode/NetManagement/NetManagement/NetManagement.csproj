@@ -91,12 +91,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BLLCustormer\BLLDisplayinfor.cs" />
     <Compile Include="BLL\BLLLogin\BLLChoosePC.cs" />
     <Compile Include="BLL\BLLLogin\BLLLogin.cs" />
     <Compile Include="DTO\ForgetPassword.cs" />
     <Compile Include="DTO\PC.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Helper\Convert.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Computer.cs" />
@@ -244,8 +246,14 @@
     <EmbeddedResource Include="View\FormChoosePC\FormChoosePc.resx">
       <DependentUpon>FormChoosePc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormCustomer\Chat_Form.resx">
+      <DependentUpon>Chat_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormCustomer\MainForm_User.resx">
       <DependentUpon>MainForm_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormCustomer\PersonalInfor_Form.resx">
+      <DependentUpon>PersonalInfor_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormEmployee\Forgottenpass_Form.resx">
       <DependentUpon>Forgottenpass_Form.cs</DependentUpon>

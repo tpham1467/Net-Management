@@ -39,7 +39,6 @@ namespace NetManagement.Repositories
                 return;                
             }
             ActionUpdate(Swap, obj);
-            Console.WriteLine("ddd");
         }
         public void Delete(int id)
         {

@@ -16,7 +16,7 @@ namespace NetManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm_User());
+            Application.Run(new MainForm_User(5));
         }
     }
 }

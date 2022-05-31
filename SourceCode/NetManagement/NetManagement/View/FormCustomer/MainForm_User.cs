@@ -8,16 +8,87 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using NetManagement.BLL.BLLCustormer;
+using NetManagement.Model;
+using NetManagement.Helper;
 namespace NetManagement.View.FormCustomer
 {
     public partial class MainForm_User : Form
     {
-        public MainForm_User()
-        {
-            InitializeComponent();
-        }
+        private int Id;
         private Form currentFormBody;
+        private BLLDisplayinfor _BLLDisplayinfor = new BLLDisplayinfor();
+        public  MainForm_User(int _id)
+        {
+            Id = _id;
+            InitializeComponent();
+            textBoxremaining.Enabled = false; textBoxused.Enabled = false; textBoxprices.Enabled = false;
+            Task t = DisplayMoney();
+        }
+       
+        delegate void SetTextCallback(string text,string text2);
+        private void SetText(string text, string text2)
+        {
+           
+            if (this.textBoxremaining.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetText);
+                this.Invoke(d, new object[] { text  , text2});
+            }
+            else
+            {
+                this.textBoxremaining.Text = text;
+                lock(textBoxused)
+                {
+                  textBoxused.Text = text2;
+                }
+            }
+        }
+        delegate void Hett();
+        public void HetTien()
+        {
+            if (this.textBoxremaining.InvokeRequired)
+            {
+                Hett d = new Hett(HetTien);
+                this.Invoke(d, new object[] { });
+            }
+            else
+            {
+                btnLoutout_Click(new object(), new EventArgs());
+            }
+           
+        }
+        public async Task DisplayMoney()
+       {
+            
+            Task t = new Task(() =>
+            {
+                Customer customer = _BLLDisplayinfor.GetCustomerById(Id);
+                int timeused = 0;
+                while (true)
+                {
+                    customer.Money -= 2;
+                    timeused += 2;
+                    if (customer.Money <= 0)
+                    {
+                        HetTien();
+                        break;
+                    }
+                    lock(textBoxremaining)
+                    {
+
+                        SetText(Helper.Convert.ConvertMenyToHour(customer.Money),Helper.Convert.ConvertMenyToHour(timeused));
+                    }
+                    _BLLDisplayinfor.UpDate(customer);
+                    Task.Delay(1000).Wait();
+                   
+                }
+            }
+                );
+            t.Start();
+            await t;
+            //btnLoutout_Click(new object(), new EventArgs());
+        }
         private void OpenFormBody(Form bodyForm)
         {
             if (currentFormBody != null)
@@ -36,7 +107,7 @@ namespace NetManagement.View.FormCustomer
 
         private void btnPersonalInfor_Click(object sender, EventArgs e)
         {
-            OpenFormBody(new PersonalInfor_Form());
+            OpenFormBody(new PersonalInfor_Form(Id));
         }
 
         private void btnChat_Click(object sender, EventArgs e)
@@ -49,9 +120,8 @@ namespace NetManagement.View.FormCustomer
            
                Login_Form f = new Login_Form();
                f.Show();
-         
-            
-            this.Hide();
+
+               this.Hide();
 
         }
     }

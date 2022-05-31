@@ -40,6 +40,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel_body = new System.Windows.Forms.Panel();
+            this.textBoxtoltime = new System.Windows.Forms.TextBox();
+            this.textBoxused = new System.Windows.Forms.TextBox();
+            this.textBoxremaining = new System.Windows.Forms.TextBox();
+            this.textBoxprices = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +51,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel1.Controls.Add(this.textBoxprices);
+            this.panel1.Controls.Add(this.textBoxremaining);
+            this.panel1.Controls.Add(this.textBoxused);
+            this.panel1.Controls.Add(this.textBoxtoltime);
             this.panel1.Controls.Add(this.btnChat);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnPersonalInfor);
@@ -57,9 +65,9 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(971, 12);
+            this.panel1.Location = new System.Drawing.Point(975, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(325, 615);
+            this.panel1.Size = new System.Drawing.Size(340, 641);
             this.panel1.TabIndex = 0;
             // 
             // btnChat
@@ -107,7 +115,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.button3.Location = new System.Drawing.Point(172, 203);
+            this.button3.Location = new System.Drawing.Point(168, 203);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(150, 29);
             this.button3.TabIndex = 7;
@@ -166,10 +174,39 @@
             // 
             // panel_body
             // 
-            this.panel_body.Location = new System.Drawing.Point(12, 16);
+            this.panel_body.Location = new System.Drawing.Point(1, 0);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(953, 611);
+            this.panel_body.Size = new System.Drawing.Size(977, 644);
             this.panel_body.TabIndex = 1;
+            // 
+            // textBoxtoltime
+            // 
+            this.textBoxtoltime.Location = new System.Drawing.Point(143, 57);
+            this.textBoxtoltime.Name = "textBoxtoltime";
+            this.textBoxtoltime.Size = new System.Drawing.Size(194, 22);
+            this.textBoxtoltime.TabIndex = 13;
+            // 
+            // textBoxused
+            // 
+            this.textBoxused.Location = new System.Drawing.Point(143, 94);
+            this.textBoxused.Name = "textBoxused";
+            this.textBoxused.Size = new System.Drawing.Size(194, 22);
+            this.textBoxused.TabIndex = 14;
+            // 
+            // textBoxremaining
+            // 
+            this.textBoxremaining.Location = new System.Drawing.Point(158, 132);
+            this.textBoxremaining.Name = "textBoxremaining";
+            this.textBoxremaining.Size = new System.Drawing.Size(165, 22);
+            this.textBoxremaining.TabIndex = 15;
+            // 
+            // textBoxprices
+            // 
+            this.textBoxprices.Location = new System.Drawing.Point(209, 171);
+            this.textBoxprices.Name = "textBoxprices";
+            this.textBoxprices.Size = new System.Drawing.Size(128, 22);
+            this.textBoxprices.TabIndex = 16;
+            this.textBoxprices.Text = "7200";
             // 
             // MainForm_User
             // 
@@ -177,7 +214,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.BackgroundImage = global::NetManagement.Properties.Resources.avt;
-            this.ClientSize = new System.Drawing.Size(1298, 639);
+            this.ClientSize = new System.Drawing.Size(1310, 639);
             this.Controls.Add(this.panel_body);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -204,5 +241,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnChat;
         private System.Windows.Forms.Panel panel_body;
+        private System.Windows.Forms.TextBox textBoxprices;
+        private System.Windows.Forms.TextBox textBoxremaining;
+        private System.Windows.Forms.TextBox textBoxused;
+        private System.Windows.Forms.TextBox textBoxtoltime;
     }
 }
