@@ -8,11 +8,11 @@ using System.Windows.Forms;
 namespace NetManagement.Model
 {
     public class CreateDB :
-       // CreateDatabaseIfNotExists<CSDL> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
+       // CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
                                         //DropCreateDatabaseIfModelChanges<CSDL> // chỉ thay đổi Record thfi sẽ không tahy đổi, nếu thay đổi liên kết sẽ xóa đi cái cũ đê rkhwoir tạo cái mới
-                                        DropCreateDatabaseAlways<CSDL> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
+                                        DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
     {
-        protected override void Seed(CSDL context)
+        protected override void Seed(NetManagemetnContext context)
         {
             context.Units.AddRange(new Unit[]{
                 new Unit{ NameUnit = "Cai"},
@@ -105,6 +105,19 @@ namespace NetManagement.Model
                 new HistoryAccountUser{ ID_Customer = 5, ID_Employee = 2, ID_Computer =2, Direct = false, Money = 13541, Description = "egwdgh", Date = DateTime.Now},
                 new HistoryAccountUser{ ID_Customer = 6, ID_Employee = 3, ID_Computer =3, Direct = true, Money = 14321, Description = "egwdfgh", Date = DateTime.Now}
             });
+            context.Statuses.AddRange(new Status[]
+                {
+                    new Status { NameTable ="Account"},
+                    new Status { NameTable ="Computer" },
+                    new Status { NameTable ="Customer"  },
+                    new Status { NameTable ="Employee" },
+                    new Status { NameTable ="HistoryAccountUser"  },
+                    new Status { NameTable ="Order" },
+                    new Status { NameTable ="OrderDetail"  },
+                    new Status { NameTable ="Shift"  },
+                    new Status { NameTable ="UseComputerHistory"  }
+                });
+
             context.SaveChanges();
 
         }

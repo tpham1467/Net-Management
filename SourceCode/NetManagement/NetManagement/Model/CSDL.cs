@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
 namespace NetManagement.Model
 {
-    public class CSDL : DbContext
+    public class NetManagemetnContext : DbContext
     {
         // Your context has been configured to use a 'CSDL' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
@@ -18,10 +18,10 @@ namespace NetManagement.Model
         // 
         // If you wish to target a different database and/or database provider, modify the 'CSDL' 
         // connection string in the application configuration file.
-        public CSDL()
+        public NetManagemetnContext()
             : base("name=CSDL")
         {
-            Database.SetInitializer<CSDL>(new CreateDB());
+           Database.SetInitializer<NetManagemetnContext>(new CreateDB());
         }
 
         //Thay đổi được cấu trúc CS dữ liệu
@@ -59,6 +59,7 @@ namespace NetManagement.Model
         public virtual DbSet<Account> Accounts { get; set; }
         
         public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Status> Statuses { get; set; }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.

@@ -15,6 +15,21 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -76,11 +91,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="BLL\BLLLogin\BLLChoosePC.cs" />
+    <Compile Include="BLL\BLLLogin\BLLLogin.cs" />
+    <Compile Include="DTO\ForgetPassword.cs" />
+    <Compile Include="DTO\PC.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Category.cs" />
@@ -90,22 +105,117 @@
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\HistoryAccountUser.cs" />
-    <Compile Include="Model\Inventory.cs" />
     <Compile Include="Model\OrderDetail.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Role.cs" />
     <Compile Include="Model\SalaryEmployee.cs" />
     <Compile Include="Model\Shift.cs" />
+    <Compile Include="Model\Status.cs" />
     <Compile Include="Model\StatusShift .cs" />
     <Compile Include="Model\Unit.cs" />
     <Compile Include="Model\UseComputerHistory.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="Model\_Order.cs" />
+    <Compile Include="Model\Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\IRespository.cs" />
+    <Compile Include="View\FormAdmin\FormCustommer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormCustommer.Designer.cs">
+      <DependentUpon>FormCustommer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormDashBoard.Designer.cs">
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormEmployees.Designer.cs">
+      <DependentUpon>FormEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormEquipment.Designer.cs">
+      <DependentUpon>FormEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormProducts.Designer.cs">
+      <DependentUpon>FormProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormShift.Designer.cs">
+      <DependentUpon>FormShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormChoosePC\FormChoosePc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormChoosePC\FormChoosePc.Designer.cs">
+      <DependentUpon>FormChoosePc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormCustomer\Chat_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormCustomer\Chat_Form.Designer.cs">
+      <DependentUpon>Chat_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormCustomer\MainForm_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormCustomer\MainForm_User.Designer.cs">
+      <DependentUpon>MainForm_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormCustomer\PersonalInfor_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormCustomer\PersonalInfor_Form.Designer.cs">
+      <DependentUpon>PersonalInfor_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormEmployee\AccManagement_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormEmployee\AccManagement_Form.Designer.cs">
+      <DependentUpon>AccManagement_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormEmployee\CheckIO_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormEmployee\CheckIO_Form.Designer.cs">
+      <DependentUpon>CheckIO_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormEmployee\Forgottenpass_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormEmployee\Forgottenpass_Form.Designer.cs">
+      <DependentUpon>Forgottenpass_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormEmployee\Login_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormEmployee\Login_Form.Designer.cs">
+      <DependentUpon>Login_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormEmployee\Mainform_Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormEmployee\Mainform_Employee.Designer.cs">
+      <DependentUpon>Mainform_Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormEmployee\ServicePay_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormEmployee\ServicePay_Form.Designer.cs">
+      <DependentUpon>ServicePay_Form.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -114,7 +224,38 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\FormAdmin\FormCustommer.resx">
+      <DependentUpon>FormCustommer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormDashBoard.resx">
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormEmployees.resx">
+      <DependentUpon>FormEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormProducts.resx">
+      <DependentUpon>FormProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormShift.resx">
+      <DependentUpon>FormShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormChoosePC\FormChoosePc.resx">
+      <DependentUpon>FormChoosePc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormCustomer\MainForm_User.resx">
+      <DependentUpon>MainForm_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormEmployee\Forgottenpass_Form.resx">
+      <DependentUpon>Forgottenpass_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormEmployee\Login_Form.resx">
+      <DependentUpon>Login_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormEmployee\Mainform_Employee.resx">
+      <DependentUpon>Mainform_Employee.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -128,6 +269,43 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\0af3c9613761d2d2394d99312aeba397.gif" />
+    <Content Include="Resources\avt.png" />
+    <Content Include="Resources\backgroud.png" />
+    <Content Include="Resources\gmail-4561841_1280.png" />
+    <Content Include="Resources\Image1.png" />
+    <None Include="Resources\Logo.jpg" />
+    <None Include="Resources\Logo.png" />
+    <None Include="Resources\Logo1.jpg" />
+    <None Include="Resources\Logo1.png" />
+    <None Include="Resources\PC.png" />
+    <None Include="Resources\Remini20220408094410404.jpg" />
+    <Content Include="Resources\Thiết kế chưa có tên %284%29.png" />
+    <Content Include="Resources\Thiết kế chưa có tên %285%29.png" />
+    <Content Include="Resources\Thiết kế chưa có tên %286%29.png" />
+    <Content Include="Resources\Thiết kế chưa có tên %287%29.png" />
+    <Content Include="Resources\Thiết kế chưa có tên %287%291.png" />
+    <Content Include="Resources\Thiết kế chưa có tên.gif" />
+    <Content Include="Resources\user_icon_150670.png" />
+    <Content Include="View\FormCustomer\new.txt" />
+    <Content Include="View\FormEmployee\new.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\FormLogin\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

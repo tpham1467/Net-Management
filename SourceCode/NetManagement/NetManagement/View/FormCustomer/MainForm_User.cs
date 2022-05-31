@@ -44,10 +44,15 @@ namespace NetManagement.View.FormCustomer
             OpenFormBody(new Chat_Form());
         }
 
-        private void btnLoutout_Click(object sender, EventArgs e)
+        private  void btnLoutout_Click(object sender, EventArgs e)
         {
-            Login_Form f = new Login_Form();
-            f.Show();
+           
+               Login_Form f = new Login_Form();
+               f.Show();
+         
+            
+            this.Hide();
+
         }
     }
 }

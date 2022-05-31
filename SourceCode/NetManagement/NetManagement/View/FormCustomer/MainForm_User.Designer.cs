@@ -57,7 +57,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(949, 12);
+            this.panel1.Location = new System.Drawing.Point(971, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(325, 615);
             this.panel1.TabIndex = 0;
@@ -168,7 +168,7 @@
             // 
             this.panel_body.Location = new System.Drawing.Point(12, 16);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(918, 611);
+            this.panel_body.Size = new System.Drawing.Size(953, 611);
             this.panel_body.TabIndex = 1;
             // 
             // MainForm_User
@@ -202,7 +202,7 @@
         private System.Windows.Forms.Button btnPersonalInfor;
         private System.Windows.Forms.Button btnLoutout;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel_body;
         private System.Windows.Forms.Button btnChat;
+        private System.Windows.Forms.Panel panel_body;
     }
 }
