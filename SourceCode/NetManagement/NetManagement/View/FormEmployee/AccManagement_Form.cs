@@ -18,11 +18,24 @@ namespace NetManagement.View.FormEmployee
             InitializeComponent();
             dataGridView1.DataSource = bLLAccoutManagement.Filter();
         }
-
+        public void Reload()
+        {
+            dataGridView1.DataSource = bLLAccoutManagement.Filter();
+        }
         private void buttonTopUp_Click(object sender, EventArgs e)
         {
-            TopUp topUp = new TopUp();
-            topUp.Show();
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                List<int> data = new List<int>();
+                foreach (DataGridViewRow i in dataGridView1.SelectedRows)
+                {
+                    int id = Convert.ToInt32(i.Cells["ID_Account"].Value);
+                    data.Add(id);
+                }
+                TopUp topUp = new TopUp(data);
+                topUp.action += Reload;
+                topUp.Show();
+            }
         }
 
         private void buttonAllowance_Click(object sender, EventArgs e)

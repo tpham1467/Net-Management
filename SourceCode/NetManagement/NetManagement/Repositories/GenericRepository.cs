@@ -1,22 +1,20 @@
-﻿using System;
+﻿using NetManagement.Model;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NetManagement.Model;
 using System.Data.Entity;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Linq;
 namespace NetManagement.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
 
-        private readonly NetManagemetnContext _context = null;
+        private static readonly NetManagemetnContext _context = new NetManagemetnContext();
         private readonly DbSet<T> table = null;
         public GenericRepository()
         {
-            this._context = new NetManagemetnContext();
+            //this._context = new NetManagemetnContext();
             this.table = _context.Set<T>();
         }
         public IEnumerable<T> GetAll()
@@ -31,12 +29,12 @@ namespace NetManagement.Repositories
         {
             table.Add(obj);
         }
-        public void Update(T obj ,int id ,  Action<T , T > ActionUpdate)
-        {  
+        public void Update(T obj, int id, Action<T, T> ActionUpdate)
+        {
             T Swap = GetById(id);
             if (Swap == null)
             {
-                return;                
+                return;
             }
             ActionUpdate(Swap, obj);
         }
@@ -45,10 +43,41 @@ namespace NetManagement.Repositories
             var data = table.Find(id);
             table.Remove(data);
         }
-        public void Save()
+      
+        public void Save(int i = 0)
         {
-            _context.SaveChanges();
+            try
+            {
+                int status = _context.SaveChanges();
+                if (status > 0 && i == 1)
+                {
+                    MessageBox.Show("Thanh Comg");
+                }
+                else if (i == 1)
+                {
+                    MessageBox.Show("Khong Thanh Cong");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
+        public void Reload(T entity)
+        {
+              Type s = entity.GetType();
+            if (entity.GetType().BaseType.Name == "Customer")
+            {
+                Customer customer = entity as Customer;
+                var result = _context.Database.SqlQuery<int>("select _Money from Customer where ID_User = @id ", new SqlParameter("@id", customer.ID_User)).FirstOrDefault();
+                customer.Money = Convert.ToInt32( result );
+            }
+            else
+            {
+                _context.Entry(entity).Reload();
+            }
+           
+        }
     }
 }

@@ -44,14 +44,16 @@ namespace NetManagement.View.FormEmployee
                     MessageBox.Show("Dang Nhap thang cong");
                     if( account.ID_Role == 2)
                     {
-
+                        Mainform_Employee mainform_Employee = new Mainform_Employee(account.Id_User);
+                        mainform_Employee.Show();
+                        this.Hide();
                     }
                     else
                     {
                    
                        FormChoosePc choosepc = new FormChoosePc(account.Id_User);
                        choosepc.Show();
-                    
+                        this.Hide();
                         
                    //     this.Dispose();
                         

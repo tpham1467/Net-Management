@@ -9,14 +9,17 @@ namespace NetManagement.BLL.BLLEmployee
 {
     public  class BLLAccoutManagement
     {
+        private IRepository<Status> repository_status;
         private IRepository<Account> repository;
-        public BLLAccoutManagement() : this(new GenericRepository<Account>())
+        private IRepository<User> repository_user = new GenericRepository<User>();
+        public BLLAccoutManagement() : this(new GenericRepository<Account>() , new GenericRepository<Status>())
         {
 
         }
-        public BLLAccoutManagement(IRepository<Account> _repository )
+        public BLLAccoutManagement(IRepository<Account> _repository , IRepository<Status> _repository_status)
         {
             repository = _repository;
+            repository_status = _repository_status;
         }
         public IEnumerable<Account> GetAll()
         {
@@ -44,20 +47,55 @@ namespace NetManagement.BLL.BLLEmployee
         }
         public void Update(Account account1 , Account  account2 )
         {
-            account1.Password_Acc = account2.Password_Acc; account1.UserName_Acc = account2.UserName_Acc;
-            account1.User.Email = account2.User.Email; account1.User.Phone = account2.User.Phone;
+            //account1.Password_Acc = account2.Password_Acc; account1.UserName_Acc = account2.UserName_Acc;
+            //account1.User.Email = account2.User.Email; account1.User.Phone = account2.User.Phone;
             Customer user1 = account1.User as Customer;  Customer user2 = account2.User as Customer;
-            user1.Money = user1.Money;
+            user1.Money = user2.Money;
 
                 }
-        public void TopUpAccount(int Currentmoney,int money , int id)
+
+        public void TopUpAccount(int money , int id)
         {
-            Account account = new Account();
-            account.User = new Customer
+
+            Status status = repository_status.GetById(3);
+            repository_status.Reload(status);
+            if(status.status == false)
             {
-                Money = money + Currentmoney
-            } ;
-            repository.Update(account, id, Update);
+                status.status = true;
+                repository_status.Save();
+
+                User user = repository.GetById(id).User;
+                repository_user.Reload(user as User);
+                Customer customer = user as Customer;
+                customer.Money += money;
+                repository.Save();
+
+                status.status = false;
+                repository_status.Save();
+            }
+            else
+            {
+                while(status.status == true)
+                {
+                    repository_status.Reload(status);
+                }
+
+                status.status = true ;
+                repository_status.Save();
+
+                User user = repository.GetById(id).User;
+                repository_user.Reload(user as User);
+                Customer customer = user as Customer;
+                customer.Money += money;
+                repository.Save();
+
+                status.status = false;
+                repository_status.Save();
+            }
+
+
+           
+            
 
         }
         public void AllowanceAcoount(int money,int id)

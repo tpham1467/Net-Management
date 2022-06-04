@@ -17,6 +17,6 @@ namespace NetManagement.Model
         [Required]
         public string NameTable { get; set; }
 
-        public string RecordModifeds;
+        public bool status { get; set;  }
     }
 }

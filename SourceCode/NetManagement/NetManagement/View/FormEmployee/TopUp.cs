@@ -8,21 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.DTO;
+using NetManagement.BLL.BLLEmployee;
 namespace NetManagement.View.FormEmployee
 {
     public partial class TopUp : Form
     {
-
-        public TopUp()
+        private List<int> id;
+        private BLLAccoutManagement _BLLAccoutManagement   = new BLLAccoutManagement();
+        public Action action;
+        public TopUp(List<int> _id)
         {
-            
+            id = _id;
             InitializeComponent();
             LoadObjectForCompoment();
         }
         private void LoadObjectForCompoment()
         {
            
-
             comboBoxmoney.Items.AddRange(new MoneyTopUp[]
                 {
                 new MoneyTopUp {Money = 5000 } ,
@@ -37,7 +39,13 @@ namespace NetManagement.View.FormEmployee
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-
+            MoneyTopUp money = comboBoxmoney.SelectedItem as MoneyTopUp;
+            foreach (var i in id)
+            {
+                _BLLAccoutManagement.TopUpAccount(money.Money, i);
+            }
+            action.Invoke();
+            this.Dispose();
         }
     }
 }

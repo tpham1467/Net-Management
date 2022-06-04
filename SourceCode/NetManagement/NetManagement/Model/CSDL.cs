@@ -21,7 +21,7 @@ namespace NetManagement.Model
         public NetManagemetnContext()
             : base("name=CSDL")
         {
-           Database.SetInitializer<NetManagemetnContext>(new CreateDB());
+              Database.SetInitializer<NetManagemetnContext>(new CreateDB());
         }
 
         //Thay đổi được cấu trúc CS dữ liệu

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using NetManagement.Model;
 using NetManagement.BLL.BLLLogin;
 using NetManagement.DTO;
+using NetManagement.View.FormCustomer;
 namespace NetManagement.View.FormChoosePC
 {
     
@@ -29,7 +30,10 @@ namespace NetManagement.View.FormChoosePC
         private void pcb_click(Object Sender, EventArgs e)
         {
             PC p = Sender as PC;
-            MessageBox.Show(Id_Customer.ToString() + p.IDMay.ToString());
+            MainForm_User mainForm_User = new MainForm_User(Id_Customer);
+            mainForm_User.Show();
+            this.Hide();
+
         }
         private void Loadevent()
         {

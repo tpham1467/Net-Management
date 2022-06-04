@@ -45,9 +45,10 @@ namespace NetManagement.View.FormCustomer
                 FirstName = textBoxFirstName.Text,
                 LastName = textBoxLatsName.Text,
                 DateOfBirth = Convert.ToDateTime(textBoxDateofbirth.Text),
-                Email = textBoxEmail.Text
+                Email = textBoxEmail.Text ,
+                Money = _BLLDisplayinfor.GetCustomerById(Id).Money
             };
-            _BLLDisplayinfor.UpDate(customer);
+          //  _BLLDisplayinfor.UpDate(customer,customer.ID_User);
             LoadInfor(customer);
         }
 

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace NetManagement.Model
 {
     [Table("Customer")]
-    public class Customer : User
+    public class Customer : User 
     {
 
        public Customer()
@@ -31,6 +31,6 @@ namespace NetManagement.Model
         public virtual ICollection<UseComputerHistory> UseComputerHistories {get; set;}
         public virtual ICollection<Order> Orders { get; set;}
 
-
+       
     }
 }

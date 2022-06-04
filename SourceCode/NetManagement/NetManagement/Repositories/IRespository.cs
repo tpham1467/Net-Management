@@ -12,7 +12,8 @@ namespace NetManagement.Repositories
         T GetById(int id);
         void Insert(T obj);
         void Update(T obj,int id ,  Action<T , T > ActionUpdate);
+        void Reload(T entity);
         void Delete(int obj); 
-        void Save();
+        void Save(int i  = 0 );
     }
 }

@@ -16,7 +16,7 @@ namespace NetManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Mainform_Employee(1));
+            Application.Run(new Login_Form());
         }
     }
 }

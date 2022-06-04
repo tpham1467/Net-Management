@@ -8,9 +8,9 @@ using System.Windows.Forms;
 namespace NetManagement.Model
 {
     public class CreateDB :
-       // CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
+        CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
                                         //DropCreateDatabaseIfModelChanges<CSDL> // chỉ thay đổi Record thfi sẽ không tahy đổi, nếu thay đổi liên kết sẽ xóa đi cái cũ đê rkhwoir tạo cái mới
-                                        DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
+                                       // DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
     {
         protected override void Seed(NetManagemetnContext context)
         {
@@ -95,12 +95,12 @@ namespace NetManagement.Model
 
            
             context.Accounts.AddRange(new Account[]{
-                new Account{ UserName_Acc = "Hpham123", Password_Acc = "Hpham321" , ID_Role = 2 , Id_User = 3 },
-                new Account{ UserName_Acc = "Tpham123", Password_Acc = "Tpham321" , ID_Role = 2 , Id_User = 2 },
-                new Account{ UserName_Acc = "VVien123", Password_Acc = "VVien321",  ID_Role = 2 , Id_User = 1 } ,
-                 new Account{ UserName_Acc = "Hpham123", Password_Acc = "Hpham321" , ID_Role = 1 , Id_User = 4 },
-                new Account{ UserName_Acc = "Tpham123", Password_Acc = "Tpham321" , ID_Role = 1 , Id_User = 5 },
-                new Account{ UserName_Acc = "VVien123", Password_Acc = "VVien321",  ID_Role = 1 , Id_User = 6 }
+                new Account{ UserName_Acc = "HphamE", Password_Acc = "Hpham321" , ID_Role = 2 , Id_User = 3 },
+                new Account{ UserName_Acc = "TphamE", Password_Acc = "Tpham321" , ID_Role = 2 , Id_User = 2 },
+                new Account{ UserName_Acc = "VVienE", Password_Acc = "VVien321",  ID_Role = 2 , Id_User = 1 } ,
+                 new Account{ UserName_Acc = "HphamC", Password_Acc = "Hpham321" , ID_Role = 1 , Id_User = 4 },
+                new Account{ UserName_Acc = "TphamC", Password_Acc = "Tpham321" , ID_Role = 1 , Id_User = 5 },
+                new Account{ UserName_Acc = "VVienC", Password_Acc = "VVien321",  ID_Role = 1 , Id_User = 6 }
             });
 
             context.HistoryAccountUsers.AddRange(new HistoryAccountUser[]{
@@ -110,15 +110,15 @@ namespace NetManagement.Model
             });
             context.Statuses.AddRange(new Status[]
                 {
-                    new Status { NameTable ="Account"},
-                    new Status { NameTable ="Computer" },
-                    new Status { NameTable ="Customer"  },
-                    new Status { NameTable ="Employee" },
-                    new Status { NameTable ="HistoryAccountUser"  },
-                    new Status { NameTable ="Order" },
-                    new Status { NameTable ="OrderDetail"  },
-                    new Status { NameTable ="Shift"  },
-                    new Status { NameTable ="UseComputerHistory"  }
+                    new Status { NameTable ="Account" , status = false},
+                    new Status { NameTable ="Computer" , status = false },
+                    new Status { NameTable ="Customer"   , status = false},
+                    new Status { NameTable ="Employee" , status = false },
+                    new Status { NameTable ="HistoryAccountUser"    , status = false},
+                    new Status { NameTable ="Order"  , status = false},
+                    new Status { NameTable ="OrderDetail"   , status = false},
+                    new Status { NameTable ="Shift"  , status = false},
+                    new Status { NameTable ="UseComputerHistory"  , status = false}
                 });
 
             context.SaveChanges();

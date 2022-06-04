@@ -44,6 +44,23 @@ namespace NetManagement.View.FormCustomer
                 }
             }
         }
+        public async void DisPlay(int s1 , int s2)
+        {
+            Task t = new Task
+                (() =>
+                {
+                    for(int i=0;i<10;i++)
+                    {
+                        SetText(Helper.Convert.ConvertMenyToHour(s1), Helper.Convert.ConvertMenyToHour(s2));
+                        Task.Delay(1000).Wait();
+                        s1 -= 2; s2 -= 2;
+                    }
+                });
+            t.Start();
+            await t;
+
+
+        }
         delegate void Hett();
         public void HetTien()
         {
@@ -63,13 +80,18 @@ namespace NetManagement.View.FormCustomer
             
             Task t = new Task(() =>
             {
-                Customer customer = _BLLDisplayinfor.GetCustomerById(Id);
+                int remaining = _BLLDisplayinfor.GetCustomerById(Id).Money;
                 int timeused = 0;
+             
                 while (true)
                 {
-                    customer.Money -= 2;
+                    if(remaining!=_BLLDisplayinfor.GetCustomerById(Id).Money)
+                    {
+                        remaining = _BLLDisplayinfor.GetCustomerById(Id).Money;
+                    }
+                    remaining -= 2;
                     timeused += 2;
-                    if (customer.Money <= 0)
+                    if (remaining <= 0)
                     {
                         HetTien();
                         break;
@@ -77,9 +99,9 @@ namespace NetManagement.View.FormCustomer
                     lock(textBoxremaining)
                     {
 
-                        SetText(Helper.Convert.ConvertMenyToHour(customer.Money),Helper.Convert.ConvertMenyToHour(timeused));
+                        SetText(Helper.Convert.ConvertMenyToHour( remaining ),Helper.Convert.ConvertMenyToHour( timeused ));
                     }
-                    _BLLDisplayinfor.UpDate(customer);
+                    _BLLDisplayinfor.UpDate(remaining,Id);
                     Task.Delay(1000).Wait();
                    
                 }
