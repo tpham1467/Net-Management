@@ -7,13 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using NetManagement.BLL.BLLEmployee;
+using NetManagement.DTO;
+using NetManagement.Helper;
+using NetManagement.Model;
 namespace NetManagement.View.FormEmployee
 {
+    
     public partial class Mainform_Employee : Form
     {
-        public Mainform_Employee()
+        private int Id_Employee;
+        public Mainform_Employee(int id)
         {
+            Id_Employee = id;
             InitializeComponent();
         }
         private Form currentFormBody;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NetManagement.View.FormCustomer;
+using NetManagement.View.FormEmployee;
 namespace NetManagement
 {
     static class Program
@@ -16,7 +16,7 @@ namespace NetManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm_User(5));
+            Application.Run(new Mainform_Employee(1));
         }
     }
 }

@@ -95,9 +95,12 @@ namespace NetManagement.Model
 
            
             context.Accounts.AddRange(new Account[]{
-                new Account{ UserName_Acc = "Hpham123", Password_Acc = "Hpham321" , ID_Role = 3 , Id_User = 3 },
+                new Account{ UserName_Acc = "Hpham123", Password_Acc = "Hpham321" , ID_Role = 2 , Id_User = 3 },
                 new Account{ UserName_Acc = "Tpham123", Password_Acc = "Tpham321" , ID_Role = 2 , Id_User = 2 },
-                new Account{ UserName_Acc = "VVien123", Password_Acc = "VVien321",  ID_Role = 1 , Id_User = 1 }
+                new Account{ UserName_Acc = "VVien123", Password_Acc = "VVien321",  ID_Role = 2 , Id_User = 1 } ,
+                 new Account{ UserName_Acc = "Hpham123", Password_Acc = "Hpham321" , ID_Role = 1 , Id_User = 4 },
+                new Account{ UserName_Acc = "Tpham123", Password_Acc = "Tpham321" , ID_Role = 1 , Id_User = 5 },
+                new Account{ UserName_Acc = "VVien123", Password_Acc = "VVien321",  ID_Role = 1 , Id_User = 6 }
             });
 
             context.HistoryAccountUsers.AddRange(new HistoryAccountUser[]{
