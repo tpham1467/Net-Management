@@ -10,7 +10,7 @@ namespace NetManagement.Model
 {
     public class OrderDetail
     {
-
+		
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		[Required(ErrorMessage = "Bạn cần điền ID_OrderDetail")]
@@ -23,8 +23,9 @@ namespace NetManagement.Model
 		public virtual Order Order { get; set; }
 		public string _Description { get; set; }
 		public int Quality { get; set; }
-		[ForeignKey("ID_Product")]
-		public virtual Product Product { get; set; }
+        [ForeignKey("ID_Product")]
+        public virtual Product Product { get; set; }
 
+        //public virtual ICollection<Product> Products { get; set; }
 	}
 }

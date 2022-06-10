@@ -62,9 +62,9 @@ namespace NetManagement.Model
             context.SaveChanges();
             context.UseComputerHistorys.AddRange(new UseComputerHistory[]
             {
-                new UseComputerHistory{ ID_Customer = 4, ID_Computer =1,_LogIn = DateTime.Now, _LogOut = DateTime.Now, HourUsed = 1},
-                new UseComputerHistory{ ID_Customer = 5, ID_Computer =2,_LogIn = DateTime.Now, _LogOut = DateTime.Now, HourUsed = 2},
-                new UseComputerHistory{ ID_Customer = 6, ID_Computer =3,_LogIn = DateTime.Now, _LogOut = DateTime.Now, HourUsed = 3},
+                new UseComputerHistory{ ID_HistoryUseComputer = 1,ID_User = 4, ID_Computer =1,_LogIn = DateTime.Now, _LogOut = DateTime.Now, HourUsed = 1},
+                new UseComputerHistory{ ID_HistoryUseComputer = 2,ID_User = 5, ID_Computer =2,_LogIn = DateTime.Now, _LogOut = DateTime.Now, HourUsed = 2},
+                new UseComputerHistory{ ID_HistoryUseComputer = 3,ID_User = 6, ID_Computer =3,_LogIn = DateTime.Now, _LogOut = DateTime.Now, HourUsed = 3},
             });
             context.Shifts.AddRange(new Shift[]{
                 new Shift{ID_Employee = 2, Date_Work = DateTime.Now, Hour = 1, ID_StatusShift = 2},

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ModernUI_FontAw
+namespace NetManagement.View.FormAdmin
 {
     public partial class FormEmployees : Form
     {

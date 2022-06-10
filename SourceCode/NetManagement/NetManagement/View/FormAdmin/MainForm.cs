@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Runtime.InteropServices;
 
-namespace ModernUI_FontAw
+namespace NetManagement.View.FormAdmin
 {
     public partial class Form1 : Form
     {

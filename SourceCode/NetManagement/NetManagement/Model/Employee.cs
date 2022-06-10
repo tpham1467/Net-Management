@@ -32,5 +32,7 @@ namespace NetManagement.Model
           public virtual ICollection<Shift> Shifts { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
         public virtual ICollection<Order> Orders {get; set;}
+
+        public string FullNameEm { get; set; }
     }
 }

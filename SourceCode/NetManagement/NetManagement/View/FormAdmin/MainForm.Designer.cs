@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ModernUI_FontAw
+namespace NetManagement.View.FormAdmin
 {
     partial class Form1
     {
@@ -224,7 +224,6 @@ namespace ModernUI_FontAw
             // LogoHome
             // 
             this.LogoHome.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.LogoHome.Image = global::ModernUI_FontAw.Properties.Resources.Logo2;
             this.LogoHome.Location = new System.Drawing.Point(3, 3);
             this.LogoHome.Name = "LogoHome";
             this.LogoHome.Size = new System.Drawing.Size(214, 134);
@@ -315,7 +314,6 @@ namespace ModernUI_FontAw
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(60)))));
-            this.pictureBox1.Image = global::ModernUI_FontAw.Properties.Resources.Logo2;
             this.pictureBox1.Location = new System.Drawing.Point(414, 161);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(549, 395);

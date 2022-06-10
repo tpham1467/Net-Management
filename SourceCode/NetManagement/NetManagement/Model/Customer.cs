@@ -18,9 +18,9 @@ namespace NetManagement.Model
        {
            Orders = new HashSet<Order>();
            HistoryAccountUsers = new HashSet<HistoryAccountUser>();
-            UseComputerHistories = new HashSet<UseComputerHistory>();
+           UseComputerHistories = new HashSet<UseComputerHistory>();
        }
-      
+        public int ID_Customer { get; set; }
         [Column("_Money")]
         public int Money { get; set; }
         [Required]
@@ -31,6 +31,6 @@ namespace NetManagement.Model
         public virtual ICollection<UseComputerHistory> UseComputerHistories {get; set;}
         public virtual ICollection<Order> Orders { get; set;}
 
-
+        public string FullNameCus { get; set; }
     }
 }

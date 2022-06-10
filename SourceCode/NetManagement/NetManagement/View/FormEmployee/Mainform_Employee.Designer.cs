@@ -108,7 +108,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::NetManagement.Properties.Resources.backgroud;
+            //this.pictureBox2.Image = global::NetManagement.Properties.Resources.backgroud;
             this.pictureBox2.Location = new System.Drawing.Point(4, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(322, 181);
@@ -159,7 +159,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::NetManagement.Properties.Resources.Thiết_kế_chưa_có_tên__7_;
+            //this.pictureBox1.Image = global::NetManagement.Properties.Resources.Thiết_kế_chưa_có_tên__7_;
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(684, 364);
             this.pictureBox1.Name = "pictureBox1";

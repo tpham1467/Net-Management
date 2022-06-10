@@ -87,7 +87,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::NetManagement.Properties.Resources.backgroud;
+            //this.pictureBox1.Image = global::NetManagement.Properties.Resources.backgroud;
             this.pictureBox1.Location = new System.Drawing.Point(4, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(539, 433);
@@ -98,7 +98,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
-            this.pictureBox4.Image = global::NetManagement.Properties.Resources.Thiết_kế_chưa_có_tên__5_;
+            //this.pictureBox4.Image = global::NetManagement.Properties.Resources.Thiết_kế_chưa_có_tên__5_;
             this.pictureBox4.Location = new System.Drawing.Point(553, 280);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(28, 29);
@@ -109,7 +109,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Image = global::NetManagement.Properties.Resources.user_icon_150670;
+            //this.pictureBox3.Image = global::NetManagement.Properties.Resources.user_icon_150670;
             this.pictureBox3.Location = new System.Drawing.Point(553, 234);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(28, 29);
@@ -119,7 +119,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::NetManagement.Properties.Resources._0af3c9613761d2d2394d99312aeba397;
+            //this.pictureBox2.Image = global::NetManagement.Properties.Resources._0af3c9613761d2d2394d99312aeba397;
             this.pictureBox2.Location = new System.Drawing.Point(553, 36);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(269, 192);

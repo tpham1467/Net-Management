@@ -28,5 +28,9 @@ namespace NetManagement.Model
         public virtual Unit Unit { get; set; }
        [ForeignKey("ID_Category")]
         public virtual Category Category { get; set; }
+
+        //public int ID_OrderDetail { get; set; }
+        //[ForeignKey("ID_OrderDetail")]
+        //public virtual OrderDetail OrderDetail { get; set; }
     }
 }

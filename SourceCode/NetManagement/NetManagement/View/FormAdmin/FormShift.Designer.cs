@@ -1,4 +1,4 @@
-﻿namespace ModernUI_FontAw
+﻿namespace NetManagement.View.FormAdmin
 {
     partial class FormShift
     {

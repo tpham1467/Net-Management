@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NetManagement.View.FormAdmin;
 
-namespace NetManagement
+namespace NetManagement.View
 {
     static class Program
     {

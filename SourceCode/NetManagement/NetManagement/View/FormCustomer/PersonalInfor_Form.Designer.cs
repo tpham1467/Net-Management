@@ -55,7 +55,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::NetManagement.Properties.Resources.gmail_4561841_1280;
+            //this.pictureBox2.Image = global::NetManagement.Properties.Resources.gmail_4561841_1280;
             this.pictureBox2.Location = new System.Drawing.Point(18, 275);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 18);
@@ -65,7 +65,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::NetManagement.Properties.Resources.avt;
+            //this.pictureBox1.Image = global::NetManagement.Properties.Resources.avt;
             this.pictureBox1.Location = new System.Drawing.Point(141, 91);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(193, 170);

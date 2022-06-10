@@ -74,7 +74,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::NetManagement.Properties.Resources.backgroud;
             this.pictureBox1.Location = new System.Drawing.Point(2, 308);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(317, 193);
@@ -176,7 +175,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.BackgroundImage = global::NetManagement.Properties.Resources.avt;
             this.ClientSize = new System.Drawing.Size(1298, 639);
             this.Controls.Add(this.panel_body);
             this.Controls.Add(this.panel1);

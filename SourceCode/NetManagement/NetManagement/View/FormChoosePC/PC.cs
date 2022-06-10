@@ -37,7 +37,6 @@ namespace QLQNet
             Name = namepc;
             Size = new Size(272, 223);
             Location = new Point(0, 3);
-            Image = global::QLQNet.Properties.Resources.PC;
             SizeMode = PictureBoxSizeMode.StretchImage;
             Font = new System.Drawing.Font("Rosewood Std Regular", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             BackColor = System.Drawing.Color.DarkSeaGreen;

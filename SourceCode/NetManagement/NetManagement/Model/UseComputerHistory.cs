@@ -15,8 +15,8 @@ namespace NetManagement.Model
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int ID_HistoryUseComputer { get; set; }
 		[Required]
-		public int ID_Customer { get; set; }
-		[ForeignKey("ID_Customer")]
+		public int ID_User { get; set; }
+		[ForeignKey("ID_User")]
 		public virtual Customer Customer { get; set; }
 		[Required]
 		public int ID_Computer { get; set; }
