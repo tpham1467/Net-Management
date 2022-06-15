@@ -66,18 +66,18 @@ namespace NetManagement.Repositories
 
         public void Reload(T entity)
         {
-              Type s = entity.GetType();
+            Type s = entity.GetType();
             if (entity.GetType().BaseType.Name == "Customer")
             {
                 Customer customer = entity as Customer;
                 var result = _context.Database.SqlQuery<int>("select _Money from Customer where ID_User = @id ", new SqlParameter("@id", customer.ID_User)).FirstOrDefault();
-                customer.Money = Convert.ToInt32( result );
+                customer.Money = Convert.ToInt32(result);
             }
             else
             {
                 _context.Entry(entity).Reload();
             }
-           
+
         }
     }
 }

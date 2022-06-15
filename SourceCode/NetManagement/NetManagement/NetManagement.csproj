@@ -98,7 +98,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BLLCustormer\BLLDisplayinfor.cs" />
+    <Compile Include="BLL\BLLCustormer\BLLHandleStatus.cs" />
     <Compile Include="BLL\BLLEmployee\BLLAccoutManagement.cs" />
+    <Compile Include="BLL\BLLEmployee\BLLRegister.cs" />
     <Compile Include="BLL\BLLLogin\BLLChoosePC.cs" />
     <Compile Include="BLL\BLLLogin\BLLLogin.cs" />
     <Compile Include="DTO\ForgetPassword.cs" />

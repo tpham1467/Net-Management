@@ -24,17 +24,16 @@ namespace NetManagement.View.FormEmployee
         }
         private void buttonTopUp_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            List<int> data = GetSelect();
+            if (data.Count > 0)
             {
-                List<int> data = new List<int>();
-                foreach (DataGridViewRow i in dataGridView1.SelectedRows)
-                {
-                    int id = Convert.ToInt32(i.Cells["ID_Account"].Value);
-                    data.Add(id);
-                }
                 TopUp topUp = new TopUp(data);
                 topUp.action += Reload;
                 topUp.Show();
+            }
+            else
+            {
+                MessageBox.Show("Vui Long Chon");
             }
         }
 
@@ -45,15 +44,50 @@ namespace NetManagement.View.FormEmployee
 
         private void buttonLock_Click(object sender, EventArgs e)
         {
-
+            List<int> data = GetSelect();
+            if (data.Count > 0)
+            {
+                bLLAccoutManagement.Lock(data);
+            }
+            else
+            {
+                MessageBox.Show("Vui Long Chon");
+            }
         }
 
         private void buttonUnlock_Click(object sender, EventArgs e)
         {
-
+            List<int> data = GetSelect();
+            if (data.Count > 0)
+            {
+                bLLAccoutManagement.Unlock(data);
+            }
+            else
+            {
+                MessageBox.Show("Vui Long Chon");
+            }
         }
 
         private void buttonSort_Click(object sender, EventArgs e)
+        {
+
+        }
+        private List<int> GetSelect()
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                List<int> data = new List<int>();
+                foreach (DataGridViewRow i in dataGridView1.SelectedRows)
+                {
+                    int id = Convert.ToInt32(i.Cells["ID_Account"].Value);
+                    data.Add(id);
+                }
+                return data;
+            }
+            return new List<int>();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
         {
 
         }

@@ -50,6 +50,7 @@ namespace NetManagement.BLL.BLLCustormer
                 {
                     customer.Money = money; repository.Save();
                 }
+
                 status.status = false;
                 repository_Status.Save();
             }

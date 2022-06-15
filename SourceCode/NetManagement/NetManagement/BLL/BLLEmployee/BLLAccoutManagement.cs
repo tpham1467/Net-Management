@@ -102,5 +102,27 @@ namespace NetManagement.BLL.BLLEmployee
         {
 
         }
+        public void Lock(List<int> data)
+        {
+            foreach(var i in data)
+            {
+                repository.GetById(i).status = 1;
+            }
+        }
+        public void Unlock(List<int> data )
+        {
+            foreach(var i in data)
+            {
+                repository.GetById(i).status = 0;
+            }
+        }
+        public List<object> Sort(int sort , string by)
+        {
+            return new List<object>();
+        }
+        public List<object> Search(string search)
+        {
+            return new List<object>();
+        }
     }
 }

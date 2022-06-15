@@ -18,6 +18,7 @@ namespace NetManagement.View.FormCustomer
         private int Id;
         private Form currentFormBody;
         private BLLDisplayinfor _BLLDisplayinfor = new BLLDisplayinfor();
+        private BLLHandleStatus _BLLHandleStatus = new BLLHandleStatus();
         public  MainForm_User(int _id)
         {
             Id = _id;
@@ -85,13 +86,14 @@ namespace NetManagement.View.FormCustomer
              
                 while (true)
                 {
+                     
                     if(remaining!=_BLLDisplayinfor.GetCustomerById(Id).Money)
                     {
                         remaining = _BLLDisplayinfor.GetCustomerById(Id).Money;
                     }
                     remaining -= 2;
                     timeused += 2;
-                    if (remaining <= 0)
+                    if (remaining <= 0||_BLLHandleStatus.CheckLock(Id) == true)
                     {
                         HetTien();
                         break;

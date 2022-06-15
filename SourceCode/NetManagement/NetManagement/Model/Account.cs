@@ -15,6 +15,8 @@ namespace NetManagement.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Account { get; set; }
+
+        public int status { get; set;  }
         [Required]
         public string UserName_Acc { get; set; }
         [Required(ErrorMessage = "Mật khẩu không được để trống")]
