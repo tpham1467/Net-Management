@@ -89,3 +89,39 @@ Quản lý ca làm việc:
 +Sửa, xóa ca làm việc
 
 *******************
+Chấm công : 
+	(-) Thuộc tính trong cột :
+		+ ID_Employee
+		+ NameEmployee
+		+ StartDateTime : Khi đăng nhập vào sẽ set theo DateTime.Now
+		+ EndDatetime : Khi đăng xuất sẽ set theo DateTime.Now
+		+ WorkedHour : EndDateTime - StartDateTime
+	(-) Tạo thêm 1 class "HourWorking" chứa thông tin : là số giờ đã làm
+		+ StartDateTime: giờ nhân viên bắt đầu làm việc
+		+ EndDatetime : giờ nhân viên kết thúc làm việc
+		+ WorkedHour : số giờ đã làm
+		+ TotalWorking : bằng tổng tất cả giờ trong cột WorkedHour tính từ hiện tại trở lên
+	(-) Chức năng :
+		+ Tự động thêm khi nhân viên đăng nhập vào hệ thống
+		+ View theo ngày (theo combobox addRange Dictinc), theo nhân viên
+		+ Sort theo số giờ làm trong 1 ngày, số giờ làm trong 1 tháng
+
+
+Quản lý ca làm việc :
+	(-) Sửa lại class Shift:
+		+ StartDateTime : giờ bắt đầu của ca
+		+ EndDatetime : giờ kết thúc của ca
+		+ WorkedHour : số giờ làm của ca
+
+
+	(-) Thuộc tính trong cột :
+		+ ID_Employee
+		+ NameEmployee
+		+ StartDateTime
+		+ EndDatetime
+		+ WorkedHour
+	(-) Chức năng :
+		+ View All, theo từng nhân viên, Theo ngày chọn (theo combobox addRange Dictinc)
+		+ Sort theo số giờ ca làm
+		+ Delete ca làm
+		+ Add ca
