@@ -17,9 +17,14 @@ namespace NetManagement.View.FormEmployee
     public partial class Mainform_Employee : Form
     {
         private int Id_Employee;
+        public Action action;
         public Mainform_Employee(int id)
         {
             Id_Employee = id;
+            using(CheckIO_Form getshift = new CheckIO_Form(Id_Employee))
+            {
+                CheckIO_Form.id_shift = getshift.GetshiftCur();
+            }
             InitializeComponent();
         }
         private Form currentFormBody;
@@ -52,7 +57,7 @@ namespace NetManagement.View.FormEmployee
 
         private void butCheckIO_Click(object sender, EventArgs e)
         {
-            OpenFormBody(new CheckIO_Form());
+            OpenFormBody(new CheckIO_Form(Id_Employee));
             labelTop.Text = butCheckIO.Text;
         }
 
@@ -63,6 +68,12 @@ namespace NetManagement.View.FormEmployee
                 currentFormBody.Close();
             }
             labelTop.Text = null;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            action();
         }
     }
 }

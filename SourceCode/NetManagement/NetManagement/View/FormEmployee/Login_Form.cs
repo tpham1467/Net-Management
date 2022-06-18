@@ -45,6 +45,7 @@ namespace NetManagement.View.FormEmployee
                     if( account.ID_Role == 2)
                     {
                         Mainform_Employee mainform_Employee = new Mainform_Employee(account.Id_User);
+                        mainform_Employee.action = UnHide;
                         mainform_Employee.Show();
                         this.Hide();
                     }
@@ -65,6 +66,10 @@ namespace NetManagement.View.FormEmployee
                     MessageBox.Show("Sai Mat khau or pasword");
                 }
             }
+        }
+        public void UnHide()
+        {
+            this.Visible = true;
         }
     }
 }

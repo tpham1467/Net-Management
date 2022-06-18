@@ -5,6 +5,8 @@ using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Linq;
+using System.Linq.Expressions;
+using NetManagement.DTO;
 namespace NetManagement.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T : class
@@ -78,6 +80,24 @@ namespace NetManagement.Repositories
                 _context.Entry(entity).Reload();
             }
 
+        }
+
+        public IEnumerable<T> Sort<Tkey>(SortEnum sort, System.Linq.Expressions.Expression<Func<T, Tkey>> expression, IComparer<Tkey> action_compare = null) 
+        {
+            if (sort  == SortEnum.Asc)
+            {
+                if (action_compare == null)
+                    return table.OrderBy(expression).ToList();
+                else
+                    return table.OrderBy(expression, action_compare);
+            }
+            else
+            {
+                if (action_compare == null)
+                    return table.OrderByDescending(expression).ToList();
+                else
+                    return table.OrderByDescending(expression, action_compare);
+            }
         }
     }
 }

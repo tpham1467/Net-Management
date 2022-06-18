@@ -16,14 +16,23 @@ namespace NetManagement.Model
         [Required]
         public int ID_Employee { get; set; }
         [ForeignKey("ID_Employee")]
-        public virtual Employee Employee {get; set;}
+        public virtual Employee Employee { get; set; }
         [DataType(DataType.DateTime)]
-        public DateTime Date_Work { get; set; }
-        [Required] [Column("_Hour ")]
-        public int Hour { get; set; }
+        public DateTime WorkedDate { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime ShiftStartTime { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime ShiftEndTime { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime CheckInTime { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime CheckOutTime { get; set; }
+        [Required]
+        [Column("_Hour ")]
+        public int WorkedHour { get; set; }
         [Required]
         public int ID_StatusShift { get; set; }
         [ForeignKey("ID_StatusShift")]
-        public virtual StatusShift StatusShift{ get; set; }
+        public virtual StatusShift StatusShift { get; set; }
     }
 }

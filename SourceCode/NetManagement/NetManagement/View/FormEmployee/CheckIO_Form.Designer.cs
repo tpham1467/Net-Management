@@ -32,16 +32,36 @@
             this.btnCheckout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.labelTotalDayoff = new System.Windows.Forms.Label();
+            this.labelTotalDayofflabel = new System.Windows.Forms.Label();
+            this.labelAveWorkingTime = new System.Windows.Forms.Label();
+            this.labeAveWorkingTimelable = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelTotalWorkingTimelabel = new System.Windows.Forms.Label();
+            this.labelTotal_WorkingDay = new System.Windows.Forms.Label();
+            this.labelTotal_WorkingDaylable = new System.Windows.Forms.Label();
+            this.labelTimeStart = new System.Windows.Forms.Label();
+            this.labelTimEnd = new System.Windows.Forms.Label();
+            this.buttonSetoff = new System.Windows.Forms.Button();
+            this.buttonSort = new System.Windows.Forms.Button();
+            this.comboBoxmode = new System.Windows.Forms.ComboBox();
+            this.comboBoxProperty = new System.Windows.Forms.ComboBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBoxDalam = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCheckin
             // 
-            this.btnCheckin.Location = new System.Drawing.Point(498, 23);
+            this.btnCheckin.Location = new System.Drawing.Point(495, 25);
             this.btnCheckin.Name = "btnCheckin";
             this.btnCheckin.Size = new System.Drawing.Size(115, 39);
             this.btnCheckin.TabIndex = 0;
             this.btnCheckin.Text = "Checkin";
             this.btnCheckin.UseVisualStyleBackColor = true;
+            this.btnCheckin.Click += new System.EventHandler(this.btnCheckin_Click);
             // 
             // btnCheckout
             // 
@@ -51,6 +71,7 @@
             this.btnCheckout.TabIndex = 1;
             this.btnCheckout.Text = "Checkout";
             this.btnCheckout.UseVisualStyleBackColor = true;
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
             // 
             // label1
             // 
@@ -74,18 +95,207 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Kết thúc ca làm việc:";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(4, 159);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(784, 242);
+            this.dataGridView1.TabIndex = 4;
+            // 
+            // labelTotalDayoff
+            // 
+            this.labelTotalDayoff.AutoSize = true;
+            this.labelTotalDayoff.Location = new System.Drawing.Point(732, 111);
+            this.labelTotalDayoff.Name = "labelTotalDayoff";
+            this.labelTotalDayoff.Size = new System.Drawing.Size(16, 17);
+            this.labelTotalDayoff.TabIndex = 5;
+            this.labelTotalDayoff.Text = "4";
+            // 
+            // labelTotalDayofflabel
+            // 
+            this.labelTotalDayofflabel.AutoSize = true;
+            this.labelTotalDayofflabel.Location = new System.Drawing.Point(618, 111);
+            this.labelTotalDayofflabel.Name = "labelTotalDayofflabel";
+            this.labelTotalDayofflabel.Size = new System.Drawing.Size(89, 17);
+            this.labelTotalDayofflabel.TabIndex = 6;
+            this.labelTotalDayofflabel.Text = "TotalDayoff :";
+            // 
+            // labelAveWorkingTime
+            // 
+            this.labelAveWorkingTime.AutoSize = true;
+            this.labelAveWorkingTime.Location = new System.Drawing.Point(558, 111);
+            this.labelAveWorkingTime.Name = "labelAveWorkingTime";
+            this.labelAveWorkingTime.Size = new System.Drawing.Size(28, 17);
+            this.labelAveWorkingTime.TabIndex = 7;
+            this.labelAveWorkingTime.Text = "6.8";
+            // 
+            // labeAveWorkingTimelable
+            // 
+            this.labeAveWorkingTimelable.AutoSize = true;
+            this.labeAveWorkingTimelable.Location = new System.Drawing.Point(412, 111);
+            this.labeAveWorkingTimelable.Name = "labeAveWorkingTimelable";
+            this.labeAveWorkingTimelable.Size = new System.Drawing.Size(123, 17);
+            this.labeAveWorkingTimelable.TabIndex = 8;
+            this.labeAveWorkingTimelable.Text = "AveWorkingTime :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(348, 111);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(24, 17);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "50";
+            // 
+            // labelTotalWorkingTimelabel
+            // 
+            this.labelTotalWorkingTimelabel.AutoSize = true;
+            this.labelTotalWorkingTimelabel.Location = new System.Drawing.Point(200, 111);
+            this.labelTotalWorkingTimelabel.Name = "labelTotalWorkingTimelabel";
+            this.labelTotalWorkingTimelabel.Size = new System.Drawing.Size(131, 17);
+            this.labelTotalWorkingTimelabel.TabIndex = 10;
+            this.labelTotalWorkingTimelabel.Text = "TotalWorkingTime :";
+            // 
+            // labelTotal_WorkingDay
+            // 
+            this.labelTotal_WorkingDay.AutoSize = true;
+            this.labelTotal_WorkingDay.Location = new System.Drawing.Point(140, 111);
+            this.labelTotal_WorkingDay.Name = "labelTotal_WorkingDay";
+            this.labelTotal_WorkingDay.Size = new System.Drawing.Size(24, 17);
+            this.labelTotal_WorkingDay.TabIndex = 11;
+            this.labelTotal_WorkingDay.Text = "10";
+            // 
+            // labelTotal_WorkingDaylable
+            // 
+            this.labelTotal_WorkingDaylable.AutoSize = true;
+            this.labelTotal_WorkingDaylable.Location = new System.Drawing.Point(1, 111);
+            this.labelTotal_WorkingDaylable.Name = "labelTotal_WorkingDaylable";
+            this.labelTotal_WorkingDaylable.Size = new System.Drawing.Size(133, 17);
+            this.labelTotal_WorkingDaylable.TabIndex = 12;
+            this.labelTotal_WorkingDaylable.Text = "Total_WorkingDay :";
+            // 
+            // labelTimeStart
+            // 
+            this.labelTimeStart.AutoSize = true;
+            this.labelTimeStart.Location = new System.Drawing.Point(239, 25);
+            this.labelTimeStart.Name = "labelTimeStart";
+            this.labelTimeStart.Size = new System.Drawing.Size(64, 17);
+            this.labelTimeStart.TabIndex = 13;
+            this.labelTimeStart.Text = "13:11:12";
+            // 
+            // labelTimEnd
+            // 
+            this.labelTimEnd.AutoSize = true;
+            this.labelTimEnd.Location = new System.Drawing.Point(239, 55);
+            this.labelTimEnd.Name = "labelTimEnd";
+            this.labelTimEnd.Size = new System.Drawing.Size(64, 17);
+            this.labelTimEnd.TabIndex = 14;
+            this.labelTimEnd.Text = "14:34:10";
+            // 
+            // buttonSetoff
+            // 
+            this.buttonSetoff.Location = new System.Drawing.Point(4, 407);
+            this.buttonSetoff.Name = "buttonSetoff";
+            this.buttonSetoff.Size = new System.Drawing.Size(80, 31);
+            this.buttonSetoff.TabIndex = 15;
+            this.buttonSetoff.Text = "Set Off";
+            this.buttonSetoff.UseVisualStyleBackColor = true;
+            this.buttonSetoff.Click += new System.EventHandler(this.buttonSetoff_Click);
+            // 
+            // buttonSort
+            // 
+            this.buttonSort.Location = new System.Drawing.Point(386, 407);
+            this.buttonSort.Name = "buttonSort";
+            this.buttonSort.Size = new System.Drawing.Size(120, 31);
+            this.buttonSort.TabIndex = 16;
+            this.buttonSort.Text = "Sort";
+            this.buttonSort.UseVisualStyleBackColor = true;
+            this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
+            // 
+            // comboBoxmode
+            // 
+            this.comboBoxmode.FormattingEnabled = true;
+            this.comboBoxmode.Items.AddRange(new object[] {
+            "Asc",
+            "Desc"});
+            this.comboBoxmode.Location = new System.Drawing.Point(512, 411);
+            this.comboBoxmode.Name = "comboBoxmode";
+            this.comboBoxmode.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxmode.TabIndex = 17;
+            // 
+            // comboBoxProperty
+            // 
+            this.comboBoxProperty.FormattingEnabled = true;
+            this.comboBoxProperty.Items.AddRange(new object[] {
+            "Id",
+            "Date Work"});
+            this.comboBoxProperty.Location = new System.Drawing.Point(653, 411);
+            this.comboBoxProperty.Name = "comboBoxProperty";
+            this.comboBoxProperty.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxProperty.TabIndex = 18;
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(90, 407);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(120, 31);
+            this.buttonSearch.TabIndex = 19;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(217, 412);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(134, 22);
+            this.textBox1.TabIndex = 20;
+            // 
+            // checkBoxDalam
+            // 
+            this.checkBoxDalam.AutoSize = true;
+            this.checkBoxDalam.Location = new System.Drawing.Point(12, 131);
+            this.checkBoxDalam.Name = "checkBoxDalam";
+            this.checkBoxDalam.Size = new System.Drawing.Size(79, 21);
+            this.checkBoxDalam.TabIndex = 21;
+            this.checkBoxDalam.Text = "Da Lam";
+            this.checkBoxDalam.UseVisualStyleBackColor = true;
+            this.checkBoxDalam.CheckedChanged += new System.EventHandler(this.checkBoxDalam_CheckedChanged);
+            // 
             // CheckIO_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxDalam);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.comboBoxProperty);
+            this.Controls.Add(this.comboBoxmode);
+            this.Controls.Add(this.buttonSort);
+            this.Controls.Add(this.buttonSetoff);
+            this.Controls.Add(this.labelTimEnd);
+            this.Controls.Add(this.labelTimeStart);
+            this.Controls.Add(this.labelTotal_WorkingDaylable);
+            this.Controls.Add(this.labelTotal_WorkingDay);
+            this.Controls.Add(this.labelTotalWorkingTimelabel);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.labeAveWorkingTimelable);
+            this.Controls.Add(this.labelAveWorkingTime);
+            this.Controls.Add(this.labelTotalDayofflabel);
+            this.Controls.Add(this.labelTotalDayoff);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCheckout);
             this.Controls.Add(this.btnCheckin);
             this.Name = "CheckIO_Form";
             this.Text = "CheckIO_Form";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,5 +307,23 @@
         private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label labelTotalDayoff;
+        private System.Windows.Forms.Label labelTotalDayofflabel;
+        private System.Windows.Forms.Label labelAveWorkingTime;
+        private System.Windows.Forms.Label labeAveWorkingTimelable;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelTotalWorkingTimelabel;
+        private System.Windows.Forms.Label labelTotal_WorkingDay;
+        private System.Windows.Forms.Label labelTotal_WorkingDaylable;
+        private System.Windows.Forms.Label labelTimeStart;
+        private System.Windows.Forms.Label labelTimEnd;
+        private System.Windows.Forms.Button buttonSetoff;
+        private System.Windows.Forms.Button buttonSort;
+        private System.Windows.Forms.ComboBox comboBoxmode;
+        private System.Windows.Forms.ComboBox comboBoxProperty;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox checkBoxDalam;
     }
 }

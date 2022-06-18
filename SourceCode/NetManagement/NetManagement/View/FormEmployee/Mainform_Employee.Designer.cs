@@ -33,21 +33,23 @@
             this.butCheckIO = new System.Windows.Forms.Button();
             this.butServicePay = new System.Windows.Forms.Button();
             this.butAccManager = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel_top = new System.Windows.Forms.Panel();
             this.labelHome = new System.Windows.Forms.Label();
             this.labelTop = new System.Windows.Forms.Label();
             this.panel_body = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel_left.SuspendLayout();
-            this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_left
             // 
             this.panel_left.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel_left.Controls.Add(this.button1);
             this.panel_left.Controls.Add(this.butSpMailbox);
             this.panel_left.Controls.Add(this.butCheckIO);
             this.panel_left.Controls.Add(this.butServicePay);
@@ -106,6 +108,16 @@
             this.butAccManager.UseVisualStyleBackColor = false;
             this.butAccManager.Click += new System.EventHandler(this.butAccManager_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::NetManagement.Properties.Resources.backgroud;
+            this.pictureBox2.Location = new System.Drawing.Point(4, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(322, 181);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // panel_top
             // 
             this.panel_top.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -147,16 +159,6 @@
             this.panel_body.Size = new System.Drawing.Size(1150, 455);
             this.panel_body.TabIndex = 3;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::NetManagement.Properties.Resources.backgroud;
-            this.pictureBox2.Location = new System.Drawing.Point(4, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(322, 181);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::NetManagement.Properties.Resources.Thiết_kế_chưa_có_tên__7_;
@@ -167,6 +169,18 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkCyan;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 467);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(332, 64);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Exit";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Mainform_Employee
             // 
@@ -181,9 +195,9 @@
             this.Name = "Mainform_Employee";
             this.Text = "Mainform_Employee";
             this.panel_left.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -202,5 +216,6 @@
         private System.Windows.Forms.Button butSpMailbox;
         private System.Windows.Forms.Label labelTop;
         private System.Windows.Forms.Label labelHome;
+        private System.Windows.Forms.Button button1;
     }
 }

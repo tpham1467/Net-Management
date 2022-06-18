@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NetManagement.Model;
 using NetManagement.Repositories;
+using NetManagement.DTO;
 namespace NetManagement.BLL.BLLEmployee
 {
     public  class BLLAccoutManagement
@@ -27,33 +28,26 @@ namespace NetManagement.BLL.BLLEmployee
             data = repository.GetAll().ToList();
             return data;
         }
-        public IEnumerable<object> Filter()
+        public IEnumerable<object> Filter(IEnumerable<Account> accounts = null)
         {
-            
-            var data = GetAll().Where(p => p.ID_Role == 1).Select(p =>
+            if (accounts == null) accounts = GetAll();
+            var data = accounts.Where(p => p.ID_Role == 1 && p.IsErase == 0 ).Select(p =>
             
                  new 
                 {
                     p.ID_Account,
+                    p.status ,
                     p.Password_Acc,
                     p.UserName_Acc,
                     p.User.FirstName,
                     p.User.LastName,
                     p.User.Email,
                     p.User.Phone,
-                    (p.User as Customer).Money
+                    (p.User as Customer).Money ,
+                    p.IsErase
                 }   );
             return data.ToList();
         }
-        public void Update(Account account1 , Account  account2 )
-        {
-            //account1.Password_Acc = account2.Password_Acc; account1.UserName_Acc = account2.UserName_Acc;
-            //account1.User.Email = account2.User.Email; account1.User.Phone = account2.User.Phone;
-            Customer user1 = account1.User as Customer;  Customer user2 = account2.User as Customer;
-            user1.Money = user2.Money;
-
-                }
-
         public void TopUpAccount(int money , int id)
         {
 
@@ -98,9 +92,28 @@ namespace NetManagement.BLL.BLLEmployee
             
 
         }
+        public bool CheckExist(int id)
+        {
+            foreach(var i in GetAll())
+            {
+                if(i.ID_Account  == id )
+                {
+                    return true; 
+                }
+            }
+            return false;
+        } 
+        public void UpdateAccount(Account account)
+        {
+            //repository.Update(account, account.ID_Account, Update);
+        }
+        public void AddAccount(Account account)
+        {
+            repository.Insert(account);
+        }
         public void AllowanceAcoount(int money,int id)
         {
-
+            TopUpAccount(money, id);
         }
         public void Lock(List<int> data)
         {
@@ -109,6 +122,16 @@ namespace NetManagement.BLL.BLLEmployee
                 repository.GetById(i).status = 1;
             }
         }
+        public void Delete(List<int> data)
+        {
+            foreach(var i in data)
+            {
+                Account account = repository.GetById(i);
+                account.IsErase = 1;
+                
+            }
+            repository.Save();
+        }
         public void Unlock(List<int> data )
         {
             foreach(var i in data)
@@ -116,13 +139,23 @@ namespace NetManagement.BLL.BLLEmployee
                 repository.GetById(i).status = 0;
             }
         }
-        public List<object> Sort(int sort , string by)
+        public IEnumerable<object> Sort(SortEnum sort, string by)
         {
-            return new List<object>();
+
+            if (string.Compare(by, "Id ") == 0)
+                return Filter(repository.Sort<int>(sort, a => a.ID_Account));
+            else return Filter(repository.Sort<string>(sort, a => a.User.FirstName));
         }
         public List<object> Search(string search)
         {
             return new List<object>();
+        }
+    }
+    public class Compare<T> : IComparer<T>
+    {
+        int IComparer<T>.Compare(T x, T y)
+        {
+            throw new NotImplementedException();
         }
     }
 }

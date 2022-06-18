@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.BLL.BLLEmployee;
+using NetManagement.DTO;
 namespace NetManagement.View.FormEmployee
 {
     public partial class AccManagement_Form : Form
@@ -48,6 +49,7 @@ namespace NetManagement.View.FormEmployee
             if (data.Count > 0)
             {
                 bLLAccoutManagement.Lock(data);
+                dataGridView1.DataSource = bLLAccoutManagement.Filter();
             }
             else
             {
@@ -61,6 +63,7 @@ namespace NetManagement.View.FormEmployee
             if (data.Count > 0)
             {
                 bLLAccoutManagement.Unlock(data);
+                dataGridView1.DataSource = bLLAccoutManagement.Filter();
             }
             else
             {
@@ -70,7 +73,16 @@ namespace NetManagement.View.FormEmployee
 
         private void buttonSort_Click(object sender, EventArgs e)
         {
-
+            SortEnum sort = new SortEnum();
+            if((comboBoxSort.SelectedItem as string ) ==  "Asc")
+            {
+                sort = SortEnum.Asc;
+            }
+            else
+            {
+                sort = SortEnum.Desc;
+            }
+           dataGridView1.DataSource =  bLLAccoutManagement.Sort(sort, (comboBoxProperty.SelectedItem as string));
         }
         private List<int> GetSelect()
         {
@@ -90,6 +102,25 @@ namespace NetManagement.View.FormEmployee
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            List<int> data = GetSelect();
+            if (data.Count > 0)
+            {
+                bLLAccoutManagement.Delete(data);
+                dataGridView1.DataSource = bLLAccoutManagement.Filter();
+            }
+            else
+            {
+                MessageBox.Show("Vui Long Chon");
+            }
         }
     }
 }

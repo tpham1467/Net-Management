@@ -16,13 +16,14 @@ namespace NetManagement.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Account { get; set; }
 
-        public int status { get; set;  }
+        public int status { get; set; }
         [Required]
         public string UserName_Acc { get; set; }
         [Required(ErrorMessage = "Mật khẩu không được để trống")]
         //[RegularExpression("^[a-zA-Z0-9]*$", ErrorMessage = "Mật khẩu không chứa kí tự đặc biệt")]
         [StringLength(32, MinimumLength = 8, ErrorMessage = "Mật khẩu có độ dài từ 8 - 32")]
         public string Password_Acc { get; set; }
+        public int IsErase  { get; set; }
         [Required]
         public int ID_Role { get; set; }
         [ForeignKey("ID_Role")]

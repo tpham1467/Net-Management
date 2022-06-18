@@ -38,8 +38,9 @@
             this.buttonLock = new System.Windows.Forms.Button();
             this.buttonUnlock = new System.Windows.Forms.Button();
             this.buttonSort = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSort = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.comboBoxProperty = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(29, 401);
+            this.btnAdd.Location = new System.Drawing.Point(12, 401);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 3;
@@ -71,25 +72,27 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(130, 401);
+            this.btnUpdate.Location = new System.Drawing.Point(106, 401);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(230, 401);
+            this.btnDelete.Location = new System.Drawing.Point(204, 401);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // buttonTopUp
             // 
-            this.buttonTopUp.Location = new System.Drawing.Point(343, 401);
+            this.buttonTopUp.Location = new System.Drawing.Point(317, 401);
             this.buttonTopUp.Name = "buttonTopUp";
             this.buttonTopUp.Size = new System.Drawing.Size(75, 23);
             this.buttonTopUp.TabIndex = 6;
@@ -99,7 +102,7 @@
             // 
             // buttonAllowance
             // 
-            this.buttonAllowance.Location = new System.Drawing.Point(446, 401);
+            this.buttonAllowance.Location = new System.Drawing.Point(421, 401);
             this.buttonAllowance.Name = "buttonAllowance";
             this.buttonAllowance.Size = new System.Drawing.Size(75, 23);
             this.buttonAllowance.TabIndex = 7;
@@ -109,7 +112,7 @@
             // 
             // buttonLock
             // 
-            this.buttonLock.Location = new System.Drawing.Point(546, 401);
+            this.buttonLock.Location = new System.Drawing.Point(524, 401);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(75, 23);
             this.buttonLock.TabIndex = 8;
@@ -119,7 +122,7 @@
             // 
             // buttonUnlock
             // 
-            this.buttonUnlock.Location = new System.Drawing.Point(645, 401);
+            this.buttonUnlock.Location = new System.Drawing.Point(621, 401);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(75, 23);
             this.buttonUnlock.TabIndex = 9;
@@ -129,7 +132,7 @@
             // 
             // buttonSort
             // 
-            this.buttonSort.Location = new System.Drawing.Point(747, 401);
+            this.buttonSort.Location = new System.Drawing.Point(702, 401);
             this.buttonSort.Name = "buttonSort";
             this.buttonSort.Size = new System.Drawing.Size(75, 23);
             this.buttonSort.TabIndex = 10;
@@ -137,13 +140,16 @@
             this.buttonSort.UseVisualStyleBackColor = true;
             this.buttonSort.Click += new System.EventHandler(this.buttonSort_Click);
             // 
-            // comboBox1
+            // comboBoxSort
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(852, 401);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 11;
+            this.comboBoxSort.FormattingEnabled = true;
+            this.comboBoxSort.Items.AddRange(new object[] {
+            "Asc",
+            "Desc"});
+            this.comboBoxSort.Location = new System.Drawing.Point(783, 401);
+            this.comboBoxSort.Name = "comboBoxSort";
+            this.comboBoxSort.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxSort.TabIndex = 11;
             // 
             // dataGridView1
             // 
@@ -155,13 +161,25 @@
             this.dataGridView1.Size = new System.Drawing.Size(989, 334);
             this.dataGridView1.TabIndex = 2;
             // 
+            // comboBoxProperty
+            // 
+            this.comboBoxProperty.FormattingEnabled = true;
+            this.comboBoxProperty.Items.AddRange(new object[] {
+            "Id ",
+            "Name"});
+            this.comboBoxProperty.Location = new System.Drawing.Point(910, 401);
+            this.comboBoxProperty.Name = "comboBoxProperty";
+            this.comboBoxProperty.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxProperty.TabIndex = 12;
+            // 
             // AccManagement_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1030, 450);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxProperty);
+            this.Controls.Add(this.comboBoxSort);
             this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.buttonUnlock);
             this.Controls.Add(this.buttonLock);
@@ -193,7 +211,8 @@
         private System.Windows.Forms.Button buttonLock;
         private System.Windows.Forms.Button buttonUnlock;
         private System.Windows.Forms.Button buttonSort;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxSort;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox comboBoxProperty;
     }
 }

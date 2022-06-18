@@ -100,6 +100,7 @@
     <Compile Include="BLL\BLLCustormer\BLLDisplayinfor.cs" />
     <Compile Include="BLL\BLLCustormer\BLLHandleStatus.cs" />
     <Compile Include="BLL\BLLEmployee\BLLAccoutManagement.cs" />
+    <Compile Include="BLL\BLLEmployee\BLLCheckInCheckOut\BllCheckIncheckOut.cs" />
     <Compile Include="BLL\BLLEmployee\BLLRegister.cs" />
     <Compile Include="BLL\BLLLogin\BLLChoosePC.cs" />
     <Compile Include="BLL\BLLLogin\BLLLogin.cs" />
@@ -108,6 +109,8 @@
     <Compile Include="DTO\PC.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DTO\SortAccount.cs" />
+    <Compile Include="DTO\SortEnum.cs" />
     <Compile Include="Helper\Convert.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Category.cs" />
@@ -273,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormEmployee\AccManagement_Form.resx">
       <DependentUpon>AccManagement_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormEmployee\CheckIO_Form.resx">
+      <DependentUpon>CheckIO_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormEmployee\Forgottenpass_Form.resx">
       <DependentUpon>Forgottenpass_Form.cs</DependentUpon>

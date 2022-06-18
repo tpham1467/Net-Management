@@ -24,7 +24,7 @@ namespace NetManagement.BLL.BLLLogin
             Account account = new Account();
             foreach(var i in repository.GetAll())
             {
-                if(i.UserName_Acc == user && i.Password_Acc == password)
+                if(i.UserName_Acc == user && i.Password_Acc == password && i.IsErase == 0)
                 {
                     return i;
                 }

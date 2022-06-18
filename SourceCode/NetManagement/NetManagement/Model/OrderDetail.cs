@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace NetManagement.Model
 {
-    public class OrderDetail
-    {
+	public class OrderDetail
+	{
 
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,8 +21,10 @@ namespace NetManagement.Model
 		public int ID_Order { get; set; }
 		[ForeignKey("ID_Order")]
 		public virtual Order Order { get; set; }
-		public string _Description { get; set; }
 		public int Quality { get; set; }
+		public bool status { get; set; }
+		public string Description { get; set; }
+
 		[ForeignKey("ID_Product")]
 		public virtual Product Product { get; set; }
 
