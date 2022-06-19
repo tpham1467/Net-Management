@@ -12,15 +12,16 @@ namespace NetManagement.BLL.BLLEmployee
     {
         private IRepository<Status> repository_status;
         private IRepository<Account> repository;
-        private IRepository<User> repository_user = new GenericRepository<User>();
-        public BLLAccoutManagement() : this(new GenericRepository<Account>() , new GenericRepository<Status>())
+        private IRepository<User> repository_user;
+        public BLLAccoutManagement() : this(new GenericRepository<Account>() , new GenericRepository<Status>() , new GenericRepository<User>())
         {
 
         }
-        public BLLAccoutManagement(IRepository<Account> _repository , IRepository<Status> _repository_status)
+        public BLLAccoutManagement(IRepository<Account> _repository , IRepository<Status> _repository_status , IRepository<User> _repository_User)
         {
             repository = _repository;
             repository_status = _repository_status;
+            repository_user = _repository_User;
         }
         public IEnumerable<Account> GetAll()
         {
@@ -103,13 +104,36 @@ namespace NetManagement.BLL.BLLEmployee
             }
             return false;
         } 
-        public void UpdateAccount(Account account)
+        public void UpdateAccount(User user , string username , string password , int id)
         {
-            //repository.Update(account, account.ID_Account, Update);
+            Account account = repository.GetById(id);
+            account.UserName_Acc = username;
+            account.Password_Acc = password;
+            account.User.Email = user.Email;
+            account.User.Phone = user.Phone;
+            account.User.DateOfBirth = user.DateOfBirth;
+            account.User.FirstName = user.FirstName;
+            account.User.LastName = user.LastName;
+            account.User.Gender = user.Gender;
+            repository_user.Save();
         }
-        public void AddAccount(Account account)
+        public void AddAccount(User accUserount , string username , int IdEmloyee)
         {
+            (accUserount as Customer).ID_Employee = IdEmloyee;
+            (accUserount as Customer).Money = 0;
+            (accUserount as Customer).Day_Create = DateTime.Now;
+            repository_user.Insert(accUserount);
+            repository_user.Save();
+            User user = repository_user.GetAll().Last() ;
+
+
+            Account account = repository.Create();
+            account.UserName_Acc = username;
+            account.Password_Acc = "123456";
+            account.ID_Role = 1; account.Id_User = user.ID_User;
             repository.Insert(account);
+            repository.Save();
+
         }
         public void AllowanceAcoount(int money,int id)
         {
@@ -121,6 +145,10 @@ namespace NetManagement.BLL.BLLEmployee
             {
                 repository.GetById(i).status = 1;
             }
+        }
+        public Account GetById(int id)
+        {
+            return repository.GetById(id);
         }
         public void Delete(List<int> data)
         {

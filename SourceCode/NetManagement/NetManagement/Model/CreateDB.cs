@@ -80,11 +80,11 @@ namespace NetManagement.Model
             });
             context.SaveChanges();
             context.Products.AddRange(new Product[] {
-                new Product { ID_Category = 1, NameProduct = "Mì Tôm", ID_Unit = 1, Price = 15 , Amount = 55},
-                new Product {ID_Category = 2, NameProduct = "Bia", ID_Unit = 1, Price = 10 , Amount =34 },
-                new Product { ID_Category = 2, NameProduct = "Pepsi", ID_Unit = 1, Price = 8 , Amount =88 },
-                new Product {ID_Category = 3, NameProduct = "Coca Cola", ID_Unit = 1, Price = 8 , Amount = 883},
-                new Product {ID_Category = 1, NameProduct = "Bánh Mì", ID_Unit = 1, Price = 10 , Amount = 11}
+                new Product { ID_Category = 1, NameProduct = "Mì Tôm", ID_Unit = 1},
+                new Product {ID_Category = 2, NameProduct = "Bia", ID_Unit = 1 },
+                new Product { ID_Category = 2, NameProduct = "Pepsi", ID_Unit = 1 },
+                new Product {ID_Category = 3, NameProduct = "Coca Cola", ID_Unit = 1},
+                new Product {ID_Category = 1, NameProduct = "Bánh Mì", ID_Unit = 1}
             });
             context.Orders.AddRange(new Order[]{
                 new Order{ID_Customer = 5, DateOfOrder = DateTime.Now , status  = true},

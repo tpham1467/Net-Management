@@ -13,10 +13,10 @@ namespace NetManagement.Repositories
     {
 
         private static readonly NetManagemetnContext _context = new NetManagemetnContext();
-        private readonly DbSet<T> table = null;
+        private readonly DbSet<T> table ;
         public GenericRepository()
         {
-            //this._context = new NetManagemetnContext();
+          //  this._context = new NetManagemetnContext();
             this.table = _context.Set<T>();
         }
         public IEnumerable<T> GetAll()
@@ -30,6 +30,7 @@ namespace NetManagement.Repositories
         public void Insert(T obj)
         {
             table.Add(obj);
+           
         }
         public void Update(T obj, int id, Action<T, T> ActionUpdate)
         {
@@ -98,6 +99,11 @@ namespace NetManagement.Repositories
                 else
                     return table.OrderByDescending(expression, action_compare);
             }
+        }
+
+        public T Create()
+        {
+            return table.Create<T>();
         }
     }
 }

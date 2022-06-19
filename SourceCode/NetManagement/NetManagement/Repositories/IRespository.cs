@@ -10,6 +10,7 @@ namespace NetManagement.Repositories
     {
         IEnumerable<T> GetAll();
         T GetById(int id);
+        T Create();
         void Insert(T obj);
         void Update(T obj, int id, Action<T, T> ActionUpdate);
         void Reload(T entity);

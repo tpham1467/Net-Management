@@ -22,6 +22,7 @@ namespace NetManagement.Model
         [Required]
         public int ID_SalaryEmployee { get; set; }
         [ForeignKey("ID_SalaryEmployee")] 
+
         public virtual SalaryEmployee SalaryEmployee { get; set; }
 
         [Required]

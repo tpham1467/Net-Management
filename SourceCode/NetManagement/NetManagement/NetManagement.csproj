@@ -99,11 +99,13 @@
   <ItemGroup>
     <Compile Include="BLL\BLLCustormer\BLLDisplayinfor.cs" />
     <Compile Include="BLL\BLLCustormer\BLLHandleStatus.cs" />
+    <Compile Include="BLL\BLLCustormer\BLLOrder.cs" />
     <Compile Include="BLL\BLLEmployee\BLLAccoutManagement.cs" />
     <Compile Include="BLL\BLLEmployee\BLLCheckInCheckOut\BllCheckIncheckOut.cs" />
     <Compile Include="BLL\BLLEmployee\BLLRegister.cs" />
     <Compile Include="BLL\BLLLogin\BLLChoosePC.cs" />
     <Compile Include="BLL\BLLLogin\BLLLogin.cs" />
+    <Compile Include="DTO\FoodOrder.cs" />
     <Compile Include="DTO\ForgetPassword.cs" />
     <Compile Include="DTO\MoneyTopUp.cs" />
     <Compile Include="DTO\PC.cs">
@@ -120,6 +122,7 @@
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\HistoryAccountUser.cs" />
+    <Compile Include="Model\Inventory.cs" />
     <Compile Include="Model\OrderDetail.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Role.cs" />
@@ -189,6 +192,12 @@
     <Compile Include="View\FormCustomer\MainForm_User.Designer.cs">
       <DependentUpon>MainForm_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormCustomer\OrderCust_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormCustomer\OrderCust_Form.Designer.cs">
+      <DependentUpon>OrderCust_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormCustomer\PersonalInfor_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +221,12 @@
     </Compile>
     <Compile Include="View\FormEmployee\Forgottenpass_Form.Designer.cs">
       <DependentUpon>Forgottenpass_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormEmployee\FormAddUpdateAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormEmployee\FormAddUpdateAcc.Designer.cs">
+      <DependentUpon>FormAddUpdateAcc.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormEmployee\Login_Form.cs">
       <SubType>Form</SubType>
@@ -271,6 +286,9 @@
     <EmbeddedResource Include="View\FormCustomer\MainForm_User.resx">
       <DependentUpon>MainForm_User.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormCustomer\OrderCust_Form.resx">
+      <DependentUpon>OrderCust_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormCustomer\PersonalInfor_Form.resx">
       <DependentUpon>PersonalInfor_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormEmployee\Forgottenpass_Form.resx">
       <DependentUpon>Forgottenpass_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormEmployee\FormAddUpdateAcc.resx">
+      <DependentUpon>FormAddUpdateAcc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormEmployee\Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
@@ -341,6 +362,7 @@
     <Content Include="View\FormEmployee\new.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="BLL\BLLEmployee\NewFolder1\" />
     <Folder Include="View\FormLogin\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

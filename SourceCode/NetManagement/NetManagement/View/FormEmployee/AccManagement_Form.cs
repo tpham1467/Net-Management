@@ -14,8 +14,10 @@ namespace NetManagement.View.FormEmployee
     public partial class AccManagement_Form : Form
     {
         private BLLAccoutManagement bLLAccoutManagement = new BLLAccoutManagement();
-        public AccManagement_Form()
+        private int IdEmloyee;
+        public AccManagement_Form(int id)
         {
+            IdEmloyee = id;
             InitializeComponent();
             dataGridView1.DataSource = bLLAccoutManagement.Filter();
         }
@@ -106,7 +108,13 @@ namespace NetManagement.View.FormEmployee
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            List<int> data = GetSelect();
+            if (data.Count == 0) MessageBox.Show("Vui Long Chon");
+            else
+            {
+                FormAddUpdateAcc formAddUpdateAcc = new FormAddUpdateAcc(IdEmloyee , data[0]);
+                formAddUpdateAcc.Show();
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -121,6 +129,12 @@ namespace NetManagement.View.FormEmployee
             {
                 MessageBox.Show("Vui Long Chon");
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FormAddUpdateAcc formAddUpdateAcc = new FormAddUpdateAcc(IdEmloyee, -1);
+            formAddUpdateAcc.Show();
         }
     }
 }

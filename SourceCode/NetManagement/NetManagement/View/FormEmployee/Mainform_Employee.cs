@@ -45,7 +45,7 @@ namespace NetManagement.View.FormEmployee
         }
         private void butAccManager_Click(object sender, EventArgs e)
         {
-            OpenFormBody(new AccManagement_Form());
+            OpenFormBody(new AccManagement_Form(Id_Employee));
             labelTop.Text = butAccManager.Text;
         }
 
