@@ -128,6 +128,16 @@
             this.label41 = new System.Windows.Forms.Label();
             this.txtTongCong = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.button16 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.button18 = new System.Windows.Forms.Button();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -172,6 +182,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            this.panel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -200,6 +214,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            this.tabPage1.Controls.Add(this.panel22);
             this.tabPage1.Controls.Add(this.panel5);
             this.tabPage1.Controls.Add(this.panel6);
             this.tabPage1.Controls.Add(this.panel7);
@@ -255,9 +270,9 @@
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
             this.label7.Location = new System.Drawing.Point(58, 151);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 18);
+            this.label7.Size = new System.Drawing.Size(52, 18);
             this.label7.TabIndex = 25;
-            this.label7.Text = "5.000";
+            this.label7.Text = "10.000";
             // 
             // pictureBox3
             // 
@@ -496,6 +511,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            this.tabPage2.Controls.Add(this.panel20);
             this.tabPage2.Controls.Add(this.panel15);
             this.tabPage2.Controls.Add(this.panel16);
             this.tabPage2.Controls.Add(this.panel11);
@@ -1304,6 +1320,118 @@
             this.panel4.Size = new System.Drawing.Size(425, 643);
             this.panel4.TabIndex = 34;
             // 
+            // panel20
+            // 
+            this.panel20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            this.panel20.Controls.Add(this.button16);
+            this.panel20.Controls.Add(this.label5);
+            this.panel20.Controls.Add(this.label36);
+            this.panel20.Controls.Add(this.pictureBox18);
+            this.panel20.Location = new System.Drawing.Point(418, 234);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(168, 201);
+            this.panel20.TabIndex = 49;
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(50, 175);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(75, 23);
+            this.button16.TabIndex = 33;
+            this.button16.Text = "Thêm";
+            this.button16.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(46, 136);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 18);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Coca Cola";
+            // 
+            // label36
+            // 
+            this.label36.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.SystemColors.Control;
+            this.label36.Location = new System.Drawing.Point(58, 154);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(52, 18);
+            this.label36.TabIndex = 25;
+            this.label36.Text = "10.000";
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox18.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(162, 131);
+            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox18.TabIndex = 24;
+            this.pictureBox18.TabStop = false;
+            // 
+            // panel22
+            // 
+            this.panel22.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(82)))));
+            this.panel22.Controls.Add(this.button18);
+            this.panel22.Controls.Add(this.label37);
+            this.panel22.Controls.Add(this.label40);
+            this.panel22.Controls.Add(this.pictureBox20);
+            this.panel22.Location = new System.Drawing.Point(411, 218);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(168, 201);
+            this.panel22.TabIndex = 42;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(50, 172);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 23);
+            this.button18.TabIndex = 33;
+            this.button18.Text = "Thêm";
+            this.button18.UseVisualStyleBackColor = true;
+            // 
+            // label37
+            // 
+            this.label37.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.SystemColors.Control;
+            this.label37.Location = new System.Drawing.Point(47, 137);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(64, 18);
+            this.label37.TabIndex = 32;
+            this.label37.Text = "Bim Bim";
+            // 
+            // label40
+            // 
+            this.label40.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.ForeColor = System.Drawing.SystemColors.Control;
+            this.label40.Location = new System.Drawing.Point(58, 151);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(44, 18);
+            this.label40.TabIndex = 25;
+            this.label40.Text = "5.000";
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox20.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(162, 131);
+            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox20.TabIndex = 24;
+            this.pictureBox20.TabStop = false;
+            // 
             // OrderCust_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1377,6 +1505,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1483,5 +1617,15 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.TextBox txtTongCong;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.PictureBox pictureBox20;
     }
 }

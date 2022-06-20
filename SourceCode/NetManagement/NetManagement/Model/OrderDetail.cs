@@ -15,7 +15,7 @@ namespace NetManagement.Model
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		[Required(ErrorMessage = "Bạn cần điền ID_OrderDetail")]
 		public int ID_OrderDetail { get; set; }
-		[Required]
+		//[Required]
 		public int ID_Product { get; set; }
 		[Required]
 		public int ID_Order { get; set; }

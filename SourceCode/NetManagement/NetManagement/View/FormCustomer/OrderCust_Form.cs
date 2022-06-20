@@ -9,17 +9,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.Helper;
 using NetManagement.DTO;
-using NetManagement.BLL;
+using NetManagement.BLL.BLLCustormer;
 namespace NetManagement.View.FormCustomer
 {
     public partial class OrderCust_Form : Form
     {
-        public OrderCust_Form()
+        public OrderCust_Form( int id_cus , int _idcpmuter)
         {
+            id = id_cus;
+            idcomputer = _idcpmuter;
             InitializeComponent();
             LoadEvent();
+            dgvOrder.DataSource = dgvOrder.DataSource = foodOrders.Select(p =>
+            new
+            {
+                p.Item1.name,
+                p.Item1.price,
+                SoLuong = p.Item2,
+            }).ToList();
         }
         private static List<( FoodOrder, int )> foodOrders = new List< (FoodOrder, int )>();
+        private BLLOrder _BLLOrder = new BLLOrder();
+        private int id;
+        private int idcomputer;
         private void LoadEvent()
         {
 
@@ -70,6 +82,7 @@ namespace NetManagement.View.FormCustomer
             }
             if(check == false)
             {
+                foodOrder.Status = FoodOderStatus.Current;
                 foodOrders.Add((foodOrder, 1));
             }
             dgvOrder.DataSource = foodOrders.Select(p =>
@@ -192,7 +205,7 @@ namespace NetManagement.View.FormCustomer
                 MessageBox.Show("Vui Long Chon");
             }
         }
-        private void DisplayTotal()
+        private int DisplayTotal()
         {
             int s = 0;
             foreach(var i in foodOrders)
@@ -200,10 +213,18 @@ namespace NetManagement.View.FormCustomer
                 s += i.Item2 * System.Convert.ToInt32(i.Item1.price.Replace(".", ""));
             }
             txtTongCong.Text = Helper.Convert.ConvertMoneyToVND(s);
+            return s;
         }
 
         private void buttonthanhtoan_Click(object sender, EventArgs e)
         {
+            _BLLOrder.HandelOrder(foodOrders, id , idcomputer, DisplayTotal() );
+            dgvOrder.DataSource = null;
+            foreach(var i in foodOrders)
+            {
+                i.Item1.Status = FoodOderStatus.Wait;
+            }
+            txtTongCong.Text = "";
 
         }
     }

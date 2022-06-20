@@ -23,9 +23,11 @@ namespace NetManagement.Model
         [DataType(DataType.DateTime)]
         public DateTime DateOfOrder { get; set; }
         public bool status { get; set; }
+        public int Id_Computer { get; set; }
         public int Total { get; set; }
         [ForeignKey("ID_Customer")]
         public virtual Customer Customer { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
     }
 }

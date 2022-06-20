@@ -12,20 +12,25 @@ namespace NetManagement.BLL.BLLLogin
     public class BLLChoosePC
     {
         private IRepository<Computer> repository;
-
-        public BLLChoosePC() : this( new GenericRepository<Computer>())
+        private IRepository<UseComputerHistory> repository_UseComputerHistory;
+        public BLLChoosePC() : this( new GenericRepository<Computer>() , new GenericRepository<UseComputerHistory>())
         {
 
         }
 
-        public BLLChoosePC(IRepository<Computer> _repository)
+        public BLLChoosePC(IRepository<Computer> _repository, IRepository<UseComputerHistory> _repository_UseComputerHistory)
         {
             repository = _repository;
+            repository_UseComputerHistory = _repository_UseComputerHistory;
         }
         public List<Computer> GetAll()
         {
             List<Computer> data = repository.GetAll().ToList();
             return data;
+        }
+        public Computer GetComputerById(int id)
+        {
+            return repository.GetById(id);
         }
         public List<PC> ConvertToPc()
         {
@@ -38,6 +43,37 @@ namespace NetManagement.BLL.BLLLogin
             }
             return data;
         }
+        public void OnPc(int id)
+        {
+            Computer computer = repository.GetById(id);
+            computer.Status = true;
+            repository.Save();
+        }
+        public void OffPc(int id)
+        {
+            Computer computer = repository.GetById(id);
+            computer.Status = false;
+            repository.Save();
+        }
+        public int  LoginComputer(int idcomputer , int customer)
+        {
+            UseComputerHistory useComputerHistory = repository_UseComputerHistory.Create();
+            useComputerHistory.ID_Computer = idcomputer;
+            useComputerHistory.ID_Customer = customer;
+            useComputerHistory._LogIn = DateTime.Now;
+            repository_UseComputerHistory.Insert(useComputerHistory);
+            repository_UseComputerHistory.Save();
+            return useComputerHistory.ID_HistoryUseComputer;
+        }
+        public void LogOutComputer(int idusecpmputerhistory , float houruse)
+        {
+            UseComputerHistory useComputerHistory = repository_UseComputerHistory.GetById(idusecpmputerhistory);
+            useComputerHistory._LogOut = DateTime.Now;
+            useComputerHistory.HourUsed = houruse;
+            repository_UseComputerHistory.Save();
+        }
+     
+        
     }
 
 }

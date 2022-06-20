@@ -9,17 +9,18 @@ using System.Windows.Forms;
 namespace NetManagement.Model
 {
     public class CreateDB :
-        //CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
+      CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
                                         //DropCreateDatabaseIfModelChanges<CSDL> // chỉ thay đổi Record thfi sẽ không tahy đổi, nếu thay đổi liên kết sẽ xóa đi cái cũ đê rkhwoir tạo cái mới
-                                        DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
+                                       //DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
     {
         protected override void Seed(NetManagemetnContext context)
         {
             context.Units.AddRange(new Unit[]{
                 new Unit{ NameUnit = "Cai"},
                 new Unit{ NameUnit = "Chai"},
-                new Unit{NameUnit = "Goi"}
-            });
+                new Unit{NameUnit = "Goi"} ,
+                new Unit{NameUnit = "Qua"}
+            }); 
             context.SalaryEmployees.AddRange(new SalaryEmployee[]
             {
                 new SalaryEmployee{  Salary = 123},
@@ -80,25 +81,40 @@ namespace NetManagement.Model
             });
             context.SaveChanges();
             context.Products.AddRange(new Product[] {
-                new Product { ID_Category = 1, NameProduct = "Mì Tôm", ID_Unit = 1},
-                new Product {ID_Category = 2, NameProduct = "Bia", ID_Unit = 1 },
-                new Product { ID_Category = 2, NameProduct = "Pepsi", ID_Unit = 1 },
+                new Product { ID_Category = 1, NameProduct = "Mỳ Tôm", ID_Unit = 1},
                 new Product {ID_Category = 3, NameProduct = "Coca Cola", ID_Unit = 1},
-                new Product {ID_Category = 1, NameProduct = "Bánh Mì", ID_Unit = 1}
+                new Product {ID_Category = 3, NameProduct = "Bim Bim", ID_Unit = 1},
+                new Product {ID_Category = 1, NameProduct = "Trứng", ID_Unit = 1} ,
+                new Product {ID_Category = 1, NameProduct = "Bánh Mỳ", ID_Unit = 1} ,
+                new Product {ID_Category = 1, NameProduct = "Cơm Gà", ID_Unit = 1} ,
+                new Product {ID_Category = 1, NameProduct = "Xúc Xích", ID_Unit = 1} ,
+                new Product {ID_Category = 1, NameProduct = "Bò Húc", ID_Unit = 1} ,
+                new Product {ID_Category = 1, NameProduct = "Sting Vàng", ID_Unit = 1} ,
+                new Product {ID_Category = 1, NameProduct = "Sting Đỏ", ID_Unit = 1} ,
+                new Product {ID_Category = 1, NameProduct = "Nước Lọc", ID_Unit = 1} ,
+                 new Product {ID_Category = 1, NameProduct = "Nutifood", ID_Unit = 1} ,
+                  new Product {ID_Category = 1, NameProduct = "Viettel 10K", ID_Unit = 1} ,
+                   new Product {ID_Category = 1, NameProduct = "Viettel 50k", ID_Unit = 1} ,
+                    new Product {ID_Category = 1, NameProduct = "Garena 10K", ID_Unit = 1} ,
+                     new Product {ID_Category = 1, NameProduct = "Vinaphone 10K", ID_Unit = 1} ,
+                     new Product {ID_Category = 1, NameProduct = "Garena 50K", ID_Unit = 1} ,
+                      new Product {ID_Category = 1, NameProduct = "Mobiphone 10K", ID_Unit = 1} ,
+
             });
             context.Orders.AddRange(new Order[]{
-                new Order{ID_Customer = 5, DateOfOrder = DateTime.Now , status  = true},
-                new Order{ID_Customer = 6, DateOfOrder = DateTime.Now , status = false} ,
-                new Order{ID_Customer = 4, DateOfOrder = DateTime.Now , status = true}
+                new Order{ID_Customer = 5, DateOfOrder = DateTime.Now , status  = true , Id_Computer = 1 },
+                new Order{ID_Customer = 6, DateOfOrder = DateTime.Now , status = true , Id_Computer = 2} ,
+                new Order{ID_Customer = 4, DateOfOrder = DateTime.Now , status = true , Id_Computer = 2}
             });
             
             context.SaveChanges();
             context.OrderDetails.AddRange(new OrderDetail[]{
-                new OrderDetail {ID_Product = 2, ID_Order = 1, Description = "Ok", Quality =1, status = true},
+                new OrderDetail { ID_Product = 2, ID_Order = 1, Description = "Ok", Quality =1, status = true},
                 new OrderDetail { ID_Product = 1, ID_Order = 1, Description = "Ok", Quality =2 ,status = true},
                 new OrderDetail { ID_Product = 3, ID_Order = 2, Description = "Ok", Quality =3 , status = true},
                  new OrderDetail { ID_Product = 2, ID_Order = 2, Description = "Het Hang", Quality =3 , status = false},
                 new OrderDetail { ID_Product = 3, ID_Order = 3, Description = "abcd", Quality =3 , status = true},
+                 new OrderDetail { ID_Product = 3 ,  ID_Order = 3, Description = "Banh Mi Mua Ngoai", Quality =1 , status = true},
             });
 
            
@@ -129,8 +145,13 @@ namespace NetManagement.Model
                     new Status { NameTable ="UseComputerHistory"  , status = false}
                 });
 
-            context.SaveChanges();
-
+            context.Inventories.AddRange(new Inventory[] {
+                new Inventory {Amount = 20,ImportDay = Convert.ToDateTime("06-13-2022"), ExpiryDate = Convert.ToDateTime("06-13-2022"), ImportPrices = 12, SalePrice = 15, ID_Product = 1 , Init = 20 },
+                new Inventory {Amount = 15,ImportDay = Convert.ToDateTime("06-13-2022"), ExpiryDate = Convert.ToDateTime("09-13-2023"), ImportPrices = 16, SalePrice = 18, ID_Product = 3 , Init = 15},
+                new Inventory {Amount = 20,ImportDay = Convert.ToDateTime("06-13-2022"), ExpiryDate = Convert.ToDateTime("06-13-2022"), ImportPrices = 5, SalePrice = 10, ID_Product = 2 , Init = 10},
+                new Inventory {Amount = 10,ImportDay = Convert.ToDateTime("06-13-2022"), ExpiryDate = Convert.ToDateTime("06-13-2022"), ImportPrices = 8, SalePrice = 10, ID_Product = 5, Init = 10},
+                new Inventory {Amount = 30,ImportDay = Convert.ToDateTime("06-13-2022"), ExpiryDate = Convert.ToDateTime("06-13-2022"), ImportPrices = 5, SalePrice = 10, ID_Product = 4 , Init = 30}
+            });
         }
     }
 }

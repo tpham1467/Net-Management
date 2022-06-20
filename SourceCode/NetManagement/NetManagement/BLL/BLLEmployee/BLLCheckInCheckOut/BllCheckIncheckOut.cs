@@ -12,6 +12,8 @@ namespace NetManagement.BLL.BLLEmployee.BLLCheckInCheckOut
     public class BllCheckIncheckOut
     {
         private IRepository<Shift> repository;
+
+        #region Contructor
         public BllCheckIncheckOut() : this(new GenericRepository<Shift>())
         {
 
@@ -20,6 +22,9 @@ namespace NetManagement.BLL.BLLEmployee.BLLCheckInCheckOut
         {
             repository = _repository;
         }
+        #endregion
+
+        #region Get List Object
         public IEnumerable<Shift> GetAll()
         {
             List<Shift> data = new List<Shift>();
@@ -54,6 +59,9 @@ namespace NetManagement.BLL.BLLEmployee.BLLCheckInCheckOut
             }
             return -1;
         }
+
+        #endregion
+
         public void CheckIn(int id_shift)
         {
             Shift shift = repository.GetById(id_shift);

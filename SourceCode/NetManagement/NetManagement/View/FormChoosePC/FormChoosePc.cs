@@ -18,6 +18,7 @@ namespace NetManagement.View.FormChoosePC
     {
         private int Id_Customer;
         private BLLChoosePC _BLLChoosePC = new BLLChoosePC();
+     
         public FormChoosePc(int id_customer)
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace NetManagement.View.FormChoosePC
         private void pcb_click(Object Sender, EventArgs e)
         {
             PC p = Sender as PC;
-            MainForm_User mainForm_User = new MainForm_User(Id_Customer);
+            MainForm_User mainForm_User = new MainForm_User(Id_Customer , p.IDMay);
             mainForm_User.Show();
             this.Hide();
 

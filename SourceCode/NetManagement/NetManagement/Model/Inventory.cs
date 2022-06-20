@@ -16,6 +16,7 @@ namespace NetManagement.Model
         [Required]
         public int Amount { get; set; }
         public DateTime ImportDay { get; set; }
+        public int Init { get; set; }
         [Required]
         public DateTime ExpiryDate { get; set; }
         [Required]

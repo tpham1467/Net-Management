@@ -9,7 +9,7 @@ namespace NetManagement.DTO
 {
     public class MoneyTopUp
     {
-       public int Money { get; set; }
+        public int Money { get; set; }
         public override string ToString()
         {
             return Helper.Convert.ConvertMoneyToVND(Money);

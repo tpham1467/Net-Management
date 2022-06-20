@@ -51,7 +51,7 @@ namespace NetManagement.View.FormEmployee
 
         private void butServicePay_Click(object sender, EventArgs e)
         {
-            OpenFormBody(new ServicePay_Form());
+            OpenFormBody(new ServicePay_Form(Id_Employee ));
             labelTop.Text = butServicePay.Text;
         }
 

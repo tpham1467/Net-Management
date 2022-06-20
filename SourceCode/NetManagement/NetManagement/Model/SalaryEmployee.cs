@@ -20,6 +20,7 @@ namespace NetManagement.Model
         public int ID_SalaryEmployee { get; set; }
         [Required]
         public float Salary { get; set; }
+        public string Type { get; set; }
         public virtual ICollection<Employee> Employees { get; set; }
     }
 }

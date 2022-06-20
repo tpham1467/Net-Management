@@ -34,5 +34,19 @@ namespace NetManagement.BLL.BLLCustormer
             }
             return false;
         }
+        public bool CheckErase(int id)
+        {
+            foreach (var i in repository.GetAll())
+            {
+                if (id == i.ID_Account)
+                {
+                    if (i.IsErase == 1)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }

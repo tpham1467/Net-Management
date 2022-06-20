@@ -8,6 +8,14 @@ namespace NetManagement.Helper
 {
     public class Convert
     {
+        public static float ConVertMoneyTohour(int Money)
+        {
+            int hour = (int)(Money / 7200);
+            Money = Money - hour * 7200;
+            int minite = (int)(Money / 120);
+            Money = Money - minite * 120;
+            return (float)hour + (float)(minite / 60 );
+        }
         public static String ConvertMenyToHour(int Money)
         {
             int hour = (int)(Money / 7200);

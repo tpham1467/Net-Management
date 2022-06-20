@@ -9,19 +9,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.BLL.BLLCustormer;
+using NetManagement.BLL.BLLLogin;
 using NetManagement.Model;
 using NetManagement.Helper;
+using System.Threading;
+
 namespace NetManagement.View.FormCustomer
 {
     public partial class MainForm_User : Form
     {
+        private int _timeused;
+        private CancellationTokenSource source = new CancellationTokenSource();
+ 
         private int Id;
+        private int id_computer;
+        private int IdUseHistorycomputer;
         private Form currentFormBody;
         private BLLDisplayinfor _BLLDisplayinfor = new BLLDisplayinfor();
         private BLLHandleStatus _BLLHandleStatus = new BLLHandleStatus();
-        public  MainForm_User(int _id)
+        private BLLChoosePC _BLLChoosePC = new BLLChoosePC();
+        public  MainForm_User(int _id , int idcomputer)
         {
             Id = _id;
+            id_computer = idcomputer;
+
+            _BLLChoosePC.OnPc(id_computer);
+            IdUseHistorycomputer = _BLLChoosePC.LoginComputer(id_computer, Id);
+
+
             InitializeComponent();
             textBoxremaining.Enabled = false; textBoxused.Enabled = false; textBoxprices.Enabled = false;
             Task t = DisplayMoney();
@@ -45,23 +60,7 @@ namespace NetManagement.View.FormCustomer
                 }
             }
         }
-        public async void DisPlay(int s1 , int s2)
-        {
-            Task t = new Task
-                (() =>
-                {
-                    for(int i=0;i<10;i++)
-                    {
-                        SetText(Helper.Convert.ConvertMenyToHour(s1), Helper.Convert.ConvertMenyToHour(s2));
-                        Task.Delay(1000).Wait();
-                        s1 -= 2; s2 -= 2;
-                    }
-                });
-            t.Start();
-            await t;
 
-
-        }
         delegate void Hett();
         public void HetTien()
         {
@@ -93,8 +92,10 @@ namespace NetManagement.View.FormCustomer
                     }
                     remaining -= 2;
                     timeused += 2;
-                    if (remaining <= 0||_BLLHandleStatus.CheckLock(Id) == true)
+                    _timeused = timeused;
+                    if (remaining <= 0 || _BLLHandleStatus.CheckLock(Id) || _BLLHandleStatus.CheckErase(Id)) 
                     {
+                       
                         HetTien();
                         break;
                     }
@@ -108,10 +109,11 @@ namespace NetManagement.View.FormCustomer
                    
                 }
             }
-                );
+                , source.Token);
+           
             t.Start();
             await t;
-            //btnLoutout_Click(new object(), new EventArgs());
+           
         }
         private void OpenFormBody(Form bodyForm)
         {
@@ -139,19 +141,21 @@ namespace NetManagement.View.FormCustomer
             OpenFormBody(new Chat_Form());
         }
 
+       
         private  void btnLoutout_Click(object sender, EventArgs e)
         {
-           
-               Login_Form f = new Login_Form();
-               f.Show();
-
-               this.Hide();
+            //source.Cancel();
+            _BLLChoosePC.LogOutComputer(IdUseHistorycomputer, Helper.Convert.ConVertMoneyTohour(_timeused));
+            _BLLChoosePC.OffPc(id_computer);
+            Login_Form f = new Login_Form();
+            f.Show();
+            this.Dispose();
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            OpenFormBody(new OrderCust_Form());
+            OpenFormBody(new OrderCust_Form(Id , id_computer));
         }
     }
 }

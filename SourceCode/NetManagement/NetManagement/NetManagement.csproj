@@ -102,9 +102,11 @@
     <Compile Include="BLL\BLLCustormer\BLLOrder.cs" />
     <Compile Include="BLL\BLLEmployee\BLLAccoutManagement.cs" />
     <Compile Include="BLL\BLLEmployee\BLLCheckInCheckOut\BllCheckIncheckOut.cs" />
+    <Compile Include="BLL\BLLEmployee\BLLOrder\BLlHandelOrder.cs" />
     <Compile Include="BLL\BLLEmployee\BLLRegister.cs" />
     <Compile Include="BLL\BLLLogin\BLLChoosePC.cs" />
     <Compile Include="BLL\BLLLogin\BLLLogin.cs" />
+    <Compile Include="DTO\FoodOderStatus.cs" />
     <Compile Include="DTO\FoodOrder.cs" />
     <Compile Include="DTO\ForgetPassword.cs" />
     <Compile Include="DTO\MoneyTopUp.cs" />
@@ -240,6 +242,12 @@
     <Compile Include="View\FormEmployee\Mainform_Employee.Designer.cs">
       <DependentUpon>Mainform_Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormEmployee\OrderDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormEmployee\OrderDetail.Designer.cs">
+      <DependentUpon>OrderDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormEmployee\ServicePay_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +318,12 @@
     <EmbeddedResource Include="View\FormEmployee\Mainform_Employee.resx">
       <DependentUpon>Mainform_Employee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormEmployee\OrderDetail.resx">
+      <DependentUpon>OrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormEmployee\ServicePay_Form.resx">
+      <DependentUpon>ServicePay_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormEmployee\TopUp.resx">
       <DependentUpon>TopUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,7 +376,6 @@
     <Content Include="View\FormEmployee\new.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BLL\BLLEmployee\NewFolder1\" />
     <Folder Include="View\FormLogin\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
