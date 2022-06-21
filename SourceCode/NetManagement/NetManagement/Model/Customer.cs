@@ -16,8 +16,8 @@ namespace NetManagement.Model
 
        public Customer()
        {
-           Orders = new HashSet<Order>();
-           HistoryAccountUsers = new HashSet<HistoryAccountUser>();
+            Orders = new HashSet<Order>();
+            HistoryAccountUsers = new HashSet<HistoryAccountUser>();
             UseComputerHistories = new HashSet<UseComputerHistory>();
        }
       

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NetManagement.BLL.BLLEmployee;
+using NetManagement.BLL.BLLEmployee.BLLAccoutManagement;
 using NetManagement.Model;
 namespace NetManagement.View.FormEmployee
 {

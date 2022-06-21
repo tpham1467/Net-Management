@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NetManagement.Model;
 using NetManagement.Repositories;
 using NetManagement.DTO;
-namespace NetManagement.BLL.BLLEmployee
+namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
 {
     public  class BLLAccoutManagement
     {

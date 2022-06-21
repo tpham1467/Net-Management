@@ -12,23 +12,20 @@ namespace NetManagement.BLL.BLLCustormer
     {
         private IRepository<Customer> repository;
         private IRepository<Status> repository_Status;
-        public BLLDisplayinfor() :this(new GenericRepository<Customer>() , new GenericRepository<Status>())
+        private IRepository<Account> repository_account;
+        public BLLDisplayinfor() :this(new GenericRepository<Customer>() , new GenericRepository<Status>() , new GenericRepository<Account>())
         {
 
         }
-        public BLLDisplayinfor(IRepository<Customer> _repository , IRepository<Status> repository_status)
+        public BLLDisplayinfor(IRepository<Customer> _repository , IRepository<Status> repository_status ,IRepository<Account> _repository_account)
         {
             repository = _repository;
             repository_Status = repository_status;
+            repository_account = _repository_account;
         }
         public Customer GetCustomerById(int id)
         {
             return repository.GetById(id);
-        }
-        public void UpdateDelegate(Customer  c1 , Customer c2)
-        {
-            //c1.Email = c2.Email; c1.Phone = c2.Phone; c1.FirstName = c2.FirstName; c1.LastName = c2.LastName;
-          /*//  c1.DateOfBirth = c2.DateOfBirth;*/ //c1.Money = c2.Money;
         }
         public void UpDate(int money , int Id)
         {
@@ -73,6 +70,39 @@ namespace NetManagement.BLL.BLLCustormer
             
            // repository.Update(customer, Id,UpdateDelegate);
            
+        }
+        public void UpdateInfo(Customer customer , int id)
+        {
+            Customer customer2 = repository.GetById(id);
+            customer2.Phone = customer.Phone;
+            customer2.DateOfBirth = customer.DateOfBirth;
+            customer2.FirstName = customer.FirstName;
+            customer2.LastName = customer.LastName;
+            customer2.Email = customer.Email;
+            repository.Save();
+        }
+        private Account GetAcoontByIdCustomer(int Id)
+        {
+            foreach (var customer in repository.GetAll())
+            {
+                if(customer.ID_User == Id )
+                {
+                    return customer.Accounts.First();
+                }
+            }
+            return null;
+        }
+        public void UpdatePassword(string oldpass ,string newpass , int id)
+        {
+            string username = GetAcoontByIdCustomer(id).UserName_Acc;
+            foreach (var i in repository_account.GetAll())
+            {
+                if(i.UserName_Acc == username && i.Password_Acc == oldpass)
+                {
+                    i.Password_Acc = newpass;
+                }
+            }
+            repository_account.Save();
         }
     }
 }

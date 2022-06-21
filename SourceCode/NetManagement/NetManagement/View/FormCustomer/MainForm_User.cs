@@ -19,7 +19,7 @@ namespace NetManagement.View.FormCustomer
     public partial class MainForm_User : Form
     {
         private int _timeused;
-        private CancellationTokenSource source = new CancellationTokenSource();
+        private bool statusTask;
  
         private int Id;
         private int id_computer;
@@ -80,6 +80,7 @@ namespace NetManagement.View.FormCustomer
             
             Task t = new Task(() =>
             {
+                statusTask = false;
                 int remaining = _BLLDisplayinfor.GetCustomerById(Id).Money;
                 int timeused = 0;
              
@@ -93,7 +94,7 @@ namespace NetManagement.View.FormCustomer
                     remaining -= 2;
                     timeused += 2;
                     _timeused = timeused;
-                    if (remaining <= 0 || _BLLHandleStatus.CheckLock(Id) || _BLLHandleStatus.CheckErase(Id)) 
+                    if (remaining <= 0 || _BLLHandleStatus.CheckLock(Id) || _BLLHandleStatus.CheckErase(Id) || statusTask) 
                     {
                        
                         HetTien();
@@ -109,7 +110,7 @@ namespace NetManagement.View.FormCustomer
                    
                 }
             }
-                , source.Token);
+                );
            
             t.Start();
             await t;
@@ -144,7 +145,8 @@ namespace NetManagement.View.FormCustomer
        
         private  void btnLoutout_Click(object sender, EventArgs e)
         {
-            //source.Cancel();
+            if (statusTask == true) return;
+            statusTask = true;
             _BLLChoosePC.LogOutComputer(IdUseHistorycomputer, Helper.Convert.ConVertMoneyTohour(_timeused));
             _BLLChoosePC.OffPc(id_computer);
             Login_Form f = new Login_Form();

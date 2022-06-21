@@ -17,5 +17,6 @@ namespace NetManagement.Repositories
         void Delete(int obj);
         void Save(int i = 0);
         IEnumerable<T> Sort<Tkey>(SortEnum sort, System.Linq.Expressions.Expression<Func<T, Tkey>> expressions, IComparer<Tkey> action_compare = null);
+        IEnumerable<T> Sort<Tkey>(string input, Func<T, string> key , bool IsContain, bool IsOnly);
     }
 }
