@@ -25,15 +25,15 @@ namespace NetManagement.Helper
             int second = (int)(Money / 2);
             return (hour == 0 ? "00" : hour.ToString()) + ":" + (minite == 0 ? "00" : minite.ToString()) + ":" + (second == 0 ? "00" : second.ToString());
         }
-        public static String ConvertMoneyToVND(int money)
+       public static String ConvertMoneyToVND(long money)
         {
             String s = money.ToString(); int j = 0;
-            for( int i  =s.Length-1; i>=2;i--)
+            for( int i  =s.Length-1; i>=1;i--)
             {
                 if(j==2)
                 {
                     s = s.Insert(i, ".");
-                    j = 0;
+                    j = -1;
                 }
                 j++;
             }
