@@ -21,14 +21,18 @@ namespace NetManagement.View.FormCustomer
             InitializeComponent();
             Customer customer = _BLLDisplayinfor.GetCustomerById(Id);
             LoadInfor(customer);
+
+            textBoxconformpass.UseSystemPasswordChar = true;
+            textBoxoldpass.UseSystemPasswordChar = true;
+            textBoxnewpass.UseSystemPasswordChar = true;
         }
         public void LoadInfor(Customer customer)
         {
-            
+
             textBoxFirstName.Text = customer.FirstName;
             textBoxLatsName.Text = customer.LastName;
             textBoxPhone.Text = customer.Phone;
-            textBoxDateofbirth.Text = customer.DateOfBirth.ToString();
+            dateTimePickerdob.Value = customer.DateOfBirth;
             textBoxEmail.Text = customer.Email;
         }
         private void btnClose_Click(object sender, EventArgs e)
@@ -40,18 +44,56 @@ namespace NetManagement.View.FormCustomer
         {
             Customer customer = new Customer
             {
-                ID_User = Id ,
                 Phone = textBoxPhone.Text,
                 FirstName = textBoxFirstName.Text,
                 LastName = textBoxLatsName.Text,
-                DateOfBirth = Convert.ToDateTime(textBoxDateofbirth.Text),
-                Email = textBoxEmail.Text ,
-                Money = _BLLDisplayinfor.GetCustomerById(Id).Money
+                DateOfBirth = dateTimePickerdob.Value,
+                Email = textBoxEmail.Text,
             };
-          //  _BLLDisplayinfor.UpDate(customer,customer.ID_User);
-            LoadInfor(customer);
+            _BLLDisplayinfor.UpdateInfo(customer , Id);
         }
 
-       
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonsavepass_Click(object sender, EventArgs e)
+        {
+            if (textBoxoldpass.Text == null || textBoxnewpass == null || textBoxconformpass.Text == null)
+            {
+                MessageBox.Show("Nhap Du Thong Tin");
+            }
+            else
+            {
+                if(textBoxconformpass.Text != textBoxnewpass.Text )
+                {
+                    MessageBox.Show("Mat Khau Khogn Giong Nhau");
+                }
+                else
+                {
+                    _BLLDisplayinfor.UpdatePassword(textBoxoldpass.Text, textBoxnewpass.Text, Id);
+                    textBoxconformpass.Text = null;
+                    textBoxnewpass.Text = null;
+                    textBoxoldpass.Text = null;
+                }
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+           if(textBoxnewpass.UseSystemPasswordChar )
+            {
+                textBoxnewpass.UseSystemPasswordChar = false;
+                textBoxconformpass.UseSystemPasswordChar = false;
+                textBoxoldpass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                textBoxconformpass.UseSystemPasswordChar = true;
+                textBoxoldpass.UseSystemPasswordChar = true;
+                textBoxnewpass.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

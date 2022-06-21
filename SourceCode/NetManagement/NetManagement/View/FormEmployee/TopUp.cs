@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.DTO;
-using NetManagement.BLL.BLLEmployee;
+using NetManagement.BLL.BLLEmployee.BLLAccoutManagement;
 namespace NetManagement.View.FormEmployee
 {
     public partial class TopUp : Form

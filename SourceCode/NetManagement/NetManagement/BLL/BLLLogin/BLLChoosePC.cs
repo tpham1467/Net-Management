@@ -72,7 +72,19 @@ namespace NetManagement.BLL.BLLLogin
             useComputerHistory.HourUsed = houruse;
             repository_UseComputerHistory.Save();
         }
-     
+        public bool CheckComputer(int id)
+        {
+            foreach(var i in repository.GetAll())
+            {
+                if(i.ID_Computer == id)
+                {
+                    repository.Reload(i);
+                    if (i.Status) return false;
+                    else return true;
+                }
+            }
+            return false;
+        }
         
     }
 

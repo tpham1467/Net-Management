@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
-using Microsoft.Extensions.Logging;
 
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -62,6 +61,7 @@ namespace NetManagement.Model
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Status> Statuses { get; set; }
         public virtual DbSet<Inventory> Inventories { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 

@@ -13,10 +13,10 @@ namespace NetManagement.Repositories
     {
 
         private static readonly NetManagemetnContext _context = new NetManagemetnContext();
-        private readonly DbSet<T> table ;
+        private readonly DbSet<T> table;
         public GenericRepository()
         {
-          //  this._context = new NetManagemetnContext();
+            //  this._context = new NetManagemetnContext();
             this.table = _context.Set<T>();
         }
         public IEnumerable<T> GetAll()
@@ -30,7 +30,7 @@ namespace NetManagement.Repositories
         public void Insert(T obj)
         {
             table.Add(obj);
-           
+
         }
         public void Update(T obj, int id, Action<T, T> ActionUpdate)
         {
@@ -46,7 +46,7 @@ namespace NetManagement.Repositories
             var data = table.Find(id);
             table.Remove(data);
         }
-      
+
         public void Save(int i = 0)
         {
             try
@@ -83,9 +83,9 @@ namespace NetManagement.Repositories
 
         }
 
-        public IEnumerable<T> Sort<Tkey>(SortEnum sort, System.Linq.Expressions.Expression<Func<T, Tkey>> expression, IComparer<Tkey> action_compare = null) 
+        public IEnumerable<T> Sort<Tkey>(SortEnum sort, System.Linq.Expressions.Expression<Func<T, Tkey>> expression, IComparer<Tkey> action_compare = null)
         {
-            if (sort  == SortEnum.Asc)
+            if (sort == SortEnum.Asc)
             {
                 if (action_compare == null)
                     return table.OrderBy(expression).ToList();
@@ -104,6 +104,28 @@ namespace NetManagement.Repositories
         public T Create()
         {
             return table.Create<T>();
+        }
+        public IEnumerable<T> Sort<Tkey>(string input, Func<T,string> key, bool IsContain, bool IsOnly)
+        {
+            List<T> objectmatch = new List<T>();
+            foreach (var i in table)
+            {
+                string keyofObject = key(i);
+                if (IsContain)
+                {
+                    if (keyofObject.Contains(input))
+                        objectmatch.Add(i);
+                }
+                else
+                {
+                    if (string.Equals(keyofObject, input))
+                    {
+                        objectmatch.Add(i);
+                        if (IsOnly) return objectmatch;
+                    }
+                }
+            }
+            return objectmatch;
         }
     }
 }

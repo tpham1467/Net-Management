@@ -31,9 +31,16 @@ namespace NetManagement.View.FormChoosePC
         private void pcb_click(Object Sender, EventArgs e)
         {
             PC p = Sender as PC;
-            MainForm_User mainForm_User = new MainForm_User(Id_Customer , p.IDMay);
-            mainForm_User.Show();
-            this.Hide();
+            if (_BLLChoosePC.CheckComputer(p.IDMay))
+            {
+                MainForm_User mainForm_User = new MainForm_User(Id_Customer, p.IDMay);
+                mainForm_User.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("May Da Co Nguoi Dung");
+            }
 
         }
         private void Loadevent()

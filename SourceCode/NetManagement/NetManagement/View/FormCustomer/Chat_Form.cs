@@ -15,11 +15,21 @@ namespace NetManagement.View.FormCustomer
         public Chat_Form()
         {
             InitializeComponent();
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            if(textBoxmess.Text == "") return
+            else
+            {
+                
+            }
         }
     }
 }
