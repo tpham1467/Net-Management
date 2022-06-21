@@ -130,11 +130,13 @@ namespace NetManagement.View.FormEmployee
                 MessageBox.Show("Vui Long Chon");
             }
         }
-
+     
         private void btnAdd_Click(object sender, EventArgs e)
         {
             FormAddUpdateAcc formAddUpdateAcc = new FormAddUpdateAcc(IdEmloyee, -1);
+            formAddUpdateAcc.action = Reload;
             formAddUpdateAcc.Show();
+            
         }
     }
 }
