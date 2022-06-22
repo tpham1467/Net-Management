@@ -33,9 +33,7 @@ namespace NetManagement.View.FormAdmin
         public void ShowAll_CTR()
         {
             var l = adMana.GetAll().Select(p => new { p.ID_Category, p.CategoryName, p.Description });
-            adMana = new AdminBLL_Category();
-            var data = l.ToList();
-            dgvShowCTR.DataSource = data;
+            dgvShowCTR.DataSource = l.ToList();
         }
         
         private void btnAddCTR_Click_1(object sender, EventArgs e)
@@ -71,19 +69,23 @@ namespace NetManagement.View.FormAdmin
         {
             if (cbb_SortCTR.Text == "Name")
             {
-                dgvShowCTR.DataSource = adMana.Sort(cbb_SortCTR.Text, cbbInc_dec.Text);
+                var c = adMana.Sort(cbb_SortCTR.Text, cbbInc_dec.Text)
+                    .Select(p => new { p.ID_Category, p.CategoryName, p.Description });
+                dgvShowCTR.DataSource = c.ToList();
             }
             else if (cbb_SortCTR.Text == "ID_Category")
             {
-                dgvShowCTR.DataSource = adMana.Sort(cbb_SortCTR.Text, cbbInc_dec.Text);
+                var c = adMana.Sort(cbb_SortCTR.Text, cbbInc_dec.Text)
+                    .Select(p => new { p.ID_Category, p.CategoryName, p.Description });
+                dgvShowCTR.DataSource = c.ToList();
             }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string txt = txtSearch.Text;
-            string s = cbbSearch.Text;
-            dgvShowCTR.DataSource = adMana.Search(s, txt);
+            var c = adMana.Search(cbbSearch.Text, txtSearch.Text)
+                .Select(p => new { p.ID_Category, p.CategoryName, p.Description });
+            dgvShowCTR.DataSource = c.ToList();
         }
 
         private void btnAll_Click(object sender, EventArgs e)
