@@ -26,8 +26,10 @@ namespace NetManagement.BLL
             IEnumerable<UseComputerHistory> data = repository.GetAll().ToList();
             foreach (UseComputerHistory i in data)
             {
-                i.Customer.FullNameCus = i.Customer.FirstName + i.Customer.LastName;
+                i.Customer.FullNameCus = i.Customer.FirstName +" "+ i.Customer.LastName;
+                //i.HourUsed = Convert.ToInt32(i._LogOut.to);
             }
+            repository.Save();
             return data;
         }
         
@@ -54,7 +56,7 @@ namespace NetManagement.BLL
             List<UseComputerHistory> list = new List<UseComputerHistory>();
             if (txt == "Name")
             {
-                list = GetAll().OrderBy(p => p.Customer.LastName).ToList();
+                list = GetAll().OrderBy(p => p.Customer.FullNameCus).ToList();
             }
             if (txt == "ID_Computer")
             {

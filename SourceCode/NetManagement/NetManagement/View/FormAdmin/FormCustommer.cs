@@ -14,7 +14,6 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class FormCustommer : Form
     {
-        DataTable dt;
         AdminBLL_Cus adMana = new AdminBLL_Cus();
         AdminBLL_UseCPHis adUCPH = new AdminBLL_UseCPHis();
         AdminBLL_OrderHis adOrHis = new AdminBLL_OrderHis();
@@ -26,34 +25,36 @@ namespace NetManagement.View.FormAdmin
         }
         public void ShowAll_Mana()
         {
-            foreach (Customer i in adMana.GetAll())
-            {
-                i.FullNameCus = i.FirstName + i.LastName;
-                i.Employee.FullNameEm = i.Employee.FirstName + i.LastName;
-            }
-            var l = adMana.GetAll().Select(p => new { p.ID_User, p.FullNameCus, p.DateOfBirth, p.Phone, p.Email, p.Day_Create, p.Gender, p.Employee.FullNameEm});
-            adMana = new AdminBLL_Cus();
-            var data = l.ToList();
-            dgvShowCus.DataSource = data;
+            
+            var l = adMana.GetAll().Select(p => 
+            new { 
+                p.ID_User, 
+                p.FullNameCus, 
+                p.DateOfBirth, 
+                p.Phone,
+                p.Email, 
+                p.Day_Create, 
+                p.Gender,
+                p.Money,
+                p.Employee.FullNameEm
+            });
+            dgvShowCus.DataSource = l.ToList();
         }
         public void ShowAll_His()
         {
-            foreach (UseComputerHistory i in adUCPH.GetAll())
-            {
-                i.Customer.FullNameCus = i.Customer.FirstName + i.Customer.LastName;
-            }
-            var l = adUCPH.GetAll().Select(p => new { p.ID_HistoryUseComputer, p.Customer.FullNameCus, p.ID_Computer, p._LogIn, p._LogOut, p.HourUsed });
-            adUCPH = new AdminBLL_UseCPHis();
-            var data = l.ToList();
-            dgvHUse.DataSource = data;
+            var l = adUCPH.GetAll().Select(p => 
+            new { 
+                p.ID_HistoryUseComputer, 
+                p.Customer.FullNameCus, 
+                p.ID_Computer, 
+                p._LogIn, 
+                p._LogOut, 
+                p.HourUsed 
+            });
+            dgvHUse.DataSource = l.ToList();
         }
         public void ShowAll_OrderHis(List<OrderDetail> l)
         {
-            foreach (OrderDetail i in l)
-            {
-                i.Order.Customer.FullNameCus = i.Order.Customer.FirstName + i.Order.Customer.LastName;
-            }
-
             var list = l.Select(p => new {p.ID_OrderDetail,p.Order.Customer.FullNameCus,p.Product.NameProduct ,p.Product.Category.CategoryName,p._Description,p.Quality});
             adOrHis = new AdminBLL_OrderHis();
             var data = list.ToList();
@@ -96,20 +97,35 @@ namespace NetManagement.View.FormAdmin
             {
                 foreach (Customer i in adMana.GetAll())
                 {
-                    i.FullNameCus = i.FirstName + i.LastName;
-                    i.Employee.FullNameEm = i.Employee.FirstName + i.LastName;
+                    i.FullNameCus = i.FirstName + " " + i.LastName;
+                    i.Employee.FullNameEm = i.Employee.FirstName + " " + i.Employee.LastName;
                 }
-                var l = adMana.Search(s, txt).Select(p => new { p.ID_User, p.FullNameCus, p.DateOfBirth, p.Phone, p.Email, p.Day_Create, p.Gender, p.Employee.FullNameEm });
-                adMana = new AdminBLL_Cus();
-                var data = l.ToList();
-                dgvShowCus.DataSource = data;
+                var l = adMana.Search(s, txt).Select(p => 
+                new { 
+                    p.ID_User, 
+                    p.FullNameCus, 
+                    p.DateOfBirth, 
+                    p.Phone, 
+                    p.Email, 
+                    p.Day_Create, 
+                    p.Gender,
+                    p.Money,
+                    p.Employee.FullNameEm 
+                });
+                dgvShowCus.DataSource = l.ToList();
             }
             else if (tbMana.SelectedIndex == 1)
             {
-                var l = adUCPH.Search(s, txt).Select(p => new { p.ID_HistoryUseComputer, p.Customer.FullNameCus, p.ID_Computer, p._LogIn, p._LogOut, p.HourUsed });
-                adUCPH = new AdminBLL_UseCPHis();
-                var data = l.ToList();
-                dgvHUse.DataSource = data;
+                var l = adUCPH.Search(s, txt).Select(p => 
+                new { 
+                    p.ID_HistoryUseComputer, 
+                    p.Customer.FullNameCus, 
+                    p.ID_Computer, 
+                    p._LogIn, 
+                    p._LogOut, 
+                    p.HourUsed 
+                });
+                dgvHUse.DataSource = l.ToList();
             }
             else if (tbMana.SelectedIndex == 2)
             {
@@ -135,20 +151,45 @@ namespace NetManagement.View.FormAdmin
         {
             if (tbMana.SelectedIndex == 0)
             {
-                foreach (Customer i in adMana.GetAll())
-                {
-                    i.FullNameCus = i.FirstName + i.LastName;
-                    i.Employee.FullNameEm = i.Employee.FirstName + i.LastName;
-                }
-                var l = adMana.Sort(cbbSort.Text).Select(p => new { p.ID_User, p.FullNameCus, p.DateOfBirth, p.Phone, p.Email, p.Day_Create, p.Gender, p.Employee.FullNameEm });
+                var l = adMana.Sort(cbbSort.Text).Select(p => 
+                new { 
+                    p.ID_User, 
+                    p.FullNameCus, 
+                    p.DateOfBirth, 
+                    p.Phone, 
+                    p.Email, 
+                    p.Day_Create, 
+                    p.Gender,
+                    p.Money,
+                    p.Employee.FullNameEm 
+                });
                 
                 dgvShowCus.DataSource = l.ToList();
             }
             else if (tbMana.SelectedIndex == 1)
             {
-                var l = adUCPH.Sort(cbbSort.Text).Select(p => new { p.ID_HistoryUseComputer, p.Customer.FullNameCus, p.ID_Computer, p._LogIn, p._LogOut, p.HourUsed });
-               
+                var l = adUCPH.Sort(cbbSort.Text).Select(p => 
+                new { 
+                    p.ID_HistoryUseComputer, 
+                    p.Customer.FullNameCus, 
+                    p.ID_Computer, p._LogIn, 
+                    p._LogOut, 
+                    p.HourUsed 
+                });
                 dgvHUse.DataSource = l.ToList();
+            }
+            else if (tbMana.SelectedIndex == 2)
+            {
+                var l = adOrHis.Sort(cbbSort.Text).Select(p => 
+                new { 
+                    p.ID_OrderDetail, 
+                    p.Order.Customer.FullNameCus, 
+                    p.Product.NameProduct, 
+                    p.Product.Category.CategoryName, 
+                    p._Description, p.Quality 
+                });
+
+                dgvOrHis.DataSource = l.ToList();
             }
         }
 
@@ -181,9 +222,8 @@ namespace NetManagement.View.FormAdmin
                 cbbTypeView.Items.Clear();
                 cbbSearch.Items.Add("Name Customer");
                 cbbSearch.Items.Add("Name Product");
-                //cbbSort.Items.Add("ID_Computer");
-                //cbbSort.Items.Add("ID_History");
-                //cbbSort.Items.Add("Name");
+                cbbSort.Items.Add("Quality");
+                cbbSort.Items.Add("Name");
                 cbbTypeView.Items.Add("All");
                 foreach (string s in GetListCBB())
                 {
@@ -199,20 +239,6 @@ namespace NetManagement.View.FormAdmin
             List<string> list = new List<string>();
             list = adOrHis.GetAll().Select(p =>p.Product.Category.CategoryName).Distinct().ToList();
             return list;
-        }
-
-        private void btnDel_Click(object sender, EventArgs e)
-        {
-            if (tbMana.SelectedIndex == 1)
-            {
-                string s;
-                foreach (DataGridViewRow i in dgvHUse.SelectedRows)
-                {
-                    s = i.Cells["ID_HistoryUseComputer"].Value.ToString();
-                    adUCPH.DelHis(s);
-                }
-            }
-            ShowAll_His();
         }
 
         private void cbbTypeView_SelectedIndexChanged(object sender, EventArgs e)
@@ -232,6 +258,20 @@ namespace NetManagement.View.FormAdmin
                 List<OrderDetail> l = adOrHis.GetAll().Where(p => p.Product.Category.CategoryName == "Nuoc Uong").ToList();
                 ShowAll_OrderHis(l);
             }
+        }
+
+        private void btnDel_Click_1(object sender, EventArgs e)
+        {
+            if (tbMana.SelectedIndex == 1)
+            {
+                string s;
+                foreach (DataGridViewRow i in dgvHUse.SelectedRows)
+                {
+                    s = i.Cells["ID_HistoryUseComputer"].Value.ToString();
+                    adUCPH.DelHis(s);
+                }
+            }
+            ShowAll_His();
         }
     }
 }

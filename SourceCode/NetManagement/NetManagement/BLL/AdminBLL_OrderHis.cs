@@ -27,8 +27,9 @@ namespace NetManagement.BLL
             IEnumerable<OrderDetail> data = repository.GetAll().ToList();
             foreach (OrderDetail i in data)
             {
-                i.Order.Customer.FullNameCus = i.Order.Customer.FirstName + i.Order.Customer.LastName;
+                i.Order.Customer.FullNameCus = i.Order.Customer.FirstName +" "+ i.Order.Customer.LastName;
             }
+            repository.Save();
             return data;
         }
 
@@ -45,18 +46,14 @@ namespace NetManagement.BLL
         public List<OrderDetail> Sort(string txt)
         {
             List<OrderDetail> list = new List<OrderDetail>();
-            //if (txt == "Name")
-            //{
-            //    list = GetAll().OrderBy(p => p.Customer.LastName).ToList();
-            //}
-            //if (txt == "ID_Computer")
-            //{
-            //    list = GetAll().OrderBy(p => p.ID_User).ToList();
-            //}
-            //if (txt == "ID_History")
-            //{
-            //    list = GetAll().OrderBy(p => p.ID_HistoryUseComputer).ToList();
-            //}
+            if (txt == "Name")
+            {
+                list = GetAll().OrderBy(p => p.Order.Customer.FullNameCus).ToList();
+            }
+            if (txt == "Quality")
+            {
+                list = GetAll().OrderBy(p => p.Quality).ToList();
+            }
             return list;
 
         }
@@ -68,6 +65,7 @@ namespace NetManagement.BLL
             {
                 foreach (OrderDetail i in data1)
                 {
+
                     if (i.Order.Customer.FullNameCus.ToLower().Contains(txt.ToLower()))
                     {
                         data2.Add(i);

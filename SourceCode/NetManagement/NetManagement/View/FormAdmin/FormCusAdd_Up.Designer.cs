@@ -30,9 +30,8 @@
         {
             this.lbname = new System.Windows.Forms.Label();
             this.lbGender = new System.Windows.Forms.Label();
-            this.lbIDE = new System.Windows.Forms.Label();
+            this.lbNameE = new System.Windows.Forms.Label();
             this.lbMoney = new System.Windows.Forms.Label();
-            this.lbDC = new System.Windows.Forms.Label();
             this.lbDOB = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
             this.lbPhone = new System.Windows.Forms.Label();
@@ -41,16 +40,13 @@
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtMoney = new System.Windows.Forms.TextBox();
-            this.txtIDE = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdMale = new System.Windows.Forms.RadioButton();
             this.rdFemale = new System.Windows.Forms.RadioButton();
+            this.rdMale = new System.Windows.Forms.RadioButton();
             this.btnSend = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
-            this.dtpDC = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtIDU = new System.Windows.Forms.TextBox();
+            this.cbbEm = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,21 +64,21 @@
             // 
             this.lbGender.AutoSize = true;
             this.lbGender.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.lbGender.Location = new System.Drawing.Point(41, 405);
+            this.lbGender.Location = new System.Drawing.Point(238, 308);
             this.lbGender.Name = "lbGender";
             this.lbGender.Size = new System.Drawing.Size(100, 30);
             this.lbGender.TabIndex = 1;
             this.lbGender.Text = "Gender";
             // 
-            // lbIDE
+            // lbNameE
             // 
-            this.lbIDE.AutoSize = true;
-            this.lbIDE.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.lbIDE.Location = new System.Drawing.Point(237, 308);
-            this.lbIDE.Name = "lbIDE";
-            this.lbIDE.Size = new System.Drawing.Size(187, 30);
-            this.lbIDE.TabIndex = 2;
-            this.lbIDE.Text = "ID_Employee";
+            this.lbNameE.AutoSize = true;
+            this.lbNameE.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbNameE.Location = new System.Drawing.Point(238, 215);
+            this.lbNameE.Name = "lbNameE";
+            this.lbNameE.Size = new System.Drawing.Size(132, 30);
+            this.lbNameE.TabIndex = 2;
+            this.lbNameE.Text = "Employee";
             // 
             // lbMoney
             // 
@@ -93,16 +89,6 @@
             this.lbMoney.Size = new System.Drawing.Size(94, 30);
             this.lbMoney.TabIndex = 3;
             this.lbMoney.Text = "Money";
-            // 
-            // lbDC
-            // 
-            this.lbDC.AutoSize = true;
-            this.lbDC.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.lbDC.Location = new System.Drawing.Point(237, 215);
-            this.lbDC.Name = "lbDC";
-            this.lbDC.Size = new System.Drawing.Size(146, 30);
-            this.lbDC.TabIndex = 4;
-            this.lbDC.Text = "DateCreate";
             // 
             // lbDOB
             // 
@@ -174,23 +160,26 @@
             this.txtMoney.Size = new System.Drawing.Size(190, 35);
             this.txtMoney.TabIndex = 16;
             // 
-            // txtIDE
-            // 
-            this.txtIDE.Font = new System.Drawing.Font("Tahoma", 13.8F);
-            this.txtIDE.Location = new System.Drawing.Point(242, 351);
-            this.txtIDE.Name = "txtIDE";
-            this.txtIDE.Size = new System.Drawing.Size(190, 35);
-            this.txtIDE.TabIndex = 17;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rdFemale);
             this.groupBox1.Controls.Add(this.rdMale);
-            this.groupBox1.Location = new System.Drawing.Point(46, 439);
+            this.groupBox1.Location = new System.Drawing.Point(242, 351);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(190, 98);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
+            // 
+            // rdFemale
+            // 
+            this.rdFemale.AutoSize = true;
+            this.rdFemale.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdFemale.Location = new System.Drawing.Point(49, 53);
+            this.rdFemale.Name = "rdFemale";
+            this.rdFemale.Size = new System.Drawing.Size(95, 26);
+            this.rdFemale.TabIndex = 1;
+            this.rdFemale.Text = "Female";
+            this.rdFemale.UseVisualStyleBackColor = true;
             // 
             // rdMale
             // 
@@ -205,22 +194,11 @@
             this.rdMale.Text = "Male";
             this.rdMale.UseVisualStyleBackColor = true;
             // 
-            // rdFemale
-            // 
-            this.rdFemale.AutoSize = true;
-            this.rdFemale.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdFemale.Location = new System.Drawing.Point(49, 53);
-            this.rdFemale.Name = "rdFemale";
-            this.rdFemale.Size = new System.Drawing.Size(95, 26);
-            this.rdFemale.TabIndex = 1;
-            this.rdFemale.Text = "Female";
-            this.rdFemale.UseVisualStyleBackColor = true;
-            // 
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Stencil", 10.2F);
             this.btnSend.ForeColor = System.Drawing.Color.Brown;
-            this.btnSend.Location = new System.Drawing.Point(73, 557);
+            this.btnSend.Location = new System.Drawing.Point(74, 500);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(128, 44);
             this.btnSend.TabIndex = 19;
@@ -232,7 +210,7 @@
             // 
             this.btnCancel.Font = new System.Drawing.Font("Stencil", 10.2F);
             this.btnCancel.ForeColor = System.Drawing.Color.Brown;
-            this.btnCancel.Location = new System.Drawing.Point(242, 557);
+            this.btnCancel.Location = new System.Drawing.Point(242, 500);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(128, 44);
             this.btnCancel.TabIndex = 20;
@@ -249,46 +227,27 @@
             this.dtpDOB.TabIndex = 21;
             this.dtpDOB.Value = new System.DateTime(2022, 6, 9, 0, 0, 0, 0);
             // 
-            // dtpDC
+            // cbbEm
             // 
-            this.dtpDC.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDC.Location = new System.Drawing.Point(242, 258);
-            this.dtpDC.Name = "dtpDC";
-            this.dtpDC.Size = new System.Drawing.Size(190, 26);
-            this.dtpDC.TabIndex = 22;
-            this.dtpDC.Value = new System.DateTime(2022, 6, 9, 0, 0, 0, 0);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(245, 405);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 30);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "ID_User";
-            // 
-            // txtIDU
-            // 
-            this.txtIDU.Font = new System.Drawing.Font("Tahoma", 13.8F);
-            this.txtIDU.Location = new System.Drawing.Point(242, 454);
-            this.txtIDU.Name = "txtIDU";
-            this.txtIDU.Size = new System.Drawing.Size(190, 35);
-            this.txtIDU.TabIndex = 24;
+            this.cbbEm.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbEm.FormattingEnabled = true;
+            this.cbbEm.Location = new System.Drawing.Point(243, 258);
+            this.cbbEm.Name = "cbbEm";
+            this.cbbEm.Size = new System.Drawing.Size(189, 38);
+            this.cbbEm.TabIndex = 22;
+            this.cbbEm.SelectedIndexChanged += new System.EventHandler(this.cbbEm_SelectedIndexChanged);
             // 
             // FormCusAdd_Up
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(487, 623);
-            this.Controls.Add(this.txtIDU);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dtpDC);
+            this.Controls.Add(this.cbbEm);
             this.Controls.Add(this.dtpDOB);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtIDE);
             this.Controls.Add(this.txtMoney);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtPhone);
@@ -297,9 +256,8 @@
             this.Controls.Add(this.lbPhone);
             this.Controls.Add(this.lbEmail);
             this.Controls.Add(this.lbDOB);
-            this.Controls.Add(this.lbDC);
             this.Controls.Add(this.lbMoney);
-            this.Controls.Add(this.lbIDE);
+            this.Controls.Add(this.lbNameE);
             this.Controls.Add(this.lbGender);
             this.Controls.Add(this.lbname);
             this.Name = "FormCusAdd_Up";
@@ -315,9 +273,8 @@
         private DevExpress.XtraEditors.TextEdit txtFirst;
         private System.Windows.Forms.Label lbname;
         private System.Windows.Forms.Label lbGender;
-        private System.Windows.Forms.Label lbIDE;
+        private System.Windows.Forms.Label lbNameE;
         private System.Windows.Forms.Label lbMoney;
-        private System.Windows.Forms.Label lbDC;
         private System.Windows.Forms.Label lbDOB;
         private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Label lbPhone;
@@ -326,15 +283,12 @@
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtMoney;
-        private System.Windows.Forms.TextBox txtIDE;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rdFemale;
         private System.Windows.Forms.RadioButton rdMale;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DateTimePicker dtpDOB;
-        private System.Windows.Forms.DateTimePicker dtpDC;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtIDU;
+        private System.Windows.Forms.ComboBox cbbEm;
     }
 }

@@ -143,14 +143,7 @@ namespace NetManagement.View.FormAdmin
             OpenChildForm(new FormProducts());
         }
 
-        private void icBtnEquip_Click(object sender, EventArgs e)
-        {
-            ActiveButton(sender, RGBColors.color6);
-            lbTitle.Text = icBtnEquip.Text;
-            playSimpleSound();
-            icPtHome.IconChar = icBtnEquip.IconChar;
-            OpenChildForm(new FormEquipment());
-        }
+        
 
         private void LogoHome_Click(object sender, EventArgs e)
         {
@@ -206,6 +199,15 @@ namespace NetManagement.View.FormAdmin
 
             DateTime dt = DateTime.Now;
             lbTime.Text = dt.ToString("hh:mm:ss tt");
+        }
+
+        private void icCategory_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender, RGBColors.color5);
+            lbTitle.Text = icCategory.Text;
+            playSimpleSound();
+            icPtHome.IconChar = icCategory.IconChar;
+            OpenChildForm(new FormCategory());
         }
     }
 

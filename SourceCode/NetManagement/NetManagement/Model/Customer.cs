@@ -20,7 +20,6 @@ namespace NetManagement.Model
            HistoryAccountUsers = new HashSet<HistoryAccountUser>();
            UseComputerHistories = new HashSet<UseComputerHistory>();
        }
-        public int ID_Customer { get; set; }
         [Column("_Money")]
         public int Money { get; set; }
         [Required]

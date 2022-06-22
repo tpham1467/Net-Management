@@ -39,8 +39,17 @@
     <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.SpellChecker.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v21.2.Core.Desktop, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraSpellChecker.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -88,13 +97,19 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\AdminBLL_Category.cs" />
+    <Compile Include="BLL\AdminBLL_HisPayroll.cs" />
+    <Compile Include="BLL\AdminBLL_Salary.cs" />
+    <Compile Include="BLL\AdminBLL_Timekeeping.cs" />
     <Compile Include="BLL\AdminBLL_Cus.cs" />
     <Compile Include="BLL\AdminBLL_Em.cs" />
+    <Compile Include="BLL\AdminBLL_MerMana.cs" />
     <Compile Include="BLL\AdminBLL_OrderHis.cs" />
     <Compile Include="BLL\AdminBLL_UseCPHis.cs" />
-    <Compile Include="BLL\AdminBLL_Pro.cs" />
-    <Compile Include="BLL\AdminBLL_Shi.cs" />
     <Compile Include="DevExpress\XtraEditors.cs" />
+    <Compile Include="DTO\ConvertSalarytoVND.cs" />
+    <Compile Include="DTO\SortEnum.cs" />
+    <Compile Include="Helper\Convert.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Computer.cs" />
@@ -102,12 +117,15 @@
     <Compile Include="Model\CSDL.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Inventory.cs" />
     <Compile Include="Model\HistoryAccountUser.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderDetail.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\HistoryPayroll.cs" />
     <Compile Include="Model\SalaryEmployee.cs" />
+    <Compile Include="Model\SetCBB.cs" />
     <Compile Include="Model\Shift.cs" />
     <Compile Include="Model\StatusShift .cs" />
     <Compile Include="Model\Unit.cs" />
@@ -117,11 +135,53 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="View\FormAdmin\FormAddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormAddProduct.Designer.cs">
+      <DependentUpon>FormAddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormAddUpEm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormAddUpEm.Designer.cs">
+      <DependentUpon>FormAddUpEm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormAddUpSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormAddUpSalary.Designer.cs">
+      <DependentUpon>FormAddUpSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormAddUpShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormAddUpShift.Designer.cs">
+      <DependentUpon>FormAddUpShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormCategory.Designer.cs">
+      <DependentUpon>FormCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormAdmin\FormCusAdd_Up.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FormAdmin\FormCusAdd_Up.Designer.cs">
       <DependentUpon>FormCusAdd_Up.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormPayroll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormPayroll.Designer.cs">
+      <DependentUpon>FormPayroll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormUpdateAdd_CTR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormUpdateAdd_CTR.Designer.cs">
+      <DependentUpon>FormUpdateAdd_CTR.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormAdmin\MainForm.cs">
       <SubType>Form</SubType>
@@ -238,9 +298,31 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\FormAdmin\FormAddProduct.resx">
+      <DependentUpon>FormAddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormAddUpEm.resx">
+      <DependentUpon>FormAddUpEm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormAddUpSalary.resx">
+      <DependentUpon>FormAddUpSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormAddUpShift.resx">
+      <DependentUpon>FormAddUpShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormCategory.resx">
+      <DependentUpon>FormCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormAdmin\FormCusAdd_Up.resx">
       <DependentUpon>FormCusAdd_Up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormPayroll.resx">
+      <DependentUpon>FormPayroll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormUpdateAdd_CTR.resx">
+      <DependentUpon>FormUpdateAdd_CTR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormAdmin\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -291,20 +373,39 @@
     <Content Include="Resources\0af3c9613761d2d2394d99312aeba397.gif" />
     <Content Include="Resources\avt.png" />
     <Content Include="Resources\backgroud.png" />
+    <None Include="Resources\customer-management.png" />
+    <None Include="Resources\btnbackground.jpg" />
+    <None Include="Resources\color-background.png" />
     <Content Include="Resources\gmail-4561841_1280.png" />
+    <None Include="Resources\HistoryUsed.png" />
+    <None Include="Resources\icon-add-8.jpg" />
     <Content Include="Resources\Image1.png" />
+    <None Include="Resources\light-blue-green.jpg" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\images1.jpg" />
+    <None Include="Resources\imagesButton.jpg" />
     <Content Include="Resources\Logo.jpg" />
     <Content Include="Resources\Logo.png" />
     <Content Include="Resources\Logo1.jpg" />
     <Content Include="Resources\Logo1.png" />
+    <None Include="Resources\PayrollIcon.png" />
+    <None Include="Resources\OrderHistory.png" />
+    <None Include="Resources\payroll.png" />
+    <None Include="Resources\payroll1.png" />
+    <None Include="Resources\Logo11.jpg" />
+    <None Include="Resources\Logo2_remove.png" />
+    <None Include="Resources\mainBACKGROUND2.jpg" />
     <Content Include="Resources\PC.png" />
+    <None Include="Resources\redBackground.jpg" />
     <Content Include="Resources\Remini20220408094410404.jpg" />
+    <None Include="Resources\Shift.png" />
     <Content Include="Resources\Thiết kế chưa có tên %284%29.png" />
     <Content Include="Resources\Thiết kế chưa có tên %285%29.png" />
     <Content Include="Resources\Thiết kế chưa có tên %286%29.png" />
     <Content Include="Resources\Thiết kế chưa có tên %287%29.png" />
     <Content Include="Resources\Thiết kế chưa có tên %287%291.png" />
     <Content Include="Resources\Thiết kế chưa có tên.gif" />
+    <None Include="Resources\Timekeeping.jpg" />
     <Content Include="Resources\user_icon_150670.png" />
     <Content Include="View\FormCustomer\new.txt" />
     <Content Include="View\FormEmployee\new.txt" />

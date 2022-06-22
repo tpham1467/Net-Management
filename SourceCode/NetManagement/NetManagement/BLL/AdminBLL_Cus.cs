@@ -23,29 +23,29 @@ namespace NetManagement.BLL
         }
         public IEnumerable<Customer> GetAll()
         {
+            
             IEnumerable<Customer> data = repository.GetAll().ToList();
             foreach (Customer i in data)
             {
-                i.FullNameCus = i.FirstName + i.LastName;
+                i.FullNameCus = i.FirstName + " " + i.LastName;
+                i.Employee.FullNameEm = i.Employee.FirstName + " " + i.Employee.LastName;
             }
+            repository.Save();
             return data;
-        }
-        public void DelCus(int id)
-        {
-            //repository.Delete(id);
-            //repository.Save();
         }
         public Customer GetCusById(int id)
         {
-            return repository.GetById(id);
+            Customer cus = repository.GetById(id);
+            cus.Employee.FullNameEm = cus.Employee.FirstName +" "+ cus.Employee.LastName;
+            return cus;
 
         }
-        public void UpdateAdd(Customer cus)
+        public void UpdateAdd(string str,Customer cus,DateTime dt)
         {
             bool add = true;
             foreach (Customer i in GetAll())
             {
-                if (i.ID_User == cus.ID_User)
+                if (i.ID_User == Convert.ToInt32(str))
                 {
                     add = false;
                     break;
@@ -55,10 +55,17 @@ namespace NetManagement.BLL
             {
                 Add(cus);
             }
-            else UpDate(cus);
+            else
+            {
+                cus.Day_Create = dt;
+                cus.ID_User = Convert.ToInt32(str);
+                UpDate(cus);
+            }
         }
         public void Add(Customer cus)
         {
+            cus.Day_Create = DateTime.Now;
+            cus.FullNameCus = cus.FirstName +" "+ cus.LastName;
             repository.Insert(cus);
             repository.Save();
         }
@@ -80,7 +87,7 @@ namespace NetManagement.BLL
             List<Customer> list = new List<Customer>();
             if (txt == "Name")
             {
-                list = GetAll().OrderBy(p => p.LastName).ToList();
+                list = GetAll().OrderBy(p => p.FullNameCus).ToList();
             }
             else if (txt == "ID_User")
             {
@@ -123,6 +130,9 @@ namespace NetManagement.BLL
                 data2 = GetAll().ToList();
             }
             return data2;
+        }
+        public Customer CreateCus() { 
+            return repository.Create();
         }
     }
 }

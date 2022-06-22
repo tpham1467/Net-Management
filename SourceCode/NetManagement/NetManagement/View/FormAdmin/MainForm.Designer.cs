@@ -32,7 +32,7 @@ namespace NetManagement.View.FormAdmin
         {
             this.components = new System.ComponentModel.Container();
             this.pnMenu = new System.Windows.Forms.Panel();
-            this.icBtnEquip = new FontAwesome.Sharp.IconButton();
+            this.icCategory = new FontAwesome.Sharp.IconButton();
             this.icBtnPro = new FontAwesome.Sharp.IconButton();
             this.icBtnCus = new FontAwesome.Sharp.IconButton();
             this.icBtnSh = new FontAwesome.Sharp.IconButton();
@@ -44,10 +44,10 @@ namespace NetManagement.View.FormAdmin
             this.icBtnLogOut = new FontAwesome.Sharp.IconButton();
             this.lbTitle = new System.Windows.Forms.Label();
             this.icPtHome = new FontAwesome.Sharp.IconPictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnDesktop = new System.Windows.Forms.Panel();
             this.lbTime = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnMenu.SuspendLayout();
             this.pnLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoHome)).BeginInit();
@@ -60,7 +60,7 @@ namespace NetManagement.View.FormAdmin
             // pnMenu
             // 
             this.pnMenu.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.pnMenu.Controls.Add(this.icBtnEquip);
+            this.pnMenu.Controls.Add(this.icCategory);
             this.pnMenu.Controls.Add(this.icBtnPro);
             this.pnMenu.Controls.Add(this.icBtnCus);
             this.pnMenu.Controls.Add(this.icBtnSh);
@@ -73,28 +73,28 @@ namespace NetManagement.View.FormAdmin
             this.pnMenu.Size = new System.Drawing.Size(220, 845);
             this.pnMenu.TabIndex = 0;
             // 
-            // icBtnEquip
+            // icCategory
             // 
-            this.icBtnEquip.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.icBtnEquip.Dock = System.Windows.Forms.DockStyle.Top;
-            this.icBtnEquip.FlatAppearance.BorderSize = 0;
-            this.icBtnEquip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.icBtnEquip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.icBtnEquip.IconChar = FontAwesome.Sharp.IconChar.Outdent;
-            this.icBtnEquip.IconColor = System.Drawing.Color.DarkSeaGreen;
-            this.icBtnEquip.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icBtnEquip.IconSize = 32;
-            this.icBtnEquip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icBtnEquip.Location = new System.Drawing.Point(0, 438);
-            this.icBtnEquip.Name = "icBtnEquip";
-            this.icBtnEquip.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.icBtnEquip.Size = new System.Drawing.Size(220, 58);
-            this.icBtnEquip.TabIndex = 7;
-            this.icBtnEquip.Text = "Category";
-            this.icBtnEquip.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icBtnEquip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.icBtnEquip.UseVisualStyleBackColor = false;
-            this.icBtnEquip.Click += new System.EventHandler(this.icBtnEquip_Click);
+            this.icCategory.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.icCategory.Dock = System.Windows.Forms.DockStyle.Top;
+            this.icCategory.FlatAppearance.BorderSize = 0;
+            this.icCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.icCategory.IconChar = FontAwesome.Sharp.IconChar.Outdent;
+            this.icCategory.IconColor = System.Drawing.Color.DarkSeaGreen;
+            this.icCategory.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icCategory.IconSize = 32;
+            this.icCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icCategory.Location = new System.Drawing.Point(0, 438);
+            this.icCategory.Name = "icCategory";
+            this.icCategory.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.icCategory.Size = new System.Drawing.Size(220, 58);
+            this.icCategory.TabIndex = 7;
+            this.icCategory.Text = "Category";
+            this.icCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icCategory.UseVisualStyleBackColor = false;
+            this.icCategory.Click += new System.EventHandler(this.icCategory_Click);
             // 
             // icBtnPro
             // 
@@ -224,6 +224,7 @@ namespace NetManagement.View.FormAdmin
             // LogoHome
             // 
             this.LogoHome.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.LogoHome.Image = global::NetManagement.Properties.Resources.Logo1;
             this.LogoHome.Location = new System.Drawing.Point(3, 3);
             this.LogoHome.Name = "LogoHome";
             this.LogoHome.Size = new System.Drawing.Size(214, 134);
@@ -288,9 +289,15 @@ namespace NetManagement.View.FormAdmin
             this.icPtHome.TabIndex = 1;
             this.icPtHome.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
             // pnDesktop
             // 
             this.pnDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(60)))));
+            this.pnDesktop.BackgroundImage = global::NetManagement.Properties.Resources.mainBACKGROUND2;
+            this.pnDesktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnDesktop.Controls.Add(this.lbTime);
             this.pnDesktop.Controls.Add(this.pictureBox1);
             this.pnDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -302,9 +309,10 @@ namespace NetManagement.View.FormAdmin
             // lbTime
             // 
             this.lbTime.AutoSize = true;
+            this.lbTime.BackColor = System.Drawing.Color.Transparent;
             this.lbTime.Enabled = false;
             this.lbTime.Font = new System.Drawing.Font("Ravie", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTime.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbTime.ForeColor = System.Drawing.Color.Aqua;
             this.lbTime.Location = new System.Drawing.Point(582, 499);
             this.lbTime.Name = "lbTime";
             this.lbTime.Size = new System.Drawing.Size(214, 38);
@@ -313,17 +321,14 @@ namespace NetManagement.View.FormAdmin
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(60)))));
-            this.pictureBox1.Location = new System.Drawing.Point(414, 161);
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::NetManagement.Properties.Resources.Logo2_remove;
+            this.pictureBox1.Location = new System.Drawing.Point(394, 211);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(549, 395);
+            this.pictureBox1.Size = new System.Drawing.Size(569, 345);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // Form1
             // 
@@ -361,15 +366,15 @@ namespace NetManagement.View.FormAdmin
         private FontAwesome.Sharp.IconButton icBtnE;
         private FontAwesome.Sharp.IconButton icBtnDB;
         private System.Windows.Forms.Panel pnTitle;
-        private FontAwesome.Sharp.IconButton icBtnEquip;
+        private FontAwesome.Sharp.IconButton icCategory;
         private FontAwesome.Sharp.IconButton icBtnPro;
         private System.Windows.Forms.Label lbTitle;
         private FontAwesome.Sharp.IconPictureBox icPtHome;
         private System.Windows.Forms.Panel pnDesktop;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton icBtnLogOut;
         private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

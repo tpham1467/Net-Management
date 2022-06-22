@@ -18,8 +18,7 @@ namespace NetManagement.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_SalaryEmployee { get; set; }
-        [Required]
-        public float Salary { get; set; }
+        public int CoSalary { get; set; }
         public virtual ICollection<Employee> Employees { get; set; }
     }
 }

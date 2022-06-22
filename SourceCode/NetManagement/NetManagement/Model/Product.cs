@@ -12,6 +12,10 @@ namespace NetManagement.Model
     [Table("Product")]
     public class Product
     {
+        public Product()
+        {
+            Inventories = new HashSet<Inventory>();
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Product { get; set; }
@@ -28,6 +32,7 @@ namespace NetManagement.Model
         public virtual Unit Unit { get; set; }
        [ForeignKey("ID_Category")]
         public virtual Category Category { get; set; }
+        public virtual ICollection<Inventory> Inventories { get; set; }
 
         //public int ID_OrderDetail { get; set; }
         //[ForeignKey("ID_OrderDetail")]
