@@ -1,4 +1,4 @@
-﻿namespace NetManagement.View.FormCustomer
+﻿namespace NetManagement.View.FormEmployee
 {
     partial class Chat_Form
     {

@@ -94,7 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\BLLCustormer\BLLChat.cs" />
+    <Compile Include="BLL\BLLChat\BLLChat.cs" />
     <Compile Include="BLL\BLLCustormer\BLLDisplayinfor.cs" />
     <Compile Include="BLL\BLLCustormer\BLLHandleStatus.cs" />
     <Compile Include="BLL\BLLCustormer\BLLOrder.cs" />
@@ -211,6 +211,18 @@
     <Compile Include="View\FormEmployee\AccManagement_Form.Designer.cs">
       <DependentUpon>AccManagement_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormEmployee\Chat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormEmployee\Chat.Designer.cs">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormEmployee\Chat_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormEmployee\Chat_Form.Designer.cs">
+      <DependentUpon>Chat_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormEmployee\CheckIO_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +313,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormEmployee\AccManagement_Form.resx">
       <DependentUpon>AccManagement_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormEmployee\Chat.resx">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormEmployee\Chat_Form.resx">
+      <DependentUpon>Chat_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormEmployee\CheckIO_Form.resx">
       <DependentUpon>CheckIO_Form.cs</DependentUpon>

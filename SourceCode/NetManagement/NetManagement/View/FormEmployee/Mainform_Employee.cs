@@ -75,5 +75,12 @@ namespace NetManagement.View.FormEmployee
             this.Dispose();
             action();
         }
+
+        private void butSpMailbox_Click(object sender, EventArgs e)
+        {
+            OpenFormBody(new Chat());
+            labelTop.Text = butSpMailbox.Text;
+            
+        }
     }
 }

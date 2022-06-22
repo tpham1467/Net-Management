@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.BLL.BLLChat;
-namespace NetManagement.View.FormCustomer
+namespace NetManagement.View.FormEmployee
 {
     public partial class Chat_Form : Form
     {
@@ -22,15 +22,15 @@ namespace NetManagement.View.FormCustomer
             this.Disposed += btnClose_Click;
             foreach (var i in _BLLChat.GetAllMessage(Id_Computer).ToList())
             {
-                if (i.FromEmployee == true)
+                if (i.FromEmployee == false)
                 {
-                    this.listBox1.Items.Add("Admin :" + i._Message);
+                    this.listBox1.Items.Add("Customer :" + i._Message);
                     listBox1.Items.Add("                              ");
                     listBox1.Items.Add("                              ");
                 }
                 else
                 {
-                    listBox1.Items.Add("Bạn  : " + i._Message);
+                    listBox1.Items.Add("Bạn : " + i._Message);
                     listBox1.Items.Add("                              ");
                     listBox1.Items.Add("                              ");
                 }
@@ -49,11 +49,11 @@ namespace NetManagement.View.FormCustomer
             }
             else
             {
-                this.listBox1.Items.Add("Admin :" + text);
+                this.listBox1.Items.Add("Customer :" + text);
                 listBox1.Items.Add("                              ");
                 listBox1.Items.Add("                              ");
                 listBox1.SelectedIndex = listBox1.Items.Count - 1;
-                listBox1.ClearSelected();
+                listBox1.SelectedItems.Clear();
             }
         }
         public async Task UpdateMess()
@@ -61,13 +61,13 @@ namespace NetManagement.View.FormCustomer
             Task t = new Task(() =>
             {
                 statusTask = true;
-                int old = _BLLChat.GetAllMessageAdmin(Id_Computer).ToList().Count ;
+                int old = _BLLChat.GetAllMessageUser(Id_Computer).ToList().Count ;
                 while (statusTask)
                 {
-                    int cur = _BLLChat.GetAllMessageAdmin(Id_Computer).ToList().Count;
+                    int cur = _BLLChat.GetAllMessageUser(Id_Computer).ToList().Count;
                     if (cur > old)
                     {
-                        List<Model.Message> messages = _BLLChat.GetAllMessageAdmin(Id_Computer).Skip(old).ToList();
+                        List<Model.Message> messages = _BLLChat.GetAllMessageUser(Id_Computer).Skip(old).ToList();
                         foreach(var i in messages)
                         {
                             SetText(i._Message);
@@ -93,13 +93,13 @@ namespace NetManagement.View.FormCustomer
             if (textBoxmess.Text == "") return;
             else
             {
-                listBox1.Items.Add("Bạn  : " + textBoxmess.Text);
+                listBox1.Items.Add("Bạn : " + textBoxmess.Text);
                 listBox1.Items.Add("                              ");
                 listBox1.Items.Add("                              ");
-                _BLLChat.AddMess(textBoxmess.Text , Id_Computer);
+                _BLLChat.AddMessAdmin(textBoxmess.Text , Id_Computer);
                 textBoxmess.Text = "";
                 listBox1.SelectedIndex = listBox1.Items.Count - 1;
-                listBox1.ClearSelected();
+                listBox1.SelectedItems.Clear();
                 
             }
         }

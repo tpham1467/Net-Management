@@ -64,14 +64,18 @@ namespace NetManagement.View.FormCustomer
         delegate void Hett();
         public void HetTien()
         {
-            if (this.textBoxremaining.InvokeRequired)
+            if (this.InvokeRequired)
             {
                 Hett d = new Hett(HetTien);
                 this.Invoke(d, new object[] { });
             }
             else
             {
-                btnLoutout_Click(new object(), new EventArgs());
+                _BLLChoosePC.LogOutComputer(IdUseHistorycomputer, Helper.Convert.ConVertMoneyTohour(_timeused));
+                _BLLChoosePC.OffPc(id_computer);
+                Login_Form f = new Login_Form();
+                f.Show();
+                this.Dispose();
             }
            
         }
@@ -80,11 +84,11 @@ namespace NetManagement.View.FormCustomer
             
             Task t = new Task(() =>
             {
-                statusTask = false;
+                statusTask = true;
                 int remaining = _BLLDisplayinfor.GetCustomerById(Id).Money;
                 int timeused = 0;
              
-                while (true)
+                while (statusTask)
                 {
                      
                     if(remaining!=_BLLDisplayinfor.GetCustomerById(Id).Money)
@@ -94,7 +98,7 @@ namespace NetManagement.View.FormCustomer
                     remaining -= 2;
                     timeused += 2;
                     _timeused = timeused;
-                    if (remaining <= 0 || _BLLHandleStatus.CheckLock(Id) || _BLLHandleStatus.CheckErase(Id) || statusTask) 
+                    if (remaining <= 0 || _BLLHandleStatus.CheckLock(Id) || _BLLHandleStatus.CheckErase(Id)) 
                     {
                        
                         HetTien();
@@ -145,8 +149,7 @@ namespace NetManagement.View.FormCustomer
        
         private  void btnLoutout_Click(object sender, EventArgs e)
         {
-            if (statusTask == true) return;
-            statusTask = true;
+            statusTask = false;
             _BLLChoosePC.LogOutComputer(IdUseHistorycomputer, Helper.Convert.ConVertMoneyTohour(_timeused));
             _BLLChoosePC.OffPc(id_computer);
             Login_Form f = new Login_Form();
