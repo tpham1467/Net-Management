@@ -21,6 +21,7 @@ namespace NetManagement.Repositories
         }
         public IEnumerable<T> GetAll()
         {
+
             return table;
         }
         public T GetById(int id)
@@ -83,7 +84,7 @@ namespace NetManagement.Repositories
 
         }
 
-        public IEnumerable<T> Sort<Tkey>(SortEnum sort, System.Linq.Expressions.Expression<Func<T, Tkey>> expression, IComparer<Tkey> action_compare = null)
+        public IEnumerable<T> Sort<Tkey>( SortEnum sort, System.Linq.Expressions.Expression<Func<T, Tkey>> expression, IComparer<Tkey> action_compare = null)
         {
             if (sort == SortEnum.Asc)
             {
@@ -105,7 +106,7 @@ namespace NetManagement.Repositories
         {
             return table.Create<T>();
         }
-        public IEnumerable<T> Sort<Tkey>(string input, Func<T,string> key, bool IsContain, bool IsOnly)
+        public IEnumerable<T> Search(string input, Func<T,string> key, bool IsContain, bool IsOnly)
         {
             List<T> objectmatch = new List<T>();
             foreach (var i in table)

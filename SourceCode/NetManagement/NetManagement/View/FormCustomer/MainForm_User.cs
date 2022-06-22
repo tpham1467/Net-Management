@@ -139,7 +139,7 @@ namespace NetManagement.View.FormCustomer
 
         private void btnChat_Click(object sender, EventArgs e)
         {
-            OpenFormBody(new Chat_Form());
+            OpenFormBody(new Chat_Form(id_computer));
         }
 
        

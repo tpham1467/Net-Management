@@ -50,11 +50,11 @@ namespace NetManagement.View.FormEmployee
                     {
                         if (account.ID_Role == 2)
                         {
-                            if(bllCheckIncheckOut.GetShiftForDay(account.Id_User) == -1 )
-                            {
-                                MessageBox.Show("Ban Khong Co Ca Lam viec Trong Ngay Hom Nay Hoac Chua Den Gio");
-                                return;
-                            }
+                            //if(bllCheckIncheckOut.GetShiftForDay(account.Id_User) == -1 )
+                            //{
+                            //    MessageBox.Show("Ban Khong Co Ca Lam viec Trong Ngay Hom Nay Hoac Chua Den Gio");
+                            //    return;
+                            //}
                             Mainform_Employee mainform_Employee = new Mainform_Employee(account.Id_User);
                             mainform_Employee.action = UnHide;
                             mainform_Employee.Show();

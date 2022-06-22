@@ -14,8 +14,6 @@ namespace NetManagement.Model
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public int Id_Customer { get; set; }
-
         public bool FromEmployee { get; set; }
         public string _Message { get; set; }
         public DateTime time { get; set; }

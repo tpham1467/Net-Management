@@ -103,7 +103,7 @@ namespace NetManagement.View.FormEmployee
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.DataSource =  bLLAccoutManagement.Search(textBox1.Text);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

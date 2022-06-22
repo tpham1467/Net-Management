@@ -174,9 +174,9 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
                 return Filter(repository.Sort<int>(sort, a => a.ID_Account));
             else return Filter(repository.Sort<string>(sort, a => a.User.FirstName));
         }
-        public List<object> Search(string search)
+        public List<object> Search(string search )
         {
-            return new List<object>();
+            return Filter(repository.Search(search, (p) => p.Password_Acc , true , false ) ).ToList();
         }
     }
     public class Compare<T> : IComparer<T>

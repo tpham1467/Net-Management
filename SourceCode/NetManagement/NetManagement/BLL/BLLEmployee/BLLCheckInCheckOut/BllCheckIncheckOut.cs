@@ -103,6 +103,7 @@ namespace NetManagement.BLL.BLLEmployee.BLLCheckInCheckOut
             if (string.Compare(by, "Id") == 0)
                return Filter(id , statusShift , repository.Sort<int>(sort, p => p.ID_Shift) );
             else return Filter(id , statusShift, repository.Sort<DateTime>(sort ,p => p.WorkedDate ));
+
         }
     }
 }
