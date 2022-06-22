@@ -33,11 +33,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.labelTotalDayoff = new System.Windows.Forms.Label();
-            this.labelTotalDayofflabel = new System.Windows.Forms.Label();
             this.labelAveWorkingTime = new System.Windows.Forms.Label();
             this.labeAveWorkingTimelable = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labeltotalworkingtime = new System.Windows.Forms.Label();
             this.labelTotalWorkingTimelabel = new System.Windows.Forms.Label();
             this.labelTotal_WorkingDay = new System.Windows.Forms.Label();
             this.labelTotal_WorkingDaylable = new System.Windows.Forms.Label();
@@ -105,28 +103,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(784, 242);
             this.dataGridView1.TabIndex = 4;
             // 
-            // labelTotalDayoff
-            // 
-            this.labelTotalDayoff.AutoSize = true;
-            this.labelTotalDayoff.Location = new System.Drawing.Point(732, 111);
-            this.labelTotalDayoff.Name = "labelTotalDayoff";
-            this.labelTotalDayoff.Size = new System.Drawing.Size(16, 17);
-            this.labelTotalDayoff.TabIndex = 5;
-            this.labelTotalDayoff.Text = "4";
-            // 
-            // labelTotalDayofflabel
-            // 
-            this.labelTotalDayofflabel.AutoSize = true;
-            this.labelTotalDayofflabel.Location = new System.Drawing.Point(618, 111);
-            this.labelTotalDayofflabel.Name = "labelTotalDayofflabel";
-            this.labelTotalDayofflabel.Size = new System.Drawing.Size(89, 17);
-            this.labelTotalDayofflabel.TabIndex = 6;
-            this.labelTotalDayofflabel.Text = "TotalDayoff :";
-            // 
             // labelAveWorkingTime
             // 
             this.labelAveWorkingTime.AutoSize = true;
-            this.labelAveWorkingTime.Location = new System.Drawing.Point(558, 111);
+            this.labelAveWorkingTime.Location = new System.Drawing.Point(630, 111);
             this.labelAveWorkingTime.Name = "labelAveWorkingTime";
             this.labelAveWorkingTime.Size = new System.Drawing.Size(28, 17);
             this.labelAveWorkingTime.TabIndex = 7;
@@ -135,25 +115,25 @@
             // labeAveWorkingTimelable
             // 
             this.labeAveWorkingTimelable.AutoSize = true;
-            this.labeAveWorkingTimelable.Location = new System.Drawing.Point(412, 111);
+            this.labeAveWorkingTimelable.Location = new System.Drawing.Point(462, 111);
             this.labeAveWorkingTimelable.Name = "labeAveWorkingTimelable";
             this.labeAveWorkingTimelable.Size = new System.Drawing.Size(123, 17);
             this.labeAveWorkingTimelable.TabIndex = 8;
             this.labeAveWorkingTimelable.Text = "AveWorkingTime :";
             // 
-            // label7
+            // labeltotalworkingtime
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(348, 111);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(24, 17);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "50";
+            this.labeltotalworkingtime.AutoSize = true;
+            this.labeltotalworkingtime.Location = new System.Drawing.Point(383, 111);
+            this.labeltotalworkingtime.Name = "labeltotalworkingtime";
+            this.labeltotalworkingtime.Size = new System.Drawing.Size(24, 17);
+            this.labeltotalworkingtime.TabIndex = 9;
+            this.labeltotalworkingtime.Text = "50";
             // 
             // labelTotalWorkingTimelabel
             // 
             this.labelTotalWorkingTimelabel.AutoSize = true;
-            this.labelTotalWorkingTimelabel.Location = new System.Drawing.Point(200, 111);
+            this.labelTotalWorkingTimelabel.Location = new System.Drawing.Point(229, 111);
             this.labelTotalWorkingTimelabel.Name = "labelTotalWorkingTimelabel";
             this.labelTotalWorkingTimelabel.Size = new System.Drawing.Size(131, 17);
             this.labelTotalWorkingTimelabel.TabIndex = 10;
@@ -283,11 +263,9 @@
             this.Controls.Add(this.labelTotal_WorkingDaylable);
             this.Controls.Add(this.labelTotal_WorkingDay);
             this.Controls.Add(this.labelTotalWorkingTimelabel);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.labeltotalworkingtime);
             this.Controls.Add(this.labeAveWorkingTimelable);
             this.Controls.Add(this.labelAveWorkingTime);
-            this.Controls.Add(this.labelTotalDayofflabel);
-            this.Controls.Add(this.labelTotalDayoff);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -308,11 +286,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label labelTotalDayoff;
-        private System.Windows.Forms.Label labelTotalDayofflabel;
         private System.Windows.Forms.Label labelAveWorkingTime;
         private System.Windows.Forms.Label labeAveWorkingTimelable;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labeltotalworkingtime;
         private System.Windows.Forms.Label labelTotalWorkingTimelabel;
         private System.Windows.Forms.Label labelTotal_WorkingDay;
         private System.Windows.Forms.Label labelTotal_WorkingDaylable;

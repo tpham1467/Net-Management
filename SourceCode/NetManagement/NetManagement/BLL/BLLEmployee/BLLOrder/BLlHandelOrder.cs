@@ -8,6 +8,7 @@ using NetManagement.Helper;
 using NetManagement.Model;
 using NetManagement.Repositories;
 using System.Windows.Forms;
+using NetManagement.BLL.BLLEmployee.BLLAccoutManagement;
 namespace NetManagement.BLL.BLLEmployee.BLLOrder
 {
     public class BLlHandelOrder
@@ -16,20 +17,22 @@ namespace NetManagement.BLL.BLLEmployee.BLLOrder
         private IRepository<OrderDetail> repository_OrderDetail;
         private IRepository<Product> repository_Prodcut;
         private IRepository<Inventory> repository_Inventory;
+        private IRepository<Customer> repository_Customer;
 
         #region Contructor
         public BLlHandelOrder() : this(new GenericRepository<Order>() , new GenericRepository<OrderDetail>(), new GenericRepository<Product>()
-            , new GenericRepository<Inventory>())
+            , new GenericRepository<Inventory>() , new GenericRepository<Customer>() )
         {
 
         }
         public BLlHandelOrder(IRepository<Order> _repository_Order , IRepository<OrderDetail> _repository_OrderDetail
-            , IRepository<Product> _repository_Prodcut , IRepository<Inventory> _repository_Inventory)
+            , IRepository<Product> _repository_Prodcut , IRepository<Inventory> _repository_Inventory , IRepository<Customer> _repository_Customer)
         {
             repository_Order = _repository_Order;
             repository_OrderDetail = _repository_OrderDetail;
             repository_Prodcut = _repository_Prodcut;
             repository_Inventory = _repository_Inventory;
+            repository_Customer = _repository_Customer;
         }
         #endregion
 
@@ -165,10 +168,12 @@ namespace NetManagement.BLL.BLLEmployee.BLLOrder
             }
             repository_Inventory.Save();
         }
-        public void Payment(int idorder , List<bool> ok)
+        public void Payment(int idorder , List<bool> ok , string description)
         { 
             int j = 0;
-            foreach(var i in GetAllOrderDetail(idorder))
+            Order order = repository_Order.GetById(idorder);
+            order.status = true;
+            foreach (var i in GetAllOrderDetail(idorder))
             {
                 
                 i.status = ok[j];
@@ -178,6 +183,7 @@ namespace NetManagement.BLL.BLLEmployee.BLLOrder
                 }
                 j++;
             }
+            repository_Order.Save();
             repository_OrderDetail.Save();
         }
         public void Fill(List<int> orders)
@@ -194,6 +200,37 @@ namespace NetManagement.BLL.BLLEmployee.BLLOrder
             }
             repository_Order.Save();
             repository_OrderDetail.Save();
+        }
+
+        public int PaymentAccount(int id , int money , int id_emloyee)
+        {
+            Customer customer = repository_Customer.GetById(id);
+            repository_Customer.Reload(customer);
+            if (money > customer.Money) return -1;
+            else
+            {
+               var bLLAccoutManagement = new BLLAccoutManagement.BLLAccoutManagement();
+                bLLAccoutManagement.TopUpAccount(-money, customer.ID_User);
+                HistoryAccountUser historyAccountUser = bLLAccoutManagement.CreateHistoryAccountUser();
+                historyAccountUser.Date = DateTime.Now;
+                historyAccountUser.Direct = false;
+                historyAccountUser.ID_Customer = customer.ID_User;
+                historyAccountUser.ID_Employee = id_emloyee;
+                historyAccountUser.Money = money;
+                historyAccountUser.Description = "Thanh Toan order";
+                bLLAccoutManagement.LogHistoryAccountUser(historyAccountUser);
+                repository_Customer.Save();
+                return 1;
+            }
+        }
+        public int GetIdCustormerByIdOrder(int id)
+        {
+            return repository_Order.GetById(id).ID_Customer;
+
+        }
+        public Order GetOrder(int id)
+        {
+            return repository_Order.GetById(id);
         }
         #endregion
     }

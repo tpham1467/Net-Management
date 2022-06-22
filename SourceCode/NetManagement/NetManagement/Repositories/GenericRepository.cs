@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Linq.Expressions;
 using NetManagement.DTO;
+
 namespace NetManagement.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T : class
@@ -41,6 +42,7 @@ namespace NetManagement.Repositories
                 return;
             }
             ActionUpdate(Swap, obj);
+
         }
         public void Delete(int id)
         {
@@ -48,19 +50,12 @@ namespace NetManagement.Repositories
             table.Remove(data);
         }
 
-        public void Save(int i = 0)
+        public void Save()
         {
             try
             {
                 int status = _context.SaveChanges();
-                if (status > 0 && i == 1)
-                {
-                    MessageBox.Show("Thanh Comg");
-                }
-                else if (i == 1)
-                {
-                    MessageBox.Show("Khong Thanh Cong");
-                }
+
             }
             catch (Exception e)
             {
@@ -84,7 +79,7 @@ namespace NetManagement.Repositories
 
         }
 
-        public IEnumerable<T> Sort<Tkey>( SortEnum sort, System.Linq.Expressions.Expression<Func<T, Tkey>> expression, IComparer<Tkey> action_compare = null)
+        public IEnumerable<T> Sort<Tkey>(SortEnum sort, System.Linq.Expressions.Expression<Func<T, Tkey>> expression, IComparer<Tkey> action_compare = null)
         {
             if (sort == SortEnum.Asc)
             {
@@ -106,8 +101,9 @@ namespace NetManagement.Repositories
         {
             return table.Create<T>();
         }
-        public IEnumerable<T> Search(string input, Func<T,string> key, bool IsContain, bool IsOnly)
+        public IEnumerable<T> Search(string input, Func<T, string> key, bool IsContain, bool IsOnly)
         {
+            if (string.IsNullOrEmpty(input)) return new List<T>();
             List<T> objectmatch = new List<T>();
             foreach (var i in table)
             {
@@ -127,6 +123,19 @@ namespace NetManagement.Repositories
                 }
             }
             return objectmatch;
+        }
+        public IEnumerable<object> Filter(Func<T, Object> func  , Func<T, bool> where = null , IEnumerable<T> data = null)
+        {
+            if (data == null)
+            {
+                if (where != null) data = data.Where(where);
+                return table.Select(func);
+            }
+            else
+            {
+                 if (where != null) data = data.Where(where);
+                return data.Select(func);
+            }
         }
     }
 }

@@ -25,8 +25,15 @@ namespace NetManagement.View.FormEmployee
         private void pcb_click(Object Sender, EventArgs e)
         {
             PC pC = Sender as PC;
-            Chat_Form chat_Form = new Chat_Form(pC.IDMay);
-            chat_Form.Show();
+            if (_BLLChoosePC.CheckComputer(pC.IDMay))
+            {
+                MessageBox.Show("May Hien Tai Khong Co Ai Dung");
+            }
+            else
+            {
+                Chat_Form chat_Form = new Chat_Form(pC.IDMay);
+                chat_Form.Show();
+            }
         }
         private void Loadevent()
         {

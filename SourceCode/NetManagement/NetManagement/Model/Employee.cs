@@ -17,9 +17,10 @@ namespace NetManagement.Model
             HistoryAccountUsers = new HashSet<HistoryAccountUser>();
             Shifts = new HashSet<Shift>();
             Orders = new HashSet<Order>();
+            HistoryPayrolls = new HashSet<HistoryPayroll>();
         }
 
-        [Required]
+        //[Required]
         public int ID_SalaryEmployee { get; set; }
         [ForeignKey("ID_SalaryEmployee")] 
 
@@ -29,9 +30,10 @@ namespace NetManagement.Model
    //     [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến  100 ký tự")]
         [Column("_Identify")]
         public string Identify { get; set; }
-         public virtual ICollection<HistoryAccountUser> HistoryAccountUsers { get; set; }
-          public virtual ICollection<Shift> Shifts { get; set; }
+        public virtual ICollection<HistoryAccountUser> HistoryAccountUsers { get; set; }
+        public virtual ICollection<Shift> Shifts { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
         public virtual ICollection<Order> Orders {get; set;}
+        public virtual ICollection<HistoryPayroll> HistoryPayrolls {get; set; }
     }
 }

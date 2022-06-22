@@ -30,5 +30,6 @@ namespace NetManagement.Model
         [ForeignKey("ID_Category")]
         public virtual Category Category { get; set; }
         public virtual ICollection<Inventory> Inventories { get; set; }
+
     }
 }

@@ -18,7 +18,8 @@ namespace NetManagement.View.FormChoosePC
     {
         private int Id_Customer;
         private BLLChoosePC _BLLChoosePC = new BLLChoosePC();
-     
+        private int Id_computer;
+        public Action action;
         public FormChoosePc(int id_customer)
         {
             InitializeComponent();
@@ -31,9 +32,12 @@ namespace NetManagement.View.FormChoosePC
         private void pcb_click(Object Sender, EventArgs e)
         {
             PC p = Sender as PC;
+            Id_computer = p.IDMay;
             if (_BLLChoosePC.CheckComputer(p.IDMay))
             {
+                _BLLChoosePC.UpdateCustomerUse(p.IDMay, Id_Customer);
                 MainForm_User mainForm_User = new MainForm_User(Id_Customer, p.IDMay);
+                mainForm_User.action = BackForm;
                 mainForm_User.Show();
                 this.Hide();
             }
@@ -42,6 +46,12 @@ namespace NetManagement.View.FormChoosePC
                 MessageBox.Show("May Da Co Nguoi Dung");
             }
 
+        }
+        public void BackForm()
+        {
+           _BLLChoosePC.UpdateCustomerUse(Id_computer, 0);
+            action();
+            this.Dispose();
         }
         private void Loadevent()
         {

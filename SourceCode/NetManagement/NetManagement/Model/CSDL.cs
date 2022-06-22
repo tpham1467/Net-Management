@@ -44,6 +44,7 @@ namespace NetManagement.Model
 
       
         public virtual DbSet<Computer> Computers { get; set; }
+        public virtual DbSet<HistoryPayroll> HistoryPayrolls { get; set; }
         public virtual DbSet<SalaryEmployee> SalaryEmployees { get; set; }
         public virtual DbSet<UseComputerHistory> UseComputerHistorys { get; set; }
         public virtual DbSet<User> Users { get; set; }

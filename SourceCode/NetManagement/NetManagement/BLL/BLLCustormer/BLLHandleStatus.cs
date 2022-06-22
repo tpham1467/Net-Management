@@ -26,6 +26,7 @@ namespace NetManagement.BLL.BLLCustormer
             {
                 if(id == i.ID_Account )
                 {
+                    repository.Reload(i);
                     if(i.status == 1 )
                     {
                         return true;

@@ -185,7 +185,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::NetManagement.Properties.Resources.Thiết_kế_chưa_có_tên__7_;
+            //this.pictureBox1.Image = global::NetManagement.Properties.Resources.Thiết_kế_chưa_có_tên__7_;
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(513, 296);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);

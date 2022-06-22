@@ -85,7 +85,20 @@ namespace NetManagement.BLL.BLLLogin
             }
             return false;
         }
-        
+        public void UpdateCustomerUse(int id_computer , int id_cutomer)
+        {
+            foreach(var i in repository.GetAll())
+            {
+                if(i.ID_Computer == id_computer)
+                {
+                    Computer computer = repository.GetById(id_computer);
+                    computer.ID_Customer = id_cutomer;
+                    break;
+                }
+            }
+            repository.Save();
+        }
+
     }
 
 }

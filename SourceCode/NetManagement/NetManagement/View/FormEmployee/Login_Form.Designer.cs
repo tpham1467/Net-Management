@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login_Form));
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -87,6 +88,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Image = global::NetManagement.Properties.Resources.backgroud;
             this.pictureBox1.Location = new System.Drawing.Point(4, 12);
             this.pictureBox1.Name = "pictureBox1";
@@ -109,7 +111,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Image = global::NetManagement.Properties.Resources.user_icon_150670;
+            this.pictureBox3.Image = global::NetManagement.Properties.Resources.customer_management;
             this.pictureBox3.Location = new System.Drawing.Point(553, 234);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(28, 29);

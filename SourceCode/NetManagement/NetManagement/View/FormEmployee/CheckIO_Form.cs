@@ -33,6 +33,15 @@ namespace NetManagement.View.FormEmployee
             labelTimEnd.Text = Endtime;
             dataGridView1.DataSource = _BllCheckIncheckOut.Filter(id, new StatusShift { ID_StatusShift = 1 });
             Load_Statistic();
+            CheckShift();
+        }
+        public void  CheckShift()
+        {
+            if(_BllCheckIncheckOut.GetShiftForDay(id) == -1)
+            {
+                btnCheckin.Enabled = false;
+                btnCheckout.Enabled = false;
+            }
         }
         public  int GetshiftCur()
         {
@@ -40,6 +49,9 @@ namespace NetManagement.View.FormEmployee
         }
         public void Load_Statistic()
         {
+            labeltotalworkingtime.Text = _BllCheckIncheckOut.TotalWorkingTime(id).ToString();
+            labelTotal_WorkingDay.Text = _BllCheckIncheckOut.Total_WorkingDay(id).ToString();
+            labelAveWorkingTime.Text = _BllCheckIncheckOut.AveWorkingTime(id).ToString();
 
         }
         private void btnCheckin_Click(object sender, EventArgs e)
@@ -59,7 +71,9 @@ namespace NetManagement.View.FormEmployee
             Endtime = DateTime.Now.ToString("hh:mm tt");
             labelTimEnd.Text = Endtime;
             _BllCheckIncheckOut.CheckOut(id_shift);
+            btnCheckout.Enabled = false;
             IsCheckOut = true;
+            Load_Statistic();
         }
 
 

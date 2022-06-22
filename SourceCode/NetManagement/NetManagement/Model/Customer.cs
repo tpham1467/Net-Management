@@ -20,7 +20,6 @@ namespace NetManagement.Model
             HistoryAccountUsers = new HashSet<HistoryAccountUser>();
             UseComputerHistories = new HashSet<UseComputerHistory>();
        }
-      
         [Column("_Money")]
         public int Money { get; set; }
         [Required]
@@ -31,6 +30,6 @@ namespace NetManagement.Model
         public virtual ICollection<UseComputerHistory> UseComputerHistories {get; set;}
         public virtual ICollection<Order> Orders { get; set;}
 
-       
+
     }
 }

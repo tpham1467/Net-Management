@@ -28,5 +28,6 @@ namespace NetManagement.Model
 		[ForeignKey("ID_Product")]
 		public virtual Product Product { get; set; }
 
+        //public virtual ICollection<Product> Products { get; set; }
 	}
 }

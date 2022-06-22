@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using NetManagement.Repositories;
 using NetManagement.Model;
 using NetManagement.DTO;
-using System.Transactions;
 
 namespace NetManagement.BLL.BLLChat
 {
@@ -64,6 +63,15 @@ namespace NetManagement.BLL.BLLChat
             message.time = DateTime.Now;
             message._Message = s;
             repository.Insert(message);
+            repository.Save();
+        }
+        public void DelMess(int id)
+        {
+            List<Message> data = repository.Search(id.ToString(), p => p.id_computer.ToString(), false, false).ToList();
+            foreach(var i in data)
+            {
+                repository.Delete(i.Id);
+            }
             repository.Save();
         }
     }

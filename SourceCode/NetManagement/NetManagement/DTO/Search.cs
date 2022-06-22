@@ -6,11 +6,34 @@ using System.Threading.Tasks;
 
 namespace NetManagement.DTO
 {
-    public enum Search
+    public class Search
     {
-        Id = 0,
-        Name = 1 ,
-        Pass = 2 ,
-        UserName = 3, 
+        public enum SearchEnum
+        {
+            All = -1,
+            Id = 0,
+            Name = 1,
+        }
+    }
+    public class SearchCustomer : Search
+    {
+        public enum SearchCustomerEnum 
+        {
+
+        }
+    }
+    public class SearchHistoryUse : Search
+    {
+        public enum SearchHistoryUseEnum
+        {
+            ID_Cus = 0
+        }
+    }
+    public class SearchOrderHistory : Search
+    {
+        public  enum SearchHistoryUseEnum
+        {
+            Name_Customer
+        }
     }
 }

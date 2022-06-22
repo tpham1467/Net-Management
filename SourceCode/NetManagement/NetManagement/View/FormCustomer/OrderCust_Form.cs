@@ -225,6 +225,7 @@ namespace NetManagement.View.FormCustomer
                 i.Item1.Status = FoodOderStatus.Wait;
             }
             txtTongCong.Text = "";
+            foodOrders.Clear();
 
         }
     }

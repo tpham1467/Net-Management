@@ -64,6 +64,7 @@ namespace NetManagement.View.FormEmployee
                         {
 
                             FormChoosePc choosepc = new FormChoosePc(account.Id_User);
+                            choosepc.action = UnHide;
                             choosepc.Show();
                             this.Hide();
 

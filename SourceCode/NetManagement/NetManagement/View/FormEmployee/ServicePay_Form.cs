@@ -42,7 +42,7 @@ namespace NetManagement.View.FormEmployee
             List<int> data = GetSelect();
             if (data.Count  ==  1)
             {
-                OrderDetail orderDetail = new OrderDetail(data[0]);
+                OrderDetail orderDetail = new OrderDetail(data[0] , id);
                 orderDetail.Show();
             }
             

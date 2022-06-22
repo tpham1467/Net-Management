@@ -34,13 +34,13 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.buttonTopUp = new System.Windows.Forms.Button();
-            this.buttonAllowance = new System.Windows.Forms.Button();
             this.buttonLock = new System.Windows.Forms.Button();
             this.buttonUnlock = new System.Windows.Forms.Button();
             this.buttonSort = new System.Windows.Forms.Button();
             this.comboBoxSort = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBoxProperty = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,19 +101,9 @@
             this.buttonTopUp.UseVisualStyleBackColor = true;
             this.buttonTopUp.Click += new System.EventHandler(this.buttonTopUp_Click);
             // 
-            // buttonAllowance
-            // 
-            this.buttonAllowance.Location = new System.Drawing.Point(421, 401);
-            this.buttonAllowance.Name = "buttonAllowance";
-            this.buttonAllowance.Size = new System.Drawing.Size(75, 23);
-            this.buttonAllowance.TabIndex = 7;
-            this.buttonAllowance.Text = "Allowance";
-            this.buttonAllowance.UseVisualStyleBackColor = true;
-            this.buttonAllowance.Click += new System.EventHandler(this.buttonAllowance_Click);
-            // 
             // buttonLock
             // 
-            this.buttonLock.Location = new System.Drawing.Point(524, 401);
+            this.buttonLock.Location = new System.Drawing.Point(444, 401);
             this.buttonLock.Name = "buttonLock";
             this.buttonLock.Size = new System.Drawing.Size(75, 23);
             this.buttonLock.TabIndex = 8;
@@ -123,7 +113,7 @@
             // 
             // buttonUnlock
             // 
-            this.buttonUnlock.Location = new System.Drawing.Point(621, 401);
+            this.buttonUnlock.Location = new System.Drawing.Point(566, 401);
             this.buttonUnlock.Name = "buttonUnlock";
             this.buttonUnlock.Size = new System.Drawing.Size(75, 23);
             this.buttonUnlock.TabIndex = 9;
@@ -133,7 +123,7 @@
             // 
             // buttonSort
             // 
-            this.buttonSort.Location = new System.Drawing.Point(702, 401);
+            this.buttonSort.Location = new System.Drawing.Point(685, 401);
             this.buttonSort.Name = "buttonSort";
             this.buttonSort.Size = new System.Drawing.Size(75, 23);
             this.buttonSort.TabIndex = 10;
@@ -173,18 +163,31 @@
             this.comboBoxProperty.Size = new System.Drawing.Size(121, 24);
             this.comboBoxProperty.TabIndex = 12;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "ALL",
+            "ID",
+            "Name",
+            "UserName"});
+            this.comboBox1.Location = new System.Drawing.Point(783, 10);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 13;
+            // 
             // AccManagement_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1030, 450);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.comboBoxProperty);
             this.Controls.Add(this.comboBoxSort);
             this.Controls.Add(this.buttonSort);
             this.Controls.Add(this.buttonUnlock);
             this.Controls.Add(this.buttonLock);
-            this.Controls.Add(this.buttonAllowance);
             this.Controls.Add(this.buttonTopUp);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -208,12 +211,12 @@
     private System.Windows.Forms.Button btnUpdate;
     private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button buttonTopUp;
-        private System.Windows.Forms.Button buttonAllowance;
         private System.Windows.Forms.Button buttonLock;
         private System.Windows.Forms.Button buttonUnlock;
         private System.Windows.Forms.Button buttonSort;
         private System.Windows.Forms.ComboBox comboBoxSort;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox comboBoxProperty;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

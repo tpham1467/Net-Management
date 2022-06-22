@@ -121,32 +121,47 @@
   <data name="avt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\avt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="avt1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\avt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="backgroud" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backgroud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="backgroud1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backgroud.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnbackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnbackground.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="color_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\color-background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="customer_management" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\customer-management.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gmail_4561841_1280" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gmail-4561841_1280.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gmail_4561841_12801" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gmail-4561841_1280.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="HistoryUsed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HistoryUsed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_eye_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-eye-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Image1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_add_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-add-8.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Image11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Image1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Image2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Image2.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imagesButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imagesButton.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_blue_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\light-blue-green.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,37 +172,52 @@
   <data name="Logo11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Logo111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Logo12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo2_remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo2_remove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mainBACKGROUND2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mainBACKGROUND2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OrderHistory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OrderHistory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="payroll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\payroll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="payroll1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\payroll1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PayrollIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PayrollIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PC" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="redBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\redBackground.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Remini20220408094410404" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Remini20220408094410404.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Thiết_kế_chưa_có_tên" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thiết kế chưa có tên.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Shift" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Shift.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Thiết_kế_chưa_có_tên1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Thiết_kế_chưa_có_tên" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Thiết_kế_chưa_có_tên__4_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Thiết_kế_chưa_có_tên__4_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thiết kế chưa có tên (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Thiết_kế_chưa_có_tên__5_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Thiết_kế_chưa_có_tên__5_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thiết kế chưa có tên (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Thiết_kế_chưa_có_tên__6_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thiết kế chưa có tên (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Thiết_kế_chưa_có_tên__6_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Thiết_kế_chưa_có_tên__7_" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -196,22 +226,13 @@
   <data name="Thiết_kế_chưa_có_tên__7_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Thiết kế chưa có tên (7)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Thiết_kế_chưa_có_tên__7_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thiết kế chưa có tên (7)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Thiết_kế_chưa_có_tên__7_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Thiết kế chưa có tên (7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Timekeeping" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Timekeeping.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user_icon_150670" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user_icon_150670.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user_icon_1506701" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user_icon_150670.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="_0af3c9613761d2d2394d99312aeba397" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\0af3c9613761d2d2394d99312aeba397.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_0af3c9613761d2d2394d99312aeba3971" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\0af3c9613761d2d2394d99312aeba397.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

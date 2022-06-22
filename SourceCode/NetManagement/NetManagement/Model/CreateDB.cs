@@ -9,9 +9,9 @@ using System.Windows.Forms;
 namespace NetManagement.Model
 {
     public class CreateDB :
-      CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
+       CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
                                         //DropCreateDatabaseIfModelChanges<CSDL> // chỉ thay đổi Record thfi sẽ không tahy đổi, nếu thay đổi liên kết sẽ xóa đi cái cũ đê rkhwoir tạo cái mới
-                               //        DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
+                                   //     DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
     {
         protected override void Seed(NetManagemetnContext context)
         {
@@ -20,12 +20,12 @@ namespace NetManagement.Model
                 new Unit{ NameUnit = "Chai"},
                 new Unit{NameUnit = "Goi"} ,
                 new Unit{NameUnit = "Qua"}
-            }); 
+            });
             context.SalaryEmployees.AddRange(new SalaryEmployee[]
             {
-                new SalaryEmployee{  Salary = 123},
-                new SalaryEmployee{ Salary = 1234},
-                new SalaryEmployee{ Salary = 1235}
+                new SalaryEmployee{ CoSalary = 123},
+                new SalaryEmployee{ CoSalary = 1234},
+                new SalaryEmployee{ CoSalary = 1235}
             });
             context.Computers.AddRange(new Computer[]
             {
@@ -55,13 +55,12 @@ namespace NetManagement.Model
                 new Role { NameRole = "Customer", Description = "Sử dụng dịch vụ"}
             });
             context.SaveChanges();
-            List<User> data = context.Users.ToList();
             context.Users.AddRange(new User[]{
                 new Customer{ FirstName = "Nguyen Van ", LastName = " Phong", DateOfBirth  = DateTime.Now, Phone = "0914142562", Email = "abc@gmail.com",Day_Create = DateTime.Now, Gender = true ,Money = 1234, ID_Employee =1 },
                 new Customer{ FirstName = "Pham Van Tien ", LastName = "Hai", DateOfBirth  = DateTime.Now, Phone = "0914142563", Email = "abd@gmail.com",Day_Create = DateTime.Now, Gender = false , Money = 5000, ID_Employee =2 },
                new Customer{ FirstName = "Pham Cong", LastName = "Vu1", DateOfBirth  = DateTime.Now, Phone = "0914142564", Email = "abe@gmail.com",Day_Create = DateTime.Now, Gender = true , Money = 1234, ID_Employee =3 }
             });
-          
+
             context.SaveChanges();
             context.UseComputerHistorys.AddRange(new UseComputerHistory[]
             {
@@ -106,7 +105,7 @@ namespace NetManagement.Model
                 new Order{ID_Customer = 6, DateOfOrder = DateTime.Now , status = true , Id_Computer = 2} ,
                 new Order{ID_Customer = 4, DateOfOrder = DateTime.Now , status = true , Id_Computer = 2}
             });
-            
+
             context.SaveChanges();
             context.OrderDetails.AddRange(new OrderDetail[]{
                 new OrderDetail { ID_Product = 2, ID_Order = 1, Description = "Ok", Quality =1, status = true},
@@ -117,7 +116,7 @@ namespace NetManagement.Model
                  new OrderDetail { ID_Product = 3 ,  ID_Order = 3, Description = "Banh Mi Mua Ngoai", Quality =1 , status = true},
             });
 
-           
+
             context.Accounts.AddRange(new Account[]{
                 new Account{ UserName_Acc = "HphamE", Password_Acc = "Hpham321" , ID_Role = 2 , Id_User = 3 , status = 0 , IsErase = 0},
                 new Account{ UserName_Acc = "TphamE", Password_Acc = "Tpham321" , ID_Role = 2 , Id_User = 2 , status = 0 , IsErase = 0},

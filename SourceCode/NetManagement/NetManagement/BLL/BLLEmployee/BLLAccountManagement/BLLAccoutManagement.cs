@@ -13,15 +13,21 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
         private IRepository<Status> repository_status;
         private IRepository<Account> repository;
         private IRepository<User> repository_user;
-        public BLLAccoutManagement() : this(new GenericRepository<Account>() , new GenericRepository<Status>() , new GenericRepository<User>())
+        private IRepository<HistoryAccountUser> repository_HistoryAccountUser;
+        private IRepository<Computer> repository_computer;
+        public BLLAccoutManagement() : this(new GenericRepository<Account>() , new GenericRepository<Status>() , new GenericRepository<User>()  , new GenericRepository<HistoryAccountUser>() ,
+            new GenericRepository<Computer>())
         {
 
         }
-        public BLLAccoutManagement(IRepository<Account> _repository , IRepository<Status> _repository_status , IRepository<User> _repository_User)
+        public BLLAccoutManagement(IRepository<Account> _repository , IRepository<Status> _repository_status , IRepository<User> _repository_User , IRepository<HistoryAccountUser> _repository_HistoryAccountUser,
+            IRepository<Computer> _repository_computer)
         {
             repository = _repository;
             repository_status = _repository_status;
             repository_user = _repository_User;
+            repository_HistoryAccountUser = _repository_HistoryAccountUser;
+            repository_computer = _repository_computer;
         }
         public IEnumerable<Account> GetAll()
         {
@@ -145,6 +151,7 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
             {
                 repository.GetById(i).status = 1;
             }
+            repository.Save();
         }
         public Account GetById(int id)
         {
@@ -166,6 +173,7 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
             {
                 repository.GetById(i).status = 0;
             }
+            repository.Save();
         }
         public IEnumerable<object> Sort(SortEnum sort, string by)
         {
@@ -177,6 +185,26 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
         public List<object> Search(string search )
         {
             return Filter(repository.Search(search, (p) => p.Password_Acc , true , false ) ).ToList();
+        }
+
+        public void LogHistoryAccountUser(HistoryAccountUser historyAccountUser )
+        {
+            if (GetId_CustomerByIdComputer(historyAccountUser.ID_Customer) != -1)
+                historyAccountUser.ID_Computer = GetId_CustomerByIdComputer(historyAccountUser.ID_Customer);
+            repository_HistoryAccountUser.Insert(historyAccountUser);
+            repository_HistoryAccountUser.Save();
+        }
+        public HistoryAccountUser CreateHistoryAccountUser()
+        {
+            return repository_HistoryAccountUser.Create();
+        }
+        public int GetId_CustomerByIdComputer(int id)
+        {
+            foreach(var i in repository_computer.GetAll())
+            {
+                if (i.ID_Customer == id) return i.ID_Computer; 
+            }
+            return -1;
         }
     }
     public class Compare<T> : IComparer<T>

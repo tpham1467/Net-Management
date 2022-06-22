@@ -30,7 +30,7 @@ namespace NetManagement.View.FormEmployee
             List<int> data = GetSelect();
             if (data.Count > 0)
             {
-                TopUp topUp = new TopUp(data);
+                TopUp topUp = new TopUp(data , IdEmloyee );
                 topUp.action += Reload;
                 topUp.Show();
             }
@@ -113,6 +113,7 @@ namespace NetManagement.View.FormEmployee
             else
             {
                 FormAddUpdateAcc formAddUpdateAcc = new FormAddUpdateAcc(IdEmloyee , data[0]);
+                formAddUpdateAcc.action = Reload;
                 formAddUpdateAcc.Show();
             }
         }

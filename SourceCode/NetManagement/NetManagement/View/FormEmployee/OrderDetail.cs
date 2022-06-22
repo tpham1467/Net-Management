@@ -13,10 +13,12 @@ namespace NetManagement.View.FormEmployee
     public partial class OrderDetail : Form
     {
         private int id;
+        private int id_employee;
         private BLlHandelOrder bLlHandelOrder = new BLlHandelOrder();
-        public OrderDetail(int idorder)
+        public OrderDetail(int idorder , int idployee)
         {
             id = idorder;
+            id_employee = idployee;
             InitializeComponent();
             dataGridView1.DataSource = bLlHandelOrder.FilterOrderDeTail(id);
         }
@@ -37,13 +39,32 @@ namespace NetManagement.View.FormEmployee
         }
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            bLlHandelOrder.Payment(id, GetStatusOrderDetail());
+            if ((comboBoxmethod.SelectedItem as string) == "Tài Khoản")
+            {
+                int status = bLlHandelOrder.PaymentAccount(bLlHandelOrder.GetIdCustormerByIdOrder(id), bLlHandelOrder.GetOrder(id).Total , id_employee);
+                if (status == -1)
+                {
+                    MessageBox.Show(" Khong Du Tien");
+                }
+                else
+                {
+                    bLlHandelOrder.Payment(id, GetStatusOrderDetail(), "Tra Tai Khoan");
+                }
+            }
+            else
+            {
+                bLlHandelOrder.Payment(id, GetStatusOrderDetail(), "Tra Truc tiep");
+            }
             this.Dispose();
         }
-
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void comboBoxmethod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -32,6 +32,7 @@ namespace NetManagement.View.FormEmployee
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
+            this.comboBoxmethod = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@ namespace NetManagement.View.FormEmployee
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(616, 451);
+            this.buttonOk.Location = new System.Drawing.Point(537, 451);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(171, 23);
             this.buttonOk.TabIndex = 2;
@@ -65,11 +66,24 @@ namespace NetManagement.View.FormEmployee
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
+            // comboBoxmethod
+            // 
+            this.comboBoxmethod.FormattingEnabled = true;
+            this.comboBoxmethod.Items.AddRange(new object[] {
+            "Tiền Mặt",
+            "Tài Khoản"});
+            this.comboBoxmethod.Location = new System.Drawing.Point(734, 450);
+            this.comboBoxmethod.Name = "comboBoxmethod";
+            this.comboBoxmethod.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxmethod.TabIndex = 5;
+            this.comboBoxmethod.SelectedIndexChanged += new System.EventHandler(this.comboBoxmethod_SelectedIndexChanged);
+            // 
             // OrderDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 486);
+            this.Controls.Add(this.comboBoxmethod);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.dataGridView1);
@@ -85,5 +99,6 @@ namespace NetManagement.View.FormEmployee
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonOk;
+        private System.Windows.Forms.ComboBox comboBoxmethod;
     }
 }

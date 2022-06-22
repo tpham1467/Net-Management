@@ -34,5 +34,9 @@ namespace NetManagement.Model
         public int ID_StatusShift { get; set; }
         [ForeignKey("ID_StatusShift")]
         public virtual StatusShift StatusShift { get; set; }
+        public int? ID_HistoryPayRoll { get; set; }
+        [ForeignKey("ID_HistoryPayRoll")]
+        public virtual HistoryPayroll HistoryPayroll { get; set; }
+
     }
 }

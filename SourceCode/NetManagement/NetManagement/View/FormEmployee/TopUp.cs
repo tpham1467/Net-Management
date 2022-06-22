@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.DTO;
+using NetManagement.Model;
 using NetManagement.BLL.BLLEmployee.BLLAccoutManagement;
 namespace NetManagement.View.FormEmployee
 {
@@ -16,9 +17,11 @@ namespace NetManagement.View.FormEmployee
         private List<int> id;
         private BLLAccoutManagement _BLLAccoutManagement   = new BLLAccoutManagement();
         public Action action;
-        public TopUp(List<int> _id)
+        private int Id_Employee;
+        public TopUp(List<int> _id , int id_employee)
         {
             id = _id;
+            Id_Employee = id_employee;
             InitializeComponent();
             LoadObjectForCompoment();
         }
@@ -42,6 +45,14 @@ namespace NetManagement.View.FormEmployee
             MoneyTopUp money = comboBoxmoney.SelectedItem as MoneyTopUp;
             foreach (var i in id)
             {
+                HistoryAccountUser historyAccountUser = _BLLAccoutManagement.CreateHistoryAccountUser();
+                historyAccountUser.Date = DateTime.Now;
+                historyAccountUser.Description = "Nap Tien";
+                historyAccountUser.Direct = false;
+                historyAccountUser.ID_Customer = i;
+                historyAccountUser.ID_Employee = Id_Employee;
+                historyAccountUser.Money = money.Money;
+                _BLLAccoutManagement.LogHistoryAccountUser(historyAccountUser);
                 _BLLAccoutManagement.TopUpAccount(money.Money, i);
             }
             action.Invoke();

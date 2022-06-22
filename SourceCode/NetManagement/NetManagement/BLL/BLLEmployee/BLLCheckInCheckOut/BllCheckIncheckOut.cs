@@ -82,21 +82,47 @@ namespace NetManagement.BLL.BLLEmployee.BLLCheckInCheckOut
             shift.ID_StatusShift = 3;
             repository.Save();
         }
-        public float Total_WorkingDay(int id_emloyee)
+        public int Total_WorkingDay(int id_emloyee)
         {
-            return default;
+            List<DateTime> data = new List<DateTime>();
+            foreach (var i in GetAll())
+            {
+                if (i.ID_StatusShift == 2)
+                {
+                    bool check = false;
+                    foreach (var j in data)
+                    {
+                        if (j.Day == i.WorkedDate.Day)
+                        {
+                    
+                            check = true;
+                            break;
+                        }
+                    }
+                    if (check == false)
+                    {
+                        data.Add(i.WorkedDate);
+                    }
+
+                }
+            }
+            return data.Count;
         }
         public float TotalWorkingTime(int id_emloyee)
         {
-            return default;
+            int total = 0;
+            foreach( var i in GetAll())
+            {
+                if(i.ID_StatusShift == 2)
+                {
+                    total += i.WorkedHour;
+                }
+            }
+            return total;
         }
         public float AveWorkingTime(int id_emloyee)
         {
-            return default;
-        }
-        public float TotalDayoff(int id_emloyee)
-        {
-            return default;
+            return TotalWorkingTime(id_emloyee) / (float)Total_WorkingDay(id_emloyee) ;
         }
         public IEnumerable<object> Sort(int id , StatusShift statusShift, SortEnum sort, string by)
         {

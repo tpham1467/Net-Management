@@ -13,20 +13,22 @@ using NetManagement.BLL.BLLLogin;
 using NetManagement.Model;
 using NetManagement.Helper;
 using System.Threading;
-
+using NetManagement.BLL.BLLChat;
 namespace NetManagement.View.FormCustomer
 {
     public partial class MainForm_User : Form
     {
         private int _timeused;
         private bool statusTask;
- 
+
+        public Action action;
         private int Id;
         private int id_computer;
         private int IdUseHistorycomputer;
         private Form currentFormBody;
         private BLLDisplayinfor _BLLDisplayinfor = new BLLDisplayinfor();
         private BLLHandleStatus _BLLHandleStatus = new BLLHandleStatus();
+        private BLLChat bLLChat = new BLLChat();
         private BLLChoosePC _BLLChoosePC = new BLLChoosePC();
         public  MainForm_User(int _id , int idcomputer)
         {
@@ -152,8 +154,8 @@ namespace NetManagement.View.FormCustomer
             statusTask = false;
             _BLLChoosePC.LogOutComputer(IdUseHistorycomputer, Helper.Convert.ConVertMoneyTohour(_timeused));
             _BLLChoosePC.OffPc(id_computer);
-            Login_Form f = new Login_Form();
-            f.Show();
+            bLLChat.DelMess(id_computer);
+            action();
             this.Dispose();
 
         }

@@ -69,7 +69,7 @@ namespace NetManagement.View.FormEmployee
                 }
                 else
                 {
-                    _BLLAccoutManagement.UpdateAccount(customer, lable.Text, textBoxPassWord.Text , id_User);
+                    _BLLAccoutManagement.UpdateAccount(customer, txtUserName.Text, textBoxPassWord.Text , id_User);
                 }
                 action();
                 this.Dispose();
