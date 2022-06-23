@@ -21,9 +21,11 @@ namespace NetManagement.View.FormEmployee
             InitializeComponent();
             dataGridView1.DataSource = bLLAccoutManagement.Filter();
         }
-        public void Reload()
+        public void Reload(List<object> data = null)
         {
-            dataGridView1.DataSource = bLLAccoutManagement.Filter();
+            if (data == null)
+                dataGridView1.DataSource = bLLAccoutManagement.Filter();
+            else dataGridView1.DataSource = data;
         }
         private void buttonTopUp_Click(object sender, EventArgs e)
         {
@@ -100,10 +102,29 @@ namespace NetManagement.View.FormEmployee
             }
             return new List<int>();
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource =  bLLAccoutManagement.Search(textBox1.Text);
+            string search = textBoxsearch.Text;
+            string by = comboBoxbysearch.SelectedItem.ToString();
+            List<object> list = new List<object>();
+            if(by =="ALL")
+            {
+                list = bLLAccoutManagement.Search(search, SearchAcoountEnum.All);
+            }
+            else if(by == "ID")
+            {
+                list = bLLAccoutManagement.Search(search, SearchAcoountEnum.Id);
+            }
+            else if (by == "Name")
+            {
+                list =bLLAccoutManagement.Search(search, SearchAcoountEnum.Name);
+            }
+            else
+            {
+                list =bLLAccoutManagement.Search(search, SearchAcoountEnum.UserName);
+            }
+            Reload(list);
+            comboBoxbysearch.SelectedIndex = 0;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

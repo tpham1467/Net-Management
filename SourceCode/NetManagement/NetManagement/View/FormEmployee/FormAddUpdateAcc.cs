@@ -16,7 +16,7 @@ namespace NetManagement.View.FormEmployee
         private BLLAccoutManagement _BLLAccoutManagement = new BLLAccoutManagement();
         private int id_employee;
         private int id_User;
-        public Action action;
+        public Action<List<object>> action;
         public FormAddUpdateAcc(int Id_Emloyeee , int id_Acc)
         {
             id_employee = Id_Emloyeee;
@@ -71,7 +71,7 @@ namespace NetManagement.View.FormEmployee
                 {
                     _BLLAccoutManagement.UpdateAccount(customer, txtUserName.Text, textBoxPassWord.Text , id_User);
                 }
-                action();
+                action(null);
                 this.Dispose();
             }
         }

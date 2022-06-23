@@ -28,7 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxsearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -40,16 +40,16 @@
             this.comboBoxSort = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.comboBoxProperty = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxbysearch = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxsearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(481, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(263, 22);
-            this.textBox1.TabIndex = 0;
+            this.textBoxsearch.Location = new System.Drawing.Point(481, 12);
+            this.textBoxsearch.Name = "textBoxsearch";
+            this.textBoxsearch.Size = new System.Drawing.Size(263, 22);
+            this.textBoxsearch.TabIndex = 0;
             // 
             // btnSearch
             // 
@@ -163,18 +163,18 @@
             this.comboBoxProperty.Size = new System.Drawing.Size(121, 24);
             this.comboBoxProperty.TabIndex = 12;
             // 
-            // comboBox1
+            // comboBoxbysearch
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxbysearch.FormattingEnabled = true;
+            this.comboBoxbysearch.Items.AddRange(new object[] {
             "ALL",
             "ID",
             "Name",
             "UserName"});
-            this.comboBox1.Location = new System.Drawing.Point(783, 10);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 13;
+            this.comboBoxbysearch.Location = new System.Drawing.Point(783, 10);
+            this.comboBoxbysearch.Name = "comboBoxbysearch";
+            this.comboBoxbysearch.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxbysearch.TabIndex = 13;
             // 
             // AccManagement_Form
             // 
@@ -182,7 +182,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1030, 450);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxbysearch);
             this.Controls.Add(this.comboBoxProperty);
             this.Controls.Add(this.comboBoxSort);
             this.Controls.Add(this.buttonSort);
@@ -194,7 +194,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxsearch);
             this.Name = "AccManagement_Form";
             this.Text = "AccManagement";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -205,7 +205,7 @@
 
     #endregion
 
-    private System.Windows.Forms.TextBox textBox1;
+    private System.Windows.Forms.TextBox textBoxsearch;
     private System.Windows.Forms.Button btnSearch;
     private System.Windows.Forms.Button btnAdd;
     private System.Windows.Forms.Button btnUpdate;
@@ -217,6 +217,6 @@
         private System.Windows.Forms.ComboBox comboBoxSort;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox comboBoxProperty;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxbysearch;
     }
 }

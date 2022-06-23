@@ -182,9 +182,25 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
                 return Filter(repository.Sort<int>(sort, a => a.ID_Account));
             else return Filter(repository.Sort<string>(sort, a => a.User.FirstName));
         }
-        public List<object> Search(string search )
+        public List<object> Search(string search ,SearchAcoountEnum searchby)
         {
-            return Filter(repository.Search(search, (p) => p.Password_Acc , true , false ) ).ToList();
+            
+            if(searchby == SearchAcoountEnum.All)
+            {
+                return Filter(repository.GetAll()).ToList();
+            }
+            else if(searchby == SearchAcoountEnum.Id)
+            {
+                return Filter(repository.Search(search, p => p.ID_Account.ToString() , false, true)).ToList();
+            }
+            else if(searchby == SearchAcoountEnum.Name)
+            {
+                return Filter(repository.Search(search, p => p.User.FirstName + p.User.LastName , true, false)).ToList();
+            }
+            else
+            {
+                return Filter(repository.Search(search, p => p.UserName_Acc, true, false)).ToList();
+            }
         }
 
         public void LogHistoryAccountUser(HistoryAccountUser historyAccountUser )

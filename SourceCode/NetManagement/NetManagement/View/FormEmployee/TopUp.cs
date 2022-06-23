@@ -16,7 +16,7 @@ namespace NetManagement.View.FormEmployee
     {
         private List<int> id;
         private BLLAccoutManagement _BLLAccoutManagement   = new BLLAccoutManagement();
-        public Action action;
+        public Action<List<object>> action;
         private int Id_Employee;
         public TopUp(List<int> _id , int id_employee)
         {
@@ -55,7 +55,7 @@ namespace NetManagement.View.FormEmployee
                 _BLLAccoutManagement.LogHistoryAccountUser(historyAccountUser);
                 _BLLAccoutManagement.TopUpAccount(money.Money, i);
             }
-            action.Invoke();
+            action(null);
             this.Dispose();
         }
     }

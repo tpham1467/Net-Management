@@ -45,8 +45,6 @@
             this.buttonSort = new System.Windows.Forms.Button();
             this.comboBoxmode = new System.Windows.Forms.ComboBox();
             this.comboBoxProperty = new System.Windows.Forms.ComboBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBoxDalam = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -187,7 +185,7 @@
             // 
             // buttonSort
             // 
-            this.buttonSort.Location = new System.Drawing.Point(386, 407);
+            this.buttonSort.Location = new System.Drawing.Point(143, 411);
             this.buttonSort.Name = "buttonSort";
             this.buttonSort.Size = new System.Drawing.Size(120, 31);
             this.buttonSort.TabIndex = 16;
@@ -201,7 +199,7 @@
             this.comboBoxmode.Items.AddRange(new object[] {
             "Asc",
             "Desc"});
-            this.comboBoxmode.Location = new System.Drawing.Point(512, 411);
+            this.comboBoxmode.Location = new System.Drawing.Point(350, 414);
             this.comboBoxmode.Name = "comboBoxmode";
             this.comboBoxmode.Size = new System.Drawing.Size(121, 24);
             this.comboBoxmode.TabIndex = 17;
@@ -212,27 +210,10 @@
             this.comboBoxProperty.Items.AddRange(new object[] {
             "Id",
             "Date Work"});
-            this.comboBoxProperty.Location = new System.Drawing.Point(653, 411);
+            this.comboBoxProperty.Location = new System.Drawing.Point(523, 414);
             this.comboBoxProperty.Name = "comboBoxProperty";
             this.comboBoxProperty.Size = new System.Drawing.Size(121, 24);
             this.comboBoxProperty.TabIndex = 18;
-            // 
-            // buttonSearch
-            // 
-            this.buttonSearch.Location = new System.Drawing.Point(90, 407);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(120, 31);
-            this.buttonSearch.TabIndex = 19;
-            this.buttonSearch.Text = "Search";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(217, 412);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 22);
-            this.textBox1.TabIndex = 20;
             // 
             // checkBoxDalam
             // 
@@ -252,8 +233,6 @@
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.checkBoxDalam);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.comboBoxProperty);
             this.Controls.Add(this.comboBoxmode);
             this.Controls.Add(this.buttonSort);
@@ -298,8 +277,6 @@
         private System.Windows.Forms.Button buttonSort;
         private System.Windows.Forms.ComboBox comboBoxmode;
         private System.Windows.Forms.ComboBox comboBoxProperty;
-        private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox checkBoxDalam;
     }
 }

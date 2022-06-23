@@ -48,7 +48,7 @@ namespace NetManagement.View.FormCustomer
         private void SetText(string text, string text2)
         {
            
-            if (this.textBoxremaining.InvokeRequired)
+            if (this.textBoxremaining.InvokeRequired && this.textBoxused.InvokeRequired)
             {
                 SetTextCallback d = new SetTextCallback(SetText);
                 this.Invoke(d, new object[] { text  , text2});
