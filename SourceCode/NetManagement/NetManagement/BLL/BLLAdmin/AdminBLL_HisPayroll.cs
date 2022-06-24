@@ -26,6 +26,20 @@ namespace NetManagement.BLL
             IEnumerable<HistoryPayroll> data = repository.GetAll().ToList();
             return data;
         }
+        public IEnumerable<object> Filter(IEnumerable<HistoryPayroll> historyPayrolls = null)
+        {
+            if (historyPayrolls == null) historyPayrolls = GetAll();
+            var data = historyPayrolls.Select(p => new
+            {
+                p.PayrollDate,
+                p.Employee.ID_User,
+                Name = p.Employee.FirstName+p.Employee.LastName,
+                p.Employee.Identify,
+                p.Salary,
+                p.Employee.SalaryEmployee.CoSalary
+            });
+            return data.ToList();
+        }
         public List<HistoryPayroll> GetHisPayrollById(List<int> id)
         {
             IEnumerable<HistoryPayroll> data = repository.GetAll().ToList();

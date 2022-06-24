@@ -31,6 +31,27 @@ namespace NetManagement.BLL
             repository.Save();
             return data;
         }
+        public IEnumerable<object> Filter(StatusShift statusShift, IEnumerable<Shift> shifts = null)
+        {
+            if (shifts == null) shifts = GetAll();
+            var data = shifts.Where(p=>p.StatusShift.ID_StatusShift == statusShift.ID_StatusShift).Select(p =>
+
+                new
+                {
+                    p.ID_Employee,
+                    p.ID_Shift,
+                    Name = p.Employee.FirstName + p.Employee.LastName,
+                    StartTime = p.ShiftStartTime.ToString("hh:mm tt"),
+                    EndTime = p.ShiftEndTime.ToString("hh: mm tt"),
+                    WorkDate = p.WorkedDate.ToString("MM / dd / yyyy"),
+                    Status = p.StatusShift.Description,
+                    
+
+                });
+            return data.ToList();
+        }
+
+
         public IEnumerable<object> Filter(IEnumerable<Shift> sh = null)
         {
             if (sh == null) sh = GetAll();

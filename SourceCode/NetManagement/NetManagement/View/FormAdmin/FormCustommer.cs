@@ -44,7 +44,7 @@ namespace NetManagement.View.FormAdmin
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FormCusAdd_Up f = new FormCusAdd_Up("");
+            FormCusAdd_Up f = new FormCusAdd_Up(-1,-1);
             f.d = new FormCusAdd_Up.MyDel(ReloadCus);
             f.Show();
         }
@@ -53,8 +53,8 @@ namespace NetManagement.View.FormAdmin
         {
             if (dgvShowCus.SelectedRows.Count == 1)
             {
-                string s = dgvShowCus.SelectedRows[0].Cells["ID_User"].Value.ToString();
-                FormCusAdd_Up f = new FormCusAdd_Up(s);
+                int s = Convert.ToInt32(dgvShowCus.SelectedRows[0].Cells["ID_User"].Value);
+                FormCusAdd_Up f = new FormCusAdd_Up(1,s);
                 f.d = new FormCusAdd_Up.MyDel(ReloadCus);
                 f.Show();
             }

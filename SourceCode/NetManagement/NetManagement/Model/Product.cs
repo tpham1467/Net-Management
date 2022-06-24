@@ -18,7 +18,6 @@ namespace NetManagement.Model
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Product { get; set; }
-        [Required]
         public int ID_Category { get; set; }
         [Required]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến  100 ký tự")]

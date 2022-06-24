@@ -1,6 +1,6 @@
 ﻿namespace NetManagement.View.FormAdmin
 {
-    partial class FormAddProduct
+    partial class FormAddProductExport
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,6 @@
             this.cbbProduct = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
-            this.btnAddNewPro = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbidPro
@@ -196,15 +195,6 @@
             this.txtAmount.Size = new System.Drawing.Size(240, 35);
             this.txtAmount.TabIndex = 25;
             // 
-            // btnAddNewPro
-            // 
-            this.btnAddNewPro.Location = new System.Drawing.Point(343, 51);
-            this.btnAddNewPro.Name = "btnAddNewPro";
-            this.btnAddNewPro.Size = new System.Drawing.Size(149, 51);
-            this.btnAddNewPro.TabIndex = 26;
-            this.btnAddNewPro.Text = "Add New Product";
-            this.btnAddNewPro.UseVisualStyleBackColor = true;
-            // 
             // FormAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -213,7 +203,6 @@
             this.BackgroundImage = global::NetManagement.Properties.Resources.images1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(579, 540);
-            this.Controls.Add(this.btnAddNewPro);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbbProduct);
@@ -251,6 +240,5 @@
         private System.Windows.Forms.ComboBox cbbProduct;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtAmount;
-        private System.Windows.Forms.Button btnAddNewPro;
     }
 }

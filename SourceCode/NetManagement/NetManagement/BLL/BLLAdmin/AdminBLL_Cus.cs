@@ -55,25 +55,17 @@ namespace NetManagement.BLL
             return cus;
 
         }
-        public void UpdateAdd(string str,Customer cus,DateTime dt)
+        public void UpdateAdd(int check, int id,Customer cus,DateTime dt)
         {
-            bool add = true;
-            foreach (Customer i in GetAll())
-            {
-                if (i.ID_User == Convert.ToInt32(str))
-                {
-                    add = false;
-                    break;
-                }
-            }
-            if (add)
+            
+            if (check ==-1)
             {
                 Add(cus);
             }
             else
             {
                 cus.Day_Create = dt;
-                cus.ID_User = Convert.ToInt32(str);
+                cus.ID_User = id;
                 UpDate(cus);
             }
         }

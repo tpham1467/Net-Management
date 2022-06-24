@@ -14,7 +14,7 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class FormUpdateAdd_CTR : Form
     {
-        public delegate void MyDel();
+        public delegate void MyDel(List<object> data = null);
         public MyDel d;
         AdminBLL_Category adBLL = new AdminBLL_Category();
         string id;

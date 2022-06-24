@@ -12,15 +12,15 @@ using NetManagement.Model;
 
 namespace NetManagement.View.FormAdmin
 {
-    public partial class FormAddProduct : Form
+    public partial class FormAddProductExport : Form
     {
-        public delegate void MyDel();
+        public delegate void MyDel(List<object> data = null);
         public MyDel d;
-        AdminBLL_MerMana adMer = new AdminBLL_MerMana();
+        AdminBLL_Inventory adminBLL_Product = new AdminBLL_Inventory();
         string id;
         int check;
 
-        public FormAddProduct(string m, int k)
+        public FormAddProductExport(string m, int k)
         {
             id = m;
             check = k;
@@ -35,7 +35,7 @@ namespace NetManagement.View.FormAdmin
         public void CreateCBB()
         {
             cbbProduct.Items.Add("Sản phẩm mới");
-            foreach (Inventory i in adMer.GetAll())
+            foreach (Inventory i in adminBLL_Product.GetAll())
             {
                 cbbProduct.Items.Add(new SetCBB { id = i.Product.ID_Product, name = i.Product.NameProduct });
                 SetCBBs.Add(new SetCBB { id = i.Product.ID_Product, name = i.Product.NameProduct });
@@ -48,7 +48,7 @@ namespace NetManagement.View.FormAdmin
             if (id != "")
             {
                 int i = Convert.ToInt32(id);
-                Inventory s = adMer.GetProById(i);
+                Inventory s = adminBLL_Product.GetProductById(i);
                 //txtIDPro.Text = s.ID_Product.ToString();
                 txtAmount.Text = s.Amount.ToString();
                 str = s.Product.ID_Product + " - " + s.Product.NameProduct;
@@ -73,7 +73,7 @@ namespace NetManagement.View.FormAdmin
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            Inventory pro = adMer.CreateIn();
+            Inventory pro = adminBLL_Product.CreateIn();
             //ID_Product = Convert.ToInt32(txtIDPro.Text),
             pro.ImportPrices = Convert.ToInt32(txtImport.Text);
             pro.SalePrice = Convert.ToInt32(txtSalePr.Text);
@@ -95,7 +95,7 @@ namespace NetManagement.View.FormAdmin
             {
                 pro.ID_Product = (cbbProduct.SelectedItem as SetCBB).id;
             }
-            adMer.UpdateAdd(stri, pro);
+            adminBLL_Product.UpdateAdd(stri, pro);
             d();
             this.Dispose();
         }

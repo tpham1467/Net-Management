@@ -13,6 +13,7 @@ namespace NetManagement.DTO
         Id = 0,
         Name = 1,
         UserName = 2,
+        SalePriceOfProduct = 3,
     }
 
 

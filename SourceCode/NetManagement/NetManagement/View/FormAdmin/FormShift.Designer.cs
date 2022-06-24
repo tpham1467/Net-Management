@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormShift));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnViewAll = new System.Windows.Forms.Button();
             this.lbTypeDt = new System.Windows.Forms.Label();
             this.lbTypeView = new System.Windows.Forms.Label();
-            this.cbTypeDt = new System.Windows.Forms.ComboBox();
+            this.cbbTypeDt = new System.Windows.Forms.ComboBox();
             this.cbbTypeView = new System.Windows.Forms.ComboBox();
             this.lbView = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -58,7 +58,7 @@
             this.panel1.Controls.Add(this.btnViewAll);
             this.panel1.Controls.Add(this.lbTypeDt);
             this.panel1.Controls.Add(this.lbTypeView);
-            this.panel1.Controls.Add(this.cbTypeDt);
+            this.panel1.Controls.Add(this.cbbTypeDt);
             this.panel1.Controls.Add(this.cbbTypeView);
             this.panel1.Controls.Add(this.lbView);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -103,15 +103,15 @@
             this.lbTypeView.TabIndex = 3;
             this.lbTypeView.Text = "Type View";
             // 
-            // cbTypeDt
+            // cbbTypeDt
             // 
-            this.cbTypeDt.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTypeDt.FormattingEnabled = true;
-            this.cbTypeDt.Location = new System.Drawing.Point(462, 49);
-            this.cbTypeDt.Name = "cbTypeDt";
-            this.cbTypeDt.Size = new System.Drawing.Size(158, 38);
-            this.cbTypeDt.TabIndex = 2;
-            this.cbTypeDt.SelectedIndexChanged += new System.EventHandler(this.cbTypeDt_SelectedIndexChanged);
+            this.cbbTypeDt.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTypeDt.FormattingEnabled = true;
+            this.cbbTypeDt.Location = new System.Drawing.Point(462, 49);
+            this.cbbTypeDt.Name = "cbbTypeDt";
+            this.cbbTypeDt.Size = new System.Drawing.Size(158, 38);
+            this.cbbTypeDt.TabIndex = 2;
+            this.cbbTypeDt.SelectedIndexChanged += new System.EventHandler(this.cbTypeDt_SelectedIndexChanged);
             // 
             // cbbTypeView
             // 
@@ -203,8 +203,8 @@
             this.dgvShift.AllowUserToDeleteRows = false;
             this.dgvShift.AllowUserToOrderColumns = true;
             this.dgvShift.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.dgvShift.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            this.dgvShift.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvShift.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -212,14 +212,14 @@
             this.dgvShift.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvShift.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvShift.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShift.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShift.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvShift.ColumnHeadersHeight = 36;
             this.dgvShift.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvShift.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -287,7 +287,7 @@
         private System.Windows.Forms.Label lbView;
         private System.Windows.Forms.Label lbTypeDt;
         private System.Windows.Forms.Label lbTypeView;
-        private System.Windows.Forms.ComboBox cbTypeDt;
+        private System.Windows.Forms.ComboBox cbbTypeDt;
         private System.Windows.Forms.Button btnViewAll;
     }
 }

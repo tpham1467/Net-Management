@@ -48,22 +48,7 @@ namespace NetManagement.BLL
             Employee emp = repository.GetById(id);
             return emp;
         }
-        public IEnumerable<Employee> GetAllById(List<int> id)
-        {
-            IEnumerable<Employee> data = repository.GetAll().ToList();
-            List<Employee> data2 = new List<Employee>();
-            foreach (int i in id)
-            {
-                foreach(Employee emp in data)
-                {
-                    if(i == emp.ID_User)
-                    {
-                        data2.Add(emp);
-                    }
-                }
-            }
-            return data2;
-        }
+        
         public IEnumerable<object> Sort(SortEnum sort, string by)
         {
 

@@ -9,37 +9,45 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.Model;
 using NetManagement.BLL;
+using NetManagement.BLL.BLLAdmin;
+using NetManagement.DTO;
 
 namespace NetManagement.View.FormAdmin
 {
     public partial class FormCategory : Form
     {
-        AdminBLL_Category adMana = new AdminBLL_Category();
+        AdminBLL_Category adManaCategory = new AdminBLL_Category();
+        BLL_Unit adUnit = new BLL_Unit();
         public FormCategory()
         {
             InitializeComponent();
-            ShowAll_CTR();
+            ReloadCategory();
             Create_CBB();
         }
         public void Create_CBB()
         {
-            cbb_SortCTR.Items.Add("Name");
-            cbb_SortCTR.Items.Add("ID_Category");
-            cbbInc_dec.Items.Add("Increase");
-            cbbInc_dec.Items.Add("Decrease");
-            cbbSearch.Items.Add("Name");
+            cbbSortProperty.Items.Add("Name Category");
+            cbbSortProperty.Items.Add("ID_Category");
+            cbbSearch.Items.Add("All");
+            cbbSearch.Items.Add("Name Category");
             cbbSearch.Items.Add("ID_Category");
         }
-        public void ShowAll_CTR()
+
+        public void ReloadCategory(List<object> data = null)
         {
-            var l = adMana.GetAll().Select(p => new { p.ID_Category, p.CategoryName, p.Description });
-            dgvShowCTR.DataSource = l.ToList();
+            if (data == null) dgvShowCTR.DataSource = adManaCategory.Filter();
+            else dgvShowCTR.DataSource = data;
         }
-        
+        public void ReloadUnit(List<object> data = null)
+        {
+            if (data == null) dgvUnit.DataSource = adUnit.Filter();
+            else dgvUnit.DataSource = data;
+        }
+
         private void btnAddCTR_Click_1(object sender, EventArgs e)
         {
             FormUpdateAdd_CTR f = new FormUpdateAdd_CTR("");
-            f.d = new FormUpdateAdd_CTR.MyDel(ShowAll_CTR);
+            f.d = new FormUpdateAdd_CTR.MyDel(ReloadCategory);
             f.Show();
         }
 
@@ -49,9 +57,9 @@ namespace NetManagement.View.FormAdmin
             foreach (DataGridViewRow i in dgvShowCTR.SelectedRows)
             {
                 s = i.Cells["ID_Category"].Value.ToString();
-                adMana.Del(s);
+                adManaCategory.Del(s);
             }
-            ShowAll_CTR();
+            ReloadCategory();
         }
 
         private void btnUpCTR_Click(object sender, EventArgs e)
@@ -60,37 +68,84 @@ namespace NetManagement.View.FormAdmin
             {
                 string s = dgvShowCTR.SelectedRows[0].Cells["ID_Category"].Value.ToString();
                 FormUpdateAdd_CTR f = new FormUpdateAdd_CTR(s);
-                f.d = new FormUpdateAdd_CTR.MyDel(ShowAll_CTR);
+                f.d = new FormUpdateAdd_CTR.MyDel(ReloadCategory);
                 f.Show();
             }
         }
 
         private void btnSortCTR_Click(object sender, EventArgs e)
         {
-            if (cbb_SortCTR.Text == "Name")
+            SortEnum sort = new SortEnum();
+            if ((cbbSortby.SelectedItem as string) == "Asc")
             {
-                var c = adMana.Sort(cbb_SortCTR.Text, cbbInc_dec.Text)
-                    .Select(p => new { p.ID_Category, p.CategoryName, p.Description });
-                dgvShowCTR.DataSource = c.ToList();
+                sort = SortEnum.Asc;
             }
-            else if (cbb_SortCTR.Text == "ID_Category")
+            else
             {
-                var c = adMana.Sort(cbb_SortCTR.Text, cbbInc_dec.Text)
-                    .Select(p => new { p.ID_Category, p.CategoryName, p.Description });
-                dgvShowCTR.DataSource = c.ToList();
+                sort = SortEnum.Desc;
             }
+            dgvShowCTR.DataSource = adManaCategory.Sort(sort, (cbbSortProperty.SelectedItem as string));
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var c = adMana.Search(cbbSearch.Text, txtSearch.Text)
-                .Select(p => new { p.ID_Category, p.CategoryName, p.Description });
-            dgvShowCTR.DataSource = c.ToList();
+            string txt = txtSearch.Text;
+            string s = cbbSearch.Text;
+            List<object> list = new List<object>();
+            if (s == "All")
+            {
+                list = adManaCategory.Search(txt, SearchAcoountEnum.All);
+            }
+            else if (s == "ID_Category")
+            {
+                list = adManaCategory.Search(txt, SearchAcoountEnum.Id);
+            }
+            else
+            {
+                list = adManaCategory.Search(txt, SearchAcoountEnum.Name);
+            }
+            ReloadCategory(list);
         }
 
         private void btnAll_Click(object sender, EventArgs e)
         {
-            ShowAll_CTR();
+            ReloadCategory();
+        }
+
+        private void btnUnitAdd_Click(object sender, EventArgs e)
+        {
+            AddUpUnit_Form addUpUnit_Form = new AddUpUnit_Form(-1,-1);
+            addUpUnit_Form.d = new AddUpUnit_Form.MyDel(ReloadUnit);
+            addUpUnit_Form.Show();
+        }
+
+        private void btnUnitUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgvUnit.SelectedRows.Count == 1)
+            {
+                int s = Convert.ToInt32(dgvUnit.SelectedRows[0].Cells["ID_Unit"].Value);
+                AddUpUnit_Form addUpUnit_Form = new AddUpUnit_Form(1,s);
+                addUpUnit_Form.d = new AddUpUnit_Form.MyDel(ReloadUnit);
+                addUpUnit_Form.Show();
+            }
+        }
+
+        private void btnDeleteUnit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tbCategory.SelectedIndex == 0)
+            {
+                ReloadCategory();
+            }
+            else
+            {
+                ReloadUnit();
+            }
+
         }
     }
 }

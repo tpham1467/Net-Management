@@ -18,15 +18,16 @@ namespace NetManagement.View.FormAdmin
         public MyDel d;
         AdminBLL_Cus adBLLCus = new AdminBLL_Cus();
         AdminBLL_Em adBLLEm = new AdminBLL_Em();
-        string id;
-        public FormCusAdd_Up(string m)
+        public int id;
+        public int Check;
+        public FormCusAdd_Up(int checkUpAdd, int m)
         {
             id = m;
+            Check = checkUpAdd;
             InitializeComponent();
             GUI();
             CreateCBB();
         }
-        public string stri;
         public List<SetCBB> SetCBBs = new List<SetCBB>();
         DateTime dt;
         public void CreateCBB()
@@ -41,7 +42,7 @@ namespace NetManagement.View.FormAdmin
         void GUI()
         {
 
-            if (id != "")
+            if (id != -1)
             {
                 int i = Convert.ToInt32(id);
                 Customer s = adBLLCus.GetCusById(i);
@@ -55,7 +56,6 @@ namespace NetManagement.View.FormAdmin
                 cbbEm.Text = str;
                 if (s.Gender == true) rdMale.Checked = true;
                 else rdFemale.Checked = true;
-                stri = s.ID_User.ToString();
                 dt = s.Day_Create;
             }
         }
@@ -88,7 +88,7 @@ namespace NetManagement.View.FormAdmin
             {
                 cus.ID_Employee = (cbbEm.SelectedItem as SetCBB).id;
             }
-            adBLLCus.UpdateAdd(stri, cus,dt);
+            adBLLCus.UpdateAdd(Check,id, cus,dt);
             d();
             this.Dispose();
         }

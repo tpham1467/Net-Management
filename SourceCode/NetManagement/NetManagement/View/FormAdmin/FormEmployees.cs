@@ -69,67 +69,67 @@ namespace NetManagement.View.FormAdmin
                 cbbSortProperty.Items.Add("WorkHour");
             }
         }
-        //public void ShowAll_Empl()
-        //{
-        //    var l = adEm.Filter();
-        //    dgvManaEmployee.DataSource = l.ToList();
-        //}
+        public void ShowAll_Empl()
+        {
+            var l = adEm.Filter();
+            dgvManaEmployee.DataSource = l.ToList();
+        }
 
-        //public void ShowAllTimekeeping()
-        //{
-        //    var l = adTKeeping
-        //        .GetAll()
-        //        .Where(p => p.StatusShift.Description == "Đã làm")
-        //        .Select(
-        //            p =>
-        //                new
-        //                {
-        //                    p.ID_Shift,
-        //                 //   p.Employee.FullNameEm,
-        //                    p.WorkedDate,
-        //                    p.ShiftStartTime,
-        //                    p.ShiftEndTime,
-        //                    p.WorkedHour,
-        //                    p.StatusShift.Description
-        //                }
-        //        );
-        //    dgvShowTimeKeeping.DataSource = l.ToList();
-        //}
-      
-        //public void ShowAllPayroll()
-        //{
-        //    List<int> list = adTKeeping
-        //        .GetAll()
-        //        .Where(p => p.StatusShift.Description == "Đã chấm công")
-        //        .Select(p => p.ID_Employee)
-        //        .ToList();
-        //    var lHis = adHisPayroll.GetHisPayrollById(list)
-        //        .Select(
-        //            p =>
-        //                new
-        //                {
-        //                    p.PayrollDate,
-        //                    p.Employee.ID_User,
-        //                  //  p.Employee.FullNameEm,
-        //                    p.Employee.Identify,
-        //                    p.Salary,
-        //                    p.Employee.SalaryEmployee.CoSalary,
-        //                   // p.Shift.WorkedHour
-        //                }
-        //        ) ;
-            
-        //    dgvShowPayroll.DataSource = lHis.ToList();
-        //}
-        //public void ShowAll_Salary()
-        //{
-        //    var e = adSa.GetAll()
-        //                .Select(p => new
-        //                             { 
-        //                                p.ID_SalaryEmployee,
-        //                                p.CoSalary,
-        //                             });
-        //    dgvCosalaryEm.DataSource = e.ToList();
-        //}
+        public void ShowAllTimekeeping()
+        {
+            var l = adTKeeping
+                .GetAll()
+                .Where(p => p.StatusShift.Description == "Đã làm")
+                .Select(
+                    p =>
+                        new
+                        {
+                            p.ID_Shift,
+                            //   p.Employee.FullNameEm,
+                            p.WorkedDate,
+                            p.ShiftStartTime,
+                            p.ShiftEndTime,
+                            p.WorkedHour,
+                            p.StatusShift.Description
+                        }
+                );
+            dgvShowTimeKeeping.DataSource = l.ToList();
+        }
+
+        public void ShowAllPayroll()
+        {
+            List<int> list = adTKeeping
+                .GetAll()
+                .Where(p => p.StatusShift.Description == "Đã chấm công")
+                .Select(p => p.ID_Employee)
+                .ToList();
+            var lHis = adHisPayroll.GetHisPayrollById(list)
+                .Select(
+                    p =>
+                        new
+                        {
+                            p.PayrollDate,
+                            p.Employee.ID_User,
+                            //  p.Employee.FullNameEm,
+                            p.Employee.Identify,
+                            p.Salary,
+                            p.Employee.SalaryEmployee.CoSalary,
+                            // p.Shift.WorkedHour
+                        }
+                );
+
+            dgvShowPayroll.DataSource = lHis.ToList();
+        }
+        public void ShowAll_Salary()
+        {
+            var e = adSa.GetAll()
+                        .Select(p => new
+                        {
+                            p.ID_SalaryEmployee,
+                            p.CoSalary,
+                        });
+            dgvCosalaryEm.DataSource = e.ToList();
+        }
 
 
         public void ReloadEm(List<object> data = null)
@@ -157,38 +157,39 @@ namespace NetManagement.View.FormAdmin
                 }
                 else list = adEm.Search(txt, SearchAcoountEnum.Id);
             }
-            ReloadEm(list);
-            //cbbSearch.SelectedIndex = 0;
-            //else if (tbMana.SelectedIndex == 2)
-            //{
-            //    List<int> list = adTKeeping
-            //        .GetAll()
-            //        .Where(p => p.StatusShift.Description == "Đã chấm công")
-            //        .Select(p => p.ID_Employee)
-            //        .Distinct()
-            //        .ToList();
-            //    //var l = adEm.Search(txt, txtcbb, list)
-            //    //    .Select(
-            //    //        p =>
-            //    //            new
-            //    //            {
-            //    //                p.HistoryPayroll.PayrollDate,
-            //    //                p.ID_User,
-            //    //                p.FullNameEm,
-            //    //                p.Identify,
-            //    //                p.HistoryPayroll.Salary,
-            //    //                p.SalaryEmployee.CoSalary,
-            //    //                p.totalTime
-            //    //            }
-            //    //    );
-            //    adEm = new AdminBLL_Em();
-            //    //var data = l.ToList();
-            //    //dgvShowPayroll.DataSource = data;
-            //    foreach (DataGridViewRow i in dgvShowPayroll.Rows)
-            //    {
-            //        i.Cells["Salary"].Value = i.Cells["Salary"].Value + " VND";
-            //    }
-            //}
+
+            else if (tbMana.SelectedIndex == 2)
+            {
+                //List<int> list = adTKeeping
+                //    .GetAll()
+                //    .Where(p => p.StatusShift.Description == "Đã chấm công")
+                //    .Select(p => p.ID_Employee)
+                //    .Distinct()
+                //    .ToList();
+                //var l = adEm.Search(txt, txtcbb, list)
+                //    .Select(
+                //        p =>
+                //            new
+                //            {
+                //                p.HistoryPayroll.PayrollDate,
+                //                p.ID_User,
+                //                p.FullNameEm,
+                //                p.Identify,
+                //                p.HistoryPayroll.Salary,
+                //                p.SalaryEmployee.CoSalary,
+                //                p.totalTime
+                //            }
+                //    );
+                //adEm = new AdminBLL_Em();
+                //var data = l.ToList();
+                //dgvShowPayroll.DataSource = data;
+                //foreach (DataGridViewRow i in dgvShowPayroll.Rows)
+                //{
+                //    i.Cells["Salary"].Value = i.Cells["Salary"].Value + " VND";
+                //}
+                ReloadEm(list);
+                cbbSearch.SelectedIndex = 0;
+            }
         }
 
         private void cbbSearch_SelectedIndexChanged(object sender, EventArgs e)
@@ -222,27 +223,7 @@ namespace NetManagement.View.FormAdmin
             else if (tbMana.SelectedIndex == 2)
             {
                 string txtcbb = cbbSortProperty.Text;
-                List<int> list = adTKeeping
-                .GetAll()
-                .Where(p => p.StatusShift.Description == "Đã chấm công")
-                .Select(p => p.ID_Employee)
-                .ToList();
-                //List<Employee> l = adEm.GetAllById(list).ToList();
-                var lHis = adHisPayroll.Sort(list,txtcbb)
-                    .Select(
-                        p =>
-                            new
-                            {
-                                p.PayrollDate,
-                                p.Employee.ID_User,
-                           //     p.Employee.FullNameEm,
-                                p.Employee.Identify,
-                                p.Salary,
-                                p.Employee.SalaryEmployee.CoSalary,
-                             //   p.Shift.WorkedHour
-                            }
-                    );
-                dgvShowPayroll.DataSource = lHis.ToList();
+                
             }
         }
 
@@ -314,23 +295,7 @@ namespace NetManagement.View.FormAdmin
         {
             if (cbPay.Checked == true)
             {
-                var l = adTKeeping
-                    .GetAll()
-                    .Where(p => p.StatusShift.Description == "Đã chấm công")
-                    .Select(
-                        p =>
-                            new
-                            {
-                                p.ID_Shift,
-                             //  p.Employee.FullNameEm,
-                                p.WorkedDate,
-                                p.ShiftStartTime,
-                                p.ShiftEndTime,
-                                p.WorkedHour,
-                                p.StatusShift.Description
-                            }
-                    );
-                dgvShowTimeKeeping.DataSource = l.ToList();
+                dgvShowTimeKeeping.DataSource = adTKeeping.Filter(new StatusShift { ID_StatusShift = 2 });
             }
             else
             {

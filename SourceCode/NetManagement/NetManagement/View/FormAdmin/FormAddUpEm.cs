@@ -79,7 +79,6 @@ namespace NetManagement.View.FormAdmin
             if (rdMale.Checked) checkgd = true;
             else checkgd = false;
             Employee emp = adBLLEm.CreateEm();
-            //emp.ID_SalaryEmployee = (cbbSalary.SelectedItem as ConvertSalarytoVND).id;
 
             int ktra = 0;
             foreach (ConvertSalarytoVND cnv in ConvertMoneys)
@@ -87,7 +86,6 @@ namespace NetManagement.View.FormAdmin
                 if (cnv.ToString() == cbbSalary.Text)
                 {
                     ktra++;
-                    //cus.ID_Employee = scbb.id;
                     emp.ID_SalaryEmployee = cnv.id;
                     break;
                 }

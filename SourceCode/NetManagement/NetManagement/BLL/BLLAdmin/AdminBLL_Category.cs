@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NetManagement.DTO;
 using NetManagement.Model;
 using NetManagement.Repositories;
 
@@ -31,38 +32,26 @@ namespace NetManagement.BLL
             List<Category> data = repository.GetAll().ToList();
             return data;
         }
-
-
-        public List<Category> Search(string s, string txt)
+        public IEnumerable<object> Filter(IEnumerable<Category> categories = null)
         {
-            List<Category> data1 = GetAll().ToList();
-            List<Category> data2 = new List<Category>();
+            if (categories == null) categories = GetAll();
+            var data = categories.Select(p => new { p.ID_Category, p.CategoryName, p.Description });
+            return data.ToList();
+        }
 
-            if (s == "ID_Category")
+
+        public List<object> Search(string search, SearchAcoountEnum searchby)
+        {
+
+            if (searchby == SearchAcoountEnum.All)
             {
-                if (txt != "")
-                {
-                    int id = Convert.ToInt32(txt);
-                    foreach (Category i in repository.GetAll())
-                    {
-                        if (i.ID_Category == id)
-                        {
-                            data2.Add(i);
-                        }
-                    }
-                }
+                return Filter(repository.GetAll()).ToList();
             }
-            else if (s == "Name")
+            else if (searchby == SearchAcoountEnum.Name)
             {
-                foreach (Category i in data1)
-                {
-                    if (i.CategoryName.ToLower().Contains(txt.ToLower()))
-                    {
-                        data2.Add(i);
-                    }
-                }
+                return Filter(repository.Search(search, p => p.CategoryName, true, false)).ToList();
             }
-            return data2;
+            else return Filter(repository.Search(search, p => p.ID_Category.ToString(), true, true)).ToList();
         }
 
         public void UpdateAdd(Category ctr, int k)
@@ -108,33 +97,12 @@ namespace NetManagement.BLL
             repository.Delete(Convert.ToInt32(id));
             repository.Save();
         }
-        public List<Category> Sort(string txt1, string txt2)
+        public IEnumerable<object> Sort(SortEnum sort, string by)
         {
-            List<Category> list = new List<Category>();
-            if (txt1 == "Name")
-            {
-                if (txt2 == "Increase" || txt2 == "")
-                {
-                    list = GetAll().OrderBy(p => p.CategoryName).ToList();
-                }
-                else if (txt2 == "Decrease")
-                {
-                    list = GetAll().OrderByDescending(p => p.CategoryName).ToList();
-                }
-            }
-            if (txt1 == "ID_Category")
-            {
-                if (txt2 == "Increase" || txt2 == "")
-                {
-                    list = GetAll().OrderBy(p => p.ID_Category).ToList();
-                }
-                else if (txt2 == "Decrease")
-                {
-                    list = GetAll().OrderByDescending(p => p.ID_Category).ToList();
-                }
-            }
-            return list;
 
+            if (string.Compare(by, "Name Category") == 0)
+                return Filter(repository.Sort<string>(sort, a => a.CategoryName));
+            else return Filter(repository.Sort<int>(sort, a => a.ID_Category));
         }
 
     }
