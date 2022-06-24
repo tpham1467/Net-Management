@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.BLL;
+using NetManagement.BLL.BLLAdmin;
 using NetManagement.DTO;
 
 namespace NetManagement.View.FormAdmin
@@ -22,7 +23,8 @@ namespace NetManagement.View.FormAdmin
             tbControllMana.SelectedIndex = 0;
         }
 
-        AdminBLL_Inventory adminBLL_Product = new AdminBLL_Inventory();
+        AdminBLL_Inventory adminBLL_Mana = new AdminBLL_Inventory();
+        BLL_Product adminBLL_Product = new BLL_Product();
         public void SetCBB()
         {
             
@@ -37,13 +39,18 @@ namespace NetManagement.View.FormAdmin
         {
             if (tbControllMana.SelectedIndex == 0)
             {
-                if (data == null) dgvMerMana.DataSource = adminBLL_Product.Filter(0).ToList();
+                if (data == null) dgvMerMana.DataSource = adminBLL_Mana.Filter(0).ToList();
                 else dgvMerMana.DataSource = data;
             }
             else if (tbControllMana.SelectedIndex == 1)
             {
-                if (data == null) dgvPrMana.DataSource = adminBLL_Product.Filter(1).ToList();
+                if (data == null) dgvPrMana.DataSource = adminBLL_Mana.Filter(1).ToList();
                 else dgvPrMana.DataSource = data;
+            }
+            else
+            {
+                if (data == null) dgvProduct.DataSource = adminBLL_Product.Filter().ToList();
+                else dgvProduct.DataSource = data;
             }
         }
         int k;
@@ -62,7 +69,7 @@ namespace NetManagement.View.FormAdmin
                 {
                     sort = SortEnum.Desc;
                 }
-                dgvMerMana.DataSource = adminBLL_Product.Sort(sort, (cbbSortProperty.SelectedItem as string));
+                dgvMerMana.DataSource = adminBLL_Mana.Sort(sort, (cbbSortProperty.SelectedItem as string));
             }
             else
             {
@@ -74,7 +81,7 @@ namespace NetManagement.View.FormAdmin
                 {
                     sort = SortEnum.Desc;
                 }
-                dgvPrMana.DataSource = adminBLL_Product.Sort(sort, (cbbSortProperty.SelectedItem as string));
+                dgvPrMana.DataSource = adminBLL_Mana.Sort(sort, (cbbSortProperty.SelectedItem as string));
             }
         }
 
@@ -88,11 +95,11 @@ namespace NetManagement.View.FormAdmin
             {
                 if (s == "All")
                 {
-                    list = adminBLL_Product.Search(0,txt, SearchAcoountEnum.All);
+                    list = adminBLL_Mana.Search(0,txt, SearchAcoountEnum.All);
                 }
                 else
                 {
-                    list = adminBLL_Product.Search(0,txt, SearchAcoountEnum.Name);
+                    list = adminBLL_Mana.Search(0,txt, SearchAcoountEnum.Name);
                 }
                 ReloadProduct(list);
             }
@@ -100,14 +107,14 @@ namespace NetManagement.View.FormAdmin
             {
                 if (s == "All")
                 {
-                    list = adminBLL_Product.Search(1, txt, SearchAcoountEnum.All);
+                    list = adminBLL_Mana.Search(1, txt, SearchAcoountEnum.All);
                 }
                 else if(s== "SalePrice")
                 {
-                    list = adminBLL_Product.Search(1, txt, SearchAcoountEnum.SalePriceOfProduct);
+                    list = adminBLL_Mana.Search(1, txt, SearchAcoountEnum.SalePriceOfProduct);
                 }
                 else {
-                    list = adminBLL_Product.Search(1, txt, SearchAcoountEnum.Name);
+                    list = adminBLL_Mana.Search(1, txt, SearchAcoountEnum.Name);
                 }
                 ReloadProduct(list);
             }
@@ -147,16 +154,11 @@ namespace NetManagement.View.FormAdmin
             }
             else
             {
-
+                ReloadProduct();
             }
         }
 
-        private void btnAdd_Click_1(object sender, EventArgs e)
-        {
-            FormAddProductExport f = new FormAddProductExport("", 0);
-            f.d = new FormAddProductExport.MyDel(ReloadProduct);
-            f.Show();
-        }
+        
 
         private void btnDel_Click_1(object sender, EventArgs e)
         {
@@ -166,7 +168,7 @@ namespace NetManagement.View.FormAdmin
                 foreach (DataGridViewRow i in dgvMerMana.SelectedRows)
                 {
                     s = i.Cells["ID_Inventory"].Value.ToString();
-                    adminBLL_Product.DelProduct(s);
+                    adminBLL_Mana.DelProduct(s);
                 }
             }
             else if (tbControllMana.SelectedIndex == 1)
@@ -174,19 +176,20 @@ namespace NetManagement.View.FormAdmin
                 foreach (DataGridViewRow i in dgvPrMana.SelectedRows)
                 {
                     s = i.Cells["ID_Inventory"].Value.ToString();
-                    adminBLL_Product.DelProduct(s);
+                    adminBLL_Mana.DelProduct(s);
                 }
             }
             ReloadProduct();
         }
-
+        int check;
         private void btnUp_Click_1(object sender, EventArgs e)
         {
+            check = 1;
             if (tbControllMana.SelectedIndex == 0)
             {
                 k = 0;
             }
-            if (tbControllMana.SelectedIndex == 1)
+            else if (tbControllMana.SelectedIndex == 1)
             {
                 k = 1;
             }
@@ -194,6 +197,29 @@ namespace NetManagement.View.FormAdmin
             {
                 string s = dgvMerMana.SelectedRows[0].Cells["ID_Inventory"].Value.ToString();
                 FormAddProductExport f = new FormAddProductExport(s, k);
+                f.d = new FormAddProductExport.MyDel(ReloadProduct);
+                f.Show();
+            }
+            if (dgvMerMana.SelectedRows.Count == 1)
+            {
+                int s = Convert.ToInt32(dgvProduct.SelectedRows[0].Cells["ID_Product"].Value);
+                AddUpProduct f = new AddUpProduct(s,check);
+                f.d = new AddUpProduct.MyDel(ReloadProduct);
+                f.Show();
+            }
+        }
+        private void btnAdd_Click_1(object sender, EventArgs e)
+        {
+            check = 0;
+            if (tbControllMana.SelectedIndex == 2)
+            {
+                AddUpProduct f = new AddUpProduct(-1, -1);
+                f.d = new AddUpProduct.MyDel(ReloadProduct);
+                f.Show();
+            }
+            else
+            {
+                FormAddProductExport f = new FormAddProductExport("", 0);
                 f.d = new FormAddProductExport.MyDel(ReloadProduct);
                 f.Show();
             }
