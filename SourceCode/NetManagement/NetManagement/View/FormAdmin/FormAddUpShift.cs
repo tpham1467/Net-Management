@@ -14,7 +14,7 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddUpShift : Form
     {
-        public delegate void MyDel();
+        public delegate void MyDel(List<object> data = null);
         public MyDel d;
         AdminBLL_Em adBLLEm = new AdminBLL_Em();
         AdminBLL_Timekeeping adShi = new AdminBLL_Timekeeping();

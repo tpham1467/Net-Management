@@ -9,9 +9,9 @@ using System.Windows.Forms;
 namespace NetManagement.Model
 {
     public class CreateDB :
-       CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
+       //CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
                                         //DropCreateDatabaseIfModelChanges<CSDL> // chỉ thay đổi Record thfi sẽ không tahy đổi, nếu thay đổi liên kết sẽ xóa đi cái cũ đê rkhwoir tạo cái mới
-                                   //     DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
+                                        DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
     {
         protected override void Seed(NetManagemetnContext context)
         {
@@ -39,15 +39,15 @@ namespace NetManagement.Model
                 new Category{ CategoryName = "Iteam", Description = "EmAnComChua"},
             });
             context.Users.AddRange(new User[]{
-                new Employee{ FirstName = "Nguyen Van ", LastName = "Vien", DateOfBirth  = DateTime.Now, Phone = "0914142562", Email = "abc@gmail.com",Day_Create = DateTime.Now, Gender = true , ID_SalaryEmployee =1,Identify = "12345678"},
-                new Employee{ FirstName = "Pham Van Tien ", LastName = "Truong", DateOfBirth  = DateTime.Now, Phone = "0914142563", Email = "abd@gmail.com",Day_Create = DateTime.Now, Gender = false , ID_SalaryEmployee =2,Identify = "12345679"},
-                new Employee{ FirstName = "Pham Cong", LastName = "Huy1", DateOfBirth  = DateTime.Now, Phone = "0914142564", Email = "abe@gmail.com",Day_Create = DateTime.Now, Gender = true , ID_SalaryEmployee =3,Identify = "12345670"},
+                new Employee{ FirstName = "Nguyen Van", LastName = "Vien", DateOfBirth  = Convert.ToDateTime("06/25/2002"), Phone = "0914142562", Email = "abc@gmail.com",Day_Create = Convert.ToDateTime("05/25/2022"), Gender = true , ID_SalaryEmployee =1,Identify = "12345678"},
+                new Employee{ FirstName = "Pham Van Tien", LastName = "Truong", DateOfBirth  = Convert.ToDateTime("06/12/2002"), Phone = "0914142563", Email = "abd@gmail.com",Day_Create = Convert.ToDateTime("04/23/2022"), Gender = false , ID_SalaryEmployee =2,Identify = "12345679"},
+                new Employee{ FirstName = "Pham Cong", LastName = "Huy1", DateOfBirth  = Convert.ToDateTime("07/03/2002"), Phone = "0914142564", Email = "abe@gmail.com",Day_Create = Convert.ToDateTime("06/28/2022"), Gender = true , ID_SalaryEmployee =3,Identify = "12345670"},
             });
             context.StatusShifts.AddRange(new StatusShift[]{
-                new StatusShift{ Description = "Chua lam"},
-                new StatusShift{ Description = "Da Lam"},
-                new StatusShift{ Description = "Xin Phep Nghi"},
-                new StatusShift{ Description = "Da Tra Luong"},
+                new StatusShift{ Description = "Chưa làm"},
+                new StatusShift{ Description = "Đã làm"},
+                new StatusShift{ Description = "Xin phép nghỉ"},
+                new StatusShift{ Description = "Đã trả công"},
             });
             context.Roles.AddRange(new Role[]{
                 new Role { NameRole = "Admin", Description = "Quản Lí Nhân Viên"},
@@ -56,8 +56,8 @@ namespace NetManagement.Model
             });
             context.SaveChanges();
             context.Users.AddRange(new User[]{
-                new Customer{ FirstName = "Nguyen Van ", LastName = " Phong", DateOfBirth  = DateTime.Now, Phone = "0914142562", Email = "abc@gmail.com",Day_Create = DateTime.Now, Gender = true ,Money = 1234, ID_Employee =1 },
-                new Customer{ FirstName = "Pham Van Tien ", LastName = "Hai", DateOfBirth  = DateTime.Now, Phone = "0914142563", Email = "abd@gmail.com",Day_Create = DateTime.Now, Gender = false , Money = 5000, ID_Employee =2 },
+                new Customer{ FirstName = "Nguyen Van", LastName = "Phong", DateOfBirth  = DateTime.Now, Phone = "0914142562", Email = "abc@gmail.com",Day_Create = DateTime.Now, Gender = true ,Money = 1234, ID_Employee =1 },
+                new Customer{ FirstName = "Pham Van Tien", LastName = "Hai", DateOfBirth  = DateTime.Now, Phone = "0914142563", Email = "abd@gmail.com",Day_Create = DateTime.Now, Gender = false , Money = 5000, ID_Employee =2 },
                new Customer{ FirstName = "Pham Cong", LastName = "Vu1", DateOfBirth  = DateTime.Now, Phone = "0914142564", Email = "abe@gmail.com",Day_Create = DateTime.Now, Gender = true , Money = 1234, ID_Employee =3 }
             });
 
@@ -69,14 +69,14 @@ namespace NetManagement.Model
                 new UseComputerHistory{ ID_Customer = 6, ID_Computer =3,_LogIn = DateTime.Now, _LogOut = DateTime.Now, HourUsed = 3},
             });
             context.Shifts.AddRange(new Shift[]{
-                new Shift{ID_Employee = 2, WorkedDate = DateTime.Now, WorkedHour = 1, ShiftStartTime = new SqlDateTime(2022,6,18,22,0 ,0).Value , ShiftEndTime =  new SqlDateTime(2022,6,18,23,0 ,0).Value,  ID_StatusShift = 1},
-                new Shift{ ID_Employee = 3, WorkedDate = DateTime.Now, WorkedHour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                 new Shift{ID_Employee = 2, WorkedDate = DateTime.Now, WorkedHour = 1,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                new Shift{ ID_Employee = 3, WorkedDate = DateTime.Now, WorkedHour = 2,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                new Shift{ ID_Employee = 1, WorkedDate = DateTime.Now, WorkedHour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                 new Shift{ID_Employee = 2, WorkedDate = DateTime.Now, WorkedHour = 1,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                new Shift{ ID_Employee = 3, WorkedDate = DateTime.Now, WorkedHour = 2,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                new Shift{ ID_Employee = 1, WorkedDate = DateTime.Now, WorkedHour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                new Shift{ID_Employee = 2, WorkedDate = Convert.ToDateTime("06/19/2022"), WorkedHour = 1, ShiftStartTime = new SqlDateTime(2022,6,18,22,0 ,0).Value , ShiftEndTime =  new SqlDateTime(2022,6,18,23,0 ,0).Value,  ID_StatusShift = 2},
+                new Shift{ ID_Employee = 3, WorkedDate = Convert.ToDateTime("06/28/2022"), WorkedHour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                 new Shift{ID_Employee = 2, WorkedDate = Convert.ToDateTime("06/29/2022"), WorkedHour = 1,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                new Shift{ ID_Employee = 3, WorkedDate = Convert.ToDateTime("06/26/2021"), WorkedHour = 2,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 2},
+                new Shift{ ID_Employee = 1, WorkedDate = Convert.ToDateTime("06/25/2022"), WorkedHour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                 new Shift{ID_Employee = 2, WorkedDate = Convert.ToDateTime("07/26/2022"), WorkedHour = 1,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                new Shift{ ID_Employee = 3, WorkedDate = Convert.ToDateTime("06/26/2022"), WorkedHour = 2,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                new Shift{ ID_Employee = 1, WorkedDate = Convert.ToDateTime("06/27/2022"), WorkedHour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
             });
             context.SaveChanges();
             context.Products.AddRange(new Product[] {
@@ -121,8 +121,8 @@ namespace NetManagement.Model
                 new Account{ UserName_Acc = "HphamE", Password_Acc = "Hpham321" , ID_Role = 2 , Id_User = 3 , status = 0 , IsErase = 0},
                 new Account{ UserName_Acc = "TphamE", Password_Acc = "Tpham321" , ID_Role = 2 , Id_User = 2 , status = 0 , IsErase = 0},
                 new Account{ UserName_Acc = "VVienE", Password_Acc = "VVien321",  ID_Role = 2 , Id_User = 1  , status = 0 , IsErase = 0} ,
-                 new Account{ UserName_Acc = "HphamC", Password_Acc = "Hpham321" , ID_Role = 1 , Id_User = 4  , status = 0  , IsErase = 0},
-                new Account{ UserName_Acc = "TphamC", Password_Acc = "Tpham321" , ID_Role = 1 , Id_User = 5 ,  status = 0 , IsErase =0},
+                 new Account{ UserName_Acc = "HphamC", Password_Acc = "Hpham321" , ID_Role = 3 , Id_User = 4  , status = 0  , IsErase = 0},
+                new Account{ UserName_Acc = "TphamC", Password_Acc = "Tpham321" , ID_Role = 3, Id_User = 5 ,  status = 0 , IsErase =0},
                 new Account{ UserName_Acc = "VVienC", Password_Acc = "VVien321",  ID_Role = 1 , Id_User = 6 , status = 0 ,IsErase =0 }
             });
 

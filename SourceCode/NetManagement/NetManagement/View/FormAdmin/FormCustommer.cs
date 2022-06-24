@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.Model;
 using NetManagement.BLL;
+using NetManagement.DTO;
 
 namespace NetManagement.View.FormAdmin
 {
@@ -20,61 +21,31 @@ namespace NetManagement.View.FormAdmin
         public FormCustommer()
         {
             InitializeComponent();
-            ShowAll_Mana();
+            ReloadCus();
             CreateCBB();
         }
-        public void ShowAll_Mana()
+
+        public void ReloadCus(List<object> data = null)
         {
-            
-            var l = adMana.GetAll().Select(p => 
-            new { 
-                p.ID_User, 
-               // p.FullNameCus, 
-                p.DateOfBirth, 
-                p.Phone,
-                p.Email, 
-                p.Day_Create, 
-                p.Gender,
-                p.Money,
-                //p.Employee.FullNameEm
-            });
-            dgvShowCus.DataSource = l.ToList();
+            if (data == null) dgvShowCus.DataSource = adMana.Filter();
+            else dgvShowCus.DataSource = data;
         }
-        public void ShowAll_His()
+        public void ReloadHisUsed(List<object> data = null)
         {
-            var l = adUCPH.GetAll().Select(p => 
-            new { 
-                p.ID_HistoryUseComputer, 
-               // p.Customer.FullNameCus, 
-                p.ID_Computer, 
-                p._LogIn, 
-                p._LogOut, 
-                p.HourUsed 
-            });
-            dgvHUse.DataSource = l.ToList();
+            if (data == null) dgvHUse.DataSource = adUCPH.Filter();
+            else dgvHUse.DataSource = data.ToList();
         }
-        public void ShowAll_OrderHis(List<OrderDetail> l)
+        public void ReloadOrderHis(List<object> data = null)
         {
-            var list = l.Select(p => new {p.ID_OrderDetail, //p.Order.Customer.FullNameCus,
-                p.Product.NameProduct ,p.Product.Category.CategoryName,p.Description,p.Quality});
-            adOrHis = new AdminBLL_OrderHis();
-            var data = list.ToList();
-            dgvOrHis.DataSource = data;
+            if (data == null) dgvOrHis.DataSource = adOrHis.Filter();
+            else dgvOrHis.DataSource = data.ToList();
         }
-        public void CreateCBB()
-        {
-            cbbSort.Items.Clear();
-            cbbSearch.Items.Clear();
-            cbbSearch.Items.Add("All");
-            cbbSearch.Items.Add("ID_User");
-            cbbSearch.Items.Add("Name");
-            cbbSort.Items.Add("Name");
-            cbbSort.Items.Add("ID_User");
-        }
+        
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             FormCusAdd_Up f = new FormCusAdd_Up("");
-            f.d = new FormCusAdd_Up.MyDel(ShowAll_Mana);
+            f.d = new FormCusAdd_Up.MyDel(ReloadCus);
             f.Show();
         }
 
@@ -84,7 +55,7 @@ namespace NetManagement.View.FormAdmin
             {
                 string s = dgvShowCus.SelectedRows[0].Cells["ID_User"].Value.ToString();
                 FormCusAdd_Up f = new FormCusAdd_Up(s);
-                f.d = new FormCusAdd_Up.MyDel(ShowAll_Mana);
+                f.d = new FormCusAdd_Up.MyDel(ReloadCus);
                 f.Show();
             }
         }
@@ -93,147 +64,129 @@ namespace NetManagement.View.FormAdmin
         {
             string txt = txtSearch.Text;
             string s = cbbSearch.Text;
-
+            List<object> list = new List<object>();
             if (tbMana.SelectedIndex == 0)
             {
-                foreach (Customer i in adMana.GetAll())
+                if (s == "All")
                 {
-                    //i.FullNameCus = i.FirstName + " " + i.LastName;
-                    //i.Employee.FullNameEm = i.Employee.FirstName + " " + i.Employee.LastName;
+                    list = adMana.Search(txt, SearchAcoountEnum.All);
                 }
-                var l = adMana.Search(s, txt).Select(p => 
-                new { 
-                    p.ID_User, 
-                   // p.FullNameCus, 
-                    p.DateOfBirth, 
-                    p.Phone, 
-                    p.Email, 
-                    p.Day_Create, 
-                    p.Gender,
-                    p.Money,
-                   // p.Employee.FullNameEm 
-                });
-                dgvShowCus.DataSource = l.ToList();
+                else if(s== "ID_User")
+                {
+                    list = adMana.Search(txt, SearchAcoountEnum.Id);
+                }
+                else
+                {
+                    list = adMana.Search(txt, SearchAcoountEnum.Name);
+                }
+                ReloadCus(list);
             }
+            
             else if (tbMana.SelectedIndex == 1)
             {
-                var l = adUCPH.Search(s, txt).Select(p => 
-                new { 
-                    p.ID_HistoryUseComputer, 
-                  //  p.Customer.FullNameCus, 
-                    p.ID_Computer, 
-                    p._LogIn, 
-                    p._LogOut, 
-                    p.HourUsed 
-                });
-                dgvHUse.DataSource = l.ToList();
+                if (s == "All")
+                {
+                    list = adUCPH.Search(txt, SearchAcoountEnum.All);
+                }
+                else
+                {
+                    list = adUCPH.Search(txt, SearchAcoountEnum.Name,s);
+                }
+                ReloadHisUsed(list);
             }
             else if (tbMana.SelectedIndex == 2)
             {
-                if(cbbTypeView.SelectedItem.ToString() == "All")
-                {
-                    var l = adOrHis.Search(s, txt);
-                    ShowAll_OrderHis(l.ToList());
-                }
-                else if (cbbTypeView.SelectedItem.ToString() == "Do An")
-                {
-                    var l = adOrHis.Search(s, txt).Where(p => p.Product.Category.CategoryName == "Do An");
-                    ShowAll_OrderHis(l.ToList());
-                }
-                else if (cbbTypeView.SelectedItem.ToString() == "Do Uong")
-                {
-                    var l = adOrHis.Search(s, txt).Where(p => p.Product.Category.CategoryName == "Do Uong");
-                    ShowAll_OrderHis(l.ToList());
-                }
+                list = adOrHis.Search(txt,s);
+                ReloadOrderHis(list);
             }
+
         }
 
         private void btnSort_Click(object sender, EventArgs e)
         {
+            SortEnum sort = new SortEnum();
             if (tbMana.SelectedIndex == 0)
             {
-                var l = adMana.Sort(cbbSort.Text).Select(p => 
-                new { 
-                    p.ID_User, 
-              //     p.FullNameCus, 
-                    p.DateOfBirth, 
-                    p.Phone, 
-                    p.Email, 
-                    p.Day_Create, 
-                    p.Gender,
-                    p.Money,
-                //    p.Employee.FullNameEm 
-                });
                 
-                dgvShowCus.DataSource = l.ToList();
+                if ((cbbSortby.SelectedItem as string) == "Asc")
+                {
+                    sort = SortEnum.Asc;
+                }
+                else
+                {
+                    sort = SortEnum.Desc;
+                }
+                dgvShowCus.DataSource = adMana.Sort(sort, (cbbSortProperty.SelectedItem as string));
             }
             else if (tbMana.SelectedIndex == 1)
             {
-                var l = adUCPH.Sort(cbbSort.Text).Select(p => 
-                new { 
-                    p.ID_HistoryUseComputer, 
-                 //   p.Customer.FullNameCus, 
-                    p.ID_Computer, p._LogIn, 
-                    p._LogOut, 
-                    p.HourUsed 
-                });
-                dgvHUse.DataSource = l.ToList();
+                if ((cbbSortby.SelectedItem as string) == "Asc")
+                {
+                    sort = SortEnum.Asc;
+                }
+                else
+                {
+                    sort = SortEnum.Desc;
+                }
+                dgvHUse.DataSource = adUCPH.Sort(sort, (cbbSortProperty.SelectedItem as string));
             }
             else if (tbMana.SelectedIndex == 2)
             {
-                var l = adOrHis.Sort(cbbSort.Text).Select(p => 
-                new { 
-                    p.ID_OrderDetail, 
-                   // p.Order.Customer.FullNameCus, 
-                    p.Product.NameProduct, 
-                    p.Product.Category.CategoryName, 
-                    //p._Description, p.Quality 
-                });
-
-                dgvOrHis.DataSource = l.ToList();
+                if ((cbbSortby.SelectedItem as string) == "Asc")
+                {
+                    sort = SortEnum.Asc;
+                }
+                else
+                {
+                    sort = SortEnum.Desc;
+                }
+                dgvOrHis.DataSource = adOrHis.Sort(sort, (cbbSortProperty.SelectedItem as string));
             }
         }
 
-        private void tbMana_SelectedIndexChanged(object sender, EventArgs e)
+        public void CreateCBB()
         {
+            cbbSearch.Items.Clear();
+            cbbSearch.Items.Add("All");
+            cbbSearch.Items.Add("Name Customer");
+            cbbSortProperty.Items.Clear();
+            cbbSortProperty.Items.Add("Name Customer");
             if (tbMana.SelectedIndex == 0)
             {
-                CreateCBB();
-
-                ShowAll_Mana();
+                cbbSearch.Items.Add("ID_User");
+                cbbSortProperty.Items.Add("ID_User");
+                ReloadCus();
             }
             else if (tbMana.SelectedIndex == 1)
             {
-                cbbSearch.Items.Clear();
-                cbbSort.Items.Clear();
-                cbbSearch.Items.Add("All");
-                cbbSearch.Items.Add("ID_History");
-                cbbSearch.Items.Add("Name");
-                cbbSearch.Items.Add("ID_Customer");
-                cbbSort.Items.Add("ID_Computer");
-                cbbSort.Items.Add("ID_History");
-                cbbSort.Items.Add("Name");
 
-                ShowAll_His();
+                cbbSearch.Items.Add("Name PC");
+                cbbSortProperty.Items.Add("ID_Computer");
+
+                ReloadHisUsed();
             }
             else if (tbMana.SelectedIndex == 2)
             {
-                cbbSearch.Items.Clear();
-                cbbSort.Items.Clear();
                 cbbTypeView.Items.Clear();
-                cbbSearch.Items.Add("Name Customer");
                 cbbSearch.Items.Add("Name Product");
-                cbbSort.Items.Add("Quality");
-                cbbSort.Items.Add("Name");
+                cbbSortProperty.Items.Add("Quality");
                 cbbTypeView.Items.Add("All");
                 foreach (string s in GetListCBB())
                 {
                     cbbTypeView.Items.Add(s);
                 }
                 cbbTypeView.SelectedIndex = 0;
-                List <OrderDetail>l = adOrHis.GetAll().ToList();
-                ShowAll_OrderHis(l);
+                ReloadOrderHis();
             }
+        }
+
+        private void tbMana_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+            cbbSearch.Text = "";
+            cbbSortby.Text = "";
+            cbbSortProperty.Text = "";
+            CreateCBB();
         }
         public List<string> GetListCBB()
         {
@@ -246,18 +199,17 @@ namespace NetManagement.View.FormAdmin
         {
             if (cbbTypeView.SelectedItem.ToString() == "All")
             {
-                List<OrderDetail> l = adOrHis.GetAll().ToList();
-                ShowAll_OrderHis(l);
+                ReloadOrderHis();
             }
             else if (cbbTypeView.SelectedItem.ToString() == "Do An")
             {
-                List<OrderDetail> l = adOrHis.GetAll().Where(p => p.Product.Category.CategoryName == "Do An").ToList();
-                ShowAll_OrderHis(l);
+                dgvOrHis.DataSource = adOrHis.Filter(adOrHis.GetAll().
+                    Where(p => p.Product.Category.CategoryName == "Do An"));
             }
-            else if (cbbTypeView.SelectedItem.ToString() == "Nuoc Uong")
+            else if (cbbTypeView.SelectedItem.ToString() == "Iteam")
             {
-                List<OrderDetail> l = adOrHis.GetAll().Where(p => p.Product.Category.CategoryName == "Nuoc Uong").ToList();
-                ShowAll_OrderHis(l);
+                dgvOrHis.DataSource = adOrHis.Filter(adOrHis.GetAll().
+                    Where(p => p.Product.Category.CategoryName == "Iteam"));
             }
         }
 
@@ -272,7 +224,7 @@ namespace NetManagement.View.FormAdmin
                     adUCPH.DelHis(s);
                 }
             }
-            ShowAll_His();
+            ReloadOrderHis();
         }
     }
 }

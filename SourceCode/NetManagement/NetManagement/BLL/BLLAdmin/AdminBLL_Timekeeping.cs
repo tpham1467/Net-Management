@@ -26,15 +26,31 @@ namespace NetManagement.BLL
             IEnumerable<Shift> data = repository.GetAll().ToList();
             foreach (Shift i in data)
             {
-                DateTime start = Convert.ToDateTime(i.ShiftStartTime);
-                DateTime end = Convert.ToDateTime(i.ShiftEndTime);
-                i.WorkedHour = end.Hour - start.Hour;
-              //  i.Employee.FullNameEm = i.Employee.FirstName +" "+ i.Employee.LastName;
+                i.WorkedHour = i.ShiftEndTime.Hour - i.ShiftEndTime.Hour;
             }
             repository.Save();
             return data;
         }
-        
+        public IEnumerable<object> Filter(IEnumerable<Shift> sh = null)
+        {
+            if (sh == null) sh = GetAll();
+            var data = sh
+                .Select(
+                    p =>
+                        new
+                        {
+                            p.ID_Shift,
+                            p.Employee.FirstName,
+                            p.Employee.LastName,
+                            p.WorkedDate,
+                            p.ShiftStartTime,
+                            p.ShiftEndTime,
+                            p.StatusShift.Description
+                        }
+                );
+            return data.ToList();
+        }
+
         public Shift GetCusById(int id)
         {
             return repository.GetById(id);

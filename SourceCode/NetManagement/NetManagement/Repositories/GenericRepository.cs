@@ -110,7 +110,7 @@ namespace NetManagement.Repositories
                 string keyofObject = key(i);
                 if (IsContain)
                 {
-                    if (keyofObject.Contains(input))
+                    if (keyofObject.ToLower().Contains(input.ToLower()))
                         objectmatch.Add(i);
                 }
                 else

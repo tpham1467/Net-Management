@@ -15,7 +15,7 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddUpEm : Form
     {
-        public delegate void MyDel();
+        public delegate void MyDel(List<object> data=null);
         public MyDel d;
         AdminBLL_Em adBLLEm = new AdminBLL_Em();
         AdminBLL_Salary adBLLsa = new AdminBLL_Salary();

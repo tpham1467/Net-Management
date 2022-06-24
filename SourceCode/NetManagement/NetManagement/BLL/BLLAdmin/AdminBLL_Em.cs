@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NetManagement.DTO;
 using NetManagement.Model;
 using NetManagement.Repositories;
 
@@ -21,18 +22,30 @@ namespace NetManagement.BLL
         public IEnumerable<Employee> GetAll()
         {
             IEnumerable<Employee> data = repository.GetAll().ToList();
-            foreach(Employee emp in data)
-            {
-               // emp.FullNameEm = emp.FirstName + " "+ emp.LastName;
-            }
-            SaveChange();
             return data;
+        }
+        public IEnumerable<object> Filter(IEnumerable<Employee> emp = null)
+        {
+            if(emp == null) emp = GetAll();
+            var data = emp.Select(p => new 
+            {
+                p.ID_User,
+                p.FirstName,
+                p.LastName,
+                p.DateOfBirth,
+                p.Phone,
+                p.Email,
+                p.Day_Create,
+                p.Gender,
+                p.SalaryEmployee.CoSalary,
+                p.Identify
+            });
+            return data.ToList();
         }
        
         public Employee GetEmById(int id)
         {
             Employee emp = repository.GetById(id);
-            //emp.FullNameEm = emp.FirstName + " " + emp.LastName;
             return emp;
         }
         public IEnumerable<Employee> GetAllById(List<int> id)
@@ -51,23 +64,25 @@ namespace NetManagement.BLL
             }
             return data2;
         }
-        public List<Employee> Search(string txt, string txtcbb, List<int> list)
+        public IEnumerable<object> Sort(SortEnum sort, string by)
         {
-            List<Employee> data1 = GetAllById(list).ToList();
-            List<Employee> data2 = new List<Employee>();
 
-            if (txtcbb == "Name Employee")
+            if (string.Compare(by, "Name Employee") == 0)
+                return Filter(repository.Sort<string>(sort, a => a.LastName));
+            else return Filter(repository.Sort<DateTime>(sort, a => a.Day_Create));
+        }
+        public List<object> Search(string search, SearchAcoountEnum searchby)
+        {
+
+            if (searchby == SearchAcoountEnum.All)
             {
-                foreach(Employee emp in data1)
-                {
-                    //if (emp.FullNameEm.ToLower().Contains(txt.ToLower()))
-                    //{
-                    //    data2.Add(emp);
-                    //}
-                }
+                return Filter(repository.GetAll()).ToList();
             }
-            else return data1;
-            return data2;
+            else if(searchby == SearchAcoountEnum.Name)
+            {
+                return Filter(repository.Search(search, p => p.FirstName + p.LastName, true, false)).ToList();
+            }
+            else return Filter(repository.Search(search, p => p.ID_User.ToString(), true, true)).ToList();
         }
         public void UpdateAdd(string str, Employee emp, DateTime dt)
         {

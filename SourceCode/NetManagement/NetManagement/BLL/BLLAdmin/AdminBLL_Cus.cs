@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NetManagement.DTO;
 using NetManagement.Model;
 using NetManagement.Repositories;
 
@@ -28,6 +29,24 @@ namespace NetManagement.BLL
             
             List<Customer> data = repository.GetAll().ToList();
             return data;
+        }
+        public IEnumerable<object> Filter(IEnumerable<Customer> cus = null)
+        {
+            if (cus == null) cus = GetAll();
+            var data = cus.Select(p => new
+            {
+                p.ID_User,
+                p.FirstName,
+                p.LastName,
+                p.DateOfBirth,
+                p.Phone,
+                p.Email,
+                p.Day_Create,
+                p.Gender,
+                p.Money,
+                p.ID_Employee
+            });
+            return data.ToList();
         }
 
         public Customer GetCusById(int id)
@@ -61,7 +80,6 @@ namespace NetManagement.BLL
         public void Add(Customer cus)
         {
             cus.Day_Create = DateTime.Now;
-       //     cus.FullNameCus = cus.FirstName +" "+ cus.LastName;
             repository.Insert(cus);
             repository.Save();
         }
@@ -78,32 +96,27 @@ namespace NetManagement.BLL
             repository.Update(customer, customer.ID_User, UpdateDelegate);
             repository.Save();
         }
-        public List<Customer> Sort(string txt)
+        public IEnumerable<object> Sort(SortEnum sort, string by)
         {
-            List<Customer> list = new List<Customer>();
-            if (txt == "Name")
-            {
-                //list = GetAll().OrderBy(p => p.FullNameCus).ToList();
-            }
-            else if (txt == "ID_User")
-            {
-                list = GetAll().OrderBy(p => p.ID_User).ToList();
-            }
-            return list;
+
+            if (string.Compare(by, "Name Customer") == 0)
+                return Filter(repository.Sort<string>(sort, a => a.LastName));
+            else return Filter(repository.Sort<int>(sort, a => a.ID_User));
         }
-        public IEnumerable<Customer> Search(string searchby, string txt)
+        public List<object> Search(string search, SearchAcoountEnum searchby)
         {
-            if (searchby == "ID_User")
+
+            if (searchby == SearchAcoountEnum.All)
             {
-                return repository.Search(txt, p => p.ID_User.ToString(), false, true);
+                return Filter(repository.GetAll()).ToList();
             }
-            else if(searchby == "Name")
+            else if(searchby == SearchAcoountEnum.Id)
             {
-                return    repository.Search(txt, p => p.FirstName + p.LastName, true, false);
+                return Filter(repository.Search(search, p => p.ID_User.ToString(), true, true)).ToList();
             }
-            else 
+            else
             {
-                return GetAll().ToList();
+                return Filter(repository.Search(search,p=>p.FirstName + p.LastName,true,false)).ToList();
             }
         }
         public Customer CreateCus() { 

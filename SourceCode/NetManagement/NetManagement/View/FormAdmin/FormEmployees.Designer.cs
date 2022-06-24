@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEmployees));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.cbbSort = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.cbbSortProperty = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbbSearch = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -59,12 +59,13 @@
             this.tbPay = new System.Windows.Forms.TabPage();
             this.dgvShowPayroll = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tbCosalaryEm = new System.Windows.Forms.TabPage();
-            this.dgvCosalaryEm = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnUpdateSal = new FontAwesome.Sharp.IconButton();
             this.btnAddSala = new FontAwesome.Sharp.IconButton();
+            this.dgvCosalaryEm = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cbbSortby = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tbMana.SuspendLayout();
             this.tbManaEm.SuspendLayout();
@@ -77,22 +78,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCosalaryEm)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbbSort
+            // cbbSortProperty
             // 
-            this.cbbSort.DropDownWidth = 200;
-            this.cbbSort.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbbSort.ItemHeight = 29;
-            this.cbbSort.Location = new System.Drawing.Point(1043, 29);
-            this.cbbSort.Name = "cbbSort";
-            this.cbbSort.Size = new System.Drawing.Size(192, 37);
-            this.cbbSort.TabIndex = 10;
+            this.cbbSortProperty.DropDownWidth = 200;
+            this.cbbSortProperty.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbSortProperty.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbbSortProperty.ItemHeight = 29;
+            this.cbbSortProperty.Location = new System.Drawing.Point(1116, 30);
+            this.cbbSortProperty.Name = "cbbSortProperty";
+            this.cbbSortProperty.Size = new System.Drawing.Size(192, 37);
+            this.cbbSortProperty.TabIndex = 10;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.cbbSortby);
             this.panel1.Controls.Add(this.cbbSearch);
-            this.panel1.Controls.Add(this.cbbSort);
+            this.panel1.Controls.Add(this.cbbSortProperty);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.btnSort);
             this.panel1.Controls.Add(this.txtSearch);
@@ -138,7 +140,7 @@
             this.btnSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSort.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnSort.Location = new System.Drawing.Point(917, 29);
+            this.btnSort.Location = new System.Drawing.Point(846, 29);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(106, 40);
             this.btnSort.TabIndex = 9;
@@ -231,8 +233,8 @@
             this.dgvManaEmployee.AllowUserToDeleteRows = false;
             this.dgvManaEmployee.AllowUserToOrderColumns = true;
             this.dgvManaEmployee.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Silver;
-            this.dgvManaEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.dgvManaEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvManaEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -240,14 +242,14 @@
             this.dgvManaEmployee.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvManaEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvManaEmployee.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvManaEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvManaEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvManaEmployee.ColumnHeadersHeight = 36;
             this.dgvManaEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvManaEmployee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -326,8 +328,8 @@
             this.dgvShowTimeKeeping.AllowUserToDeleteRows = false;
             this.dgvShowTimeKeeping.AllowUserToOrderColumns = true;
             this.dgvShowTimeKeeping.AllowUserToResizeRows = false;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.Silver;
-            this.dgvShowTimeKeeping.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            this.dgvShowTimeKeeping.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvShowTimeKeeping.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -335,14 +337,14 @@
             this.dgvShowTimeKeeping.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvShowTimeKeeping.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvShowTimeKeeping.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShowTimeKeeping.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShowTimeKeeping.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvShowTimeKeeping.ColumnHeadersHeight = 36;
             this.dgvShowTimeKeeping.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvShowTimeKeeping.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -384,8 +386,8 @@
             this.dgvShowPayroll.AllowUserToDeleteRows = false;
             this.dgvShowPayroll.AllowUserToOrderColumns = true;
             this.dgvShowPayroll.AllowUserToResizeRows = false;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.Silver;
-            this.dgvShowPayroll.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            this.dgvShowPayroll.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvShowPayroll.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -393,14 +395,14 @@
             this.dgvShowPayroll.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvShowPayroll.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvShowPayroll.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShowPayroll.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShowPayroll.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvShowPayroll.ColumnHeadersHeight = 36;
             this.dgvShowPayroll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvShowPayroll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -424,16 +426,6 @@
             this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.FillWeight = 25F;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::NetManagement.Properties.Resources.PayrollIcon;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 6;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 1246;
-            // 
             // tbCosalaryEm
             // 
             this.tbCosalaryEm.BackgroundImage = global::NetManagement.Properties.Resources.btnbackground;
@@ -448,52 +440,6 @@
             this.tbCosalaryEm.TabIndex = 3;
             this.tbCosalaryEm.Text = "CoSalary Employee";
             this.tbCosalaryEm.UseVisualStyleBackColor = true;
-            // 
-            // dgvCosalaryEm
-            // 
-            this.dgvCosalaryEm.AllowUserToAddRows = false;
-            this.dgvCosalaryEm.AllowUserToDeleteRows = false;
-            this.dgvCosalaryEm.AllowUserToOrderColumns = true;
-            this.dgvCosalaryEm.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Silver;
-            this.dgvCosalaryEm.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
-            this.dgvCosalaryEm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCosalaryEm.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvCosalaryEm.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.dgvCosalaryEm.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvCosalaryEm.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCosalaryEm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
-            this.dgvCosalaryEm.ColumnHeadersHeight = 36;
-            this.dgvCosalaryEm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvCosalaryEm.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn4});
-            this.dgvCosalaryEm.EnableHeadersVisualStyles = false;
-            this.dgvCosalaryEm.Location = new System.Drawing.Point(30, 6);
-            this.dgvCosalaryEm.Name = "dgvCosalaryEm";
-            this.dgvCosalaryEm.RowHeadersVisible = false;
-            this.dgvCosalaryEm.RowHeadersWidth = 51;
-            this.dgvCosalaryEm.RowTemplate.Height = 40;
-            this.dgvCosalaryEm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCosalaryEm.Size = new System.Drawing.Size(1225, 427);
-            this.dgvCosalaryEm.TabIndex = 7;
-            // 
-            // dataGridViewImageColumn4
-            // 
-            this.dataGridViewImageColumn4.FillWeight = 25F;
-            this.dataGridViewImageColumn4.HeaderText = "";
-            this.dataGridViewImageColumn4.Image = global::NetManagement.Properties.Resources.PayrollIcon;
-            this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn4.MinimumWidth = 6;
-            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
             // 
             // btnUpdateSal
             // 
@@ -520,6 +466,76 @@
             this.btnAddSala.Text = "Add ";
             this.btnAddSala.UseVisualStyleBackColor = true;
             this.btnAddSala.Click += new System.EventHandler(this.btnAddSala_Click);
+            // 
+            // dgvCosalaryEm
+            // 
+            this.dgvCosalaryEm.AllowUserToAddRows = false;
+            this.dgvCosalaryEm.AllowUserToDeleteRows = false;
+            this.dgvCosalaryEm.AllowUserToOrderColumns = true;
+            this.dgvCosalaryEm.AllowUserToResizeRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
+            this.dgvCosalaryEm.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvCosalaryEm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCosalaryEm.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCosalaryEm.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.dgvCosalaryEm.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCosalaryEm.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCosalaryEm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvCosalaryEm.ColumnHeadersHeight = 36;
+            this.dgvCosalaryEm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvCosalaryEm.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewImageColumn4});
+            this.dgvCosalaryEm.EnableHeadersVisualStyles = false;
+            this.dgvCosalaryEm.Location = new System.Drawing.Point(30, 6);
+            this.dgvCosalaryEm.Name = "dgvCosalaryEm";
+            this.dgvCosalaryEm.RowHeadersVisible = false;
+            this.dgvCosalaryEm.RowHeadersWidth = 51;
+            this.dgvCosalaryEm.RowTemplate.Height = 40;
+            this.dgvCosalaryEm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCosalaryEm.Size = new System.Drawing.Size(1225, 427);
+            this.dgvCosalaryEm.TabIndex = 7;
+            // 
+            // dataGridViewImageColumn4
+            // 
+            this.dataGridViewImageColumn4.FillWeight = 25F;
+            this.dataGridViewImageColumn4.HeaderText = "";
+            this.dataGridViewImageColumn4.Image = global::NetManagement.Properties.Resources.PayrollIcon;
+            this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn4.MinimumWidth = 6;
+            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.FillWeight = 25F;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::NetManagement.Properties.Resources.PayrollIcon;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 1246;
+            // 
+            // cbbSortby
+            // 
+            this.cbbSortby.DropDownWidth = 200;
+            this.cbbSortby.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbSortby.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbbSortby.ItemHeight = 29;
+            this.cbbSortby.Items.AddRange(new object[] {
+            "Asc",
+            "Desc"});
+            this.cbbSortby.Location = new System.Drawing.Point(999, 30);
+            this.cbbSortby.Name = "cbbSortby";
+            this.cbbSortby.Size = new System.Drawing.Size(90, 37);
+            this.cbbSortby.TabIndex = 12;
             // 
             // FormEmployees
             // 
@@ -555,7 +571,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnSort;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ComboBox cbbSort;
+        private System.Windows.Forms.ComboBox cbbSortProperty;
         private System.Windows.Forms.TabPage tbTimeKeeping;
         private System.Windows.Forms.DataGridView dgvShowTimeKeeping;
         private System.Windows.Forms.TabControl tbMana;
@@ -577,5 +593,6 @@
         private FontAwesome.Sharp.IconButton btnAddSala;
         private System.Windows.Forms.DataGridView dgvCosalaryEm;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
+        private System.Windows.Forms.ComboBox cbbSortby;
     }
 }

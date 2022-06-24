@@ -18,16 +18,22 @@ namespace NetManagement.View.FormAdmin
         public FormShift()
         {
             InitializeComponent();
-            ShowAllShift();
+            ReloadShift();
         }
         AdminBLL_Timekeeping adShift = new AdminBLL_Timekeeping();
-        public void ShowAllShift()
+        public void ReloadShift(List<object> data = null)
         {
-             adShift = new AdminBLL_Timekeeping();
-            var l = adShift.GetAll().Where(p=>p.StatusShift.Description == "Đã làm" || p.StatusShift.Description == "Xin nghỉ" || p.StatusShift.Description == "Chưa làm").Select(p => new { p.ID_Shift // p.Employee.FullNameEm
-                ,p.WorkedDate,p.ShiftStartTime,p.ShiftEndTime,p.StatusShift.Description });
-            dgvShift.DataSource = l.ToList();
+            if (data == null) dgvShift.DataSource = adShift.Filter(adShift
+                .GetAll()
+                .Where(
+                    p =>
+                        p.StatusShift.Description == "Đã làm"
+                        || p.StatusShift.Description == "Xin nghỉ"
+                        || p.StatusShift.Description == "Chưa làm"
+                ));
+            else dgvShift.DataSource = data;
         }
+        
 
         private void icBtnAddShift_Click(object sender, EventArgs e)
         {
@@ -43,12 +49,12 @@ namespace NetManagement.View.FormAdmin
                     s = i.Cells["ID_Shift"].Value.ToString();
                     adShift.DelShift(s);
                 }
-            ShowAllShift();
+            ReloadShift();
         }
         private void btnadd_Click(object sender, EventArgs e)
         {
             FormAddUpShift f = new FormAddUpShift("");
-            f.d = new FormAddUpShift.MyDel(ShowAllShift);
+            f.d = new FormAddUpShift.MyDel(ReloadShift);
             f.Show();
         }
 
@@ -58,7 +64,7 @@ namespace NetManagement.View.FormAdmin
             {
                 string s = dgvShift.SelectedRows[0].Cells["ID_Shift"].Value.ToString();
                 FormAddUpShift f = new FormAddUpShift(s);
-                f.d = new FormAddUpShift.MyDel(ShowAllShift);
+                f.d = new FormAddUpShift.MyDel(ReloadShift);
                 f.Show();
             }
         }
@@ -96,7 +102,6 @@ namespace NetManagement.View.FormAdmin
         }
         public void ViewofTypeDetail(string s)
         {
-            string txt = cbTypeDt.Text;
             adShift = new AdminBLL_Timekeeping();
             List<Shift> list = adShift.GetAll().ToList();
             List<Shift> lShi = new List<Shift>();
@@ -107,9 +112,14 @@ namespace NetManagement.View.FormAdmin
                     lShi.Add(sh);
                 }
             }
-            var l = lShi.Where(p => p.StatusShift.Description == "Đã làm" || p.StatusShift.Description == "Xin nghỉ" || p.StatusShift.Description == "Chưa làm").Select(p => new { p.ID_Shift// p.Employee.FullNameEm
-                                                                                                                                                                                             , p.WorkedDate, p.ShiftStartTime, p.ShiftEndTime, p.StatusShift.Description });
-            dgvShift.DataSource = l.ToList();
+            string txt = cbTypeDt.Text;
+            dgvShift.DataSource = adShift.Filter(lShi
+            .Where(
+                p => p.WorkedDate.Year == Convert.ToInt32(txt)
+                    || p.StatusShift.Description == "Đã làm"
+                    || p.StatusShift.Description == "Xin nghỉ"
+                    || p.StatusShift.Description == "Chưa làm"
+            ));
         }
 
         private void cbTypeDt_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,10 +127,22 @@ namespace NetManagement.View.FormAdmin
             if (cbbTypeView.Text == "Xem theo ngày")
             {
                 string txt = cbTypeDt.Text;
-                adShift = new AdminBLL_Timekeeping();
-                var l = adShift.GetAll().Where(p=>p.WorkedDate== Convert.ToDateTime(txt)|| p.StatusShift.Description == "Đã làm" || p.StatusShift.Description == "Xin nghỉ" || p.StatusShift.Description == "Chưa làm").Select(p => new { p.ID_Shift , //p.Employee.FullNameEm
-                                                                                                                                                                                                                                                     p.WorkedDate, p.ShiftStartTime, p.ShiftEndTime, p.StatusShift.Description });
-                dgvShift.DataSource = l.ToList();
+                List<Shift> l = adShift.GetAll().ToList();
+                foreach (Shift sh in l)
+                {
+                    sh.WorkedDate = Convert.ToDateTime(sh.WorkedDate.ToString("MM/dd/yyyy"));
+                }
+                dgvShift.DataSource = adShift.Filter(l
+                .Where(
+                    p => p.WorkedDate == Convert.ToDateTime(txt)
+                        ||p.StatusShift.Description == "Đã làm"
+                        || p.StatusShift.Description == "Xin nghỉ"
+                        || p.StatusShift.Description == "Chưa làm"
+                ));
+                //adShift = new AdminBLL_Timekeeping();
+                //var l = adShift.GetAll().Where(p=>p.WorkedDate== Convert.ToDateTime(txt)|| p.StatusShift.Description == "Đã làm" || p.StatusShift.Description == "Xin nghỉ" || p.StatusShift.Description == "Chưa làm").Select(p => new { p.ID_Shift , //p.Employee.FullNameEm
+                //                                                                                                                                                                                                                                     p.WorkedDate, p.ShiftStartTime, p.ShiftEndTime, p.StatusShift.Description });
+                //dgvShift.DataSource = l.ToList();
             }
             else if (cbbTypeView.Text == "Xem theo tháng")
             {
@@ -134,7 +156,7 @@ namespace NetManagement.View.FormAdmin
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
-            ShowAllShift();
+            ReloadShift();
             cbbTypeView.Text = "";
             cbTypeDt.Text = "";
         }

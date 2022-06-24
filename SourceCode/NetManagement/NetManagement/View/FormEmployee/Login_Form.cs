@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using NetManagement.BLL.BLLLogin;
 using NetManagement.Model;
 using NetManagement.View.FormChoosePC;
+using NetManagement.View.FormAdmin;
 using NetManagement.BLL.BLLEmployee.BLLCheckInCheckOut;
 namespace NetManagement.View.FormEmployee
 {
@@ -58,6 +59,12 @@ namespace NetManagement.View.FormEmployee
                             Mainform_Employee mainform_Employee = new Mainform_Employee(account.Id_User);
                             mainform_Employee.action = UnHide;
                             mainform_Employee.Show();
+                            this.Hide();
+                        }
+                        else if(account.ID_Role == 1)
+                        {
+                            MainForm MainForm_Admin = new MainForm();
+                            MainForm_Admin.Show();
                             this.Hide();
                         }
                         else

@@ -7,12 +7,12 @@ using System.Runtime.InteropServices;
 
 namespace NetManagement.View.FormAdmin
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             leftBorderBtn = new Panel();

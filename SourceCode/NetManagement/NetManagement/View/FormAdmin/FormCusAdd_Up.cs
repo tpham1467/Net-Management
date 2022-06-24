@@ -14,7 +14,7 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class FormCusAdd_Up : Form
     {
-        public delegate void MyDel();
+        public delegate void MyDel(List<object> data = null);
         public MyDel d;
         AdminBLL_Cus adBLLCus = new AdminBLL_Cus();
         AdminBLL_Em adBLLEm = new AdminBLL_Em();
@@ -33,8 +33,8 @@ namespace NetManagement.View.FormAdmin
         {
             foreach (Employee em in adBLLEm.GetAll())
             {
-                //cbbEm.Items.Add(new SetCBB { id = em.ID_User, name = em.FullNameEm });
-                //SetCBBs.Add(new SetCBB { id = em.ID_User, name = em.FullNameEm });
+                cbbEm.Items.Add(new SetCBB { id = em.ID_User, name = em.FirstName+" "+em.LastName });
+                SetCBBs.Add(new SetCBB { id = em.ID_User, name = em.FirstName + " " + em.LastName });
             }
         }
         public string str;
@@ -45,7 +45,7 @@ namespace NetManagement.View.FormAdmin
             {
                 int i = Convert.ToInt32(id);
                 Customer s = adBLLCus.GetCusById(i);
-               // str = s.Employee.ID_User + " - " + s.Employee.FullNameEm;
+                str = s.Employee.ID_User + " - " + s.Employee.FirstName+" "+s.Employee.LastName;
                 txtFirstN.Text = s.FirstName.ToString();
                 txtLastN.Text = s.LastName.ToString();
                 txtPhone.Text = s.Phone.ToString();
