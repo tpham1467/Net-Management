@@ -10,25 +10,21 @@ using System.Windows.Forms;
 using NetManagement.BLL;
 using NetManagement.Model;
 using NetManagement.DTO;
-
 namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddUpEm : Form
     {
-        public delegate void MyDel();
-        public MyDel d;
+        public Action action;
         AdminBLL_Em adBLLEm = new AdminBLL_Em();
         AdminBLL_Salary adBLLsa = new AdminBLL_Salary();
-        string id;
-        public FormAddUpEm(string m)
+        private int id;
+        public FormAddUpEm(int _id)
         {
-            id = m;
+            id = _id;
             InitializeComponent();
             GUI();
             CreateCBB();
         }
-        string str;
-        DateTime dt;
         List<ConvertSalarytoVND> ConvertMoneys = new List<ConvertSalarytoVND>();
         public void CreateCBB()
         {
@@ -41,10 +37,9 @@ namespace NetManagement.View.FormAdmin
         void GUI()
         {
 
-            if (id != "")
+            if (id != -1)
             {
-                int i = Convert.ToInt32(id);
-                Employee s = adBLLEm.GetEmById(i);
+                Employee s = adBLLEm.GetEmById(id);
                 txtFirstN.Text = s.FirstName.ToString();
                 txtLastN.Text = s.LastName.ToString();
                 txtPhone.Text = s.Phone.ToString();
@@ -59,18 +54,10 @@ namespace NetManagement.View.FormAdmin
                 dtpDOB.Text = s.DateOfBirth.ToLongDateString();
                 if (s.Gender == true) rdMale.Checked = true;
                 else rdFemale.Checked = true;
-                str = s.ID_User.ToString();
-                dt = s.Day_Create;
+                Account account = s.Accounts.ElementAt(0);
+                textBoxUserName.Text = account.UserName_Acc;
+                textBoxPassword.Text = account.Password_Acc;
             }
-            //foreach (var i in adBLLsa.GetAll())
-            //{
-            //    var se = new ConvertSalarytoVND
-            //    {
-            //        id = i.ID_SalaryEmployee,
-            //        Money = i.Salary
-            //    };
-            //    cbbSalary.Items.Add(se);
-            //}
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -79,24 +66,15 @@ namespace NetManagement.View.FormAdmin
             if (rdMale.Checked) checkgd = true;
             else checkgd = false;
             Employee emp = adBLLEm.CreateEm();
-            //emp.ID_SalaryEmployee = (cbbSalary.SelectedItem as ConvertSalarytoVND).id;
 
-            int ktra = 0;
-            foreach (ConvertSalarytoVND cnv in ConvertMoneys)
+            ConvertSalarytoVND convertSalarytoVND = cbbSalary.SelectedItem as ConvertSalarytoVND;
+            if (convertSalarytoVND == null)
             {
-                if (cnv.ToString() == cbbSalary.Text)
-                {
-                    ktra++;
-                    //cus.ID_Employee = scbb.id;
-                    emp.ID_SalaryEmployee = cnv.id;
-                    break;
-                }
-
+                MessageBox.Show("Vui Long Nhap Du Thong tin");
+                return;
             }
-            if (ktra == 0)
-            {
-                emp.ID_SalaryEmployee = (cbbSalary.SelectedItem as ConvertSalarytoVND).id;
-            }
+            else
+                emp.ID_SalaryEmployee = convertSalarytoVND.id;
 
             emp.FirstName = txtFirstN.Text;
             emp.LastName = txtLastN.Text;
@@ -105,14 +83,28 @@ namespace NetManagement.View.FormAdmin
             emp.DateOfBirth = dtpDOB.Value;
             emp.Identify = txtIndentify.Text;
             emp.Gender = checkgd;
-            adBLLEm.UpdateAdd(str, emp, dt);
-            d();
+            if (id == -1)
+            {
+                Account account = adBLLEm.CreateAcoount();
+                account.UserName_Acc = textBoxUserName.Text;
+                account.Password_Acc = textBoxPassword.Text = account.Password_Acc;
+
+                adBLLEm.Add(account , emp);
+            }
+            else
+                adBLLEm.UpDate(emp, id);
+            action();
             this.Dispose();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

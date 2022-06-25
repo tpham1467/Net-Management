@@ -7,15 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NetManagement.BLL;
+using NetManagement.BLL.BLLAdmin;
 using NetManagement.Model;
 
 namespace NetManagement.View.FormAdmin
 {
     public partial class FormUpdateAdd_CTR : Form
     {
-        public delegate void MyDel();
-        public MyDel d;
+        public Action<List<object>> action;
         AdminBLL_Category adBLL = new AdminBLL_Category();
         string id;
         int k;
@@ -45,7 +44,7 @@ namespace NetManagement.View.FormAdmin
                 Description = txtDesCTR.Text,
             };
             adBLL.UpdateAdd(ctr, k);
-            d();
+            action(null);
             this.Dispose();
         }
 

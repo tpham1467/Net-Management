@@ -103,6 +103,7 @@
   <ItemGroup>
     <Compile Include="BLL\BLLAdmin\AdminBLL_Category.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_HisPayroll.cs" />
+    <Compile Include="BLL\BLLAdmin\AdminBLL_Inventory.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_Salary.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_Timekeeping.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_Cus.cs" />
@@ -110,6 +111,8 @@
     <Compile Include="BLL\BLLAdmin\AdminBLL_MerMana.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_OrderHis.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_UseCPHis.cs" />
+    <Compile Include="BLL\BLLAdmin\BLL_Product.cs" />
+    <Compile Include="BLL\BLLAdmin\BLL_Unit.cs" />
     <Compile Include="DevExpress\XtraEditors.cs" />
     <Compile Include="DTO\ConvertSalarytoVND.cs" />
     <Compile Include="DTO\SortEnum.cs" />
@@ -130,7 +133,6 @@
     <Compile Include="DTO\PC.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DTO\SortAccount.cs" />
     <Compile Include="DTO\SortEnum.cs" />
     <Compile Include="Helper\Convert.cs" />
     <Compile Include="Model\Account.cs" />
@@ -160,12 +162,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="View\FormAdmin\FormAddProduct.cs">
+    <Compile Include="View\FormAdmin\AddUpProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormAdmin\FormAddProduct.Designer.cs">
-      <DependentUpon>FormAddProduct.cs</DependentUpon>
+    <Compile Include="View\FormAdmin\AddUpProduct.Designer.cs" />
+    <Compile Include="View\FormAdmin\AddUpUnit_Form.cs">
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="View\FormAdmin\AddUpUnit_Form.Designer.cs" />
+    <Compile Include="View\FormAdmin\FormAddProductExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAdmin\FormAddProductExport.Designer.cs" />
     <Compile Include="View\FormAdmin\FormAddUpEm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,15 +195,15 @@
     <Compile Include="View\FormAdmin\FormCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormAdmin\FormCategory.Designer.cs">
-      <DependentUpon>FormCategory.cs</DependentUpon>
-    </Compile>
+    <Compile Include="View\FormAdmin\FormCategory.Designer.cs" />
     <Compile Include="View\FormAdmin\FormCusAdd_Up.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormAdmin\FormCusAdd_Up.Designer.cs">
-      <DependentUpon>FormCusAdd_Up.cs</DependentUpon>
+    <Compile Include="View\FormAdmin\FormCusAdd_Up.Designer.cs" />
+    <Compile Include="View\FormAdmin\FormCustommer.cs">
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="View\FormAdmin\FormCustommer.Designer.cs" />
     <Compile Include="View\FormAdmin\FormPayroll.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,12 +221,6 @@
     </Compile>
     <Compile Include="View\FormAdmin\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\FormAdmin\FormCustommer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\FormAdmin\FormCustommer.Designer.cs">
-      <DependentUpon>FormCustommer.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormAdmin\FormDashBoard.cs">
       <SubType>Form</SubType>
@@ -357,9 +359,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\FormAdmin\FormAddProduct.resx">
-      <DependentUpon>FormAddProduct.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\AddUpProduct.resx" />
+    <EmbeddedResource Include="View\FormAdmin\AddUpUnit_Form.resx" />
+    <EmbeddedResource Include="View\FormAdmin\FormAddProductExport.resx" />
     <EmbeddedResource Include="View\FormAdmin\FormAddUpEm.resx">
       <DependentUpon>FormAddUpEm.cs</DependentUpon>
     </EmbeddedResource>
@@ -369,12 +371,9 @@
     <EmbeddedResource Include="View\FormAdmin\FormAddUpShift.resx">
       <DependentUpon>FormAddUpShift.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FormAdmin\FormCategory.resx">
-      <DependentUpon>FormCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\FormAdmin\FormCusAdd_Up.resx">
-      <DependentUpon>FormCusAdd_Up.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormCategory.resx" />
+    <EmbeddedResource Include="View\FormAdmin\FormCusAdd_Up.resx" />
+    <EmbeddedResource Include="View\FormAdmin\FormCustommer.resx" />
     <EmbeddedResource Include="View\FormAdmin\FormPayroll.resx">
       <DependentUpon>FormPayroll.cs</DependentUpon>
     </EmbeddedResource>
@@ -383,10 +382,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormAdmin\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\FormAdmin\FormCustommer.resx">
-      <DependentUpon>FormCustommer.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormAdmin\FormDashBoard.resx">
       <DependentUpon>FormDashBoard.cs</DependentUpon>

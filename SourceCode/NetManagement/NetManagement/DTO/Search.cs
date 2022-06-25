@@ -13,28 +13,9 @@ namespace NetManagement.DTO
         Id = 0,
         Name = 1,
         UserName = 2,
+        SalePriceOfProduct = 3,
+        NameCategory = 4,
+        NameProduct = 5,
     }
-
-
-    //public class SearchCustomer : Search
-    //{
-    //    public enum SearchCustomerEnum 
-    //    {
-
-    //    }
-    //}
-    //public class SearchHistoryUse : Search
-    //{
-    //    public enum SearchHistoryUseEnum
-    //    {
-    //        ID_Cus = 0
-    //    }
-    //}
-    //public class SearchOrderHistory : Search
-    //{
-    //    public  enum SearchHistoryUseEnum
-    //    {
-    //        Name_Customer
-    //    }
-    //}
+    
 }

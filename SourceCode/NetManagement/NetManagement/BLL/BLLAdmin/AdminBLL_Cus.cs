@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NetManagement.DTO;
 using NetManagement.Model;
 using NetManagement.Repositories;
 
@@ -29,6 +30,24 @@ namespace NetManagement.BLL
             List<Customer> data = repository.GetAll().ToList();
             return data;
         }
+        public IEnumerable<object> Filter(IEnumerable<Customer> cus = null)
+        {
+            if (cus == null) cus = GetAll();
+            var data = cus.Select(p => new
+            {
+                p.ID_User,
+                p.FirstName,
+                p.LastName,
+                p.DateOfBirth,
+                p.Phone,
+                p.Email,
+                p.Day_Create,
+                p.Gender,
+                p.Money,
+                FullName = p.FirstName + " " + p.LastName
+            }) ;
+            return data.ToList();
+        }
 
         public Customer GetCusById(int id)
         {
@@ -36,32 +55,10 @@ namespace NetManagement.BLL
             return cus;
 
         }
-        public void UpdateAdd(string str,Customer cus,DateTime dt)
-        {
-            bool add = true;
-            foreach (Customer i in GetAll())
-            {
-                if (i.ID_User == Convert.ToInt32(str))
-                {
-                    add = false;
-                    break;
-                }
-            }
-            if (add)
-            {
-                Add(cus);
-            }
-            else
-            {
-                cus.Day_Create = dt;
-                cus.ID_User = Convert.ToInt32(str);
-                UpDate(cus);
-            }
-        }
+        
         public void Add(Customer cus)
         {
             cus.Day_Create = DateTime.Now;
-       //     cus.FullNameCus = cus.FirstName +" "+ cus.LastName;
             repository.Insert(cus);
             repository.Save();
         }
@@ -73,37 +70,34 @@ namespace NetManagement.BLL
             c1.Gender = c2.Gender;c1.ID_User = c2.ID_User;
         }
 
-        public void UpDate(Customer customer)
+        public void UpDate(Customer customer,int id,DateTime dt)
         {
+            customer.Day_Create = dt;
+            customer.ID_User = id;
             repository.Update(customer, customer.ID_User, UpdateDelegate);
             repository.Save();
         }
-        public List<Customer> Sort(string txt)
+        public IEnumerable<object> Sort(SortEnum sort, string by)
         {
-            List<Customer> list = new List<Customer>();
-            if (txt == "Name")
-            {
-                //list = GetAll().OrderBy(p => p.FullNameCus).ToList();
-            }
-            else if (txt == "ID_User")
-            {
-                list = GetAll().OrderBy(p => p.ID_User).ToList();
-            }
-            return list;
+
+            if (string.Compare(by, "Name Customer") == 0)
+                return Filter(repository.Sort<string>(sort, a => a.LastName));
+            else return Filter(repository.Sort<int>(sort, a => a.ID_User));
         }
-        public IEnumerable<Customer> Search(string searchby, string txt)
+        public List<object> Search(string search, SearchAcoountEnum searchby)
         {
-            if (searchby == "ID_User")
+
+            if (searchby == SearchAcoountEnum.All)
             {
-                return repository.Search(txt, p => p.ID_User.ToString(), false, true);
+                return Filter(repository.GetAll()).ToList();
             }
-            else if(searchby == "Name")
+            else if(searchby == SearchAcoountEnum.Id)
             {
-                return    repository.Search(txt, p => p.FirstName + p.LastName, true, false);
+                return Filter(repository.Search(search, p => p.ID_User.ToString(), true, true)).ToList();
             }
-            else 
+            else
             {
-                return GetAll().ToList();
+                return Filter(repository.Search(search,p=>p.FirstName + p.LastName,true,false)).ToList();
             }
         }
         public Customer CreateCus() { 

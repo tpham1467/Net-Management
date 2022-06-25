@@ -5,119 +5,116 @@ using System.Text;
 using System.Threading.Tasks;
 using NetManagement.Model;
 using NetManagement.Repositories;
-
+using NetManagement.DTO;
 namespace NetManagement.BLL
 {
     public class AdminBLL_Em
     {
         private IRepository<Employee> repository;
-        public AdminBLL_Em() : this(new GenericRepository<Employee>())
+        private IRepository<Account> repository_account;
+        #region Contructor
+        public AdminBLL_Em() : this(new GenericRepository<Employee>() , new GenericRepository<Account>())
         {
         }
-        public AdminBLL_Em(IRepository<Employee> _repository)
+        public AdminBLL_Em(IRepository<Employee> _repository , IRepository<Account> _repository_account)
         {
             repository = _repository;
+            repository_account = _repository_account;
         }
+        public Employee CreateEm()
+        {
+            return repository.Create();
+        }
+        public Account CreateAcoount()
+        {
+            return repository_account.Create();
+        }
+        #endregion
+
+        #region Get Object
         public IEnumerable<Employee> GetAll()
         {
             IEnumerable<Employee> data = repository.GetAll().ToList();
-            foreach(Employee emp in data)
-            {
-               // emp.FullNameEm = emp.FirstName + " "+ emp.LastName;
-            }
-            SaveChange();
             return data;
         }
        
         public Employee GetEmById(int id)
         {
             Employee emp = repository.GetById(id);
-            //emp.FullNameEm = emp.FirstName + " " + emp.LastName;
             return emp;
         }
-        public IEnumerable<Employee> GetAllById(List<int> id)
-        {
-            IEnumerable<Employee> data = repository.GetAll().ToList();
-            List<Employee> data2 = new List<Employee>();
-            foreach (int i in id)
-            {
-                foreach(Employee emp in data)
-                {
-                    if(i == emp.ID_User)
-                    {
-                        data2.Add(emp);
-                    }
-                }
-            }
-            return data2;
-        }
-        public List<Employee> Search(string txt, string txtcbb, List<int> list)
-        {
-            List<Employee> data1 = GetAllById(list).ToList();
-            List<Employee> data2 = new List<Employee>();
 
-            if (txtcbb == "Name Employee")
-            {
-                foreach(Employee emp in data1)
-                {
-                    //if (emp.FullNameEm.ToLower().Contains(txt.ToLower()))
-                    //{
-                    //    data2.Add(emp);
-                    //}
-                }
-            }
-            else return data1;
-            return data2;
-        }
-        public void UpdateAdd(string str, Employee emp, DateTime dt)
+        public IEnumerable<object> Filter(IEnumerable<Employee> emp = null)
         {
-            bool add = true;
-            foreach (Employee i in GetAll())
+            if (emp == null) emp = GetAll();
+            repository.Reload(new List<string>() , true , emp.ToList());
+            var data = emp.Select(p => new
             {
-                if (i.ID_User == Convert.ToInt32(str))
-                {
-                    add = false;
-                    break;
-                }
-            }
-            if (add)
-            {
-                Add(emp);
-            }
-            else
-            {
-                emp.Day_Create = dt;
-                emp.ID_User = Convert.ToInt32(str);
-                UpDate(emp);
-            }
+                p.ID_User,
+                p.FirstName,
+                p.LastName,
+                p.DateOfBirth,
+                p.Phone,
+                p.Email,
+                p.Day_Create,
+                p.Gender,
+                p.SalaryEmployee.CoSalary,
+                p.Identify
+            });
+            return data.ToList();
         }
-        public void Add(Employee emp)
+
+        #endregion
+
+        #region Search And Sort
+        public List<object> Search(string search, SearchAcoountEnum searchby)
         {
+
+            if (searchby == SearchAcoountEnum.All)
+            {
+                return Filter(repository.GetAll()).ToList();
+            }
+            else if (searchby == SearchAcoountEnum.Name)
+            {
+                return Filter(repository.Search(search, p => p.FirstName + p.LastName, true, false)).ToList();
+            }
+            else return Filter(repository.Search(search, p => p.ID_User.ToString(), true, true)).ToList();
+        }
+
+        public IEnumerable<object> Sort(SortEnum sort, string by)
+        {
+
+            if (string.Compare(by, "Name Employee") == 0)
+                return Filter(repository.Sort<string>(sort, a => a.LastName));
+            else return Filter(repository.Sort<DateTime>(sort, a => a.Day_Create));
+        }
+
+        #endregion
+
+        #region Modified 
+        public void Add(Account account ,  Employee emp)
+        {
+            account.ID_Role = 2;
             emp.Day_Create = DateTime.Now;
             repository.Insert(emp);
             repository.Save();
+            account.Id_User = emp.ID_User;
+            repository_account.Insert(account);
+            repository_account.Save();
         }
 
-        public void UpdateDelegate(Employee c1, Employee c2)
+        public void UpDate(Employee employee1 , int id)
         {
-            c1.FirstName = c2.FirstName; c1.LastName = c2.LastName; c1.DateOfBirth = c2.DateOfBirth;
-            c1.Phone = c2.Phone; c1.Gender = c2.Gender; c1.Day_Create = c2.Day_Create; c1.Identify = c2.Identify;
-            c1.ID_SalaryEmployee = c2.ID_SalaryEmployee; c1.Email = c2.Email;
-        }
+            Employee employee2 = GetEmById(id);
 
-        public void UpDate(Employee employee)
-        {
-            repository.Update(employee, employee.ID_User, UpdateDelegate);
+            employee2.FirstName = employee1.FirstName; employee2.LastName = employee1.LastName; employee2.DateOfBirth = employee1.DateOfBirth;
+            employee2.Phone = employee1.Phone; employee2.Gender = employee1.Gender; employee2.Day_Create = employee1.Day_Create; employee2.Identify = employee1.Identify;
+            employee2.ID_SalaryEmployee = employee1.ID_SalaryEmployee; employee2.Email = employee1.Email;
+
             repository.Save();
         }
-        public Employee CreateEm()
-        {
-            return repository.Create();
-        }
 
-        public void SaveChange()
-        {
-            repository.Save();
-        }
+        #endregion
+
     }
 }

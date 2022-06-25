@@ -17,8 +17,9 @@ namespace NetManagement.Repositories
         void Delete(int obj);
         void Save();
         void Reload(T obj);
+        void Reload(List<string> naavigation , bool IsCollection ,  List<T> data  = null);
         IEnumerable<T> Sort<Tkey>(SortEnum sort, System.Linq.Expressions.Expression<Func<T, Tkey>> expressions, IComparer<Tkey> action_compare = null);
-        IEnumerable<T> Search(string input, Func<T, string> key, bool IsContain, bool IsOnly);
+        IEnumerable<T> Search(string input, Func<T, string> key, bool IsContain, bool IsOnly, int num = 0);
         IEnumerable<object> Filter(Func<T, Object> func, Func<T, bool> where = null ,  IEnumerable<T> data = null);
     }
 }

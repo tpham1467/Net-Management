@@ -14,8 +14,7 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddUpShift : Form
     {
-        public delegate void MyDel();
-        public MyDel d;
+        public Action<StatusShift, List<Object>> action;
         AdminBLL_Em adBLLEm = new AdminBLL_Em();
         AdminBLL_Timekeeping adShi = new AdminBLL_Timekeeping();
         string id;
@@ -81,7 +80,7 @@ namespace NetManagement.View.FormAdmin
 
             status = cbbStatus.Text;
             adShi.UpdateAdd(id, sh, status);
-            d();
+            action(null , null);
             this.Dispose();
         }
 

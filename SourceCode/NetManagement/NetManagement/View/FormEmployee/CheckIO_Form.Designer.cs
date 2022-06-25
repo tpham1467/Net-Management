@@ -46,6 +46,12 @@
             this.comboBoxmode = new System.Windows.Forms.ComboBox();
             this.comboBoxProperty = new System.Windows.Forms.ComboBox();
             this.checkBoxDalam = new System.Windows.Forms.CheckBox();
+            this.buttonFilter = new System.Windows.Forms.Button();
+            this.dateTimePickerfrom = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,7 +110,7 @@
             // labelAveWorkingTime
             // 
             this.labelAveWorkingTime.AutoSize = true;
-            this.labelAveWorkingTime.Location = new System.Drawing.Point(630, 111);
+            this.labelAveWorkingTime.Location = new System.Drawing.Point(630, 100);
             this.labelAveWorkingTime.Name = "labelAveWorkingTime";
             this.labelAveWorkingTime.Size = new System.Drawing.Size(28, 17);
             this.labelAveWorkingTime.TabIndex = 7;
@@ -113,7 +119,7 @@
             // labeAveWorkingTimelable
             // 
             this.labeAveWorkingTimelable.AutoSize = true;
-            this.labeAveWorkingTimelable.Location = new System.Drawing.Point(462, 111);
+            this.labeAveWorkingTimelable.Location = new System.Drawing.Point(462, 100);
             this.labeAveWorkingTimelable.Name = "labeAveWorkingTimelable";
             this.labeAveWorkingTimelable.Size = new System.Drawing.Size(123, 17);
             this.labeAveWorkingTimelable.TabIndex = 8;
@@ -122,7 +128,7 @@
             // labeltotalworkingtime
             // 
             this.labeltotalworkingtime.AutoSize = true;
-            this.labeltotalworkingtime.Location = new System.Drawing.Point(383, 111);
+            this.labeltotalworkingtime.Location = new System.Drawing.Point(379, 100);
             this.labeltotalworkingtime.Name = "labeltotalworkingtime";
             this.labeltotalworkingtime.Size = new System.Drawing.Size(24, 17);
             this.labeltotalworkingtime.TabIndex = 9;
@@ -131,7 +137,7 @@
             // labelTotalWorkingTimelabel
             // 
             this.labelTotalWorkingTimelabel.AutoSize = true;
-            this.labelTotalWorkingTimelabel.Location = new System.Drawing.Point(229, 111);
+            this.labelTotalWorkingTimelabel.Location = new System.Drawing.Point(225, 100);
             this.labelTotalWorkingTimelabel.Name = "labelTotalWorkingTimelabel";
             this.labelTotalWorkingTimelabel.Size = new System.Drawing.Size(131, 17);
             this.labelTotalWorkingTimelabel.TabIndex = 10;
@@ -140,7 +146,7 @@
             // labelTotal_WorkingDay
             // 
             this.labelTotal_WorkingDay.AutoSize = true;
-            this.labelTotal_WorkingDay.Location = new System.Drawing.Point(140, 111);
+            this.labelTotal_WorkingDay.Location = new System.Drawing.Point(140, 100);
             this.labelTotal_WorkingDay.Name = "labelTotal_WorkingDay";
             this.labelTotal_WorkingDay.Size = new System.Drawing.Size(24, 17);
             this.labelTotal_WorkingDay.TabIndex = 11;
@@ -149,7 +155,7 @@
             // labelTotal_WorkingDaylable
             // 
             this.labelTotal_WorkingDaylable.AutoSize = true;
-            this.labelTotal_WorkingDaylable.Location = new System.Drawing.Point(1, 111);
+            this.labelTotal_WorkingDaylable.Location = new System.Drawing.Point(1, 100);
             this.labelTotal_WorkingDaylable.Name = "labelTotal_WorkingDaylable";
             this.labelTotal_WorkingDaylable.Size = new System.Drawing.Size(133, 17);
             this.labelTotal_WorkingDaylable.TabIndex = 12;
@@ -185,7 +191,7 @@
             // 
             // buttonSort
             // 
-            this.buttonSort.Location = new System.Drawing.Point(143, 411);
+            this.buttonSort.Location = new System.Drawing.Point(112, 407);
             this.buttonSort.Name = "buttonSort";
             this.buttonSort.Size = new System.Drawing.Size(120, 31);
             this.buttonSort.TabIndex = 16;
@@ -199,7 +205,7 @@
             this.comboBoxmode.Items.AddRange(new object[] {
             "Asc",
             "Desc"});
-            this.comboBoxmode.Location = new System.Drawing.Point(350, 414);
+            this.comboBoxmode.Location = new System.Drawing.Point(255, 411);
             this.comboBoxmode.Name = "comboBoxmode";
             this.comboBoxmode.Size = new System.Drawing.Size(121, 24);
             this.comboBoxmode.TabIndex = 17;
@@ -210,7 +216,7 @@
             this.comboBoxProperty.Items.AddRange(new object[] {
             "Id",
             "Date Work"});
-            this.comboBoxProperty.Location = new System.Drawing.Point(523, 414);
+            this.comboBoxProperty.Location = new System.Drawing.Point(401, 411);
             this.comboBoxProperty.Name = "comboBoxProperty";
             this.comboBoxProperty.Size = new System.Drawing.Size(121, 24);
             this.comboBoxProperty.TabIndex = 18;
@@ -226,12 +232,70 @@
             this.checkBoxDalam.UseVisualStyleBackColor = true;
             this.checkBoxDalam.CheckedChanged += new System.EventHandler(this.checkBoxDalam_CheckedChanged);
             // 
+            // buttonFilter
+            // 
+            this.buttonFilter.Location = new System.Drawing.Point(143, 127);
+            this.buttonFilter.Name = "buttonFilter";
+            this.buttonFilter.Size = new System.Drawing.Size(80, 25);
+            this.buttonFilter.TabIndex = 22;
+            this.buttonFilter.Text = "Filter";
+            this.buttonFilter.UseVisualStyleBackColor = true;
+            this.buttonFilter.Click += new System.EventHandler(this.buttonFilter_Click);
+            // 
+            // dateTimePickerfrom
+            // 
+            this.dateTimePickerfrom.Location = new System.Drawing.Point(290, 127);
+            this.dateTimePickerfrom.Name = "dateTimePickerfrom";
+            this.dateTimePickerfrom.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerfrom.TabIndex = 23;
+            // 
+            // dateTimePickerTo
+            // 
+            this.dateTimePickerTo.Location = new System.Drawing.Point(563, 126);
+            this.dateTimePickerTo.Name = "dateTimePickerTo";
+            this.dateTimePickerTo.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerTo.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(239, 132);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "From";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(508, 131);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 17);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "To";
+            // 
+            // buttonAll
+            // 
+            this.buttonAll.Location = new System.Drawing.Point(563, 404);
+            this.buttonAll.Name = "buttonAll";
+            this.buttonAll.Size = new System.Drawing.Size(120, 31);
+            this.buttonAll.TabIndex = 27;
+            this.buttonAll.Text = "All";
+            this.buttonAll.UseVisualStyleBackColor = true;
+            this.buttonAll.Click += new System.EventHandler(this.buttonAll_Click);
+            // 
             // CheckIO_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonAll);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dateTimePickerTo);
+            this.Controls.Add(this.dateTimePickerfrom);
+            this.Controls.Add(this.buttonFilter);
             this.Controls.Add(this.checkBoxDalam);
             this.Controls.Add(this.comboBoxProperty);
             this.Controls.Add(this.comboBoxmode);
@@ -278,5 +342,11 @@
         private System.Windows.Forms.ComboBox comboBoxmode;
         private System.Windows.Forms.ComboBox comboBoxProperty;
         private System.Windows.Forms.CheckBox checkBoxDalam;
+        private System.Windows.Forms.Button buttonFilter;
+        private System.Windows.Forms.DateTimePicker dateTimePickerfrom;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button buttonAll;
     }
 }

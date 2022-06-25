@@ -20,7 +20,7 @@ namespace NetManagement.Model
         public int ID_HistoryPayroll { get; set; }
         //[DataType(DataType.Currency)]
         public int Salary { get; set; }
-        public string PayrollDate { get; set; }
+        public DateTime PayrollDate { get; set; }
         public int ID_User { get; set; }
         [ForeignKey("ID_User")]
         public virtual Employee Employee { get; set; }

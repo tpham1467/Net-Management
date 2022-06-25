@@ -31,7 +31,7 @@ namespace NetManagement.View.FormEmployee
             InitializeComponent();
             labelTimeStart.Text = Starttime;
             labelTimEnd.Text = Endtime;
-            dataGridView1.DataSource = _BllCheckIncheckOut.Filter(id, new StatusShift { ID_StatusShift = 1 });
+            Reload();
             Load_Statistic();
             CheckShift();
         }
@@ -78,9 +78,11 @@ namespace NetManagement.View.FormEmployee
 
 
 
-        private void buttonSearch_Click(object sender, EventArgs e)
+       public void Reload(IEnumerable<object> list = null)
         {
-
+            if(list == null) dataGridView1.DataSource = _BllCheckIncheckOut.Filter(id, new StatusShift { ID_StatusShift = 1 });
+            else
+            dataGridView1.DataSource = list.ToList() ;
         }
 
         private void buttonSort_Click(object sender, EventArgs e)
@@ -90,11 +92,11 @@ namespace NetManagement.View.FormEmployee
             else statushit = 1;
             if ((comboBoxmode.SelectedItem  as string) == "Asc")
             {
-                dataGridView1.DataSource = _BllCheckIncheckOut.Sort(id, new StatusShift { ID_StatusShift = statushit }, SortEnum.Asc, comboBoxProperty.SelectedItem as string);
+                Reload(_BllCheckIncheckOut.Sort(id, new StatusShift { ID_StatusShift = statushit }, SortEnum.Asc, comboBoxProperty.SelectedItem as string) );
             }
             else
             {
-                dataGridView1.DataSource = _BllCheckIncheckOut.Sort(id, new StatusShift { ID_StatusShift = statushit }, SortEnum.Desc, comboBoxProperty.SelectedItem as string);
+                Reload(_BllCheckIncheckOut.Sort(id, new StatusShift { ID_StatusShift = statushit }, SortEnum.Desc, comboBoxProperty.SelectedItem as string) );
             }
            
         }
@@ -121,7 +123,7 @@ namespace NetManagement.View.FormEmployee
                 {
                     _BllCheckIncheckOut.SetShiftOff(i);
                 }
-                dataGridView1.DataSource = _BllCheckIncheckOut.Filter(id ,new StatusShift { ID_StatusShift = 1 });
+                Reload(_BllCheckIncheckOut.Filter(id ,new StatusShift { ID_StatusShift = 1 }) );
             }
         }
 
@@ -129,11 +131,36 @@ namespace NetManagement.View.FormEmployee
         {
             if(checkBoxDalam.Checked == true)
             {
-                dataGridView1.DataSource = _BllCheckIncheckOut.Filter(id, new StatusShift { ID_StatusShift = 2 });
+                Reload(_BllCheckIncheckOut.Filter(id, new StatusShift { ID_StatusShift = 2 }) );
             }
             else
             {
-                dataGridView1.DataSource = _BllCheckIncheckOut.Filter(id, new StatusShift { ID_StatusShift = 1 });
+                Reload();
+            }
+        }
+
+        private void buttonFilter_Click(object sender, EventArgs e)
+        {
+            if (checkBoxDalam.Checked == true)
+            {
+                Reload(_BllCheckIncheckOut.Filter(id, new StatusShift { ID_StatusShift = 2 }, dateTimePickerfrom.Value, dateTimePickerTo.Value) );
+            }
+            else
+            {
+                Reload(_BllCheckIncheckOut.Filter(id, new StatusShift { ID_StatusShift = 1 }, dateTimePickerfrom.Value, dateTimePickerTo.Value) );
+            }
+           
+        }
+
+        private void buttonAll_Click(object sender, EventArgs e)
+        {
+            if (checkBoxDalam.Checked == true)
+            {
+                Reload(_BllCheckIncheckOut.Filter(id, new StatusShift { ID_StatusShift = 2 } ) );
+            }
+            else
+            {
+                Reload( _BllCheckIncheckOut.Filter(id, new StatusShift { ID_StatusShift = 1 } ) );
             }
         }
     }

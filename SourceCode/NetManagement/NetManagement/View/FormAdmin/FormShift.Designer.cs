@@ -33,12 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnViewAll = new System.Windows.Forms.Button();
-            this.lbTypeDt = new System.Windows.Forms.Label();
-            this.lbTypeView = new System.Windows.Forms.Label();
-            this.cbTypeDt = new System.Windows.Forms.ComboBox();
-            this.cbbTypeView = new System.Windows.Forms.ComboBox();
-            this.lbView = new System.Windows.Forms.Label();
+            this.btnView = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnUp = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
@@ -47,6 +42,11 @@
             this.dgvShift = new System.Windows.Forms.DataGridView();
             this.Picture = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lbView = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxtype = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShift)).BeginInit();
@@ -55,11 +55,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.btnViewAll);
-            this.panel1.Controls.Add(this.lbTypeDt);
-            this.panel1.Controls.Add(this.lbTypeView);
-            this.panel1.Controls.Add(this.cbTypeDt);
-            this.panel1.Controls.Add(this.cbbTypeView);
+            this.panel1.Controls.Add(this.comboBoxtype);
+            this.panel1.Controls.Add(this.dateTimePicker2);
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnView);
             this.panel1.Controls.Add(this.lbView);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -67,76 +67,19 @@
             this.panel1.Size = new System.Drawing.Size(1320, 90);
             this.panel1.TabIndex = 0;
             // 
-            // btnViewAll
+            // btnView
             // 
-            this.btnViewAll.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
-            this.btnViewAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnViewAll.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
-            this.btnViewAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnViewAll.Location = new System.Drawing.Point(35, 43);
-            this.btnViewAll.Name = "btnViewAll";
-            this.btnViewAll.Size = new System.Drawing.Size(100, 37);
-            this.btnViewAll.TabIndex = 12;
-            this.btnViewAll.Text = "View All";
-            this.btnViewAll.UseVisualStyleBackColor = true;
-            this.btnViewAll.Click += new System.EventHandler(this.btnViewAll_Click);
-            // 
-            // lbTypeDt
-            // 
-            this.lbTypeDt.AutoSize = true;
-            this.lbTypeDt.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTypeDt.Image = global::NetManagement.Properties.Resources.btnbackground;
-            this.lbTypeDt.Location = new System.Drawing.Point(471, 9);
-            this.lbTypeDt.Name = "lbTypeDt";
-            this.lbTypeDt.Size = new System.Drawing.Size(144, 31);
-            this.lbTypeDt.TabIndex = 4;
-            this.lbTypeDt.Text = "Type Detail";
-            // 
-            // lbTypeView
-            // 
-            this.lbTypeView.AutoSize = true;
-            this.lbTypeView.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTypeView.Image = global::NetManagement.Properties.Resources.btnbackground;
-            this.lbTypeView.Location = new System.Drawing.Point(233, 9);
-            this.lbTypeView.Name = "lbTypeView";
-            this.lbTypeView.Size = new System.Drawing.Size(132, 31);
-            this.lbTypeView.TabIndex = 3;
-            this.lbTypeView.Text = "Type View";
-            // 
-            // cbTypeDt
-            // 
-            this.cbTypeDt.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTypeDt.FormattingEnabled = true;
-            this.cbTypeDt.Location = new System.Drawing.Point(462, 49);
-            this.cbTypeDt.Name = "cbTypeDt";
-            this.cbTypeDt.Size = new System.Drawing.Size(158, 38);
-            this.cbTypeDt.TabIndex = 2;
-            this.cbTypeDt.SelectedIndexChanged += new System.EventHandler(this.cbTypeDt_SelectedIndexChanged);
-            // 
-            // cbbTypeView
-            // 
-            this.cbbTypeView.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbTypeView.FormattingEnabled = true;
-            this.cbbTypeView.Items.AddRange(new object[] {
-            "Xem theo ngày",
-            "Xem theo tháng",
-            "Xem theo năm"});
-            this.cbbTypeView.Location = new System.Drawing.Point(188, 49);
-            this.cbbTypeView.Name = "cbbTypeView";
-            this.cbbTypeView.Size = new System.Drawing.Size(219, 38);
-            this.cbbTypeView.TabIndex = 1;
-            this.cbbTypeView.SelectedIndexChanged += new System.EventHandler(this.cbbView_SelectedIndexChanged);
-            // 
-            // lbView
-            // 
-            this.lbView.AutoSize = true;
-            this.lbView.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbView.Image = global::NetManagement.Properties.Resources.btnbackground;
-            this.lbView.Location = new System.Drawing.Point(12, 9);
-            this.lbView.Name = "lbView";
-            this.lbView.Size = new System.Drawing.Size(140, 31);
-            this.lbView.TabIndex = 0;
-            this.lbView.Text = "     View     ";
+            this.btnView.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.btnView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnView.Location = new System.Drawing.Point(12, 38);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(100, 37);
+            this.btnView.TabIndex = 12;
+            this.btnView.Text = "   View  ";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
             // panel2
             // 
@@ -153,7 +96,7 @@
             // 
             this.btnUp.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
             this.btnUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUp.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnUp.Location = new System.Drawing.Point(921, 20);
             this.btnUp.Name = "btnUp";
@@ -167,7 +110,7 @@
             // 
             this.btnDel.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
             this.btnDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDel.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnDel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDel.Location = new System.Drawing.Point(700, 20);
             this.btnDel.Name = "btnDel";
@@ -181,7 +124,7 @@
             // 
             this.btnadd.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
             this.btnadd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnadd.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.btnadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnadd.Location = new System.Drawing.Point(448, 20);
             this.btnadd.Name = "btnadd";
@@ -252,6 +195,57 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 1246;
             // 
+            // lbView
+            // 
+            this.lbView.AutoSize = true;
+            this.lbView.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbView.Image = global::NetManagement.Properties.Resources.btnbackground;
+            this.lbView.Location = new System.Drawing.Point(385, 40);
+            this.lbView.Name = "lbView";
+            this.lbView.Size = new System.Drawing.Size(119, 31);
+            this.lbView.TabIndex = 0;
+            this.lbView.Text = "   From   ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Image = global::NetManagement.Properties.Resources.btnbackground;
+            this.label1.Location = new System.Drawing.Point(835, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 31);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "     To     ";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(561, 44);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(203, 27);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Location = new System.Drawing.Point(1032, 50);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(203, 27);
+            this.dateTimePicker2.TabIndex = 15;
+            // 
+            // comboBoxtype
+            // 
+            this.comboBoxtype.FormattingEnabled = true;
+            this.comboBoxtype.Items.AddRange(new object[] {
+            "All",
+            "Đã Làm",
+            "Xin Nghỉ",
+            "Chưa Làm"});
+            this.comboBoxtype.Location = new System.Drawing.Point(148, 47);
+            this.comboBoxtype.Name = "comboBoxtype";
+            this.comboBoxtype.Size = new System.Drawing.Size(173, 24);
+            this.comboBoxtype.TabIndex = 16;
+            // 
             // FormShift
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -283,11 +277,11 @@
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnadd;
         private System.Windows.Forms.DataGridViewImageColumn Picture;
-        private System.Windows.Forms.ComboBox cbbTypeView;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbView;
-        private System.Windows.Forms.Label lbTypeDt;
-        private System.Windows.Forms.Label lbTypeView;
-        private System.Windows.Forms.ComboBox cbTypeDt;
-        private System.Windows.Forms.Button btnViewAll;
+        private System.Windows.Forms.ComboBox comboBoxtype;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

@@ -7,6 +7,8 @@ using NetManagement.DTO;
 using NetManagement.Helper;
 using NetManagement.Model;
 using NetManagement.Repositories;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace NetManagement.BLL.BLLEmployee.BLLCheckInCheckOut
 {
     public class BllCheckIncheckOut
@@ -31,17 +33,34 @@ namespace NetManagement.BLL.BLLEmployee.BLLCheckInCheckOut
             data = repository.GetAll().ToList();
             return data;
         }
-        public IEnumerable<object> Filter(int id , StatusShift statusShift  ,IEnumerable<Shift> shifts = null  )
+        public IEnumerable<object> Filter(int id, StatusShift statusShift, DateTime From, DateTime To , IEnumerable<Shift> shifts = null)
+        {
+            if (shifts == null) shifts = GetAll();
+            var data = shifts.Where(p => p.ID_Employee == id && p.StatusShift.ID_StatusShift == statusShift.ID_StatusShift)
+                .Where(p => DateTime.Compare(p.WorkedDate, From) > 0 && DateTime.Compare(p.WorkedDate, To) < 0).Select(p =>
+
+                new
+                {
+                    p.ID_Shift,
+                    StartTime = p.ShiftStartTime.ToString("hh:mm tt"),
+                    EndTime = p.ShiftEndTime.ToString("hh: mm tt"),
+                    WorkDate = p.WorkedDate.ToString("MM / dd / yyyy"), 
+                    Status = p.StatusShift.Description ,
+                });
+            return data.ToList() ;
+           
+    }
+        public IEnumerable<object> Filter(int id, StatusShift statusShift, IEnumerable<Shift> shifts = null)
         {
             if (shifts == null) shifts = GetAll();
             var data = shifts.Where(p => p.ID_Employee == id && p.StatusShift.ID_StatusShift == statusShift.ID_StatusShift).Select(p =>
 
                 new
                 {
-                    p.ID_Shift ,
+                    p.ID_Shift,
                     StartTime = p.ShiftStartTime.ToString("hh:mm tt"),
-                    EndTime =  p.ShiftEndTime.ToString("hh: mm tt") ,
-                    WorkDate =  p.WorkedDate.ToString("MM / dd / yyyy") ,
+                    EndTime = p.ShiftEndTime.ToString("hh: mm tt"),
+                    WorkDate = p.WorkedDate.ToString("MM / dd / yyyy"),
                     Status = p.StatusShift.Description,
                 });
             return data.ToList();

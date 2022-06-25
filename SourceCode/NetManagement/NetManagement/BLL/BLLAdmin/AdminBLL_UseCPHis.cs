@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NetManagement.DTO;
 using NetManagement.Model;
 using NetManagement.Repositories;
 
@@ -26,13 +27,27 @@ namespace NetManagement.BLL
             IEnumerable<UseComputerHistory> data = repository.GetAll().ToList();
             foreach (UseComputerHistory i in data)
             {
-                //i.Customer.FullNameCus = i.Customer.FirstName +" "+ i.Customer.LastName;
-                //i.HourUsed = Convert.ToInt32(i._LogOut.to);
+                i.HourUsed = Convert.ToInt32(i._LogOut.Hour - i._LogIn.Hour);
             }
             repository.Save();
             return data;
         }
-        
+        public IEnumerable<object> Filter(IEnumerable<UseComputerHistory> UsedCP = null)
+        {
+            if (UsedCP == null) UsedCP = GetAll();
+            var data = UsedCP.Select(p => new
+            {
+                p.ID_HistoryUseComputer,
+                p.Customer.FirstName, 
+                p.Customer.LastName,
+                p.Computer.Name_PC,
+                p._LogIn,
+                p._LogOut,
+                p.HourUsed
+            });
+            return data.ToList();
+        }
+
         public void DelHis(string id)
         {
 
@@ -51,70 +66,29 @@ namespace NetManagement.BLL
             repository.Save();
         }
 
-        public List<UseComputerHistory> Sort(string txt)
+        
+        public IEnumerable<object> Sort(SortEnum sort, string by)
         {
-            List<UseComputerHistory> list = new List<UseComputerHistory>();
-            if (txt == "Name")
-            {
-               // list = GetAll().OrderBy(p => p.Customer.FullNameCus).ToList();
-            }
-            if (txt == "ID_Computer")
-            {
-                list = GetAll().OrderBy(p => p.ID_Customer).ToList();
-            }
-            if (txt == "ID_History")
-            {
-                list = GetAll().OrderBy(p => p.ID_HistoryUseComputer).ToList();
-            }
-            return list;
-
+            if (string.Compare(by, "Name Customer") == 0)
+                return Filter(repository.Sort<string>(sort, a => a.Customer.LastName));
+            else return Filter(repository.Sort<string>(sort, a => a.Computer.Name_PC));
         }
-        public List<UseComputerHistory> Search(string s, string txt)
+        public List<object> Search(string search, SearchAcoountEnum searchby,string txtCbb = null)
         {
-            List<UseComputerHistory> data = new List<UseComputerHistory>();
-            List<UseComputerHistory> data1 = GetAll().ToList();
-            foreach (UseComputerHistory i in data1)
+
+            if (searchby == SearchAcoountEnum.All)
             {
-               // i.Customer.FullNameCus = i.Customer.FirstName + i.Customer.LastName;
+                return Filter(repository.GetAll()).ToList();
             }
-            if (s == "Name")
+            else if (searchby == SearchAcoountEnum.Name)
             {
-                foreach (UseComputerHistory i in data1)
+                if(txtCbb == "Name PC")
                 {
-                    //if (i.Customer.FullNameCus.ToLower().Contains(txt.ToLower()))
-                    //{
-                    //    data.Add(i);
-                    //    return data;
-                    //}
+                    return Filter(repository.Search(search, p => p.Computer.Name_PC, true, true)).ToList();
                 }
+                else return Filter(repository.Search(search, p => p.Customer.FirstName + p.Customer.LastName, true, false)).ToList();
             }
-            else if (s == "ID_Computer")
-            {
-                int id = Convert.ToInt32(txt);
-                foreach (UseComputerHistory i in repository.GetAll())
-                {
-                    if (i.ID_Computer == id)
-                    {
-                        data.Add(i);
-                    }
-                }
-            }
-            else if (s == "ID_History")
-            {
-                int id = Convert.ToInt32(txt);
-                foreach (UseComputerHistory i in repository.GetAll())
-                {
-                    if (i.ID_HistoryUseComputer == id)
-                    {
-                        data.Add(i);
-                    }
-                }
-            }
-            else if (s == "All")
-            {
-                data = GetAll().ToList();
-            }
-            return data;
+            else return Filter(repository.Search(search, p => p.ID_HistoryUseComputer.ToString(), true, true)).ToList();
         }
     }
 }

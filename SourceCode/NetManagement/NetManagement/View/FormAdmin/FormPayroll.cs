@@ -15,101 +15,60 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class FormPayroll : Form
     {
-        public delegate void MyDel();
-        public MyDel d;
+        public Action action;
         AdminBLL_Em adEm = new AdminBLL_Em();
         AdminBLL_Timekeeping adTKeeping = new AdminBLL_Timekeeping();
         AdminBLL_HisPayroll adHisPayroll = new AdminBLL_HisPayroll();
-        public bool check = false;
+        private bool IsAll  = false;
         public FormPayroll()
         {
             InitializeComponent();
-            SetSalary();
-            ShowAll(check);
-            SetChangeCBB();
+            LoadPayRoll();
         }
-        public void SetSalary()
+   
+        private void LoadPayRoll()
         {
-            List<Shift> list = adTKeeping.GetAll().Where(p => p.StatusShift.Description == "Đã làm").ToList();
-
-            foreach (HistoryPayroll i in adHisPayroll.GetAll())
-            {
-                foreach (Shift s in list)
-                {
-                    if (i.ID_User == s.Employee.ID_User)
-                    {
-                       // i.Salary = i.Shift.WorkedHour * i.Employee.SalaryEmployee.CoSalary;
-                    }
-                }
-                
-            }
+            dgvShow.DataSource = adHisPayroll.PayRoll(null, false);
         }
-
-        public void ShowAll(bool ckeck)
-        {
-            DataTable db = new DataTable();
-            db.Columns.AddRange(new DataColumn[] {
-                new DataColumn("Name",typeof(string)),
-                new DataColumn("Salary",typeof(string)),
-                new DataColumn("WorkHour",typeof(int)),
-                new DataColumn("Select",typeof(bool))
-            });
-            List<HistoryPayroll> listEm = new List<HistoryPayroll>();
-           // List<HistoryPayroll> listHis = adHisPayroll.GetAll().Where(p => p.Shift.StatusShift.Description == "Đã làm").ToList();
-            //List<Shift> list = adTKeeping.GetAll().Where(p => p.StatusShift.Description == "Đã làm").ToList();
-            //foreach (HistoryPayroll his in listHis)
-            //{
-            //        foreach (Shift sh in list)
-            //        { 
-            //            if(his.ID_User == sh.Employee.ID_User)
-            //            {
-            //                listEm.Add(his);
-            //            }
-            //        }
-            //}
-            //foreach(HistoryPayroll his in listEm)
-            //{
-            //     //   db.Rows.Add(his.Employee.FullNameEm, his.Salary,his.Shift.WorkedHour, check);
-            //}
-            //dgvShow.DataSource = db;
-        }
-
-        private void btnPayroll_Click(object sender, EventArgs e)
-        {
-            if(checkBox1.Checked == true)
-            {
-                adTKeeping.updateIDStatus("");
-            }
-            d();
-            this.Dispose();
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        public void SetChangeCBB()
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked == true)
             {
-                checkBox1.Checked = false;
-                check = false;
-                ShowAll(check);
-
+                IsAll = true;
+            }
+            else IsAll = false;
+        }
+        private List<int> GetSelect()
+        {
+            if (dgvShow.SelectedRows.Count > 0)
+            {
+                List<int> data = new List<int>();
+                foreach (DataGridViewRow i in dgvShow.SelectedRows)
+                {
+                    int id = Convert.ToInt32(i.Cells["ID_User"].Value);
+                    data.Add(id);
+                }
+                return data;
+            }
+            return new List<int>();
+        }      
+        private void btnPayroll_Click(object sender, EventArgs e)
+        {
+            if (IsAll)
+            {
+                adHisPayroll.PayRoll(null, true);
             }
             else
             {
-                checkBox1.Checked = true;
-                check = true;
-                ShowAll(check);
-
+                adHisPayroll.PayRoll(GetSelect(), true);
             }
-        }
-
-        private void btnPayrollAll_Click(object sender, EventArgs e)
-        {
-            SetChangeCBB();
+            action();
+            this.Dispose();
         }
     }
 }

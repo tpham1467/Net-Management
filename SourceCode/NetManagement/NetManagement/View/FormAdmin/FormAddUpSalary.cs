@@ -14,25 +14,22 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddUpSalary : Form
     {
-        public delegate void MyDel();
-        public MyDel d;
+        public Action action;
         AdminBLL_Salary _AdminBLL_Salary = new AdminBLL_Salary();
-        string id;
-        public FormAddUpSalary(string m)
+        private  int  id;
+        public FormAddUpSalary(int _id)
         {
-            id = m;
+            id = _id;
             InitializeComponent();
             GUI();
         }
-        string str;
         void GUI()
         {
-            if (id != "")
+            if (id != -1)
             {
                 int i = Convert.ToInt32(id);
                 SalaryEmployee s = _AdminBLL_Salary.GetSalaryById(i);
                 txtSalary.Text = s.CoSalary.ToString();
-                str = s.ID_SalaryEmployee.ToString();
             }
         }
 
@@ -45,8 +42,10 @@ namespace NetManagement.View.FormAdmin
         {
             SalaryEmployee sal = _AdminBLL_Salary.CreateSal();
             sal.CoSalary = Convert.ToInt32(txtSalary.Text);
-            _AdminBLL_Salary.UpdateAdd(str, sal);
-            d();
+            if (id == -1) _AdminBLL_Salary.Add(sal);
+            else
+            _AdminBLL_Salary.UpDate( sal , id);
+            action();
             this.Dispose();
         }
     }

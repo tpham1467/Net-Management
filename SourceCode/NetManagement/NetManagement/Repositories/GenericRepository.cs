@@ -101,7 +101,7 @@ namespace NetManagement.Repositories
         {
             return table.Create<T>();
         }
-        public IEnumerable<T> Search(string input, Func<T, string> key, bool IsContain, bool IsOnly)
+        public IEnumerable<T> Search( string input, Func<T, string> key, bool IsContain, bool IsOnly , int num = 0)
         {
             if (string.IsNullOrEmpty(input)) return new List<T>();
             List<T> objectmatch = new List<T>();
@@ -136,6 +136,35 @@ namespace NetManagement.Repositories
                  if (where != null) data = data.Where(where);
                 return data.Select(func);
             }
+        }
+
+        public void Reload(List<string> navigation, bool IsColection, List<T> data = null)
+        {
+            if (data == null)
+            {
+                data = table.ToList();
+            }
+            for (int i = 0; i < data.Count; i++)
+            {
+
+                if (data[i].GetType().BaseType == typeof(Employee))
+                {
+                    Employee employee = data[i] as Employee;
+                    var result = _context.Database.SqlQuery<int>("select CoSalary from SalaryEmployee where ID_SalaryEmployee = @id ", new SqlParameter("@id", employee.ID_SalaryEmployee)).FirstOrDefault();
+                    employee.SalaryEmployee.CoSalary = result;
+                }
+                else
+                {
+                    foreach (var j in navigation)
+                    {
+                        if (!IsColection)
+                            _context.Entry(data[i]).Reference(j).Load();
+                        else
+                            _context.Entry(data[i]).Collection(j).Load();
+                    }
+                }
+            }
+
         }
     }
 }

@@ -30,14 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCustommer));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.cbbSort = new System.Windows.Forms.ComboBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.cbbSortProperty = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbbSortby = new System.Windows.Forms.ComboBox();
             this.cbbSearch = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSort = new System.Windows.Forms.Button();
@@ -48,17 +49,17 @@
             this.tabHisUsed = new System.Windows.Forms.TabPage();
             this.btnDel = new System.Windows.Forms.Button();
             this.dgvHUse = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tbCusMana = new System.Windows.Forms.TabPage();
             this.dgvShowCus = new System.Windows.Forms.DataGridView();
+            this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tbMana = new System.Windows.Forms.TabControl();
             this.tabOrderHis = new System.Windows.Forms.TabPage();
             this.cbbTypeView = new System.Windows.Forms.ComboBox();
             this.lbView = new System.Windows.Forms.Label();
             this.dgvOrHis = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.tabHisUsed.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHUse)).BeginInit();
@@ -69,21 +70,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrHis)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbbSort
+            // cbbSortProperty
             // 
-            this.cbbSort.DropDownWidth = 200;
-            this.cbbSort.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbbSort.ItemHeight = 29;
-            this.cbbSort.Location = new System.Drawing.Point(1043, 29);
-            this.cbbSort.Name = "cbbSort";
-            this.cbbSort.Size = new System.Drawing.Size(192, 37);
-            this.cbbSort.TabIndex = 10;
+            this.cbbSortProperty.DropDownWidth = 200;
+            this.cbbSortProperty.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbSortProperty.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbbSortProperty.ItemHeight = 29;
+            this.cbbSortProperty.Location = new System.Drawing.Point(1112, 30);
+            this.cbbSortProperty.Name = "cbbSortProperty";
+            this.cbbSortProperty.Size = new System.Drawing.Size(192, 37);
+            this.cbbSortProperty.TabIndex = 10;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.cbbSort);
+            this.panel1.Controls.Add(this.cbbSortby);
+            this.panel1.Controls.Add(this.cbbSortProperty);
             this.panel1.Controls.Add(this.cbbSearch);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.btnSort);
@@ -93,6 +95,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1323, 90);
             this.panel1.TabIndex = 0;
+            // 
+            // cbbSortby
+            // 
+            this.cbbSortby.DropDownWidth = 200;
+            this.cbbSortby.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbSortby.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbbSortby.ItemHeight = 29;
+            this.cbbSortby.Items.AddRange(new object[] {
+            "Asc",
+            "Desc"});
+            this.cbbSortby.Location = new System.Drawing.Point(997, 29);
+            this.cbbSortby.Name = "cbbSortby";
+            this.cbbSortby.Size = new System.Drawing.Size(90, 37);
+            this.cbbSortby.TabIndex = 13;
             // 
             // cbbSearch
             // 
@@ -131,7 +147,7 @@
             this.btnSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSort.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnSort.Location = new System.Drawing.Point(917, 29);
+            this.btnSort.Location = new System.Drawing.Point(863, 29);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(106, 40);
             this.btnSort.TabIndex = 9;
@@ -227,8 +243,8 @@
             this.dgvHUse.AllowUserToDeleteRows = false;
             this.dgvHUse.AllowUserToOrderColumns = true;
             this.dgvHUse.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.dgvHUse.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
+            this.dgvHUse.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvHUse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -236,14 +252,14 @@
             this.dgvHUse.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvHUse.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHUse.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHUse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHUse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvHUse.ColumnHeadersHeight = 36;
             this.dgvHUse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvHUse.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -257,6 +273,15 @@
             this.dgvHUse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHUse.Size = new System.Drawing.Size(1244, 430);
             this.dgvHUse.TabIndex = 5;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.FillWeight = 30F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::NetManagement.Properties.Resources.HistoryUsed;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
             // tbCusMana
             // 
@@ -278,8 +303,8 @@
             this.dgvShowCus.AllowUserToDeleteRows = false;
             this.dgvShowCus.AllowUserToOrderColumns = true;
             this.dgvShowCus.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
-            this.dgvShowCus.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Silver;
+            this.dgvShowCus.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvShowCus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -287,14 +312,14 @@
             this.dgvShowCus.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvShowCus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvShowCus.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShowCus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShowCus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvShowCus.ColumnHeadersHeight = 36;
             this.dgvShowCus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvShowCus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -308,6 +333,15 @@
             this.dgvShowCus.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShowCus.Size = new System.Drawing.Size(1247, 428);
             this.dgvShowCus.TabIndex = 4;
+            // 
+            // Column8
+            // 
+            this.Column8.FillWeight = 30F;
+            this.Column8.HeaderText = "";
+            this.Column8.Image = global::NetManagement.Properties.Resources.customer_management;
+            this.Column8.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
             // 
             // tbMana
             // 
@@ -361,8 +395,8 @@
             this.dgvOrHis.AllowUserToDeleteRows = false;
             this.dgvOrHis.AllowUserToOrderColumns = true;
             this.dgvOrHis.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
-            this.dgvOrHis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Silver;
+            this.dgvOrHis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvOrHis.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -370,14 +404,14 @@
             this.dgvOrHis.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvOrHis.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvOrHis.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrHis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrHis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvOrHis.ColumnHeadersHeight = 36;
             this.dgvOrHis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvOrHis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -392,14 +426,14 @@
             this.dgvOrHis.Size = new System.Drawing.Size(1247, 434);
             this.dgvOrHis.TabIndex = 5;
             // 
-            // dataGridViewImageColumn1
+            // dataGridViewImageColumn2
             // 
-            this.dataGridViewImageColumn1.FillWeight = 30F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::NetManagement.Properties.Resources.HistoryUsed;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn2.FillWeight = 30F;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::NetManagement.Properties.Resources.OrderHistory;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
             // dataGridViewImageColumn3
             // 
@@ -410,24 +444,6 @@
             this.dataGridViewImageColumn3.MinimumWidth = 6;
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Width = 1246;
-            // 
-            // Column8
-            // 
-            this.Column8.FillWeight = 30F;
-            this.Column8.HeaderText = "";
-            this.Column8.Image = global::NetManagement.Properties.Resources.customer_management;
-            this.Column8.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.FillWeight = 30F;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::NetManagement.Properties.Resources.OrderHistory;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 6;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
             // FormCustommer
             // 
@@ -463,7 +479,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSort;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ComboBox cbbSort;
+        private System.Windows.Forms.ComboBox cbbSortProperty;
         private System.Windows.Forms.ComboBox cbbSearch;
         private System.Windows.Forms.TabPage tabHisUsed;
         private System.Windows.Forms.DataGridView dgvHUse;
@@ -479,5 +495,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.ComboBox cbbSortby;
     }
 }
