@@ -15,7 +15,7 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class FormPayroll : Form
     {
-        public Action action;
+        public Action<List<object>> action;
         AdminBLL_Em adEm = new AdminBLL_Em();
         AdminBLL_Timekeeping adTKeeping = new AdminBLL_Timekeeping();
         AdminBLL_HisPayroll adHisPayroll = new AdminBLL_HisPayroll();
@@ -67,7 +67,7 @@ namespace NetManagement.View.FormAdmin
             {
                 adHisPayroll.PayRoll(GetSelect(), true);
             }
-            action();
+            action(null);
             this.Dispose();
         }
     }

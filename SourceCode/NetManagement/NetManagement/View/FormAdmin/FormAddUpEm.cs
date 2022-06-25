@@ -14,13 +14,19 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddUpEm : Form
     {
-        public Action action;
+        public Action<List<object>> action;
         AdminBLL_Em adBLLEm = new AdminBLL_Em();
         AdminBLL_Salary adBLLsa = new AdminBLL_Salary();
         private int id;
+        private int id_salary;
         public FormAddUpEm(int _id)
         {
             id = _id;
+            if(id != -1)
+            {
+                Employee s = adBLLEm.GetEmById(id);
+                id_salary = s.ID_SalaryEmployee;
+            }
             InitializeComponent();
             GUI();
             CreateCBB();
@@ -45,6 +51,7 @@ namespace NetManagement.View.FormAdmin
                 txtPhone.Text = s.Phone.ToString();
                 txtEmail.Text = s.Email.ToString();
                 txtIndentify.Text = s.Identify.ToString();
+
                 var se = new ConvertSalarytoVND
                 {
                     id = s.SalaryEmployee.ID_SalaryEmployee,
@@ -68,14 +75,18 @@ namespace NetManagement.View.FormAdmin
             Employee emp = adBLLEm.CreateEm();
 
             ConvertSalarytoVND convertSalarytoVND = cbbSalary.SelectedItem as ConvertSalarytoVND;
-            if (convertSalarytoVND == null)
+            if (convertSalarytoVND == null )
             {
-                MessageBox.Show("Vui Long Nhap Du Thong tin");
-                return;
+                if(id == -1)
+                {
+                    MessageBox.Show("Vui Long Nhap Du Thong tin");
+                    return;
+                }
+                emp.ID_SalaryEmployee = id_salary;
+               
             }
             else
                 emp.ID_SalaryEmployee = convertSalarytoVND.id;
-
             emp.FirstName = txtFirstN.Text;
             emp.LastName = txtLastN.Text;
             emp.Phone = txtPhone.Text;
@@ -83,17 +94,18 @@ namespace NetManagement.View.FormAdmin
             emp.DateOfBirth = dtpDOB.Value;
             emp.Identify = txtIndentify.Text;
             emp.Gender = checkgd;
+            Account account = adBLLEm.CreateAcoount();
+            account.UserName_Acc = textBoxUserName.Text;
+            account.Password_Acc = textBoxPassword.Text;
             if (id == -1)
             {
-                Account account = adBLLEm.CreateAcoount();
-                account.UserName_Acc = textBoxUserName.Text;
-                account.Password_Acc = textBoxPassword.Text = account.Password_Acc;
+             
 
-                adBLLEm.Add(account , emp);
+                adBLLEm.Add(account , emp );
             }
             else
-                adBLLEm.UpDate(emp, id);
-            action();
+                adBLLEm.UpDate(emp, id ,account);
+            action(null);
             this.Dispose();
         }
 

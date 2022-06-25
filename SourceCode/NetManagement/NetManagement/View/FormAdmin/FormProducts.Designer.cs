@@ -32,12 +32,10 @@ namespace NetManagement.View.FormAdmin
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProducts));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbbSortBy = new System.Windows.Forms.ComboBox();
             this.cbbSortProperty = new System.Windows.Forms.ComboBox();
@@ -50,28 +48,23 @@ namespace NetManagement.View.FormAdmin
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
-            this.tbControllMana = new System.Windows.Forms.TabControl();
-            this.tbMerMana = new System.Windows.Forms.TabPage();
-            this.dgvMerMana = new System.Windows.Forms.DataGridView();
-            this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.tbPrMana = new System.Windows.Forms.TabPage();
-            this.dgvPrMana = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tbProductMana = new System.Windows.Forms.TabPage();
-            this.btnAddNewPro = new System.Windows.Forms.Button();
-            this.btnDelPro = new System.Windows.Forms.Button();
-            this.BtnUpdateProduct = new System.Windows.Forms.Button();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.BtnUpdateProduct = new System.Windows.Forms.Button();
+            this.btnDelPro = new System.Windows.Forms.Button();
+            this.btnAddNewPro = new System.Windows.Forms.Button();
+            this.tbExProManagement = new System.Windows.Forms.TabPage();
+            this.dgvMerMana = new System.Windows.Forms.DataGridView();
+            this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tbControllMana = new System.Windows.Forms.TabControl();
             this.panel1.SuspendLayout();
             this.pnTab.SuspendLayout();
-            this.tbControllMana.SuspendLayout();
-            this.tbMerMana.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMerMana)).BeginInit();
-            this.tbPrMana.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPrMana)).BeginInit();
             this.tbProductMana.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
+            this.tbExProManagement.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMerMana)).BeginInit();
+            this.tbControllMana.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -234,126 +227,6 @@ namespace NetManagement.View.FormAdmin
             this.btnUp.UseVisualStyleBackColor = false;
             this.btnUp.Click += new System.EventHandler(this.btnUp_Click_1);
             // 
-            // tbControllMana
-            // 
-            this.tbControllMana.Controls.Add(this.tbMerMana);
-            this.tbControllMana.Controls.Add(this.tbPrMana);
-            this.tbControllMana.Controls.Add(this.tbProductMana);
-            this.tbControllMana.Location = new System.Drawing.Point(0, 0);
-            this.tbControllMana.Name = "tbControllMana";
-            this.tbControllMana.SelectedIndex = 0;
-            this.tbControllMana.Size = new System.Drawing.Size(1320, 523);
-            this.tbControllMana.TabIndex = 0;
-            this.tbControllMana.SelectedIndexChanged += new System.EventHandler(this.tbControllMana_SelectedIndexChanged);
-            // 
-            // tbMerMana
-            // 
-            this.tbMerMana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(34)))), ((int)(((byte)(99)))));
-            this.tbMerMana.Controls.Add(this.dgvMerMana);
-            this.tbMerMana.Location = new System.Drawing.Point(4, 25);
-            this.tbMerMana.Name = "tbMerMana";
-            this.tbMerMana.Padding = new System.Windows.Forms.Padding(3);
-            this.tbMerMana.Size = new System.Drawing.Size(1312, 494);
-            this.tbMerMana.TabIndex = 0;
-            this.tbMerMana.Text = "Product Management";
-            // 
-            // dgvMerMana
-            // 
-            this.dgvMerMana.AllowUserToAddRows = false;
-            this.dgvMerMana.AllowUserToDeleteRows = false;
-            this.dgvMerMana.AllowUserToOrderColumns = true;
-            this.dgvMerMana.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
-            this.dgvMerMana.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvMerMana.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvMerMana.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMerMana.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.dgvMerMana.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvMerMana.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMerMana.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvMerMana.ColumnHeadersHeight = 36;
-            this.dgvMerMana.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvMerMana.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column8});
-            this.dgvMerMana.EnableHeadersVisualStyles = false;
-            this.dgvMerMana.Location = new System.Drawing.Point(21, 6);
-            this.dgvMerMana.Name = "dgvMerMana";
-            this.dgvMerMana.RowHeadersVisible = false;
-            this.dgvMerMana.RowHeadersWidth = 51;
-            this.dgvMerMana.RowTemplate.Height = 40;
-            this.dgvMerMana.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMerMana.Size = new System.Drawing.Size(1264, 482);
-            this.dgvMerMana.TabIndex = 5;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            // 
-            // tbPrMana
-            // 
-            this.tbPrMana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(34)))), ((int)(((byte)(99)))));
-            this.tbPrMana.Controls.Add(this.dgvPrMana);
-            this.tbPrMana.Location = new System.Drawing.Point(4, 25);
-            this.tbPrMana.Name = "tbPrMana";
-            this.tbPrMana.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPrMana.Size = new System.Drawing.Size(1312, 494);
-            this.tbPrMana.TabIndex = 1;
-            this.tbPrMana.Text = "Price Management";
-            // 
-            // dgvPrMana
-            // 
-            this.dgvPrMana.AllowUserToAddRows = false;
-            this.dgvPrMana.AllowUserToDeleteRows = false;
-            this.dgvPrMana.AllowUserToOrderColumns = true;
-            this.dgvPrMana.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Silver;
-            this.dgvPrMana.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvPrMana.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvPrMana.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPrMana.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.dgvPrMana.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvPrMana.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrMana.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvPrMana.ColumnHeadersHeight = 36;
-            this.dgvPrMana.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvPrMana.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn1});
-            this.dgvPrMana.EnableHeadersVisualStyles = false;
-            this.dgvPrMana.Location = new System.Drawing.Point(30, 6);
-            this.dgvPrMana.Name = "dgvPrMana";
-            this.dgvPrMana.RowHeadersVisible = false;
-            this.dgvPrMana.RowHeadersWidth = 51;
-            this.dgvPrMana.RowTemplate.Height = 40;
-            this.dgvPrMana.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPrMana.Size = new System.Drawing.Size(1252, 482);
-            this.dgvPrMana.TabIndex = 6;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
             // tbProductMana
             // 
             this.tbProductMana.Controls.Add(this.btnAddNewPro);
@@ -367,62 +240,14 @@ namespace NetManagement.View.FormAdmin
             this.tbProductMana.Text = "Product Management";
             this.tbProductMana.UseVisualStyleBackColor = true;
             // 
-            // btnAddNewPro
-            // 
-            this.btnAddNewPro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
-            this.btnAddNewPro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddNewPro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnAddNewPro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAddNewPro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNewPro.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNewPro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAddNewPro.Location = new System.Drawing.Point(99, 524);
-            this.btnAddNewPro.Name = "btnAddNewPro";
-            this.btnAddNewPro.Size = new System.Drawing.Size(211, 40);
-            this.btnAddNewPro.TabIndex = 12;
-            this.btnAddNewPro.Text = "Add New Product";
-            this.btnAddNewPro.UseVisualStyleBackColor = false;
-            // 
-            // btnDelPro
-            // 
-            this.btnDelPro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
-            this.btnDelPro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelPro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnDelPro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnDelPro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelPro.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelPro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnDelPro.Location = new System.Drawing.Point(499, 524);
-            this.btnDelPro.Name = "btnDelPro";
-            this.btnDelPro.Size = new System.Drawing.Size(167, 40);
-            this.btnDelPro.TabIndex = 13;
-            this.btnDelPro.Text = "Delete Product";
-            this.btnDelPro.UseVisualStyleBackColor = false;
-            // 
-            // BtnUpdateProduct
-            // 
-            this.BtnUpdateProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
-            this.BtnUpdateProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnUpdateProduct.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.BtnUpdateProduct.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnUpdateProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnUpdateProduct.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnUpdateProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.BtnUpdateProduct.Location = new System.Drawing.Point(840, 524);
-            this.BtnUpdateProduct.Name = "BtnUpdateProduct";
-            this.BtnUpdateProduct.Size = new System.Drawing.Size(176, 40);
-            this.BtnUpdateProduct.TabIndex = 14;
-            this.BtnUpdateProduct.Text = "Update Product";
-            this.BtnUpdateProduct.UseVisualStyleBackColor = false;
-            // 
             // dgvProduct
             // 
             this.dgvProduct.AllowUserToAddRows = false;
             this.dgvProduct.AllowUserToDeleteRows = false;
             this.dgvProduct.AllowUserToOrderColumns = true;
             this.dgvProduct.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Silver;
-            this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -430,14 +255,14 @@ namespace NetManagement.View.FormAdmin
             this.dgvProduct.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvProduct.ColumnHeadersHeight = 36;
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -458,6 +283,119 @@ namespace NetManagement.View.FormAdmin
             this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
+            // BtnUpdateProduct
+            // 
+            this.BtnUpdateProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
+            this.BtnUpdateProduct.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUpdateProduct.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.BtnUpdateProduct.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnUpdateProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnUpdateProduct.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUpdateProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BtnUpdateProduct.Location = new System.Drawing.Point(840, 524);
+            this.BtnUpdateProduct.Name = "BtnUpdateProduct";
+            this.BtnUpdateProduct.Size = new System.Drawing.Size(176, 40);
+            this.BtnUpdateProduct.TabIndex = 14;
+            this.BtnUpdateProduct.Text = "Update Product";
+            this.BtnUpdateProduct.UseVisualStyleBackColor = false;
+            // 
+            // btnDelPro
+            // 
+            this.btnDelPro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
+            this.btnDelPro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelPro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnDelPro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDelPro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelPro.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelPro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnDelPro.Location = new System.Drawing.Point(499, 524);
+            this.btnDelPro.Name = "btnDelPro";
+            this.btnDelPro.Size = new System.Drawing.Size(167, 40);
+            this.btnDelPro.TabIndex = 13;
+            this.btnDelPro.Text = "Delete Product";
+            this.btnDelPro.UseVisualStyleBackColor = false;
+            // 
+            // btnAddNewPro
+            // 
+            this.btnAddNewPro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
+            this.btnAddNewPro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNewPro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnAddNewPro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAddNewPro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewPro.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewPro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAddNewPro.Location = new System.Drawing.Point(99, 524);
+            this.btnAddNewPro.Name = "btnAddNewPro";
+            this.btnAddNewPro.Size = new System.Drawing.Size(211, 40);
+            this.btnAddNewPro.TabIndex = 12;
+            this.btnAddNewPro.Text = "Add New Product";
+            this.btnAddNewPro.UseVisualStyleBackColor = false;
+            // 
+            // tbExProManagement
+            // 
+            this.tbExProManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(34)))), ((int)(((byte)(99)))));
+            this.tbExProManagement.Controls.Add(this.dgvMerMana);
+            this.tbExProManagement.Location = new System.Drawing.Point(4, 25);
+            this.tbExProManagement.Name = "tbExProManagement";
+            this.tbExProManagement.Padding = new System.Windows.Forms.Padding(3);
+            this.tbExProManagement.Size = new System.Drawing.Size(1312, 494);
+            this.tbExProManagement.TabIndex = 0;
+            this.tbExProManagement.Text = "Export Product Management";
+            // 
+            // dgvMerMana
+            // 
+            this.dgvMerMana.AllowUserToAddRows = false;
+            this.dgvMerMana.AllowUserToDeleteRows = false;
+            this.dgvMerMana.AllowUserToOrderColumns = true;
+            this.dgvMerMana.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.dgvMerMana.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvMerMana.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvMerMana.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMerMana.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.dgvMerMana.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvMerMana.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMerMana.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMerMana.ColumnHeadersHeight = 36;
+            this.dgvMerMana.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvMerMana.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column8});
+            this.dgvMerMana.EnableHeadersVisualStyles = false;
+            this.dgvMerMana.Location = new System.Drawing.Point(21, 6);
+            this.dgvMerMana.Name = "dgvMerMana";
+            this.dgvMerMana.RowHeadersVisible = false;
+            this.dgvMerMana.RowHeadersWidth = 51;
+            this.dgvMerMana.RowTemplate.Height = 40;
+            this.dgvMerMana.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMerMana.Size = new System.Drawing.Size(1264, 482);
+            this.dgvMerMana.TabIndex = 5;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            // 
+            // tbControllMana
+            // 
+            this.tbControllMana.Controls.Add(this.tbExProManagement);
+            this.tbControllMana.Controls.Add(this.tbProductMana);
+            this.tbControllMana.Location = new System.Drawing.Point(0, 0);
+            this.tbControllMana.Name = "tbControllMana";
+            this.tbControllMana.SelectedIndex = 0;
+            this.tbControllMana.Size = new System.Drawing.Size(1320, 523);
+            this.tbControllMana.TabIndex = 0;
+            this.tbControllMana.SelectedIndexChanged += new System.EventHandler(this.tbControllMana_SelectedIndexChanged);
+            // 
             // FormProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -472,13 +410,11 @@ namespace NetManagement.View.FormAdmin
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnTab.ResumeLayout(false);
-            this.tbControllMana.ResumeLayout(false);
-            this.tbMerMana.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMerMana)).EndInit();
-            this.tbPrMana.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPrMana)).EndInit();
             this.tbProductMana.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
+            this.tbExProManagement.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMerMana)).EndInit();
+            this.tbControllMana.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -488,27 +424,24 @@ namespace NetManagement.View.FormAdmin
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Panel pnTab;
-        private System.Windows.Forms.TabControl tbControllMana;
-        private System.Windows.Forms.TabPage tbMerMana;
-        private System.Windows.Forms.TabPage tbPrMana;
-        private System.Windows.Forms.DataGridView dgvMerMana;
-        private System.Windows.Forms.DataGridViewImageColumn Column8;
-        private System.Windows.Forms.DataGridView dgvPrMana;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.ComboBox cbbSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.TabPage tbProductMana;
-        private System.Windows.Forms.DataGridView dgvProduct;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.ComboBox cbbSortBy;
         private System.Windows.Forms.ComboBox cbbSortProperty;
         private System.Windows.Forms.Button btnSort;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnUp;
+        private System.Windows.Forms.TabControl tbControllMana;
+        private System.Windows.Forms.TabPage tbExProManagement;
+        private System.Windows.Forms.DataGridView dgvMerMana;
+        private System.Windows.Forms.DataGridViewImageColumn Column8;
+        private System.Windows.Forms.TabPage tbProductMana;
         private System.Windows.Forms.Button btnAddNewPro;
         private System.Windows.Forms.Button btnDelPro;
         private System.Windows.Forms.Button BtnUpdateProduct;
+        private System.Windows.Forms.DataGridView dgvProduct;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }

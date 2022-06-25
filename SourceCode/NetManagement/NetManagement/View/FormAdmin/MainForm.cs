@@ -7,12 +7,12 @@ using System.Runtime.InteropServices;
 
 namespace NetManagement.View.FormAdmin
 {
-    public partial class Form1 : Form
+    public partial class Main_Form : Form
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
-        public Form1()
+        public Main_Form()
         {
             InitializeComponent();
             leftBorderBtn = new Panel();
@@ -164,12 +164,6 @@ namespace NetManagement.View.FormAdmin
             this.Dispose();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
-            ToolTip1.SetToolTip(this.icBtnLogOut, "Log Out");
-            
-        }
 
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

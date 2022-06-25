@@ -16,26 +16,25 @@ namespace NetManagement.View.FormAdmin
     {
         public delegate void MyDel(List<object> data = null);
         public MyDel d;
-        AdminBLL_Inventory adminBLL_Product = new AdminBLL_Inventory();
-        string id;
+        AdminBLL_Inventory adminBLL_ExProduct = new AdminBLL_Inventory();
+        int id;
         int check;
 
-        public FormAddProductExport(string m, int k)
+        public FormAddProductExport(int m,int Check)
         {
             id = m;
-            check = k;
+            check = Check;
             InitializeComponent();
             GUI();
             CreateCBB();
         }
 
-        string stri;
+        //string stri;
         public List<SetCBB> SetCBBs = new List<SetCBB>();
         DateTime dt;
         public void CreateCBB()
         {
-            cbbProduct.Items.Add("Sản phẩm mới");
-            foreach (Inventory i in adminBLL_Product.GetAll())
+            foreach (Inventory i in adminBLL_ExProduct.GetAll())
             {
                 cbbProduct.Items.Add(new SetCBB { id = i.Product.ID_Product, name = i.Product.NameProduct });
                 SetCBBs.Add(new SetCBB { id = i.Product.ID_Product, name = i.Product.NameProduct });
@@ -45,36 +44,23 @@ namespace NetManagement.View.FormAdmin
 
         void GUI()
         {
-            if (id != "")
+            if (id != -1)
             {
                 int i = Convert.ToInt32(id);
-                Inventory s = adminBLL_Product.GetProductById(i);
-                //txtIDPro.Text = s.ID_Product.ToString();
+                Inventory s = adminBLL_ExProduct.GetProductById(i);
                 txtAmount.Text = s.Amount.ToString();
-                str = s.Product.ID_Product + " - " + s.Product.NameProduct;
-                cbbProduct.Text = str;
+                cbbProduct.Text = s.Product.ID_Product + " - " + s.Product.NameProduct;
                 txtImport.Text = s.ImportPrices.ToString();
                 txtSalePr.Text = s.SalePrice.ToString();
                 dtpIm.Text = s.ImportDay.ToLongDateString();
                 dtpEx.Text = s.ExpiryDate.ToLongDateString();
-                stri = s.ID_Inventory.ToString();
-                if (check == 0)
-                {
-                    txtImport.Enabled = false;
-                    txtSalePr.Enabled = false;
-                }
-                else
-                {
-                    dtpEx.Enabled = false;
-                    dtpIm.Enabled = false;
-                }
             }
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            Inventory pro = adminBLL_Product.CreateIn();
-            //ID_Product = Convert.ToInt32(txtIDPro.Text),
+            Inventory pro = adminBLL_ExProduct.CreateIn();
+            //pro.ID_Product = Convert.ToInt32(txtIDPro.Text),
             pro.ImportPrices = Convert.ToInt32(txtImport.Text);
             pro.SalePrice = Convert.ToInt32(txtSalePr.Text);
             pro.ImportDay = dtpIm.Value;
@@ -95,7 +81,15 @@ namespace NetManagement.View.FormAdmin
             {
                 pro.ID_Product = (cbbProduct.SelectedItem as SetCBB).id;
             }
-            adminBLL_Product.UpdateAdd(stri, pro);
+            if(check == -1)
+            {
+                adminBLL_ExProduct.Add(pro);
+            }
+            else
+            {
+                pro.ID_Inventory = id;
+                adminBLL_ExProduct.UpDate(pro);
+            }
             d();
             this.Dispose();
         }

@@ -46,7 +46,7 @@ namespace NetManagement.View.FormAdmin
 
         private void btnadd_Click(object sender, EventArgs e)
         {
-            FormAddUpShift f = new FormAddUpShift("");
+            FormAddUpShift f = new FormAddUpShift(-1);
             f.action = ReloadShift;
             f.Show();
         }
@@ -55,8 +55,8 @@ namespace NetManagement.View.FormAdmin
         {
             if (dgvShift.SelectedRows.Count == 1)
             {
-                string s = dgvShift.SelectedRows[0].Cells["ID_Shift"].Value.ToString();
-                FormAddUpShift f = new FormAddUpShift(s);
+                int id = Convert.ToInt32(dgvShift.SelectedRows[0].Cells["ID_Shift"].Value);
+                FormAddUpShift f = new FormAddUpShift(id);
                 f.action = ReloadShift;
                 f.Show();
             }
@@ -66,15 +66,27 @@ namespace NetManagement.View.FormAdmin
         {
             List<Object> data = new List<object>();
             StatusShift statusShift = new StatusShift();
-            if(comboBoxtype.SelectedItem == null)
+            if(comboBoxtype.SelectedItem == null || comboBoxtype.SelectedIndex == 0)
             {
-
+                ReloadShift(null, adShift.FilterFromDateToDate(dateTimePicker1.Value, dateTimePicker2.Value).ToList());
             }
-            else
+            else if(comboBoxtype.SelectedIndex == 1)
             {
-
+                ReloadShift(null, adShift.FilterFromDateToDate(dateTimePicker1.Value, dateTimePicker2.Value, new StatusShift { ID_StatusShift = 2 }).ToList() );
             }
-            ReloadShift(statusShift , data);
+            else if (comboBoxtype.SelectedIndex == 2)
+            {
+                ReloadShift(null, adShift.FilterFromDateToDate(dateTimePicker1.Value, dateTimePicker2.Value, new StatusShift { ID_StatusShift = 3 }).ToList() );
+            }
+            else if (comboBoxtype.SelectedIndex == 3)
+            {
+                ReloadShift(null, adShift.FilterFromDateToDate(dateTimePicker1.Value, dateTimePicker2.Value, new StatusShift { ID_StatusShift = 1 }).ToList() );
+            }
+        }
+
+        private void dgvShift_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

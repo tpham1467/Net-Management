@@ -46,7 +46,7 @@
             this.btnSend = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
-            this.cbbEm = new System.Windows.Forms.ComboBox();
+        
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -227,23 +227,12 @@
             this.dtpDOB.TabIndex = 21;
             this.dtpDOB.Value = new System.DateTime(2022, 6, 9, 0, 0, 0, 0);
             // 
-            // cbbEm
-            // 
-            this.cbbEm.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbEm.FormattingEnabled = true;
-            this.cbbEm.Location = new System.Drawing.Point(243, 258);
-            this.cbbEm.Name = "cbbEm";
-            this.cbbEm.Size = new System.Drawing.Size(189, 38);
-            this.cbbEm.TabIndex = 22;
-            this.cbbEm.SelectedIndexChanged += new System.EventHandler(this.cbbEm_SelectedIndexChanged);
-            // 
             // FormCusAdd_Up
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(487, 623);
-            this.Controls.Add(this.cbbEm);
             this.Controls.Add(this.dtpDOB);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSend);
@@ -289,6 +278,5 @@
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DateTimePicker dtpDOB;
-        private System.Windows.Forms.ComboBox cbbEm;
     }
 }

@@ -63,13 +63,17 @@ namespace NetManagement.BLL.BLLAdmin
         }
         public void Add(Unit unit)
         {
-            unit.ID_Unit = default;
             repository.Insert(unit);
             repository.Save();
         }
         public void Update(Unit unit)
         {
             repository.Update(unit, unit.ID_Unit, UpdateDelegate);
+            repository.Save();
+        }
+        public void DelUnit(int id)
+        {
+            repository.Delete(id);
             repository.Save();
         }
     }

@@ -26,16 +26,9 @@ namespace NetManagement.View.FormAdmin
             Check = checkUpAdd;
             InitializeComponent();
             GUI();
-            CreateCBB();
+ 
         }
         DateTime dt;
-        public void CreateCBB()
-        {
-            foreach (Employee em in adBLLEm.GetAll())
-            {
-                cbbEm.Items.Add(new SetCBB { id = em.ID_User, name = em.FirstName+" "+em.LastName });
-            }
-        }
         void GUI()
         {
 
@@ -49,7 +42,7 @@ namespace NetManagement.View.FormAdmin
                 txtEmail.Text = s.Email.ToString();
                 dtpDOB.Text = s.DateOfBirth.ToLongDateString();
                 txtMoney.Text = s.Money.ToString();
-                cbbEm.Text = s.Employee.ID_User + " - " + s.Employee.FirstName + " " + s.Employee.LastName;
+               
                 if (s.Gender == true) rdMale.Checked = true;
                 else rdFemale.Checked = true;
                 dt = s.Day_Create;
@@ -71,12 +64,12 @@ namespace NetManagement.View.FormAdmin
             cus.Gender = check;
             if(id != -1)
             {
-                cus.ID_Employee = ((cbbEm.Text as object) as SetCBB).id;
+                
                 adBLLCus.UpDate(cus, id, dt);
             }
             else
             {
-                cus.ID_Employee = (cbbEm.SelectedItem as SetCBB).id;
+                
                 adBLLCus.Add(cus);
             }
             d();

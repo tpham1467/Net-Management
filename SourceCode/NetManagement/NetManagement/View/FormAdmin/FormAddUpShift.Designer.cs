@@ -46,10 +46,10 @@
             // 
             this.lbStartTime.AutoSize = true;
             this.lbStartTime.BackColor = System.Drawing.Color.Transparent;
-            this.lbStartTime.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbStartTime.Location = new System.Drawing.Point(56, 166);
             this.lbStartTime.Name = "lbStartTime";
-            this.lbStartTime.Size = new System.Drawing.Size(217, 30);
+            this.lbStartTime.Size = new System.Drawing.Size(226, 32);
             this.lbStartTime.TabIndex = 4;
             this.lbStartTime.Text = "Shift Start Time";
             // 
@@ -57,10 +57,10 @@
             // 
             this.lbWorkday.AutoSize = true;
             this.lbWorkday.BackColor = System.Drawing.Color.Transparent;
-            this.lbWorkday.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbWorkday.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbWorkday.Location = new System.Drawing.Point(41, 53);
             this.lbWorkday.Name = "lbWorkday";
-            this.lbWorkday.Size = new System.Drawing.Size(132, 30);
+            this.lbWorkday.Size = new System.Drawing.Size(137, 32);
             this.lbWorkday.TabIndex = 5;
             this.lbWorkday.Text = "WorkDay";
             // 
@@ -68,10 +68,10 @@
             // 
             this.lbPhone.AutoSize = true;
             this.lbPhone.BackColor = System.Drawing.Color.Transparent;
-            this.lbPhone.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbPhone.Location = new System.Drawing.Point(296, 53);
             this.lbPhone.Name = "lbPhone";
-            this.lbPhone.Size = new System.Drawing.Size(132, 30);
+            this.lbPhone.Size = new System.Drawing.Size(150, 32);
             this.lbPhone.TabIndex = 7;
             this.lbPhone.Text = "Employee";
             // 
@@ -79,7 +79,7 @@
             // 
             this.btnSend.BackgroundImage = global::NetManagement.Properties.Resources.imagesButton;
             this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSend.Font = new System.Drawing.Font("Stencil", 10.2F);
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.btnSend.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnSend.Location = new System.Drawing.Point(102, 317);
             this.btnSend.Name = "btnSend";
@@ -92,7 +92,7 @@
             // btnCancel
             // 
             this.btnCancel.BackgroundImage = global::NetManagement.Properties.Resources.redBackground;
-            this.btnCancel.Font = new System.Drawing.Font("Stencil", 10.2F);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.btnCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancel.Location = new System.Drawing.Point(343, 317);
             this.btnCancel.Name = "btnCancel";
@@ -106,10 +106,10 @@
             // 
             this.dtpWD.CalendarMonthBackground = System.Drawing.Color.MistyRose;
             this.dtpWD.CalendarTitleBackColor = System.Drawing.Color.MistyRose;
-            this.dtpWD.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
+            this.dtpWD.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
             this.dtpWD.Location = new System.Drawing.Point(46, 86);
             this.dtpWD.Name = "dtpWD";
-            this.dtpWD.Size = new System.Drawing.Size(240, 32);
+            this.dtpWD.Size = new System.Drawing.Size(240, 34);
             this.dtpWD.TabIndex = 21;
             this.dtpWD.Value = new System.DateTime(2022, 6, 9, 0, 0, 0, 0);
             // 
@@ -146,10 +146,10 @@
             // 
             this.lbEndTime.AutoSize = true;
             this.lbEndTime.BackColor = System.Drawing.Color.Transparent;
-            this.lbEndTime.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbEndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbEndTime.Location = new System.Drawing.Point(296, 136);
             this.lbEndTime.Name = "lbEndTime";
-            this.lbEndTime.Size = new System.Drawing.Size(206, 30);
+            this.lbEndTime.Size = new System.Drawing.Size(215, 32);
             this.lbEndTime.TabIndex = 28;
             this.lbEndTime.Text = "Shift End Time";
             // 
@@ -170,10 +170,10 @@
             // 
             this.lbstatus.AutoSize = true;
             this.lbstatus.BackColor = System.Drawing.Color.Transparent;
-            this.lbstatus.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbstatus.Location = new System.Drawing.Point(296, 220);
             this.lbstatus.Name = "lbstatus";
-            this.lbstatus.Size = new System.Drawing.Size(90, 30);
+            this.lbstatus.Size = new System.Drawing.Size(102, 32);
             this.lbstatus.TabIndex = 30;
             this.lbstatus.Text = "Status";
             // 

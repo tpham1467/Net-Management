@@ -17,69 +17,114 @@ namespace NetManagement.View.FormAdmin
         public Action<StatusShift, List<Object>> action;
         AdminBLL_Em adBLLEm = new AdminBLL_Em();
         AdminBLL_Timekeeping adShi = new AdminBLL_Timekeeping();
-        string id;
+        int id;
+        int indexCommobox;
+        int id_employee;
 
-        public FormAddUpShift(string m)
+        public FormAddUpShift(int m)
         {
             id = m;
+            if (id != -1)
+            {
+                Shift sh = adShi.GetShiById(id);
+                id_employee = sh.ID_Employee;
+            }
             InitializeComponent();
             CreateCBB();
             Gui();
         }
 
-        string maso;
-        string status;
+
 
         public void Gui()
         {
-            if (id != "")
+            if (id != -1)
             {
                 cbbStatus.Enabled = true;
-                int i = Convert.ToInt32(id);
-                Shift sh = adShi.GetShiById(i);
+
+                Shift sh = adShi.GetShiById(id);
                 dtpWD.Value = Convert.ToDateTime(sh.WorkedDate);
-                //cbbNameE.Text = sh.Employee.ID_User + " - " + sh.Employee.FullNameEm;
-                //mTbStartTime.Text = sh.ShiftStartTime;
-                //mTbEndTime.Text = sh.ShiftEndTime;
-                cbbStatus.Text = sh.StatusShift.Description;
-                maso = sh.Employee.ID_User.ToString();
+                cbbNameE.SelectedIndex = indexCommobox;
+                mTbStartTime.Text = sh.ShiftStartTime.ToString("hh:mm");
+                mTbEndTime.Text = sh.ShiftEndTime.ToString("hh:mm");
+                if(sh.ID_StatusShift == 2 )
+                {
+                    cbbStatus.SelectedIndex = 0;
+                }
+                else if( sh.ID_StatusShift == 1)
+                {
+                    cbbStatus.SelectedIndex = 1;
+                }
+                else
+                {
+                    cbbStatus.SelectedIndex = 2;
+                }
             }
             else
             {
                 cbbStatus.Enabled = false;
-                cbbStatus.Text = "";
+                cbbStatus.Text = "Chưa Làm";
             }
+
         }
 
         public void CreateCBB()
         {
+            int j = 0;
             foreach (Employee em in adBLLEm.GetAll())
             {
-              //  cbbNameE.Items.Add(new SetCBB { id = em.ID_User, name = em.FullNameEm });
+                if(em.ID_User
+                     == id_employee)
+                {
+                    indexCommobox = j; 
+                }
+                j++;
+                cbbNameE.Items.Add(new SetCBB { id = em.ID_User, name = em.FirstName + em.LastName });
             }
+
         }
-
-        int iden;
-
         private void btnSend_Click(object sender, EventArgs e)
         {
-            string str = dtpWD.Value.ToString("MM/dd/yyyy");
+            DateTime workDate = dtpWD.Value;
 
-            foreach (Shift s in adShi.GetAll())
-            {
-                //if (s.Employee.FullNameEm == cbbNameE.Text)
-                //{
-                //    iden = s.Employee.ID_User;
-                //}
-            }
             Shift sh = adShi.Create();
-            //sh.ShiftStartTime = mTbStartTime.Text;
-            //sh.ShiftEndTime = mTbEndTime.Text;
-            sh.ID_Employee = (cbbNameE.SelectedItem as SetCBB).id;
-            sh.WorkedDate = Convert.ToDateTime(str);
 
-            status = cbbStatus.Text;
-            adShi.UpdateAdd(id, sh, status);
+        
+
+            try
+            {
+                DateTime starttime = new DateTime(2022, 8, 12, Convert.ToInt32(mTbStartTime.Text.Split(':')[0]), Convert.ToInt32(mTbStartTime.Text.Split(':')[1]), 23);
+
+                DateTime endtime = new DateTime(2022, 8, 12, Convert.ToInt32(mTbEndTime.Text.Split(':')[0]), Convert.ToInt32(mTbEndTime.Text.Split(':')[1]), 23); ;
+                DateTime.Parse(starttime.ToString());
+                DateTime.Parse(endtime.ToString());
+
+                sh.ShiftStartTime = starttime;
+                sh.ShiftEndTime = endtime;
+                sh.ID_Employee = (cbbNameE.SelectedItem as SetCBB).id;
+                
+            }
+            catch
+            {
+                MessageBox.Show("Sai Du Lieu");
+                return;
+            }
+        
+            sh.WorkedDate = workDate;
+
+            if (cbbStatus.SelectedIndex == 0)
+                sh.ID_StatusShift = 2;
+            else if (cbbStatus.SelectedIndex == 1)
+                sh.ID_StatusShift = 1;
+            else sh.ID_StatusShift = 3;
+
+            if (id == -1)
+            {
+                sh.ID_StatusShift = 1;
+                adShi.Add(sh);
+            }
+            else
+                adShi.UpDate(sh, id);
             action(null , null);
             this.Dispose();
         }

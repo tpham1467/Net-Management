@@ -22,8 +22,21 @@ namespace NetManagement.BLL
         }
         public IEnumerable<SalaryEmployee> GetAll()
         {
-            return repository.GetAll().ToList();
+            return repository.GetAll();
         }
+
+        public IEnumerable<object> Filter(List<SalaryEmployee> salaryEmployees = null)
+        {
+            if (salaryEmployees == null) salaryEmployees = GetAll().ToList();
+            var data = salaryEmployees.Select(p =>
+            new 
+            {
+                p.ID_SalaryEmployee ,
+                p.CoSalary ,
+            });
+            return data;
+        }
+
         public SalaryEmployee GetSalaryById(int id)
         {
             return repository.GetById(id);

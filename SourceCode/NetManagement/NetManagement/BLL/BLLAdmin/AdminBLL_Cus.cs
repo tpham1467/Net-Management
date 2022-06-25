@@ -66,8 +66,8 @@ namespace NetManagement.BLL
         public void UpdateDelegate(Customer c1, Customer c2)
         {
             c1.FirstName = c2.FirstName; c1.LastName = c2.LastName;c1.Phone = c2.Phone;c1.Email = c2.Email;
-            c1.DateOfBirth = c2.DateOfBirth;c1.Day_Create = c2.Day_Create;c1.Money = c2.Money;c1.ID_Employee = c2.ID_Employee;
-            c1.Gender = c2.Gender;c1.ID_User = c2.ID_User;
+            c1.DateOfBirth = c2.DateOfBirth;c1.Day_Create = c2.Day_Create;c1.Money = c2.Money;
+            c1.Gender = c2.Gender;
         }
 
         public void UpDate(Customer customer,int id,DateTime dt)

@@ -43,14 +43,42 @@ namespace NetManagement.BLL
                             p.ID_Shift,
                             p.Employee.FirstName,
                             p.Employee.LastName,
-                            p.WorkedDate,
-                            p.ShiftStartTime,
-                            p.ShiftEndTime,
+                            WorkDate =  p.WorkedDate.ToString("MM/dd/yyyy"),
+                            StartTime =  p.ShiftStartTime.ToString("hh: mm tt"),
+                            EndTime = p.ShiftEndTime.ToString("hh: mm tt"),
                             p.StatusShift.Description
                         }
                 );
             return data.ToList();
         }
+        public IEnumerable<object> FilterFromDateToDate(DateTime From, DateTime To ,StatusShift statusShift = null)
+        {
+            List<Shift> shifts = new List<Shift>();
+            foreach(var i in GetAll())
+            {
+                if(DateTime.Compare(From , i.WorkedDate ) < 0 && DateTime.Compare(To , i.WorkedDate) > 0)
+                {
+                    shifts.Add(i);
+                }
+            }
+          
+            var data = shifts.Where(p => (statusShift != null) ? p.ID_StatusShift == statusShift.ID_StatusShift : true)
+                .Select(
+                    p =>
+                        new
+                        {
+                            p.ID_Shift,
+                            p.Employee.FirstName,
+                            p.Employee.LastName,
+                            WorkDate = p.WorkedDate.ToString("MM/dd/yyyy"),
+                            StartTime = p.ShiftStartTime.ToString("hh: mm tt"),
+                            EndTime = p.ShiftEndTime.ToString("hh: mm tt"),
+                            p.StatusShift.Description
+                        }
+                );
+            return data.ToList();
+        }
+
 
         public Shift GetCusById(int id)
         {
@@ -107,63 +135,14 @@ namespace NetManagement.BLL
             Shift sh =  repository.GetById(i);
             return sh;
         }
-        public List<Shift> updateIDStatus(string s)
-        {
-            List<Shift> shi = GetAll().ToList<Shift>();
-            foreach (Shift em in shi)
-            {
-                if(em.StatusShift.Description == "Đã làm")
-                {
-                    em.ID_StatusShift = 4;
-                }
-            }
-            repository.Save();
-            return shi;
-        }
         public void DelShift(string s)
         {
             repository.Delete(Convert.ToInt32(s));
             repository.Save();
         }
-        public void UpdateAdd(string id, Shift sh,string status)
-        {
-            bool add = true;
-            foreach (Shift i in GetAll())
-            {
-                if(id != "")
-                {
-                    if (i.ID_Shift == Convert.ToInt32(id))
-                    {
-                        add = false;
-                        break;
-                    }
-                }
-            }
-            if (add)
-            {
-                Add(sh);
-            }
-            else
-            {
-                if(status == "Đã làm")
-                {
-                    sh.ID_StatusShift = 1;
-                }
-                if (status == "Chưa làm")
-                {
-                    sh.ID_StatusShift = 2;
-                }
-                if (status == "Nghỉ phép")
-                {
-                    sh.ID_StatusShift = 3;
-                }
-                sh.ID_Shift = Convert.ToInt32(id);
-                UpDate(sh);
-            }
-        }
+  
         public void Add(Shift sh)
         {
-            sh.ID_StatusShift = 2;
             repository.Insert(sh);
             repository.Save();
         }
@@ -177,24 +156,14 @@ namespace NetManagement.BLL
             c1.ID_StatusShift = c2.ID_StatusShift;
         }
 
-        public void UpDate(Shift sh)
+        public void UpDate(Shift sh , int id)
         {
-            repository.Update(sh, sh.ID_Shift, UpdateDelegate);
+            repository.Update(sh, id, UpdateDelegate);
             repository.Save();
         }
         public Shift Create()
         {
             return repository.Create();
-        }
-        public List<Shift> ViewDay()
-        {
-            List<Shift> data1 = GetAll().ToList();
-            List<Shift> data2 = new List<Shift>();
-            foreach (Shift s in data1)
-            {
-
-            }
-            return data2;
         }
     }
 }

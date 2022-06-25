@@ -14,7 +14,7 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddUpSalary : Form
     {
-        public Action action;
+        public Action<List<Object>> action;
         AdminBLL_Salary _AdminBLL_Salary = new AdminBLL_Salary();
         private  int  id;
         public FormAddUpSalary(int _id)
@@ -45,7 +45,7 @@ namespace NetManagement.View.FormAdmin
             if (id == -1) _AdminBLL_Salary.Add(sal);
             else
             _AdminBLL_Salary.UpDate( sal , id);
-            action();
+            action(null);
             this.Dispose();
         }
     }

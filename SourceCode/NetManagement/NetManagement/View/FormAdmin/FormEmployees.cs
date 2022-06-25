@@ -34,7 +34,7 @@ namespace NetManagement.View.FormAdmin
         public FormEmployees()
         {
             InitializeComponent();
-            ShowAll_Empl();
+            ReloadEm();
             Setcbb();
         }
 
@@ -74,64 +74,56 @@ namespace NetManagement.View.FormAdmin
         #region Set Commobox For Tab
         public void Setcbb()
         {
-            //if (tbMana.Selected)
-            if (tbMana.SelectedIndex == 1)
+            cbbSearch.Items.Clear();
+            cbbProperty.Items.Clear();
+            if (tbMana.SelectedIndex == 0)
             {
                 cbbSearch.Items.Clear();
                 cbbProperty.Items.Clear();
                 cbbSearch.Items.Add("All");
                 cbbSearch.Items.Add("Name Employee");
-                List<DateTime> str = adTKeeping
-                    .GetAll()
-                    .Select(p => p.WorkedDate)
-                    .Distinct()
-                    .ToList();
-                foreach (DateTime i in str)
-                {
-                    cbbSearch.Items.Add(i.ToString("M/dd/yyyy"));
-                }
-                cbbProperty.Items.Add("Worked Hour");
-                cbbProperty.Items.Add("Worked Date");
+                cbbSearch.Items.Add("ID_User");
+                cbbProperty.Items.Add("Name Employee");
+                cbbProperty.Items.Add("Day Create");
             }
-            else if (tbMana.SelectedIndex == 2)
+            else if (tbMana.SelectedIndex == 1)
             {
-                cbbSearch.Items.Clear();
-                cbbProperty.Items.Clear();
                 cbbSearch.Items.Add("All");
                 cbbSearch.Items.Add("Name Employee");
                 cbbProperty.Items.Add("Salary");
                 cbbProperty.Items.Add("WorkHour");
             }
+
         }
 
         #endregion
 
         #region Show List Data CorreLative Table
-        public void ShowAll_Empl()
+        public void ReloadEm(List<object> data = null)
         {
-            dgvManaEmployee.DataSource = adEm.Filter().ToList();
+            if (data == null)
+                dgvManaEmployee.DataSource = adEm.Filter();
+            else dgvManaEmployee.DataSource = data;
+        }
+        public void ReloadTimeKeeping(List<object> data = null)
+        {
+            if (data == null)
+                dgvShowTimeKeeping.DataSource = adTKeeping.Filter(new StatusShift {ID_StatusShift = 2 });
+            else dgvShowTimeKeeping.DataSource = data;
+        }
+        public void ReloadHispayroll(List<object> data = null)
+        {
+            if (data == null)
+                dgvShowPayroll.DataSource = adHisPayroll.Filter();
+            else dgvShowPayroll.DataSource = data;
         }
 
-        public void ShowAllTimekeeping()
+        public void ReloadSalaryEmployee(List<object> data = null)
         {
-            dgvShowTimeKeeping.DataSource = adTKeeping.Filter(new StatusShift { ID_StatusShift = 2 });
+            if (data == null)
+                dgvCosalaryEm.DataSource = adHisPayroll.Filter();
+            else dgvCosalaryEm.DataSource = data;
         }
-      
-        public void ShowAllPayroll()
-        {
-            dgvShowPayroll.DataSource = adHisPayroll.Filter();
-        }
-        public void ShowAll_Salary()
-        {
-            var e = adSa.GetAll()
-                        .Select(p => new
-                                     { 
-                                        p.ID_SalaryEmployee,
-                                        p.CoSalary,
-                                     });
-            dgvCosalaryEm.DataSource = e.ToList();
-        }
-
         #endregion
 
         #region Search For Tab
@@ -153,7 +145,13 @@ namespace NetManagement.View.FormAdmin
                     list = adEm.Search(txt, SearchAcoountEnum.Name);
                 }
                 else list = adEm.Search(txt, SearchAcoountEnum.Id);
+                ReloadEm(list);
             }
+            else
+            {
+
+            }
+           
         }
 
 #endregion
@@ -182,7 +180,7 @@ namespace NetManagement.View.FormAdmin
         #region Enabled Combox Search 
         private void cbbSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbSearch.Text != "Name Employee")
+            if (cbbSearch.Text == "Name Employee")
             {
                 txtSearch.Text = "";
                 txtSearch.Enabled = false;
@@ -201,25 +199,24 @@ namespace NetManagement.View.FormAdmin
             if (tbMana.SelectedIndex == 0)
             {
                 txtSearch.Text = "";
-                ShowAll_Empl();
+                ReloadEm();
                 Setcbb();
             }
             else if (tbMana.SelectedIndex == 1)
             {
                 txtSearch.Text = "";
-                ShowAllTimekeeping();
+                ReloadTimeKeeping();
                 Setcbb();
             }
             else if (tbMana.SelectedIndex == 2)
             {
                 txtSearch.Text = "";
-                ShowAllPayroll();
+                ReloadHispayroll();
                 Setcbb();
             }
             else if ( tbMana.SelectedIndex == 3)
             {
                 txtSearch.Text = "";
-                ShowAll_Salary();
                 Setcbb();
             }    
         }
@@ -230,7 +227,7 @@ namespace NetManagement.View.FormAdmin
         private void btnPayroll_Click(object sender, EventArgs e)
         {
             FormPayroll f = new FormPayroll();
-            f.action = ShowAllTimekeeping;
+            f.action = ReloadTimeKeeping;
             f.Show();
         }
 
@@ -245,7 +242,7 @@ namespace NetManagement.View.FormAdmin
             }
             else
             {
-                //ShowAllTimekeeping();
+                ReloadTimeKeeping();
             }
         }
         #endregion
@@ -254,7 +251,7 @@ namespace NetManagement.View.FormAdmin
         private void btnAddEmp_Click(object sender, EventArgs e)
         {
             FormAddUpEm formAddUpEm = new FormAddUpEm(-1);
-            formAddUpEm.action = ShowAll_Empl;
+            formAddUpEm.action = ReloadEm;
             formAddUpEm.Show();
         }
 
@@ -264,7 +261,7 @@ namespace NetManagement.View.FormAdmin
             {
                 int id_employee = GetSelect(GetSelectFor.Employee)[0];
                 FormAddUpEm formAddUpEm = new FormAddUpEm(id_employee);
-                formAddUpEm.action = ShowAll_Empl;
+                formAddUpEm.action = ReloadEm;
                 formAddUpEm.Show();
             }
         }
@@ -274,7 +271,7 @@ namespace NetManagement.View.FormAdmin
         private void btnAddSala_Click(object sender, EventArgs e)
         {
             FormAddUpSalary formAddUpSalary = new FormAddUpSalary(-1);
-            formAddUpSalary.action = ShowAll_Salary;
+            formAddUpSalary.action = ReloadEm;
             formAddUpSalary.Show();
         }
 
@@ -285,7 +282,7 @@ namespace NetManagement.View.FormAdmin
 
                 int id_salary = GetSelect(GetSelectFor.Salary)[0];
                 FormAddUpSalary formAddUpSalary = new FormAddUpSalary(id_salary);
-                formAddUpSalary.action = ShowAll_Salary;
+                //formAddUpSalary.action = 
                 formAddUpSalary.Show();
 
             }

@@ -2,7 +2,7 @@
 
 namespace NetManagement.View.FormAdmin
 {
-    partial class Form1
+    partial class Main_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -60,6 +60,7 @@ namespace NetManagement.View.FormAdmin
             // pnMenu
             // 
             this.pnMenu.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pnMenu.Controls.Add(this.icBtnLogOut);
             this.pnMenu.Controls.Add(this.icCategory);
             this.pnMenu.Controls.Add(this.icBtnPro);
             this.pnMenu.Controls.Add(this.icBtnCus);
@@ -237,7 +238,6 @@ namespace NetManagement.View.FormAdmin
             // 
             this.pnTitle.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pnTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnTitle.Controls.Add(this.icBtnLogOut);
             this.pnTitle.Controls.Add(this.lbTitle);
             this.pnTitle.Controls.Add(this.icPtHome);
             this.pnTitle.Dock = System.Windows.Forms.DockStyle.Top;
@@ -254,7 +254,7 @@ namespace NetManagement.View.FormAdmin
             this.icBtnLogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icBtnLogOut.IconSize = 54;
             this.icBtnLogOut.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.icBtnLogOut.Location = new System.Drawing.Point(1250, 10);
+            this.icBtnLogOut.Location = new System.Drawing.Point(59, 662);
             this.icBtnLogOut.Name = "icBtnLogOut";
             this.icBtnLogOut.Size = new System.Drawing.Size(56, 52);
             this.icBtnLogOut.TabIndex = 2;
@@ -264,11 +264,11 @@ namespace NetManagement.View.FormAdmin
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Rosewood Std Regular", 31.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 31.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.lbTitle.Location = new System.Drawing.Point(81, 59);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(153, 62);
+            this.lbTitle.Size = new System.Drawing.Size(171, 61);
             this.lbTitle.TabIndex = 0;
             this.lbTitle.Text = "Home";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -311,11 +311,11 @@ namespace NetManagement.View.FormAdmin
             this.lbTime.AutoSize = true;
             this.lbTime.BackColor = System.Drawing.Color.Transparent;
             this.lbTime.Enabled = false;
-            this.lbTime.Font = new System.Drawing.Font("Ravie", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTime.ForeColor = System.Drawing.Color.Aqua;
             this.lbTime.Location = new System.Drawing.Point(582, 499);
             this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(214, 38);
+            this.lbTime.Size = new System.Drawing.Size(160, 32);
             this.lbTime.TabIndex = 2;
             this.lbTime.Text = "9:05:21 PM";
             // 
@@ -330,7 +330,7 @@ namespace NetManagement.View.FormAdmin
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -339,9 +339,9 @@ namespace NetManagement.View.FormAdmin
             this.Controls.Add(this.pnDesktop);
             this.Controls.Add(this.pnTitle);
             this.Controls.Add(this.pnMenu);
-            this.Name = "Form1";
+            this.Name = "Main_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Main_Form";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.pnMenu.ResumeLayout(false);
             this.pnLogo.ResumeLayout(false);

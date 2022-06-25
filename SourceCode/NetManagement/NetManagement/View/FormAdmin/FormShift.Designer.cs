@@ -47,6 +47,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.comboBoxtype = new System.Windows.Forms.ComboBox();
+            this.buttonAll = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShift)).BeginInit();
@@ -83,6 +84,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.buttonAll);
             this.panel2.Controls.Add(this.btnUp);
             this.panel2.Controls.Add(this.btnDel);
             this.panel2.Controls.Add(this.btnadd);
@@ -176,6 +178,7 @@
             this.dgvShift.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShift.Size = new System.Drawing.Size(1247, 494);
             this.dgvShift.TabIndex = 5;
+            this.dgvShift.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShift_CellContentClick);
             // 
             // Picture
             // 
@@ -246,6 +249,19 @@
             this.comboBoxtype.Size = new System.Drawing.Size(173, 24);
             this.comboBoxtype.TabIndex = 16;
             // 
+            // buttonAll
+            // 
+            this.buttonAll.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.buttonAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonAll.Location = new System.Drawing.Point(104, 26);
+            this.buttonAll.Name = "buttonAll";
+            this.buttonAll.Size = new System.Drawing.Size(100, 37);
+            this.buttonAll.TabIndex = 17;
+            this.buttonAll.Text = "  ViewAll    ";
+            this.buttonAll.UseVisualStyleBackColor = true;
+            // 
             // FormShift
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -283,5 +299,6 @@
         private System.Windows.Forms.ComboBox comboBoxtype;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button buttonAll;
     }
 }
