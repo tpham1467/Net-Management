@@ -121,7 +121,7 @@ namespace NetManagement.View.FormAdmin
         public void ReloadSalaryEmployee(List<object> data = null)
         {
             if (data == null)
-                dgvCosalaryEm.DataSource = adHisPayroll.Filter();
+                dgvCosalaryEm.DataSource = adSa.Filter();
             else dgvCosalaryEm.DataSource = data;
         }
         #endregion
@@ -217,6 +217,7 @@ namespace NetManagement.View.FormAdmin
             else if ( tbMana.SelectedIndex == 3)
             {
                 txtSearch.Text = "";
+                ReloadSalaryEmployee();
                 Setcbb();
             }    
         }
@@ -282,7 +283,7 @@ namespace NetManagement.View.FormAdmin
 
                 int id_salary = GetSelect(GetSelectFor.Salary)[0];
                 FormAddUpSalary formAddUpSalary = new FormAddUpSalary(id_salary);
-                //formAddUpSalary.action = 
+                formAddUpSalary.action = ReloadSalaryEmployee;
                 formAddUpSalary.Show();
 
             }

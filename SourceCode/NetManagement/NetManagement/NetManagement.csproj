@@ -89,6 +89,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -101,6 +102,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\..\Data-Dashboard-CSharp-SQL-WinForms\DataDashboardApp\FormDashBoard.cs">
+      <Link>View\FormDashBoard\FormDashBoard.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\..\..\..\Data-Dashboard-CSharp-SQL-WinForms\DataDashboardApp\FormDashBoard.designer.cs">
+      <Link>View\FormDashBoard\FormDashBoard.designer.cs</Link>
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="BLL\BLLAdmin\AdminBLL_Category.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_HisPayroll.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_Inventory.cs" />
@@ -113,6 +122,7 @@
     <Compile Include="BLL\BLLAdmin\AdminBLL_UseCPHis.cs" />
     <Compile Include="BLL\BLLAdmin\BLL_Product.cs" />
     <Compile Include="BLL\BLLAdmin\BLL_Unit.cs" />
+    <Compile Include="BLL\BLlDashBoard\BllDashBoard.cs" />
     <Compile Include="DevExpress\XtraEditors.cs" />
     <Compile Include="DTO\ConvertSalarytoVND.cs" />
     <Compile Include="DTO\SortEnum.cs" />
@@ -348,6 +358,10 @@
     <Compile Include="View\FormEmployee\TopUp.Designer.cs">
       <DependentUpon>TopUp.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="..\..\..\..\Data-Dashboard-CSharp-SQL-WinForms\DataDashboardApp\FormDashBoard.resx">
+      <Link>View\FormDashBoard\FormDashBoard.resx</Link>
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

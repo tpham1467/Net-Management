@@ -4,7 +4,7 @@ using System.Media;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Runtime.InteropServices;
-
+using NetManagement.View.FormDashBoard;
 namespace NetManagement.View.FormAdmin
 {
     public partial class Main_Form : Form
@@ -103,7 +103,7 @@ namespace NetManagement.View.FormAdmin
             lbTitle.Text = icBtnDB.Text;
             playSimpleSound();
             icPtHome.IconChar= icBtnDB.IconChar;
-            OpenChildForm(new FormDashBoard());
+            OpenChildForm(new View.FormDashBoard.FormDashBoard());
         }
 
 

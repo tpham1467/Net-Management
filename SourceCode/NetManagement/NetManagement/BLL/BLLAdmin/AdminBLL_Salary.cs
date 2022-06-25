@@ -34,7 +34,7 @@ namespace NetManagement.BLL
                 p.ID_SalaryEmployee ,
                 p.CoSalary ,
             });
-            return data;
+            return data.ToList();
         }
 
         public SalaryEmployee GetSalaryById(int id)

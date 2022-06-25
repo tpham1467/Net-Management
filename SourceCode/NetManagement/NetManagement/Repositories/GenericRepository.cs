@@ -103,11 +103,12 @@ namespace NetManagement.Repositories
         }
         public IEnumerable<T> Search( string input, Func<T, string> key, bool IsContain, bool IsOnly , int num = 0)
         {
+            input = input.ToLower();
             if (string.IsNullOrEmpty(input)) return new List<T>();
             List<T> objectmatch = new List<T>();
             foreach (var i in table)
             {
-                string keyofObject = key(i);
+                string keyofObject = key(i).ToLower();
                 if (IsContain)
                 {
                     if (keyofObject.Contains(input))
