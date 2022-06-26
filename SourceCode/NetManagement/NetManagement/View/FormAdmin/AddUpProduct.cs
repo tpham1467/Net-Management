@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.BLL.BLLAdmin;
+using NetManagement.BLL;
 
 namespace NetManagement.View.FormAdmin
 {
@@ -20,7 +21,9 @@ namespace NetManagement.View.FormAdmin
         public int check;
         public int ID;
         BLL_Product adBllProduct = new BLL_Product();
-        
+        AdminBLL_Category adBllCategory = new AdminBLL_Category();
+        BLL_Unit adBllUnit = new BLL_Unit();
+
         public AddUpProduct(int m, int id)
         {
             check = m;
@@ -33,10 +36,14 @@ namespace NetManagement.View.FormAdmin
         DateTime dt;
         public void CreateCBB()
         {
-            foreach (Product product in adBllProduct.GetAll())
+            
+            foreach(string s in adBllCategory.GetAll().Select(p=>p.CategoryName).Distinct().ToList())
             {
-                cbbCategory.Items.Add(new SetCBB { id = product.ID_Category, name = product.Category.CategoryName});
-                cbbUnit.Items.Add(new SetCBB { id = product.ID_Unit, name = product.Unit.NameUnit});
+                cbbCategory.Items.Add(s);
+            }
+            foreach (string s in adBllUnit.GetAll().Select(p => p.NameUnit).Distinct().ToList())
+            {
+                cbbUnit.Items.Add(s);
             }
         }
         public void Gui()
@@ -53,11 +60,20 @@ namespace NetManagement.View.FormAdmin
         private void btnSave_Click(object sender, EventArgs e)
         {
             Product product = adBllProduct.Create();
-            product.ID_Product = ID;
+            
             product.NameProduct = txtNameProduct.Text;
             product.ID_Unit = (cbbUnit.SelectedItem as SetCBB).id;
+
             product.ID_Category = (cbbCategory.SelectedItem as SetCBB).id;
-            adBllProduct.UpdateAdd(product,check);
+            if(check == -1)
+            {
+                adBllProduct.Add(product);
+            }
+            else
+            {
+                product.ID_Product = ID;
+                adBllProduct.UpDate(product);
+            }
             d();
             this.Dispose();
         }

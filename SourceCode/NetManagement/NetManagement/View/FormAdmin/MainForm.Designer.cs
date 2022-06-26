@@ -41,13 +41,13 @@ namespace NetManagement.View.FormAdmin
             this.pnLogo = new System.Windows.Forms.Panel();
             this.LogoHome = new System.Windows.Forms.PictureBox();
             this.pnTitle = new System.Windows.Forms.Panel();
-            this.icBtnLogOut = new FontAwesome.Sharp.IconButton();
             this.lbTitle = new System.Windows.Forms.Label();
             this.icPtHome = new FontAwesome.Sharp.IconPictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnDesktop = new System.Windows.Forms.Panel();
             this.lbTime = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.iconBtnExit = new FontAwesome.Sharp.IconButton();
             this.pnMenu.SuspendLayout();
             this.pnLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoHome)).BeginInit();
@@ -60,6 +60,7 @@ namespace NetManagement.View.FormAdmin
             // pnMenu
             // 
             this.pnMenu.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pnMenu.Controls.Add(this.iconBtnExit);
             this.pnMenu.Controls.Add(this.icCategory);
             this.pnMenu.Controls.Add(this.icBtnPro);
             this.pnMenu.Controls.Add(this.icBtnCus);
@@ -237,7 +238,6 @@ namespace NetManagement.View.FormAdmin
             // 
             this.pnTitle.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pnTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnTitle.Controls.Add(this.icBtnLogOut);
             this.pnTitle.Controls.Add(this.lbTitle);
             this.pnTitle.Controls.Add(this.icPtHome);
             this.pnTitle.Dock = System.Windows.Forms.DockStyle.Top;
@@ -246,20 +246,6 @@ namespace NetManagement.View.FormAdmin
             this.pnTitle.Size = new System.Drawing.Size(1320, 140);
             this.pnTitle.TabIndex = 1;
             this.pnTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.pnTitle_Paint);
-            // 
-            // icBtnLogOut
-            // 
-            this.icBtnLogOut.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.icBtnLogOut.IconColor = System.Drawing.Color.Black;
-            this.icBtnLogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icBtnLogOut.IconSize = 54;
-            this.icBtnLogOut.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.icBtnLogOut.Location = new System.Drawing.Point(1250, 10);
-            this.icBtnLogOut.Name = "icBtnLogOut";
-            this.icBtnLogOut.Size = new System.Drawing.Size(56, 52);
-            this.icBtnLogOut.TabIndex = 2;
-            this.icBtnLogOut.UseVisualStyleBackColor = true;
-            this.icBtnLogOut.Click += new System.EventHandler(this.icBtnLogOut_Click);
             // 
             // lbTitle
             // 
@@ -330,7 +316,30 @@ namespace NetManagement.View.FormAdmin
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // iconBtnExit
+            // 
+            this.iconBtnExit.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.iconBtnExit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconBtnExit.FlatAppearance.BorderSize = 0;
+            this.iconBtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconBtnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.iconBtnExit.IconChar = FontAwesome.Sharp.IconChar.Outdent;
+            this.iconBtnExit.IconColor = System.Drawing.Color.DarkSeaGreen;
+            this.iconBtnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconBtnExit.IconSize = 32;
+            this.iconBtnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconBtnExit.Location = new System.Drawing.Point(0, 496);
+            this.iconBtnExit.Name = "iconBtnExit";
+            this.iconBtnExit.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconBtnExit.Size = new System.Drawing.Size(220, 58);
+            this.iconBtnExit.TabIndex = 8;
+            this.iconBtnExit.Text = "Exit";
+            this.iconBtnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconBtnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconBtnExit.UseVisualStyleBackColor = false;
+            this.iconBtnExit.Click += new System.EventHandler(this.iconBtnExit_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -339,7 +348,7 @@ namespace NetManagement.View.FormAdmin
             this.Controls.Add(this.pnDesktop);
             this.Controls.Add(this.pnTitle);
             this.Controls.Add(this.pnMenu);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load_1);
@@ -371,10 +380,10 @@ namespace NetManagement.View.FormAdmin
         private System.Windows.Forms.Label lbTitle;
         private FontAwesome.Sharp.IconPictureBox icPtHome;
         private System.Windows.Forms.Panel pnDesktop;
-        private FontAwesome.Sharp.IconButton icBtnLogOut;
         private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton iconBtnExit;
     }
 }
 

@@ -71,5 +71,10 @@ namespace NetManagement.BLL.BLLAdmin
             repository.Update(unit, unit.ID_Unit, UpdateDelegate);
             repository.Save();
         }
+        public void DelUnit(int id)
+        {
+            repository.Delete(id);
+            repository.Save();
+        }
     }
 }

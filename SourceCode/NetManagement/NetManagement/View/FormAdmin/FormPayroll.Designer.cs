@@ -95,8 +95,8 @@
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.SkyBlue;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            //dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            //dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvShow.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvShow.ColumnHeadersHeight = 36;

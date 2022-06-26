@@ -132,7 +132,13 @@ namespace NetManagement.View.FormAdmin
 
         private void btnDeleteUnit_Click(object sender, EventArgs e)
         {
-
+            int id;
+            foreach (DataGridViewRow i in dgvUnit.SelectedRows)
+            {
+                id = Convert.ToInt32(i.Cells["ID_Category"].Value);
+                adUnit.DelUnit(id);
+            }
+            ReloadCategory();
         }
 
         private void tbCategory_SelectedIndexChanged(object sender, EventArgs e)

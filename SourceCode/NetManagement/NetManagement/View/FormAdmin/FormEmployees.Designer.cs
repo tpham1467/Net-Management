@@ -40,6 +40,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbbSortProperty = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbbSortby = new System.Windows.Forms.ComboBox();
             this.cbbSearch = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSort = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.btnUpdateEmp = new FontAwesome.Sharp.IconButton();
             this.btnAddEmp = new FontAwesome.Sharp.IconButton();
             this.dgvManaEmployee = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tbTimeKeeping = new System.Windows.Forms.TabPage();
             this.cbPay = new System.Windows.Forms.CheckBox();
             this.btnPayroll = new System.Windows.Forms.Button();
@@ -65,7 +65,7 @@
             this.dgvCosalaryEm = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.cbbSortby = new System.Windows.Forms.ComboBox();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.tbMana.SuspendLayout();
             this.tbManaEm.SuspendLayout();
@@ -103,6 +103,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1323, 90);
             this.panel1.TabIndex = 0;
+            // 
+            // cbbSortby
+            // 
+            this.cbbSortby.DropDownWidth = 200;
+            this.cbbSortby.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbSortby.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cbbSortby.ItemHeight = 29;
+            this.cbbSortby.Items.AddRange(new object[] {
+            "Asc",
+            "Desc"});
+            this.cbbSortby.Location = new System.Drawing.Point(999, 30);
+            this.cbbSortby.Name = "cbbSortby";
+            this.cbbSortby.Size = new System.Drawing.Size(90, 37);
+            this.cbbSortby.TabIndex = 12;
             // 
             // cbbSearch
             // 
@@ -263,15 +277,6 @@
             this.dgvManaEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvManaEmployee.Size = new System.Drawing.Size(1225, 427);
             this.dgvManaEmployee.TabIndex = 6;
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.FillWeight = 25F;
-            this.dataGridViewImageColumn3.HeaderText = "";
-            this.dataGridViewImageColumn3.Image = global::NetManagement.Properties.Resources.PayrollIcon;
-            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn3.MinimumWidth = 6;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             // 
             // tbTimeKeeping
             // 
@@ -523,19 +528,14 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 1246;
             // 
-            // cbbSortby
+            // dataGridViewImageColumn3
             // 
-            this.cbbSortby.DropDownWidth = 200;
-            this.cbbSortby.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbSortby.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbbSortby.ItemHeight = 29;
-            this.cbbSortby.Items.AddRange(new object[] {
-            "Asc",
-            "Desc"});
-            this.cbbSortby.Location = new System.Drawing.Point(999, 30);
-            this.cbbSortby.Name = "cbbSortby";
-            this.cbbSortby.Size = new System.Drawing.Size(90, 37);
-            this.cbbSortby.TabIndex = 12;
+            this.dataGridViewImageColumn3.FillWeight = 25F;
+            this.dataGridViewImageColumn3.HeaderText = "";
+            this.dataGridViewImageColumn3.Image = global::NetManagement.Properties.Resources.PayrollIcon;
+            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn3.MinimumWidth = 6;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             // 
             // FormEmployees
             // 
@@ -587,12 +587,12 @@
         private FontAwesome.Sharp.IconButton btnUpdateEmp;
         private FontAwesome.Sharp.IconButton btnAddEmp;
         private System.Windows.Forms.DataGridView dgvManaEmployee;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.TabPage tbCosalaryEm;
         private FontAwesome.Sharp.IconButton btnUpdateSal;
         private FontAwesome.Sharp.IconButton btnAddSala;
         private System.Windows.Forms.DataGridView dgvCosalaryEm;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
         private System.Windows.Forms.ComboBox cbbSortby;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
     }
 }

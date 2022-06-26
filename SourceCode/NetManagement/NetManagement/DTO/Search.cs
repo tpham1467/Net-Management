@@ -14,6 +14,8 @@ namespace NetManagement.DTO
         Name = 1,
         UserName = 2,
         SalePriceOfProduct = 3,
+        NameCategory =4,
+        NameProduct =5,
     }
 
 

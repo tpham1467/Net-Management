@@ -9,6 +9,7 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class MainForm : Form
     {
+        public Action action;
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
@@ -164,12 +165,6 @@ namespace NetManagement.View.FormAdmin
             this.Dispose();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
-            ToolTip1.SetToolTip(this.icBtnLogOut, "Log Out");
-            
-        }
 
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -208,6 +203,13 @@ namespace NetManagement.View.FormAdmin
             playSimpleSound();
             icPtHome.IconChar = icCategory.IconChar;
             OpenChildForm(new FormCategory());
+        }
+
+        private void iconBtnExit_Click(object sender, EventArgs e)
+        {
+            action();
+            this.Dispose();
+
         }
     }
 

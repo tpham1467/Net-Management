@@ -31,21 +31,18 @@ namespace NetManagement.View.FormAdmin
             cbbSortProperty.Items.Clear();
             cbbSortProperty.Items.Add("ImportDay");
             cbbSortProperty.Items.Add("ExpiryDate");
+            cbbSortProperty.Items.Add("SalePrice");
             cbbSearch.Items.Clear();
             cbbSearch.Items.Add("All");
             cbbSearch.Items.Add("Name Product");
+            cbbSearch.Items.Add("SalePrice");
         }
         public void ReloadProduct(List<object> data = null)
         {
             if (tbControllMana.SelectedIndex == 0)
             {
-                if (data == null) dgvMerMana.DataSource = adminBLL_Mana.Filter(0).ToList();
+                if (data == null) dgvMerMana.DataSource = adminBLL_Mana.Filter().ToList();
                 else dgvMerMana.DataSource = data;
-            }
-            else if (tbControllMana.SelectedIndex == 1)
-            {
-                if (data == null) dgvPrMana.DataSource = adminBLL_Mana.Filter(1).ToList();
-                else dgvPrMana.DataSource = data;
             }
             else
             {
@@ -53,37 +50,7 @@ namespace NetManagement.View.FormAdmin
                 else dgvProduct.DataSource = data;
             }
         }
-        int k;
 
-        private void btnSort_Click(object sender, EventArgs e)
-        {
-            SortEnum sort = new SortEnum();
-            if (tbControllMana.SelectedIndex == 0)
-            {
-
-                if ((cbbSortBy.SelectedItem as string) == "Asc")
-                {
-                    sort = SortEnum.Asc;
-                }
-                else
-                {
-                    sort = SortEnum.Desc;
-                }
-                dgvMerMana.DataSource = adminBLL_Mana.Sort(sort, (cbbSortProperty.SelectedItem as string));
-            }
-            else
-            {
-                if ((cbbSortBy.SelectedItem as string) == "Asc")
-                {
-                    sort = SortEnum.Asc;
-                }
-                else
-                {
-                    sort = SortEnum.Desc;
-                }
-                dgvPrMana.DataSource = adminBLL_Mana.Sort(sort, (cbbSortProperty.SelectedItem as string));
-            }
-        }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -95,29 +62,33 @@ namespace NetManagement.View.FormAdmin
             {
                 if (s == "All")
                 {
-                    list = adminBLL_Mana.Search(0,txt, SearchAcoountEnum.All);
+                    list = adminBLL_Mana.Search(0, txt, SearchAcoountEnum.All);
                 }
-                else
-                {
-                    list = adminBLL_Mana.Search(0,txt, SearchAcoountEnum.Name);
-                }
-                ReloadProduct(list);
-            }
-            else if (tbControllMana.SelectedIndex == 1)
-            {
-                if (s == "All")
-                {
-                    list = adminBLL_Mana.Search(1, txt, SearchAcoountEnum.All);
-                }
-                else if(s== "SalePrice")
+                else if (s == "SalePrice")
                 {
                     list = adminBLL_Mana.Search(1, txt, SearchAcoountEnum.SalePriceOfProduct);
                 }
-                else {
-                    list = adminBLL_Mana.Search(1, txt, SearchAcoountEnum.Name);
+                else
+                {
+                    list = adminBLL_Mana.Search(0, txt, SearchAcoountEnum.Name);
                 }
-                ReloadProduct(list);
             }
+            else
+            {
+                if (s == "All")
+                {
+                    list = adminBLL_Product.Search(txt, SearchAcoountEnum.All);
+                }
+                else if (s == "Name Product")
+                {
+                    list = adminBLL_Product.Search(txt, SearchAcoountEnum.NameProduct);
+                }
+                else
+                {
+                    list = adminBLL_Product.Search(txt, SearchAcoountEnum.NameCategory);
+                }
+            }
+            ReloadProduct(list);
         }
 
         private void cbbSearch_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,26 +107,26 @@ namespace NetManagement.View.FormAdmin
 
         private void tbControllMana_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(tbControllMana.SelectedIndex == 0)
+            cbbSortBy.Enabled = true;
+            cbbSortProperty.Enabled = true;
+            btnSort.Enabled = true;
+            if (tbControllMana.SelectedIndex == 0)
             {
                 SetCBB();
-                ReloadProduct();
-            }
-            else if (tbControllMana.SelectedIndex == 1)
-            {
-                cbbSortProperty.Items.Clear();
-                cbbSortProperty.Items.Add("ImportPrices");
-                cbbSortProperty.Items.Add("SalePrice");
-                cbbSearch.Items.Clear();
-                cbbSearch.Items.Add("All");
-                cbbSearch.Items.Add("Name Product");
-                cbbSearch.Items.Add("SalePrice");
-                ReloadProduct();
             }
             else
             {
-                ReloadProduct();
+                cbbSortProperty.Items.Clear();
+                cbbSearch.Items.Clear();
+                cbbSearch.Items.Add("All");
+                cbbSearch.Items.Add("Name Product");
+                cbbSearch.Items.Add("Name Category");
+                cbbSortBy.Enabled = false;
+                cbbSortProperty.Enabled = false;
+                btnSort.Enabled = false;
+
             }
+            ReloadProduct();
         }
 
         
@@ -173,56 +144,70 @@ namespace NetManagement.View.FormAdmin
             }
             else if (tbControllMana.SelectedIndex == 1)
             {
-                foreach (DataGridViewRow i in dgvPrMana.SelectedRows)
+                foreach (DataGridViewRow i in dgvProduct.SelectedRows)
                 {
-                    s = i.Cells["ID_Inventory"].Value.ToString();
-                    adminBLL_Mana.DelProduct(s);
+                    s = i.Cells["ID_Product"].Value.ToString();
+                    adminBLL_Product.Del(s);
                 }
             }
             ReloadProduct();
         }
-        int check;
         private void btnUp_Click_1(object sender, EventArgs e)
         {
-            check = 1;
-            if (tbControllMana.SelectedIndex == 0)
+            if(tbControllMana.SelectedIndex == 0)
             {
-                k = 0;
+                if (dgvMerMana.SelectedRows.Count == 1)
+                {
+                    int s = Convert.ToInt32(dgvMerMana.SelectedRows[0].Cells["ID_Inventory"].Value);
+                    FormAddProductExport f = new FormAddProductExport(s,1);
+                    f.d = new FormAddProductExport.MyDel(ReloadProduct);
+                    f.Show();
+                }
             }
-            else if (tbControllMana.SelectedIndex == 1)
+            else
             {
-                k = 1;
-            }
-            if (dgvMerMana.SelectedRows.Count == 1)
-            {
-                string s = dgvMerMana.SelectedRows[0].Cells["ID_Inventory"].Value.ToString();
-                FormAddProductExport f = new FormAddProductExport(s, k);
-                f.d = new FormAddProductExport.MyDel(ReloadProduct);
-                f.Show();
-            }
-            if (dgvMerMana.SelectedRows.Count == 1)
-            {
-                int s = Convert.ToInt32(dgvProduct.SelectedRows[0].Cells["ID_Product"].Value);
-                AddUpProduct f = new AddUpProduct(s,check);
-                f.d = new AddUpProduct.MyDel(ReloadProduct);
-                f.Show();
+                if (dgvProduct.SelectedRows.Count == 1)
+                {
+                    int s = Convert.ToInt32(dgvProduct.SelectedRows[0].Cells["ID_Product"].Value);
+                    AddUpProduct f = new AddUpProduct(1,s);
+                    f.d = new AddUpProduct.MyDel(ReloadProduct);
+                    f.Show();
+                }
             }
         }
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
-            check = 0;
-            if (tbControllMana.SelectedIndex == 2)
+            if (tbControllMana.SelectedIndex == 0)
+            {
+                FormAddProductExport f = new FormAddProductExport(-1, -1);
+                f.d = new FormAddProductExport.MyDel(ReloadProduct);
+                f.Show();
+
+            }
+            else if (tbControllMana.SelectedIndex == 1)
             {
                 AddUpProduct f = new AddUpProduct(-1, -1);
                 f.d = new AddUpProduct.MyDel(ReloadProduct);
                 f.Show();
             }
-            else
+        }
+
+        private void btnSort_Click_1(object sender, EventArgs e)
+        {
+            SortEnum sort = new SortEnum();
+            if (tbControllMana.SelectedIndex == 0)
             {
-                FormAddProductExport f = new FormAddProductExport("", 0);
-                f.d = new FormAddProductExport.MyDel(ReloadProduct);
-                f.Show();
+
+                if ((cbbSortBy.SelectedItem as string) == "Asc")
+                {
+                    sort = SortEnum.Asc;
+                }
+                else
+                {
+                    sort = SortEnum.Desc;
+                }
             }
+            ReloadProduct(adminBLL_Mana.Sort(sort, (cbbSortProperty.SelectedItem as string)).ToList());
         }
     }
 }

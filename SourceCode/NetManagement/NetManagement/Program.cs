@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using NetManagement.View.FormEmployee;
+using NetManagement.View.FormCustomer;
 using NetManagement.View.FormAdmin;
 namespace NetManagement
 {

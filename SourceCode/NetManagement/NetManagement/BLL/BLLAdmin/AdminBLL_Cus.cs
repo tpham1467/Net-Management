@@ -44,8 +44,8 @@ namespace NetManagement.BLL
                 p.Day_Create,
                 p.Gender,
                 p.Money,
-                p.ID_Employee
-            });
+                FullName = p.FirstName + " " + p.LastName
+            }) ;
             return data.ToList();
         }
 
@@ -55,20 +55,7 @@ namespace NetManagement.BLL
             return cus;
 
         }
-        public void UpdateAdd(int check, int id,Customer cus,DateTime dt)
-        {
-            
-            if (check ==-1)
-            {
-                Add(cus);
-            }
-            else
-            {
-                cus.Day_Create = dt;
-                cus.ID_User = id;
-                UpDate(cus);
-            }
-        }
+        
         public void Add(Customer cus)
         {
             cus.Day_Create = DateTime.Now;
@@ -83,8 +70,10 @@ namespace NetManagement.BLL
             c1.Gender = c2.Gender;c1.ID_User = c2.ID_User;
         }
 
-        public void UpDate(Customer customer)
+        public void UpDate(Customer customer,int id,DateTime dt)
         {
+            customer.Day_Create = dt;
+            customer.ID_User = id;
             repository.Update(customer, customer.ID_User, UpdateDelegate);
             repository.Save();
         }

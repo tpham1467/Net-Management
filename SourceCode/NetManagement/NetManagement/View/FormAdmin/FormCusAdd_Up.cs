@@ -28,17 +28,14 @@ namespace NetManagement.View.FormAdmin
             GUI();
             CreateCBB();
         }
-        public List<SetCBB> SetCBBs = new List<SetCBB>();
         DateTime dt;
         public void CreateCBB()
         {
             foreach (Employee em in adBLLEm.GetAll())
             {
                 cbbEm.Items.Add(new SetCBB { id = em.ID_User, name = em.FirstName+" "+em.LastName });
-                SetCBBs.Add(new SetCBB { id = em.ID_User, name = em.FirstName + " " + em.LastName });
             }
         }
-        public string str;
         void GUI()
         {
 
@@ -46,14 +43,13 @@ namespace NetManagement.View.FormAdmin
             {
                 int i = Convert.ToInt32(id);
                 Customer s = adBLLCus.GetCusById(i);
-                str = s.Employee.ID_User + " - " + s.Employee.FirstName+" "+s.Employee.LastName;
                 txtFirstN.Text = s.FirstName.ToString();
                 txtLastN.Text = s.LastName.ToString();
                 txtPhone.Text = s.Phone.ToString();
                 txtEmail.Text = s.Email.ToString();
                 dtpDOB.Text = s.DateOfBirth.ToLongDateString();
                 txtMoney.Text = s.Money.ToString();
-                cbbEm.Text = str;
+                cbbEm.Text = s.Employee.ID_User + " - " + s.Employee.FirstName + " " + s.Employee.LastName;
                 if (s.Gender == true) rdMale.Checked = true;
                 else rdFemale.Checked = true;
                 dt = s.Day_Create;
@@ -73,22 +69,16 @@ namespace NetManagement.View.FormAdmin
             cus.DateOfBirth = dtpDOB.Value;
             cus.Money = Convert.ToInt32(txtMoney.Text);
             cus.Gender = check;
-            int ktra = 0;
-            foreach (SetCBB scbb in SetCBBs)
+            if(id != -1)
             {
-                if (scbb.ToString() == cbbEm.Text)
-                {
-                    ktra++;
-                    cus.ID_Employee = scbb.id;
-                    break;
-                }
-                
+                cus.ID_Employee = ((cbbEm.Text as object) as SetCBB).id;
+                adBLLCus.UpDate(cus, id, dt);
             }
-            if(ktra == 0)
+            else
             {
                 cus.ID_Employee = (cbbEm.SelectedItem as SetCBB).id;
+                adBLLCus.Add(cus);
             }
-            adBLLCus.UpdateAdd(Check,id, cus,dt);
             d();
             this.Dispose();
         }

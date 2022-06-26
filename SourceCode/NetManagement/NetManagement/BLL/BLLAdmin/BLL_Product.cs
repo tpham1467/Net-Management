@@ -38,22 +38,6 @@ namespace NetManagement.BLL.BLLAdmin
             var data = products.Select(p => new { p.ID_Product, p.NameProduct, p.Category.CategoryName, p.Unit.NameUnit });
             return data.ToList();
         }
-
-
-        //public List<object> Search(string search, SearchAcoountEnum searchby)
-        //{
-
-        //    if (searchby == SearchAcoountEnum.All)
-        //    {
-        //        return Filter(repository.GetAll()).ToList();
-        //    }
-        //    else if (searchby == SearchAcoountEnum.Name)
-        //    {
-        //        return Filter(repository.Search(search, p => p.NameProduct, true, false)).ToList();
-        //    }
-        //    else return Filter(repository.Search(search, p => p.ID_Category.ToString(), true, true)).ToList();
-        //}
-
         public void UpdateAdd(Product product, int check)
         {
 
@@ -89,13 +73,19 @@ namespace NetManagement.BLL.BLLAdmin
             repository.Delete(Convert.ToInt32(id));
             repository.Save();
         }
-        //public IEnumerable<object> Sort(SortEnum sort, string by)
-        //{
+        public List<object> Search(string search, SearchAcoountEnum searchby)
+        {
 
-        //    if (string.Compare(by, "Name Category") == 0)
-        //        return Filter(repository.Sort<string>(sort, a => a.CategoryName));
-        //    else return Filter(repository.Sort<int>(sort, a => a.ID_Category));
-        //}
+            if (searchby == SearchAcoountEnum.All)
+            {
+                return Filter(repository.GetAll()).ToList();
+            }
+            else if (searchby == SearchAcoountEnum.NameCategory)
+            {
+                return Filter(repository.Search(search, p => p.Category.CategoryName, true, false)).ToList();
+            }
+            else return Filter(repository.Search(search, p => p.NameProduct, true, false)).ToList();
+        }
         public Product Create()
         {
             return repository.Create();

@@ -64,6 +64,7 @@ namespace NetManagement.View.FormEmployee
                         else if(account.ID_Role == 1)
                         {
                             MainForm MainForm_Admin = new MainForm();
+                            MainForm_Admin.action = UnHide;
                             MainForm_Admin.Show();
                             this.Hide();
                         }

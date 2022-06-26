@@ -138,7 +138,18 @@ namespace NetManagement.View.FormAdmin
                 dgvManaEmployee.DataSource = adEm.Filter();
             else dgvManaEmployee.DataSource = data;
         }
-
+        public void ReloadTimeKeeping(List<object> data = null)
+        {
+            if (data == null)
+                dgvShowTimeKeeping.DataSource = adTKeeping.Filter();
+            else dgvShowTimeKeeping.DataSource = data;
+        }
+        public void ReloadHispayroll(List<object> data = null)
+        {
+            if (data == null)
+                dgvShowPayroll.DataSource = adHisPayroll.Filter();
+            else dgvShowPayroll.DataSource = data;
+        }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string txt = txtSearch.Text;
@@ -146,7 +157,6 @@ namespace NetManagement.View.FormAdmin
             List<object> list = new List<object>();
             if (tbMana.SelectedIndex == 0)
             {
-
                 if (txtcbb == "All")
                 {
                     list = adEm.Search(txt, SearchAcoountEnum.All);
