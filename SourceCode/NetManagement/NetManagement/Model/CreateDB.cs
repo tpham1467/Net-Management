@@ -9,9 +9,9 @@ using System.Windows.Forms;
 namespace NetManagement.Model
 {
     public class CreateDB :
-       CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
+      // CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
                                         //DropCreateDatabaseIfModelChanges<CSDL> // chỉ thay đổi Record thfi sẽ không tahy đổi, nếu thay đổi liên kết sẽ xóa đi cái cũ đê rkhwoir tạo cái mới
-                                 //       DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
+                                        DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
     {
         protected override void Seed(NetManagemetnContext context)
         {
@@ -69,16 +69,17 @@ namespace NetManagement.Model
                 new UseComputerHistory{ ID_Customer = 6, ID_Computer =3,_LogIn = DateTime.Now, _LogOut = DateTime.Now, HourUsed = 3},
             });
             context.Shifts.AddRange(new Shift[]{
-                new Shift{ID_Employee = 2, WorkedDate = DateTime.Now, WorkedHour = 1, ShiftStartTime = new SqlDateTime(2022,6,18,22,0 ,0).Value , ShiftEndTime =  new SqlDateTime(2022,6,18,23,0 ,0).Value,  ID_StatusShift = 1},
-                new Shift{ ID_Employee = 3, WorkedDate = DateTime.Now, WorkedHour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                 new Shift{ID_Employee = 2, WorkedDate = DateTime.Now, WorkedHour = 1,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                new Shift{ ID_Employee = 3, WorkedDate = DateTime.Now, WorkedHour = 2,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                new Shift{ ID_Employee = 1, WorkedDate = DateTime.Now, WorkedHour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                 new Shift{ID_Employee = 2, WorkedDate = DateTime.Now, WorkedHour = 1,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                new Shift{ ID_Employee = 3, WorkedDate = DateTime.Now, WorkedHour = 2,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
-                new Shift{ ID_Employee = 1, WorkedDate = DateTime.Now, WorkedHour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                new Shift{ID_Employee = 2, WorkedDate = DateTime.Now, Hour = 1, ShiftStartTime = new SqlDateTime(2022,6,18,22,0 ,0).Value , ShiftEndTime =  new SqlDateTime(2022,6,18,23,0 ,0).Value,  ID_StatusShift = 1},
+                new Shift{ ID_Employee = 3, WorkedDate = DateTime.Now, Hour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                 new Shift{ID_Employee = 2, WorkedDate = DateTime.Now, Hour = 1,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                new Shift{ ID_Employee = 3, WorkedDate = DateTime.Now, Hour = 2,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                new Shift{ ID_Employee = 1, WorkedDate = DateTime.Now, Hour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                 new Shift{ID_Employee = 2, WorkedDate = DateTime.Now, Hour = 1,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                new Shift{ ID_Employee = 3, WorkedDate = DateTime.Now, Hour = 2,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
+                new Shift{ ID_Employee = 1, WorkedDate = DateTime.Now, Hour = 3,ShiftEndTime = DateTime.Now , ShiftStartTime = DateTime.Now, ID_StatusShift = 1},
             });
             context.SaveChanges();
+            List<Shift> data = context.Shifts.ToList();
             context.Products.AddRange(new Product[] {
                 new Product { ID_Category = 1, NameProduct = "Mỳ Tôm", ID_Unit = 1},
                 new Product {ID_Category = 3, NameProduct = "Coca Cola", ID_Unit = 1},
@@ -151,6 +152,7 @@ namespace NetManagement.Model
                 new Inventory {Amount = 10,ImportDay = Convert.ToDateTime("06-13-2022"), ExpiryDate = Convert.ToDateTime("06-13-2022"), ImportPrices = 8, SalePrice = 10, ID_Product = 5, Init = 10},
                 new Inventory {Amount = 30,ImportDay = Convert.ToDateTime("06-13-2022"), ExpiryDate = Convert.ToDateTime("06-13-2022"), ImportPrices = 5, SalePrice = 10, ID_Product = 4 , Init = 30}
             });
+            context.SaveChanges();
         }
     }
 }

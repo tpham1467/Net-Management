@@ -110,7 +110,7 @@ namespace NetManagement.BLL
             employee2.FirstName = employee1.FirstName; employee2.LastName = employee1.LastName; employee2.DateOfBirth = employee1.DateOfBirth;
             employee2.Phone = employee1.Phone; employee2.Gender = employee1.Gender;  employee2.Identify = employee1.Identify;
             employee2.ID_SalaryEmployee = employee1.ID_SalaryEmployee; employee2.Email = employee1.Email; employee2.Accounts.ToList().ElementAt(0).Password_Acc = account.Password_Acc;
-            employee2.Accounts.ToList().ElementAt(0).UserName_Acc = account.UserName_Acc;
+            employee2.Accounts.ToList().ElementAt(0).UserName_Acc = account.UserName_Acc; 
             repository.Save();
         }
 

@@ -125,7 +125,7 @@ namespace NetManagement.BLL
                 {
                     Employee employee = i.Employee;
                     
-                    salary += employee.SalaryEmployee.CoSalary * i.WorkedHour;
+                    salary += employee.SalaryEmployee.CoSalary * i.Hour;
                     if (ModeSave)
                     {
                         i.ID_StatusShift = 4;

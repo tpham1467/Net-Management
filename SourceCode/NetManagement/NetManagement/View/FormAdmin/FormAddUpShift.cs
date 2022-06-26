@@ -101,6 +101,8 @@ namespace NetManagement.View.FormAdmin
 
                 sh.ShiftStartTime = starttime;
                 sh.ShiftEndTime = endtime;
+                if (starttime.Minute != 0 || endtime.Minute != 0) throw new Exception();
+                sh.Hour = endtime.Hour - starttime.Hour;
                 sh.ID_Employee = (cbbNameE.SelectedItem as SetCBB).id;
                 
             }

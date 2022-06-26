@@ -74,6 +74,11 @@ namespace NetManagement.View.FormAdmin
         #region Set Commobox For Tab
         public void Setcbb()
         {
+            cbbSearch.Enabled = true;
+            cbbProperty.Enabled = true;
+            btnSearch.Enabled = true;
+            btnSort.Enabled = true;
+            comboBoxSortBy.Enabled = true;
             cbbSearch.Items.Clear();
             cbbProperty.Items.Clear();
             if (tbMana.SelectedIndex == 0)
@@ -90,10 +95,18 @@ namespace NetManagement.View.FormAdmin
             {
                 cbbSearch.Items.Add("All");
                 cbbSearch.Items.Add("Name Employee");
+                cbbProperty.Items.Add("Name Employee");
                 cbbProperty.Items.Add("Salary");
                 cbbProperty.Items.Add("WorkHour");
             }
-
+            else
+            {
+                cbbSearch.Enabled = false;
+                cbbProperty.Enabled = false;
+                btnSearch.Enabled = false;
+                btnSort.Enabled = false;
+                comboBoxSortBy.Enabled = false;
+            }
         }
 
         #endregion
@@ -132,7 +145,7 @@ namespace NetManagement.View.FormAdmin
         {
             string txt = txtSearch.Text;
             string txtcbb = cbbSearch.Text;
-            List<object> list = new List<object>();
+            List<object> list = null;
             if (tbMana.SelectedIndex == 0)
             {
 
@@ -149,7 +162,15 @@ namespace NetManagement.View.FormAdmin
             }
             else
             {
-
+                if (txtcbb == "ALL")
+                {
+                    list = adTKeeping.Search(txt, SearchAcoountEnum.All).ToList();
+                }
+                else if (txtcbb == "Name Employee")
+                {
+                    list = adTKeeping.Search(txt, SearchAcoountEnum.Name).ToList();
+                }
+                ReloadTimeKeeping(list);
             }
            
         }
@@ -172,6 +193,19 @@ namespace NetManagement.View.FormAdmin
                 }
                 dgvManaEmployee.DataSource = adEm.Sort(sort, (cbbProperty.SelectedItem as string));
             }
+            else
+            {
+                SortEnum sort = new SortEnum();
+                if ((comboBoxSortBy.SelectedItem as string) == "Asc")
+                {
+                    sort = SortEnum.Asc;
+                }
+                else
+                {
+                    sort = SortEnum.Desc;
+                }
+                dgvManaEmployee.DataSource = adTKeeping.Sort(sort, (cbbProperty.SelectedItem as string));
+            }
         }
 
 
@@ -180,7 +214,7 @@ namespace NetManagement.View.FormAdmin
         #region Enabled Combox Search 
         private void cbbSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbSearch.Text == "Name Employee")
+            if (cbbSearch.Text == "All")
             {
                 txtSearch.Text = "";
                 txtSearch.Enabled = false;

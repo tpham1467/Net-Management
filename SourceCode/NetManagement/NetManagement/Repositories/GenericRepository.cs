@@ -101,7 +101,7 @@ namespace NetManagement.Repositories
         {
             return table.Create<T>();
         }
-        public IEnumerable<T> Search( string input, Func<T, string> key, bool IsContain, bool IsOnly , int num = 0)
+        public IEnumerable<T> Search( string input, Func<T, string> key, bool IsContain, bool IsOnly )
         {
             input = input.ToLower();
             if (string.IsNullOrEmpty(input)) return new List<T>();

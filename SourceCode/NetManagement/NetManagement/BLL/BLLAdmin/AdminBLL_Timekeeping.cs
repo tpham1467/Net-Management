@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NetManagement.Model;
 using NetManagement.Repositories;
-
+using NetManagement.DTO;
 namespace NetManagement.BLL
 {
     public class AdminBLL_Timekeeping
@@ -24,10 +24,6 @@ namespace NetManagement.BLL
         public IEnumerable<Shift> GetAll()
         {
             IEnumerable<Shift> data = repository.GetAll().ToList();
-            foreach (Shift i in data)
-            {
-                i.WorkedHour = i.ShiftEndTime.Hour - i.ShiftEndTime.Hour;
-            }
             repository.Save();
             return data;
         }
@@ -35,7 +31,7 @@ namespace NetManagement.BLL
         public IEnumerable<object> Filter(StatusShift statusShift ,  IEnumerable<Shift> sh = null)
         {
             if (sh == null) sh = GetAll();
-            var data = sh.Where(p => (statusShift != null )?p.ID_StatusShift == statusShift.ID_StatusShift : true )
+            var data = sh.Where(p => (statusShift != null )?p.ID_StatusShift == statusShift.ID_StatusShift : (p.ID_StatusShift == 4 ? false : true) )
                 .Select(
                     p =>
                         new
@@ -86,49 +82,33 @@ namespace NetManagement.BLL
 
         }
         
-        public List<Shift> Sort(string txt)
+        public IEnumerable<object> Sort(SortEnum sortEnum, string by)
         {
-            List<Shift> list = new List<Shift>();
-            if (txt == "Worked Hour")
+  
+            if (by == "Worked Hour")
             {
-                list = GetAll().OrderBy(p => p.WorkedHour).ToList();
+                return Filter(new StatusShift { ID_StatusShift = 2 }, repository.Sort(sortEnum, p => p.Hour)).ToList();
             }
-            else if (txt == "Worked Date")
+            else if (by == "Worked Date")
             {
-                list = GetAll().OrderBy(p => p.WorkedDate).ToList();
-            }
-            return list;
-        }
-        public List<Shift> Search(string txt, string txtcbb)
-        {
-            List<Shift> data1 = GetAll().ToList();
-            List<Shift> data2 = new List<Shift>();
-            if(txtcbb == "Name Employee")
-            {
-                foreach (Shift i in data1)
-                {
-                    //if (i.Employee.FullNameEm.ToLower().Contains(txt.ToLower()))
-                    //{
-                    //    data2.Add(i);
-                    //}
-                }
-            }
-            else if(txt == "" && txtcbb != "All")
-            {
-                foreach (Shift i in data1)
-                {
-                    string ch = i.WorkedDate.ToString("M/dd/yyyy");
-                    if (ch == txtcbb)
-                    {
-                        data2.Add(i);
-                    }
-                }
+                return Filter(new StatusShift { ID_StatusShift = 2 }, repository.Sort(sortEnum, p => p.WorkedDate)).ToList();
             }
             else
             {
-                return data1;
+                 return Filter(new StatusShift { ID_StatusShift = 2 }, repository.Sort(sortEnum, p => p.Employee.FirstName + p.Employee.LastName)).ToList();
             }
-            return data2;
+        }
+        public IEnumerable<Object> Search(string input, SearchAcoountEnum searchAcoountEnum )
+        {
+            if(searchAcoountEnum == SearchAcoountEnum.Name)
+            {
+                return Filter(new StatusShift { ID_StatusShift = 2 }, repository.Search(input, p => p.Employee.FirstName + " " + p.Employee.LastName, true, false)).ToList();
+               
+            }
+            else 
+            {
+                return Filter(new StatusShift { ID_StatusShift = 2 }, GetAll()).ToList();
+            }
         }
         public Shift GetShiById(int i)
         {
@@ -152,8 +132,9 @@ namespace NetManagement.BLL
             c1.ShiftStartTime = c2.ShiftStartTime;
             c1.ShiftEndTime= c2.ShiftEndTime;
             c1.WorkedDate = c2.WorkedDate;
-            c1.ID_Employee = c2.ID_Employee;
+            c1.Hour = c2.Hour;
             c1.ID_StatusShift = c2.ID_StatusShift;
+            c1.ID_Employee = c2.ID_Employee;
         }
 
         public void UpDate(Shift sh , int id)

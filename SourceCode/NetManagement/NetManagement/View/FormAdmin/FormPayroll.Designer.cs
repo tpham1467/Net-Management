@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPayroll = new System.Windows.Forms.Button();
             this.dgvShow = new System.Windows.Forms.DataGridView();
-            this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnPayrollAll = new System.Windows.Forms.Button();
+            this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,8 +72,8 @@
             this.dgvShow.AllowUserToDeleteRows = false;
             this.dgvShow.AllowUserToOrderColumns = true;
             this.dgvShow.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
-            this.dgvShow.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.dgvShow.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvShow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -81,14 +81,14 @@
             this.dgvShow.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvShow.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvShow.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShow.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShow.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvShow.ColumnHeadersHeight = 36;
             this.dgvShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvShow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -96,21 +96,11 @@
             this.dgvShow.EnableHeadersVisualStyles = false;
             this.dgvShow.Location = new System.Drawing.Point(57, 55);
             this.dgvShow.Name = "dgvShow";
-            this.dgvShow.RowHeadersVisible = false;
+            this.dgvShow.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvShow.RowHeadersWidth = 51;
             this.dgvShow.RowTemplate.Height = 40;
-            this.dgvShow.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvShow.Size = new System.Drawing.Size(555, 301);
             this.dgvShow.TabIndex = 5;
-            // 
-            // Column8
-            // 
-            this.Column8.FillWeight = 30F;
-            this.Column8.HeaderText = "";
-            this.Column8.Image = global::NetManagement.Properties.Resources.customer_management;
-            this.Column8.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
             // 
             // checkBox1
             // 
@@ -136,6 +126,21 @@
             this.btnPayrollAll.Text = "Payroll All";
             this.btnPayrollAll.UseVisualStyleBackColor = true;
             // 
+            // Column8
+            // 
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column8.FillWeight = 30F;
+            this.Column8.Frozen = true;
+            this.Column8.HeaderText = "";
+            this.Column8.Image = global::NetManagement.Properties.Resources.customer_management;
+            this.Column8.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column8.Visible = false;
+            this.Column8.Width = 6;
+            // 
             // FormPayroll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -160,8 +165,8 @@
         private System.Windows.Forms.Button btnPayroll;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridView dgvShow;
-        private System.Windows.Forms.DataGridViewImageColumn Column8;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btnPayrollAll;
+        private System.Windows.Forms.DataGridViewImageColumn Column8;
     }
 }

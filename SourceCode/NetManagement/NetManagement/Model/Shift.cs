@@ -27,9 +27,8 @@ namespace NetManagement.Model
         public DateTime CheckInTime { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime CheckOutTime { get; set; }
-        [Required]
-        [Column("_Hour ")]
-        public int WorkedHour { get; set; }
+        [Column("WorkedHour")] [Required]
+        public int Hour { get; set; }
         [Required]
         public int ID_StatusShift { get; set; }
         [ForeignKey("ID_StatusShift")]

@@ -1,4 +1,5 @@
-﻿namespace NetManagement.View.FormAdmin
+﻿using System;
+namespace NetManagement.View.FormAdmin
 {
     partial class FormCustommer
     {

@@ -91,7 +91,7 @@ namespace NetManagement.BLL.BLLEmployee.BLLCheckInCheckOut
         {
             Shift shift = repository.GetById(id_shift);
             shift.CheckOutTime = DateTime.Now;
-            shift.WorkedHour = shift.ShiftEndTime.Hour - shift.ShiftStartTime.Hour;
+            shift.Hour = shift.ShiftEndTime.Hour - shift.ShiftStartTime.Hour;
             shift.ID_StatusShift = 2;
             repository.Save();
         }
@@ -134,7 +134,7 @@ namespace NetManagement.BLL.BLLEmployee.BLLCheckInCheckOut
             {
                 if(i.ID_StatusShift == 2)
                 {
-                    total += i.WorkedHour;
+                    total += i.Hour;
                 }
             }
             return total;
