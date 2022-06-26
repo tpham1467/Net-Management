@@ -11,6 +11,7 @@ using NetManagement.BLL.BLLLogin;
 using NetManagement.Model;
 using NetManagement.View.FormChoosePC;
 using NetManagement.BLL.BLLEmployee.BLLCheckInCheckOut;
+using NetManagement.View.FormAdmin;
 namespace NetManagement.View.FormEmployee
 {
     public partial class Login_Form : Form
@@ -48,13 +49,12 @@ namespace NetManagement.View.FormEmployee
                     }
                     else
                     {
-                        if (account.ID_Role == 2)
+                        if(account.ID_Role == 1)
                         {
-                            //if(bllCheckIncheckOut.GetShiftForDay(account.Id_User) == -1 )
-                            //{
-                            //    MessageBox.Show("Ban Khong Co Ca Lam viec Trong Ngay Hom Nay Hoac Chua Den Gio");
-                            //    return;
-                            //}
+                            FormAdmin();
+                        }
+                        else if (account.ID_Role == 2)
+                        {
                             Mainform_Employee mainform_Employee = new Mainform_Employee(account.Id_User);
                             mainform_Employee.action = UnHide;
                             mainform_Employee.Show();
@@ -67,10 +67,6 @@ namespace NetManagement.View.FormEmployee
                             choosepc.action = UnHide;
                             choosepc.Show();
                             this.Hide();
-
-                            //     this.Dispose();
-
-
                         }
                     }
                 }
@@ -79,6 +75,14 @@ namespace NetManagement.View.FormEmployee
                     MessageBox.Show("Sai Mat khau or pasword");
                 }
             }
+        }
+        public  void FormAdmin()
+        {
+            Main_Form main_Form = new Main_Form();
+            main_Form.action = UnHide;
+            main_Form.AutoScaleMode = AutoScaleMode.None;
+            main_Form.Show();
+            this.Hide();
         }
         public void UnHide()
         {

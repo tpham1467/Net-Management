@@ -15,6 +15,7 @@ namespace NetManagement.View.FormAdmin
     {
         public FormShift()
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
             ReloadShift(null);
         }
@@ -85,6 +86,11 @@ namespace NetManagement.View.FormAdmin
         }
 
         private void dgvShift_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonAll_Click(object sender, EventArgs e)
         {
 
         }

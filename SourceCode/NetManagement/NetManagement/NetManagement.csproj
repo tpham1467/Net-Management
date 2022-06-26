@@ -180,12 +180,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FormAdmin\AddUpUnit_Form.Designer.cs" />
-    <Compile Include="View\FormAdmin\FormAddProduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\FormAdmin\FormAddProduct.Designer.cs">
-      <DependentUpon>FormAddProduct.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\FormAdmin\FormAddProductExport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,23 +232,11 @@
     <Compile Include="View\FormAdmin\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FormAdmin\FormDashBoard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\FormAdmin\FormDashBoard.Designer.cs">
-      <DependentUpon>FormDashBoard.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\FormAdmin\FormEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FormAdmin\FormEmployees.Designer.cs">
       <DependentUpon>FormEmployees.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\FormAdmin\FormEquipment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\FormAdmin\FormEquipment.Designer.cs">
-      <DependentUpon>FormEquipment.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormAdmin\FormProducts.cs">
       <SubType>Form</SubType>
@@ -383,9 +365,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormAdmin\AddUpUnit_Form.resx" />
-    <EmbeddedResource Include="View\FormAdmin\FormAddProduct.resx">
-      <DependentUpon>FormAddProduct.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\FormAdmin\FormAddProductExport.resx" />
     <EmbeddedResource Include="View\FormAdmin\FormAddUpEm.resx">
       <DependentUpon>FormAddUpEm.cs</DependentUpon>
@@ -407,9 +386,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormAdmin\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\FormAdmin\FormDashBoard.resx">
-      <DependentUpon>FormDashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormAdmin\FormEmployees.resx">
       <DependentUpon>FormEmployees.cs</DependentUpon>

@@ -37,9 +37,11 @@
             // lbNameUnit
             // 
             this.lbNameUnit.AutoSize = true;
+            this.lbNameUnit.BackColor = System.Drawing.Color.Transparent;
+            this.lbNameUnit.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNameUnit.Location = new System.Drawing.Point(33, 25);
             this.lbNameUnit.Name = "lbNameUnit";
-            this.lbNameUnit.Size = new System.Drawing.Size(70, 16);
+            this.lbNameUnit.Size = new System.Drawing.Size(85, 20);
             this.lbNameUnit.TabIndex = 0;
             this.lbNameUnit.Text = "Name Unit";
             // 
@@ -52,39 +54,44 @@
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSave.Location = new System.Drawing.Point(56, 77);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(85, 29);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Location = new System.Drawing.Point(230, 77);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(85, 29);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // AddUpUnit_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(365, 129);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtNameUnit);
             this.Controls.Add(this.lbNameUnit);
+
             this.Name = "AddUpUnit_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUpUnit_Form";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

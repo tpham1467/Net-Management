@@ -19,6 +19,7 @@ namespace NetManagement.Repositories
         {
             //  this._context = new NetManagemetnContext();
             this.table = _context.Set<T>();
+
         }
         public IEnumerable<T> GetAll()
         {
@@ -159,12 +160,17 @@ namespace NetManagement.Repositories
                     foreach (var j in navigation)
                     {
                         if (!IsColection)
-                            _context.Entry(data[i]).Reference(j).Load();
+                        {
+                            var reference = _context.Entry(data[i]).Reference(j);
+                            reference.Load();
+                        }
                         else
                             _context.Entry(data[i]).Collection(j).Load();
                     }
                 }
+                Save();
             }
+
 
         }
     }

@@ -40,6 +40,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbbProperty = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxSortBy = new System.Windows.Forms.ComboBox();
             this.cbbSearch = new System.Windows.Forms.ComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSort = new System.Windows.Forms.Button();
@@ -65,7 +66,6 @@
             this.dgvCosalaryEm = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.comboBoxSortBy = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tbMana.SuspendLayout();
             this.tbManaEm.SuspendLayout();
@@ -104,11 +104,25 @@
             this.panel1.Size = new System.Drawing.Size(1323, 90);
             this.panel1.TabIndex = 0;
             // 
+            // comboBoxSortBy
+            // 
+            this.comboBoxSortBy.DropDownWidth = 200;
+            this.comboBoxSortBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSortBy.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBoxSortBy.ItemHeight = 31;
+            this.comboBoxSortBy.Items.AddRange(new object[] {
+            "Asc",
+            "Desc"});
+            this.comboBoxSortBy.Location = new System.Drawing.Point(1073, 28);
+            this.comboBoxSortBy.Name = "comboBoxSortBy";
+            this.comboBoxSortBy.Size = new System.Drawing.Size(192, 39);
+            this.comboBoxSortBy.TabIndex = 12;
+            // 
             // cbbSearch
             // 
             this.cbbSearch.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbSearch.FormattingEnabled = true;
-            this.cbbSearch.Location = new System.Drawing.Point(406, 25);
+            this.cbbSearch.Location = new System.Drawing.Point(449, 27);
             this.cbbSearch.Name = "cbbSearch";
             this.cbbSearch.Size = new System.Drawing.Size(217, 38);
             this.cbbSearch.TabIndex = 11;
@@ -125,7 +139,7 @@
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
             this.btnSearch.Location = new System.Drawing.Point(302, 26);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(83, 40);
+            this.btnSearch.Size = new System.Drawing.Size(129, 40);
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -523,24 +537,9 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 1246;
             // 
-            // comboBoxSortBy
-            // 
-            this.comboBoxSortBy.DropDownWidth = 200;
-            this.comboBoxSortBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSortBy.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBoxSortBy.ItemHeight = 31;
-            this.comboBoxSortBy.Items.AddRange(new object[] {
-            "Asc",
-            "Desc"});
-            this.comboBoxSortBy.Location = new System.Drawing.Point(1073, 28);
-            this.comboBoxSortBy.Name = "comboBoxSortBy";
-            this.comboBoxSortBy.Size = new System.Drawing.Size(192, 39);
-            this.comboBoxSortBy.TabIndex = 12;
-            // 
             // FormEmployees
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(1323, 646);
             this.Controls.Add(this.tbMana);

@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+          private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -94,7 +94,7 @@
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
             this.btnSearch.Location = new System.Drawing.Point(302, 26);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(83, 40);
+            this.btnSearch.Size = new System.Drawing.Size(110, 40);
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -135,9 +135,9 @@
             this.cbbSortby.Items.AddRange(new object[] {
             "Asc",
             "Desc"});
-            this.cbbSortby.Location = new System.Drawing.Point(897, 415);
+            this.cbbSortby.Location = new System.Drawing.Point(930, 415);
             this.cbbSortby.Name = "cbbSortby";
-            this.cbbSortby.Size = new System.Drawing.Size(121, 37);
+            this.cbbSortby.Size = new System.Drawing.Size(121, 40);
             this.cbbSortby.TabIndex = 11;
             // 
             // cbbSortProperty

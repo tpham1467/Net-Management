@@ -34,6 +34,7 @@ namespace NetManagement.View.FormAdmin
         public FormEmployees()
         {
             InitializeComponent();
+            this.AutoScaleMode = AutoScaleMode.None;
             ReloadEm();
             Setcbb();
         }
@@ -273,7 +274,7 @@ namespace NetManagement.View.FormAdmin
         {
             if (cbPay.Checked == true)
             {
-                dgvShowTimeKeeping.DataSource = adTKeeping.Filter(new StatusShift { ID_StatusShift = 2 });
+                dgvShowTimeKeeping.DataSource = adTKeeping.Filter(new StatusShift { ID_StatusShift = 4 });
             }
             else
             {

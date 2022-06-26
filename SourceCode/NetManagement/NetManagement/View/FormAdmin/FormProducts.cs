@@ -17,6 +17,7 @@ namespace NetManagement.View.FormAdmin
     {
         public FormProducts()
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
             ReloadProduct();
             SetCBB();
@@ -159,8 +160,8 @@ namespace NetManagement.View.FormAdmin
                 if (dgvMerMana.SelectedRows.Count == 1)
                 {
                     int s = Convert.ToInt32(dgvMerMana.SelectedRows[0].Cells["ID_Inventory"].Value);
-                    FormAddProductExport f = new FormAddProductExport(s,1);
-                    f.d = new FormAddProductExport.MyDel(ReloadProduct);
+                    FormAddProductExport f = new FormAddProductExport(s);
+                    f.action = ReloadProduct;
                     f.Show();
                 }
             }
@@ -169,8 +170,8 @@ namespace NetManagement.View.FormAdmin
                 if (dgvProduct.SelectedRows.Count == 1)
                 {
                     int s = Convert.ToInt32(dgvProduct.SelectedRows[0].Cells["ID_Product"].Value);
-                    AddUpProduct f = new AddUpProduct(1,s);
-                    f.d = new AddUpProduct.MyDel(ReloadProduct);
+                    AddUpProduct f = new AddUpProduct(s);
+                    f.action = ReloadProduct;
                     f.Show();
                 }
             }
@@ -179,15 +180,15 @@ namespace NetManagement.View.FormAdmin
         {
             if (tbControllMana.SelectedIndex == 0)
             {
-                FormAddProductExport f = new FormAddProductExport(-1, -1);
-                f.d = new FormAddProductExport.MyDel(ReloadProduct);
+                FormAddProductExport f = new FormAddProductExport(-1);
+                f.action = ReloadProduct;
                 f.Show();
 
             }
             else if (tbControllMana.SelectedIndex == 1)
             {
-                AddUpProduct f = new AddUpProduct(-1, -1);
-                f.d = new AddUpProduct.MyDel(ReloadProduct);
+                AddUpProduct f = new AddUpProduct(-1);
+                f.action = ReloadProduct;
                 f.Show();
             }
         }

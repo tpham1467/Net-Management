@@ -19,6 +19,7 @@ namespace NetManagement.View.FormAdmin
         private  int  id;
         public FormAddUpSalary(int _id)
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             id = _id;
             InitializeComponent();
             GUI();

@@ -20,6 +20,7 @@ namespace NetManagement.View.FormAdmin
         AdminBLL_OrderHis adOrHis = new AdminBLL_OrderHis();
         public FormCustommer()
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
             ReloadCus();
             CreateCBB();

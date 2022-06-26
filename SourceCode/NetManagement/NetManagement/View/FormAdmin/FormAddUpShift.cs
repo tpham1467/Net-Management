@@ -29,7 +29,9 @@ namespace NetManagement.View.FormAdmin
                 Shift sh = adShi.GetShiById(id);
                 id_employee = sh.ID_Employee;
             }
+            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
+           
             CreateCBB();
             Gui();
         }

@@ -9,19 +9,20 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class Main_Form : Form
     {
+        public Action action;
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
         public Main_Form()
         {
             InitializeComponent();
+            this.AutoScaleMode = AutoScaleMode.None;
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             pnMenu.Controls.Add(leftBorderBtn);
 
             //Form
             this.Text = string.Empty;
-            //this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
@@ -161,23 +162,24 @@ namespace NetManagement.View.FormAdmin
 
         private void icBtnLogOut_Click(object sender, EventArgs e)
         {
+            action();
             this.Dispose();
         }
 
 
-        //Drag Form
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
+          ////Drag Form
+          //   [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+          //   private extern static void ReleaseCapture();
 
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int lParam);
+          //   [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+          //   private extern static void SendMessage(System.IntPtr hwnd, int wMsg, int wParam, int lParam); 
 
 
-        private void pnTitle_Paint(object sender, PaintEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
+             private void pnTitle_Paint(object sender, PaintEventArgs e)
+             {
+                 //ReleaseCapture();
+                 //SendMessage(this.Handle, 0x112, 0xf012, 0);
+             }     
 
         private void timer1_Tick(object sender, EventArgs e)
         {

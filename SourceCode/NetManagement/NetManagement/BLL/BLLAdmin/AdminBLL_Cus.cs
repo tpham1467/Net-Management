@@ -72,7 +72,6 @@ namespace NetManagement.BLL
 
         public void UpDate(Customer customer,int id,DateTime dt)
         {
-            customer.Day_Create = dt;
             customer.ID_User = id;
             repository.Update(customer, customer.ID_User, UpdateDelegate);
             repository.Save();

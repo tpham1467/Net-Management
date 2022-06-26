@@ -22,6 +22,7 @@ namespace NetManagement.View.FormAdmin
         private bool IsAll  = false;
         public FormPayroll()
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
             LoadPayRoll();
         }

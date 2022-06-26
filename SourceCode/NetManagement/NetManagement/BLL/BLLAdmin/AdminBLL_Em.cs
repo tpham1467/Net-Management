@@ -47,7 +47,6 @@ namespace NetManagement.BLL
         public IEnumerable<object> Filter(IEnumerable<Employee> emp = null)
         {
             if (emp == null) emp = GetAll();
-            repository.Reload(new List<string>() , true , emp.ToList());
             var data = emp.Select(p => new
             {
                 p.ID_User,

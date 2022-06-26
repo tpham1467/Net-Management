@@ -21,6 +21,7 @@ namespace NetManagement.View.FormAdmin
         public FormUpdateAdd_CTR(string m)
         {
             id = m;
+            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
             GUI();
         }

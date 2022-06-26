@@ -14,36 +14,54 @@ using NetManagement.BLL;
 namespace NetManagement.View.FormAdmin
 {
     public partial class AddUpProduct : Form
-    { 
+    {
 
-        public delegate void MyDel(List<object> data = null);
-        public MyDel d;
-        public int check;
+        public Action<List<object>> action;
         public int ID;
+        private int indexccbcatory;
+        private int indexccbunit;
+        private int idcatory;
+        private int idunit;
         BLL_Product adBllProduct = new BLL_Product();
         AdminBLL_Category adBllCategory = new AdminBLL_Category();
         BLL_Unit adBllUnit = new BLL_Unit();
 
-        public AddUpProduct(int m, int id)
+        public AddUpProduct( int id)
         {
-            check = m;
             ID = id;
+            if(ID != -1)
+            {
+                Product product = adBllProduct.GetProductById(ID);
+                idcatory = product.ID_Category;
+                idunit = product.ID_Unit;
+            }
+            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
             CreateCBB();
             Gui();
 
         }
-        DateTime dt;
         public void CreateCBB()
         {
-            
-            foreach(string s in adBllCategory.GetAll().Select(p=>p.CategoryName).Distinct().ToList())
+            int j = 0;
+            foreach(var s in adBllCategory.GetAll())
             {
-                cbbCategory.Items.Add(s);
+                if (ID != -1)
+                {
+                    if (idcatory == s.ID_Category) indexccbunit = j;
+                }
+                cbbCategory.Items.Add(new SetCBB {id = s.ID_Category , name = s.CategoryName });
+                j++;
             }
-            foreach (string s in adBllUnit.GetAll().Select(p => p.NameUnit).Distinct().ToList())
+            j = 0;
+            foreach (var s in adBllUnit.GetAll())
             {
-                cbbUnit.Items.Add(s);
+                if(ID != -1)
+                {
+                    if (idunit == s.ID_Unit) indexccbunit = j;
+                }
+                cbbUnit.Items.Add(new SetCBB { id = s.ID_Unit, name = s.NameUnit });
+                j++;
             }
         }
         public void Gui()
@@ -52,8 +70,13 @@ namespace NetManagement.View.FormAdmin
             {
                 Product product = adBllProduct.GetProductById(ID);
                 txtNameProduct.Text = product.NameProduct;
-                cbbCategory.Text =product.ID_Category+ " - "+ product.Category.CategoryName;
-                cbbUnit.Text = product.ID_Unit + " - " + product.Unit.NameUnit;
+                cbbCategory.SelectedIndex = indexccbcatory;
+                cbbUnit.SelectedIndex = indexccbunit;
+            }
+            else
+            {
+                cbbCategory.SelectedIndex = 0;
+                cbbUnit.SelectedIndex = 0;
             }
         }
 
@@ -65,7 +88,7 @@ namespace NetManagement.View.FormAdmin
             product.ID_Unit = (cbbUnit.SelectedItem as SetCBB).id;
 
             product.ID_Category = (cbbCategory.SelectedItem as SetCBB).id;
-            if(check == -1)
+            if(ID == -1)
             {
                 adBllProduct.Add(product);
             }
@@ -74,7 +97,7 @@ namespace NetManagement.View.FormAdmin
                 product.ID_Product = ID;
                 adBllProduct.UpDate(product);
             }
-            d();
+            action(null);
             this.Dispose();
         }
 
@@ -82,5 +105,7 @@ namespace NetManagement.View.FormAdmin
         {
             this.Dispose();
         }
+
+   
     }
 }

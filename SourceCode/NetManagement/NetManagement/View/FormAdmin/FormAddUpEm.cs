@@ -27,6 +27,7 @@ namespace NetManagement.View.FormAdmin
                 Employee s = adBLLEm.GetEmById(id);
                 id_salary = s.ID_SalaryEmployee;
             }
+            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
             GUI();
             CreateCBB();

@@ -101,7 +101,7 @@
             // 
             // txtImport
             // 
-            this.txtImport.BackColor = System.Drawing.Color.MistyRose;
+            this.txtImport.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtImport.Font = new System.Drawing.Font("Tahoma", 13.8F);
             this.txtImport.Location = new System.Drawing.Point(301, 152);
             this.txtImport.Name = "txtImport";
@@ -110,7 +110,7 @@
             // 
             // txtSalePr
             // 
-            this.txtSalePr.BackColor = System.Drawing.Color.MistyRose;
+            this.txtSalePr.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtSalePr.Font = new System.Drawing.Font("Tahoma", 13.8F);
             this.txtSalePr.Location = new System.Drawing.Point(301, 253);
             this.txtSalePr.Name = "txtSalePr";
@@ -119,7 +119,7 @@
             // 
             // btnSend
             // 
-            this.btnSend.BackgroundImage = global::NetManagement.Properties.Resources.imagesButton;
+            this.btnSend.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSend.Font = new System.Drawing.Font("Stencil", 10.2F);
             this.btnSend.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -128,12 +128,12 @@
             this.btnSend.Size = new System.Drawing.Size(128, 44);
             this.btnSend.TabIndex = 19;
             this.btnSend.Text = "SEND";
-            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.BackgroundImage = global::NetManagement.Properties.Resources.redBackground;
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.Font = new System.Drawing.Font("Stencil", 10.2F);
             this.btnCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancel.Location = new System.Drawing.Point(343, 430);
@@ -141,11 +141,11 @@
             this.btnCancel.Size = new System.Drawing.Size(128, 44);
             this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // dtpIm
-            // 
+            //
             this.dtpIm.CalendarMonthBackground = System.Drawing.Color.MistyRose;
             this.dtpIm.CalendarTitleBackColor = System.Drawing.Color.MistyRose;
             this.dtpIm.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
@@ -188,19 +188,18 @@
             // 
             // txtAmount
             // 
-            this.txtAmount.BackColor = System.Drawing.Color.MistyRose;
+            this.txtAmount.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtAmount.Font = new System.Drawing.Font("Tahoma", 13.8F);
             this.txtAmount.Location = new System.Drawing.Point(301, 370);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(240, 35);
             this.txtAmount.TabIndex = 25;
             // 
-            // FormAddProduct
+            // FormAddProductExport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkSalmon;
-            this.BackgroundImage = global::NetManagement.Properties.Resources.images1;
+            this.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(579, 540);
             this.Controls.Add(this.txtAmount);
@@ -217,7 +216,7 @@
             this.Controls.Add(this.lbDOB);
             this.Controls.Add(this.lbDC);
             this.Controls.Add(this.lbidPro);
-            this.Name = "FormAddProduct";
+            this.Name = "FormAddProductExport";
             this.Text = "FormAdd_Product";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -52,10 +52,14 @@ namespace NetManagement.BLL
             repository.Save();
         }
 
-        public void UpDate(SalaryEmployee salary  , int id)
+        public void UpDate(SalaryEmployee salary, int id)
         {
             SalaryEmployee salaryEmployee = GetSalaryById(id);
             salaryEmployee.CoSalary = salary.CoSalary;
+            foreach (var i in repository_empl.Search(id.ToString(), p => p.ID_SalaryEmployee.ToString(), false, false))
+            {
+                repository_empl.Reload(i);
+            } 
             repository.Save();
         }
      

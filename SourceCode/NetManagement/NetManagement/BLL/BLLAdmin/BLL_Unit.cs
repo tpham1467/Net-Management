@@ -12,15 +12,17 @@ namespace NetManagement.BLL.BLLAdmin
     public class BLL_Unit
     {
         private IRepository<Unit> repository;
+        private IRepository<Product> repository_product;
 
-        public BLL_Unit() : this(new GenericRepository<Unit>())
+        public BLL_Unit() : this(new GenericRepository<Unit>() , new GenericRepository<Product>())
         {
 
         }
 
-        public BLL_Unit(IRepository<Unit> _repository)
+        public BLL_Unit(IRepository<Unit> _repository, IRepository<Product> _repository_product)
         {
             repository = _repository;
+            repository_product = _repository_product;
         }
         public IEnumerable<Unit> GetAll()
         {
@@ -69,6 +71,13 @@ namespace NetManagement.BLL.BLLAdmin
         public void Update(Unit unit)
         {
             repository.Update(unit, unit.ID_Unit, UpdateDelegate);
+            List<string> navigation = new List<string>(); navigation.Add("Unit");
+            foreach(var i in repository_product.Search(unit.ID_Unit.ToString(), p => p.ID_Unit.ToString(),
+                false, false).ToList())
+            {
+                repository_product.Reload(i);
+            }
+            repository_product.Save();
             repository.Save();
         }
         public void DelUnit(int id)

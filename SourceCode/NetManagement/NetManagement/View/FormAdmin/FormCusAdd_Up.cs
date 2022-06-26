@@ -24,6 +24,7 @@ namespace NetManagement.View.FormAdmin
         {
             id = m;
             Check = checkUpAdd;
+            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
             GUI();
  

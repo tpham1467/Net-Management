@@ -12,33 +12,33 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
     {
         private IRepository<Status> repository_status;
         private IRepository<Account> repository;
-        private IRepository<User> repository_user;
+        private IRepository<Customer> repository_Customer;
         private IRepository<HistoryAccountUser> repository_HistoryAccountUser;
         private IRepository<Computer> repository_computer;
-        public BLLAccoutManagement() : this(new GenericRepository<Account>() , new GenericRepository<Status>() , new GenericRepository<User>()  , new GenericRepository<HistoryAccountUser>() ,
+        public BLLAccoutManagement() : this(new GenericRepository<Account>() , new GenericRepository<Status>() , new GenericRepository<Customer>()  , new GenericRepository<HistoryAccountUser>() ,
             new GenericRepository<Computer>())
         {
 
         }
-        public BLLAccoutManagement(IRepository<Account> _repository , IRepository<Status> _repository_status , IRepository<User> _repository_User , IRepository<HistoryAccountUser> _repository_HistoryAccountUser,
+        public BLLAccoutManagement(IRepository<Account> _repository , IRepository<Status> _repository_status , IRepository<Customer> _repository_Customer, IRepository<HistoryAccountUser> _repository_HistoryAccountUser,
             IRepository<Computer> _repository_computer)
         {
             repository = _repository;
             repository_status = _repository_status;
-            repository_user = _repository_User;
+            repository_Customer = _repository_Customer;
             repository_HistoryAccountUser = _repository_HistoryAccountUser;
             repository_computer = _repository_computer;
         }
         public IEnumerable<Account> GetAll()
         {
-            List<Account> data = new List<Account>();
-            data = repository.GetAll().ToList();
-            return data;
+
+            return repository.GetAll();
+            
         }
         public IEnumerable<object> Filter(IEnumerable<Account> accounts = null)
         {
             if (accounts == null) accounts = GetAll();
-            var data = accounts.Where(p => p.ID_Role == 1 && p.IsErase == 0 ).Select(p =>
+            var data = accounts.Where(p => p.ID_Role == 3 && p.IsErase == 0 ).Select(p =>
             
                  new 
                 {
@@ -65,10 +65,14 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
                 status.status = true;
                 repository_status.Save();
 
-                User user = repository.GetById(id).User;
-                repository_user.Reload(user as User);
-                Customer customer = user as Customer;
+                Customer customer = repository_Customer.GetById(id);
+                repository_Customer.Reload(customer);
                 customer.Money += money;
+
+                repository_Customer.Save();
+                Account account = repository.Search(id.ToString() , p => p.Id_User.ToString() , false , true).Single();
+                (account.User as Customer).Money = customer.Money;
+                //repository.Reload(account);
                 repository.Save();
 
                 status.status = false;
@@ -84,20 +88,18 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
                 status.status = true ;
                 repository_status.Save();
 
-                User user = repository.GetById(id).User;
-                repository_user.Reload(user as User);
-                Customer customer = user as Customer;
+                Customer customer = repository_Customer.GetById(id);
+                repository_Customer.Reload(customer);
                 customer.Money += money;
+                repository_Customer.Save();
+                Account account = repository.Search(id.ToString(), p => p.Id_User.ToString(), false, true).Single();
+                (account.User as Customer).Money = customer.Money;
                 repository.Save();
+                repository_status.Save();
 
                 status.status = false;
                 repository_status.Save();
             }
-
-
-           
-            
-
         }
         public bool CheckExist(int id)
         {
@@ -112,25 +114,38 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
         } 
         public void UpdateAccount(User user , string username , string password , int id)
         {
+            #region Update 
             Account account = repository.GetById(id);
             account.UserName_Acc = username;
             account.Password_Acc = password;
+            Customer customer = repository_Customer.GetById(account.Id_User);
+            customer.Email = user.Email;
+            customer.Phone = user.Phone;
+            customer.DateOfBirth = user.DateOfBirth;
+            customer.FirstName = user.FirstName;
+            customer.LastName = user.LastName;
+            customer.Gender = user.Gender;
+            repository_Customer.Save();
             account.User.Email = user.Email;
             account.User.Phone = user.Phone;
             account.User.DateOfBirth = user.DateOfBirth;
             account.User.FirstName = user.FirstName;
             account.User.LastName = user.LastName;
             account.User.Gender = user.Gender;
-            repository_user.Save();
+
+            #endregion
+            repository.Save();
+            
+           repository.Save();
         }
         public void AddAccount(User accUserount , string username , int IdEmloyee)
         {
             (accUserount as Customer).ID_Employee = IdEmloyee;
             (accUserount as Customer).Money = 0;
             (accUserount as Customer).Day_Create = DateTime.Now;
-            repository_user.Insert(accUserount);
-            repository_user.Save();
-            User user = repository_user.GetAll().Last() ;
+            repository_Customer.Insert(accUserount as Customer);
+            repository_Customer.Save();
+            User user = repository_Customer.GetAll().Last() ;
 
 
             Account account = repository.Create();

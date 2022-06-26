@@ -45,7 +45,6 @@ namespace NetManagement.View.FormAdmin
             this.btnSort = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnUp = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabHisUsed = new System.Windows.Forms.TabPage();
             this.btnDel = new System.Windows.Forms.Button();
@@ -106,7 +105,7 @@ namespace NetManagement.View.FormAdmin
             this.cbbSortby.Items.AddRange(new object[] {
             "Asc",
             "Desc"});
-            this.cbbSortby.Location = new System.Drawing.Point(997, 29);
+            this.cbbSortby.Location = new System.Drawing.Point(1027, 29);
             this.cbbSortby.Name = "cbbSortby";
             this.cbbSortby.Size = new System.Drawing.Size(90, 37);
             this.cbbSortby.TabIndex = 13;
@@ -119,7 +118,7 @@ namespace NetManagement.View.FormAdmin
             this.cbbSearch.ItemHeight = 29;
             this.cbbSearch.Location = new System.Drawing.Point(414, 29);
             this.cbbSearch.Name = "cbbSearch";
-            this.cbbSearch.Size = new System.Drawing.Size(192, 37);
+            this.cbbSearch.Size = new System.Drawing.Size(212, 40);
             this.cbbSearch.TabIndex = 11;
             // 
             // btnSearch
@@ -184,23 +183,6 @@ namespace NetManagement.View.FormAdmin
             this.btnUp.Text = "Update";
             this.btnUp.UseVisualStyleBackColor = false;
             this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAdd.Location = new System.Drawing.Point(288, 452);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(165, 40);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "AddCustomer";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // imageList1
             // 
@@ -288,7 +270,6 @@ namespace NetManagement.View.FormAdmin
             // 
             this.tbCusMana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(99)))));
             this.tbCusMana.Controls.Add(this.dgvShowCus);
-            this.tbCusMana.Controls.Add(this.btnAdd);
             this.tbCusMana.Controls.Add(this.btnUp);
             this.tbCusMana.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.tbCusMana.Location = new System.Drawing.Point(4, 25);
@@ -477,7 +458,6 @@ namespace NetManagement.View.FormAdmin
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnUp;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSort;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ComboBox cbbSortProperty;

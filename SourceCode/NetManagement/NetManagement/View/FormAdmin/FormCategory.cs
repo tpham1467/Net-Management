@@ -20,6 +20,7 @@ namespace NetManagement.View.FormAdmin
         BLL_Unit adUnit = new BLL_Unit();
         public FormCategory()
         {
+            this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
             ReloadCategory();
             Create_CBB();
@@ -114,7 +115,7 @@ namespace NetManagement.View.FormAdmin
 
         private void btnUnitAdd_Click(object sender, EventArgs e)
         {
-            AddUpUnit_Form addUpUnit_Form = new AddUpUnit_Form(-1,-1);
+            AddUpUnit_Form addUpUnit_Form = new AddUpUnit_Form(-1);
             addUpUnit_Form.d = new AddUpUnit_Form.MyDel(ReloadUnit);
             addUpUnit_Form.Show();
         }
@@ -124,7 +125,7 @@ namespace NetManagement.View.FormAdmin
             if (dgvUnit.SelectedRows.Count == 1)
             {
                 int s = Convert.ToInt32(dgvUnit.SelectedRows[0].Cells["ID_Unit"].Value);
-                AddUpUnit_Form addUpUnit_Form = new AddUpUnit_Form(1,s);
+                AddUpUnit_Form addUpUnit_Form = new AddUpUnit_Form(s);
                 addUpUnit_Form.d = new AddUpUnit_Form.MyDel(ReloadUnit);
                 addUpUnit_Form.Show();
             }
@@ -147,5 +148,7 @@ namespace NetManagement.View.FormAdmin
             }
 
         }
+
+     
     }
 }

@@ -30,11 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormShift));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxtype = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnView = new System.Windows.Forms.Button();
+            this.lbView = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonAll = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
@@ -42,12 +48,6 @@
             this.dgvShift = new System.Windows.Forms.DataGridView();
             this.Picture = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.lbView = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxtype = new System.Windows.Forms.ComboBox();
-            this.buttonAll = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShift)).BeginInit();
@@ -68,6 +68,46 @@
             this.panel1.Size = new System.Drawing.Size(1320, 90);
             this.panel1.TabIndex = 0;
             // 
+            // comboBoxtype
+            // 
+            this.comboBoxtype.FormattingEnabled = true;
+            this.comboBoxtype.Items.AddRange(new object[] {
+            "All",
+            "Đã Làm",
+            "Xin Nghỉ",
+            "Chưa Làm"});
+            this.comboBoxtype.Location = new System.Drawing.Point(148, 47);
+            this.comboBoxtype.Name = "comboBoxtype";
+            this.comboBoxtype.Size = new System.Drawing.Size(173, 24);
+            this.comboBoxtype.TabIndex = 16;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Location = new System.Drawing.Point(1032, 50);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(203, 27);
+            this.dateTimePicker2.TabIndex = 15;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(561, 44);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(203, 27);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Image = global::NetManagement.Properties.Resources.btnbackground;
+            this.label1.Location = new System.Drawing.Point(835, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 31);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "     To     ";
+            // 
             // btnView
             // 
             this.btnView.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
@@ -82,6 +122,17 @@
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
+            // lbView
+            // 
+            this.lbView.AutoSize = true;
+            this.lbView.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbView.Image = global::NetManagement.Properties.Resources.btnbackground;
+            this.lbView.Location = new System.Drawing.Point(385, 40);
+            this.lbView.Name = "lbView";
+            this.lbView.Size = new System.Drawing.Size(119, 31);
+            this.lbView.TabIndex = 0;
+            this.lbView.Text = "   From   ";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.buttonAll);
@@ -93,6 +144,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1320, 86);
             this.panel2.TabIndex = 1;
+            // 
+            // buttonAll
+            // 
+            this.buttonAll.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.buttonAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonAll.Location = new System.Drawing.Point(104, 26);
+            this.buttonAll.Name = "buttonAll";
+            this.buttonAll.Size = new System.Drawing.Size(100, 37);
+            this.buttonAll.TabIndex = 17;
+            this.buttonAll.Text = "All";
+            this.buttonAll.UseVisualStyleBackColor = true;
+            this.buttonAll.Click += new System.EventHandler(this.buttonAll_Click);
             // 
             // btnUp
             // 
@@ -148,8 +213,8 @@
             this.dgvShift.AllowUserToDeleteRows = false;
             this.dgvShift.AllowUserToOrderColumns = true;
             this.dgvShift.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.dgvShift.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            this.dgvShift.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvShift.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -157,14 +222,14 @@
             this.dgvShift.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvShift.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvShift.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShift.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShift.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvShift.ColumnHeadersHeight = 36;
             this.dgvShift.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvShift.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -198,74 +263,9 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Width = 1246;
             // 
-            // lbView
-            // 
-            this.lbView.AutoSize = true;
-            this.lbView.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbView.Image = global::NetManagement.Properties.Resources.btnbackground;
-            this.lbView.Location = new System.Drawing.Point(385, 40);
-            this.lbView.Name = "lbView";
-            this.lbView.Size = new System.Drawing.Size(119, 31);
-            this.lbView.TabIndex = 0;
-            this.lbView.Text = "   From   ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::NetManagement.Properties.Resources.btnbackground;
-            this.label1.Location = new System.Drawing.Point(835, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 31);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "     To     ";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(561, 44);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(203, 27);
-            this.dateTimePicker1.TabIndex = 14;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(1032, 50);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(203, 27);
-            this.dateTimePicker2.TabIndex = 15;
-            // 
-            // comboBoxtype
-            // 
-            this.comboBoxtype.FormattingEnabled = true;
-            this.comboBoxtype.Items.AddRange(new object[] {
-            "All",
-            "Đã Làm",
-            "Xin Nghỉ",
-            "Chưa Làm"});
-            this.comboBoxtype.Location = new System.Drawing.Point(148, 47);
-            this.comboBoxtype.Name = "comboBoxtype";
-            this.comboBoxtype.Size = new System.Drawing.Size(173, 24);
-            this.comboBoxtype.TabIndex = 16;
-            // 
-            // buttonAll
-            // 
-            this.buttonAll.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
-            this.buttonAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonAll.Location = new System.Drawing.Point(104, 26);
-            this.buttonAll.Name = "buttonAll";
-            this.buttonAll.Size = new System.Drawing.Size(100, 37);
-            this.buttonAll.TabIndex = 17;
-            this.buttonAll.Text = "  ViewAll    ";
-            this.buttonAll.UseVisualStyleBackColor = true;
-            // 
             // FormShift
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(1320, 705);
             this.Controls.Add(this.dgvShift);

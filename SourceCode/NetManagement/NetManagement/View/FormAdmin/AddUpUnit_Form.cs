@@ -16,25 +16,25 @@ namespace NetManagement.View.FormAdmin
     {
         public delegate void MyDel(List<object> data = null);
         public MyDel d;
-        public int check;
         public int ID;
         BLL_Unit BLL_Unit = new BLL_Unit();
-        public AddUpUnit_Form(int m,int id)
+        public AddUpUnit_Form(int id)
         {
-            check = m;
             ID = id;
+           // this.AutoScaleMode = AutoScaleMode.None;
             InitializeComponent();
             Gui();
         }
         public void Gui()
         {
-            if(check == 1)
+            if(ID != -1)
             {
+                
                 Unit unit = BLL_Unit.GetbyID(ID);
                 txtNameUnit.Text = unit.NameUnit;
+                txtNameUnit.Modified = true;
             }
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             Unit unit = BLL_Unit.Create();
@@ -49,5 +49,7 @@ namespace NetManagement.View.FormAdmin
         {
             this.Dispose();
         }
+
+  
     }
 }

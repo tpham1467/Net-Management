@@ -9,9 +9,9 @@ using System.Windows.Forms;
 namespace NetManagement.Model
 {
     public class CreateDB :
-      // CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
+       //CreateDatabaseIfNotExists<NetManagemetnContext> //CSDL chưa tồn tại sẽ tạo ra CSDL mới, nếu tồn tại rồi sẽ không khưởi tạo
                                         //DropCreateDatabaseIfModelChanges<CSDL> // chỉ thay đổi Record thfi sẽ không tahy đổi, nếu thay đổi liên kết sẽ xóa đi cái cũ đê rkhwoir tạo cái mới
-                                        DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
+                                     DropCreateDatabaseAlways<NetManagemetnContext> // Mỗi lần chạy lại thì sẽ xóa cái cũ và tahy cái mới
     {
         protected override void Seed(NetManagemetnContext context)
         {
@@ -119,12 +119,12 @@ namespace NetManagement.Model
 
 
             context.Accounts.AddRange(new Account[]{
-                new Account{ UserName_Acc = "HphamE", Password_Acc = "Hpham321" , ID_Role = 2 , Id_User = 3 , status = 0 , IsErase = 0},
+                new Account{ UserName_Acc = "HphamE", Password_Acc = "Hpham321" , ID_Role = 1 , Id_User = 3 , status = 0 , IsErase = 0},
                 new Account{ UserName_Acc = "TphamE", Password_Acc = "Tpham321" , ID_Role = 2 , Id_User = 2 , status = 0 , IsErase = 0},
                 new Account{ UserName_Acc = "VVienE", Password_Acc = "VVien321",  ID_Role = 2 , Id_User = 1  , status = 0 , IsErase = 0} ,
-                 new Account{ UserName_Acc = "HphamC", Password_Acc = "Hpham321" , ID_Role = 1 , Id_User = 4  , status = 0  , IsErase = 0},
-                new Account{ UserName_Acc = "TphamC", Password_Acc = "Tpham321" , ID_Role = 1 , Id_User = 5 ,  status = 0 , IsErase =0},
-                new Account{ UserName_Acc = "VVienC", Password_Acc = "VVien321",  ID_Role = 1 , Id_User = 6 , status = 0 ,IsErase =0 }
+                 new Account{ UserName_Acc = "HphamC", Password_Acc = "Hpham321" , ID_Role = 3 , Id_User = 4  , status = 0  , IsErase = 0},
+                new Account{ UserName_Acc = "TphamC", Password_Acc = "Tpham321" , ID_Role = 3 , Id_User = 5 ,  status = 0 , IsErase =0},
+                new Account{ UserName_Acc = "VVienC", Password_Acc = "VVien321",  ID_Role = 3, Id_User = 6 , status = 0 ,IsErase =0 }
             });
 
             context.HistoryAccountUsers.AddRange(new HistoryAccountUser[]{
