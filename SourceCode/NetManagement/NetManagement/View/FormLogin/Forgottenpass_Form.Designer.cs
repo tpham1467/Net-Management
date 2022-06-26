@@ -1,4 +1,4 @@
-﻿namespace NetManagement.View.FormEmployee
+﻿namespace NetManagement.View.Login
 {
     partial class Forgottenpass_Form
     {

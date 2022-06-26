@@ -21,7 +21,7 @@ namespace NetManagement.View.FormEmployee
         {
             id_employee = Id_Emloyeee;
             id_User = id_Acc;
-            
+
             InitializeComponent();
             LoadInfo();
         }

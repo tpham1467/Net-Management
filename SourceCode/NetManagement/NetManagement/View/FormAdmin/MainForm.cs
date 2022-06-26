@@ -16,7 +16,7 @@ namespace NetManagement.View.FormAdmin
         public Main_Form()
         {
             InitializeComponent();
-            this.AutoScaleMode = AutoScaleMode.None;
+            
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             pnMenu.Controls.Add(leftBorderBtn);

@@ -27,7 +27,6 @@ namespace NetManagement.View.FormEmployee
             
             id = id_emloyee;
 
-
             InitializeComponent();
             labelTimeStart.Text = Starttime;
             labelTimEnd.Text = Endtime;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NetManagement.View.FormEmployee;
+using NetManagement.View.Login;
 namespace NetManagement
 {
     static class Program

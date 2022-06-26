@@ -10,13 +10,14 @@ using System.Windows.Forms;
 using NetManagement.BLL.BLLLogin;
 using NetManagement.Model;
 using NetManagement.DTO;
-namespace NetManagement.View.FormEmployee
+namespace NetManagement.View.Login
 {
     public partial class Forgottenpass_Form : Form
     {
         private BLLLogin bLLLogin = new BLLLogin();
         public Forgottenpass_Form()
         {
+
             InitializeComponent();
         }
 

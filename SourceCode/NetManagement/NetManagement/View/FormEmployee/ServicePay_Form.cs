@@ -20,6 +20,7 @@ namespace NetManagement.View.FormEmployee
         public ServicePay_Form(int Id)
         {
             id = Id;
+     
             InitializeComponent();
             dataGridView1.DataSource = _BLlHandelOrder.FilterOrder();
         }

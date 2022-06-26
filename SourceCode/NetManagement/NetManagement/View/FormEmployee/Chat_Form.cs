@@ -18,6 +18,7 @@ namespace NetManagement.View.FormEmployee
         public Chat_Form(int idComputer)
         {
             Id_Computer = idComputer;
+
             InitializeComponent();
             this.Disposed += btnClose_Click;
             foreach (var i in _BLLChat.GetAllMessage(Id_Computer).ToList())

@@ -1,4 +1,4 @@
-﻿namespace NetManagement.View.FormEmployee
+﻿namespace NetManagement.View.Login
 {
     partial class Login_Form
     {
@@ -135,7 +135,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(834, 461);
+            this.ClientSize = new System.Drawing.Size(855, 467);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.linkLabel1);

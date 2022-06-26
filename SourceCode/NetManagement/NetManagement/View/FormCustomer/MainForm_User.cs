@@ -14,6 +14,7 @@ using NetManagement.Model;
 using NetManagement.Helper;
 using System.Threading;
 using NetManagement.BLL.BLLChat;
+using NetManagement.View.Login;
 namespace NetManagement.View.FormCustomer
 {
     public partial class MainForm_User : Form
@@ -37,7 +38,6 @@ namespace NetManagement.View.FormCustomer
 
             _BLLChoosePC.OnPc(id_computer);
             IdUseHistorycomputer = _BLLChoosePC.LoginComputer(id_computer, Id);
-
 
             InitializeComponent();
             textBoxremaining.Enabled = false; textBoxused.Enabled = false; textBoxprices.Enabled = false;

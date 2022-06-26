@@ -18,6 +18,7 @@ namespace NetManagement.View.FormCustomer
         {
             id = id_cus;
             idcomputer = _idcpmuter;
+     
             InitializeComponent();
             LoadEvent();
             dgvOrder.DataSource = dgvOrder.DataSource = foodOrders.Select(p =>

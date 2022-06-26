@@ -102,14 +102,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\Data-Dashboard-CSharp-SQL-WinForms\DataDashboardApp\FormDashBoard.cs">
-      <Link>View\FormDashBoard\FormDashBoard.cs</Link>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="..\..\..\..\Data-Dashboard-CSharp-SQL-WinForms\DataDashboardApp\FormDashBoard.designer.cs">
-      <Link>View\FormDashBoard\FormDashBoard.designer.cs</Link>
-      <DependentUpon>FormDashBoard.cs</DependentUpon>
-    </Compile>
     <Compile Include="BLL\BLLAdmin\AdminBLL_Category.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_HisPayroll.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_Inventory.cs" />
@@ -175,15 +167,21 @@
     <Compile Include="View\FormAdmin\AddUpProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormAdmin\AddUpProduct.Designer.cs" />
+    <Compile Include="View\FormAdmin\AddUpProduct.designer.cs">
+      <DependentUpon>AddUpProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormAdmin\AddUpUnit_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormAdmin\AddUpUnit_Form.Designer.cs" />
+    <Compile Include="View\FormAdmin\AddUpUnit_Form.Designer.cs">
+      <DependentUpon>AddUpUnit_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormAdmin\FormAddProductExport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormAdmin\FormAddProductExport.Designer.cs" />
+    <Compile Include="View\FormAdmin\FormAddProductExport.Designer.cs">
+      <DependentUpon>FormAddProductExport.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormAdmin\FormAddUpEm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,15 +203,21 @@
     <Compile Include="View\FormAdmin\FormCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormAdmin\FormCategory.Designer.cs" />
+    <Compile Include="View\FormAdmin\FormCategory.Designer.cs">
+      <DependentUpon>FormCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormAdmin\FormCusAdd_Up.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormAdmin\FormCusAdd_Up.Designer.cs" />
+    <Compile Include="View\FormAdmin\FormCusAdd_Up.Designer.cs">
+      <DependentUpon>FormCusAdd_Up.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormAdmin\FormCustommer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormAdmin\FormCustommer.Designer.cs" />
+    <Compile Include="View\FormAdmin\FormCustommer.Designer.cs">
+      <DependentUpon>FormCustommer.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormAdmin\FormPayroll.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +284,12 @@
     <Compile Include="View\FormCustomer\PersonalInfor_Form.Designer.cs">
       <DependentUpon>PersonalInfor_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormDashBoard\FormDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormDashBoard\FormDashBoard.designer.cs">
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormEmployee\AccManagement_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,10 +314,10 @@
     <Compile Include="View\FormEmployee\CheckIO_Form.Designer.cs">
       <DependentUpon>CheckIO_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FormEmployee\Forgottenpass_Form.cs">
+    <Compile Include="View\FormLogin\Forgottenpass_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormEmployee\Forgottenpass_Form.Designer.cs">
+    <Compile Include="View\FormLogin\Forgottenpass_Form.Designer.cs">
       <DependentUpon>Forgottenpass_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormEmployee\FormAddUpdateAcc.cs">
@@ -316,10 +326,10 @@
     <Compile Include="View\FormEmployee\FormAddUpdateAcc.Designer.cs">
       <DependentUpon>FormAddUpdateAcc.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FormEmployee\Login_Form.cs">
+    <Compile Include="View\FormLogin\Login_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormEmployee\Login_Form.Designer.cs">
+    <Compile Include="View\FormLogin\Login_Form.Designer.cs">
       <DependentUpon>Login_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormEmployee\Mainform_Employee.cs">
@@ -346,10 +356,6 @@
     <Compile Include="View\FormEmployee\TopUp.Designer.cs">
       <DependentUpon>TopUp.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="..\..\..\..\Data-Dashboard-CSharp-SQL-WinForms\DataDashboardApp\FormDashBoard.resx">
-      <Link>View\FormDashBoard\FormDashBoard.resx</Link>
-      <DependentUpon>FormDashBoard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -362,10 +368,14 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\FormAdmin\AddUpProduct.resx">
-      <SubType>Designer</SubType>
+      <DependentUpon>AddUpProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FormAdmin\AddUpUnit_Form.resx" />
-    <EmbeddedResource Include="View\FormAdmin\FormAddProductExport.resx" />
+    <EmbeddedResource Include="View\FormAdmin\AddUpUnit_Form.resx">
+      <DependentUpon>AddUpUnit_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormAddProductExport.resx">
+      <DependentUpon>FormAddProductExport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormAdmin\FormAddUpEm.resx">
       <DependentUpon>FormAddUpEm.cs</DependentUpon>
     </EmbeddedResource>
@@ -375,9 +385,15 @@
     <EmbeddedResource Include="View\FormAdmin\FormAddUpShift.resx">
       <DependentUpon>FormAddUpShift.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FormAdmin\FormCategory.resx" />
-    <EmbeddedResource Include="View\FormAdmin\FormCusAdd_Up.resx" />
-    <EmbeddedResource Include="View\FormAdmin\FormCustommer.resx" />
+    <EmbeddedResource Include="View\FormAdmin\FormCategory.resx">
+      <DependentUpon>FormCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormCusAdd_Up.resx">
+      <DependentUpon>FormCusAdd_Up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormAdmin\FormCustommer.resx">
+      <DependentUpon>FormCustommer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormAdmin\FormPayroll.resx">
       <DependentUpon>FormPayroll.cs</DependentUpon>
     </EmbeddedResource>
@@ -405,6 +421,9 @@
     <EmbeddedResource Include="View\FormCustomer\OrderCust_Form.resx">
       <DependentUpon>OrderCust_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormDashBoard\FormDashBoard.resx">
+      <DependentUpon>FormDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormEmployee\AccManagement_Form.resx">
       <DependentUpon>AccManagement_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,7 +439,10 @@
     <EmbeddedResource Include="View\FormEmployee\FormAddUpdateAcc.resx">
       <DependentUpon>FormAddUpdateAcc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\FormEmployee\Login_Form.resx">
+    <EmbeddedResource Include="View\FormLogin\Forgottenpass_Form.resx">
+      <DependentUpon>Forgottenpass_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLogin\Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormEmployee\Mainform_Employee.resx">
@@ -488,12 +510,10 @@
     <Content Include="Resources\Thiết kế chưa có tên.gif" />
     <None Include="Resources\Timekeeping.jpg" />
     <Content Include="Resources\user_icon_150670.png" />
-    <Content Include="View\FormEmployee\new.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="View\FormLogin\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -528,7 +548,6 @@
     <Content Include="Resources\Thiết kế chưa có tên %287%291.png" />
     <Content Include="Resources\Thiết kế chưa có tên.gif" />
     <Content Include="Resources\user_icon_150670.png" />
-    <Content Include="View\FormEmployee\new.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

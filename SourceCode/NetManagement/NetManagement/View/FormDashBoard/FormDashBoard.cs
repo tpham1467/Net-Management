@@ -1,5 +1,4 @@
-﻿using DashboardApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,57 +7,58 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-namespace DashboardApp
+using NetManagement.BLL.BLlDashBoard;
+namespace NetManagement.View.FormDashBoard
 {
-    public partial class Form1 : Form
+    public partial class FormDashBoard : Form
     {
         //Fields
-        private Dashboard model;
+        private BllDashBoard  BllDashBoard = new BllDashBoard();
 
         //Constructor
-        public Form1()
+        public FormDashBoard()
         {
             InitializeComponent();
             //Default - Last 7 days
             dtpStartDate.Value = DateTime.Today.AddDays(-7);
             dtpEndDate.Value = DateTime.Now;
             btnLast7Days.Select();
-
-            model = new Dashboard();
             LoadData();
         }
 
         //Private methods
         private void LoadData()
         {
-            var refreshData = model.LoadData(dtpStartDate.Value, dtpEndDate.Value);
-            if (refreshData == true)
-            {
-                lblNumOrders.Text = model.NumOrders.ToString();
-                lblTotalRevenue.Text = "$" + model.TotalRevenue.ToString();
-                lblTotalProfit.Text = "$" + model.TotalProfit.ToString();
+            BllDashBoard.SetTime(dtpStartDate.Value, dtpEndDate.Value);
 
-                lblNumCustomers.Text = model.NumCustomers.ToString();
-                lblNumSuppliers.Text = model.NumSuppliers.ToString();
-                lblNumProducts.Text = model.NumProducts.ToString();
+            lblNumOrders.Text = BllDashBoard.CountTotalOrder().ToString();
+            lblTotalRevenue.Text = "$" + BllDashBoard.TotalRevenue().ToString();
+            lblTotalProfit.Text = "$" + BllDashBoard.TotalProfit().ToString();
 
-                chartGrossRevenue.DataSource = model.GrossRevenueList;
-                chartGrossRevenue.Series[0].XValueMember = "Date";
-                chartGrossRevenue.Series[0].YValueMembers = "TotalAmount";
-                chartGrossRevenue.DataBind();
+            lblNumCustomers.Text = BllDashBoard.CountTotalCusomer().ToString();
+            lblNumcomputer.Text = BllDashBoard.CountTotalComputer().ToString();
+            lblNumemployee.Text = BllDashBoard.CountTotalEmployee().ToString();
 
-                chartTopProducts.DataSource = model.TopProductsList;
-                chartTopProducts.Series[0].XValueMember = "Key";
-                chartTopProducts.Series[0].YValueMembers = "Value";
-                chartTopProducts.DataBind();
+            chartsoluongtiennapmoitaikhoa.DataSource = BllDashBoard.CountTotalTopUpAccount();
+            chartsoluongtiennapmoitaikhoa.Series[0].XValueMember = "Account";
+            chartsoluongtiennapmoitaikhoa.Series[0].YValueMembers = "Total Top Up";
+            chartsoluongtiennapmoitaikhoa.DataBind();
 
-                dgvUnderstock.DataSource = model.UnderstockList;
-                dgvUnderstock.Columns[0].HeaderText = "Item";
-                dgvUnderstock.Columns[1].HeaderText = "Units";
-                Console.WriteLine("Loaded view :)");
-            }
-            else Console.WriteLine("View not loaded, same query");
+            chartTopProducts.DataSource = BllDashBoard.CountTotalProductSale();
+            chartTopProducts.Series[0].XValueMember = "ProDuct";
+            chartTopProducts.Series[0].YValueMembers = "So Luong";
+            chartTopProducts.DataBind();
+
+            chartmaysudung.DataSource = BllDashBoard.CountTotalUseEachComputer();
+            chartmaysudung.Series[0].XValueMember = "May";
+            chartmaysudung.Series[0].YValueMembers = "So Gio";
+            chartmaysudung.DataBind();
+
+            labeltongsogiosudungmay.Text = BllDashBoard.TotalUseComputer().ToString();
+            labeltongsotienbanhang.Text = BllDashBoard.TotalSaleproduct().ToString();
+            labeltongsotiennapmay.Text = BllDashBoard.TotalTopUp(false).ToString();
+            labeltongsotientraluong.Text = BllDashBoard.TotalPaySalary().ToString();
+ 
         }
         private void DisableCustomDates()
         {
@@ -110,6 +110,16 @@ namespace DashboardApp
         private void btnOkCustomDate_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void chartGrossRevenue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
