@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using NetManagement.BLL;
 using NetManagement.Model;
 using NetManagement.BLL.BLLAdmin;
+using NetMessageBox = NetManagement.Helper.NetMessageBox;
 namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddProductExport : Form
@@ -71,20 +72,61 @@ namespace NetManagement.View.FormAdmin
         private void btnSend_Click(object sender, EventArgs e)
         {
             Inventory pro = adminBLL_ExProduct.CreateIn();
-            pro.ID_Product = (cbbProduct.SelectedItem as SetCBB).id;
-            pro.ImportPrices = Convert.ToInt32(txtImport.Text);
-            pro.SalePrice = Convert.ToInt32(txtSalePr.Text);
-            pro.ImportDay = dtpIm.Value;
-            pro.ExpiryDate = dtpEx.Value;
-            pro.Amount = Convert.ToInt32(txtAmount.Text);
-            if(id == -1)
+            try
             {
-                adminBLL_ExProduct.Add(pro);
+                try
+                {
+                    pro.ID_Product = (cbbProduct.SelectedItem as SetCBB).id;
+                }
+                catch
+                {
+
+                }
+                try
+                {
+                    pro.ImportPrices = Convert.ToInt32(txtImport.Text == "" ? throw new Exception("Bạn Chưa Nhập Giá Nhập") : txtImport.Text);
+                }
+                catch (Exception imp)
+                {
+                    if (imp.Message != "Bạn Chưa Nhập Giá Nhập") throw new Exception("Bạn Kiểm Tra Lại Giá Nhập");
+                    else throw imp;
+                }
+                try
+                {
+                    pro.SalePrice = Convert.ToInt32(txtSalePr.Text == "" ? throw new Exception("Bạn Chưa Nhập Giá Bán") : txtSalePr.Text);
+                }
+                catch (Exception ep)
+                {
+                    if (ep.Message != "Bạn Chưa Nhập Giá Bán") throw new Exception("Bạn Kiểm Tra Lại Giá Bán");
+                    else throw ep;
+                }
+                pro.ImportDay = dtpIm.Value;
+                pro.ExpiryDate = dtpEx.Value;
+                pro.Amount = Convert.ToInt32(txtAmount.Text);
+                try
+                {
+                    if (id == -1)
+                    {
+                        adminBLL_ExProduct.Add(pro);
+                    }
+                    else
+                    {
+                        pro.ID_Inventory = id;
+                        adminBLL_ExProduct.UpDate(pro);
+                    }
+                }
+                catch
+                {
+                    throw;
+                    //throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                }
+
             }
-            else
+            catch(Exception mess)
             {
-                pro.ID_Inventory = id;
-                adminBLL_ExProduct.UpDate(pro);
+                DialogResult result = NetMessageBox.Show(mess.Message,
+               "Important Message");
+                return;
             }
             action(null);
             this.Dispose();

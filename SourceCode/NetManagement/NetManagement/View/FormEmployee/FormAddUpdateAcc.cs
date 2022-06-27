@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.BLL.BLLEmployee.BLLAccoutManagement;
+using NetManagement.Helper;
 using NetManagement.Model;
 namespace NetManagement.View.FormEmployee
 {
@@ -48,32 +49,35 @@ namespace NetManagement.View.FormEmployee
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtEmail.Text == null || txtPhone.Text == null || lable.Text == null )
-            {
-                MessageBox.Show("Nhap Du Thong Tin");
-            }
-            else
+
+            try
             {
                 Customer customer = new Customer
                 {
-                    FirstName = txtFirstN.Text == null ? "" : txtFirstN.Text,
-                    LastName = txtLastN.Text == null ? "" : txtLastN.Text,
+                    FirstName = txtFirstN.Text == "" ? throw new Exception("Bạn Chưa Nhập Họ") : txtFirstN.Text,
+                    LastName = txtLastN.Text == "" ? throw new Exception("Bạn Chưa Nhập Tên") : txtLastN.Text,
                     Phone = txtPhone.Text,
                     Email = txtEmail.Text,
                     DateOfBirth = dtpDateofBirth.Value,
-                    Gender = rdFemale.Checked == true ? false : true ,
+                    Gender = rdFemale.Checked == true ? false : true,
                 };
-                if(id_User == -1)
+                if (id_User == -1)
                 {
-                    _BLLAccoutManagement.AddAccount(customer , txtUserName.Text , id_employee);
+                    _BLLAccoutManagement.AddAccount(customer, txtUserName.Text, id_employee);
                 }
                 else
                 {
-                    _BLLAccoutManagement.UpdateAccount(customer, txtUserName.Text, textBoxPassWord.Text , id_User);
+                    _BLLAccoutManagement.UpdateAccount(customer, txtUserName.Text, textBoxPassWord.Text, id_User);
                 }
-                action(null);
-                this.Dispose();
             }
+            catch (Exception mess)
+            {
+                DialogResult result = NetMessageBox.Show(mess.Message,
+               "Important Message");
+                return;
+            }
+            action(null);
+            this.Dispose();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

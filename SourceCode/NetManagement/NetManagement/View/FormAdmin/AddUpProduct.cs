@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.BLL.BLLAdmin;
 using NetManagement.BLL;
-
+using NetManagement.Helper;
 namespace NetManagement.View.FormAdmin
 {
     public partial class AddUpProduct : Form
@@ -83,19 +83,50 @@ namespace NetManagement.View.FormAdmin
         private void btnSave_Click(object sender, EventArgs e)
         {
             Product product = adBllProduct.Create();
-            
-            product.NameProduct = txtNameProduct.Text;
-            product.ID_Unit = (cbbUnit.SelectedItem as SetCBB).id;
 
-            product.ID_Category = (cbbCategory.SelectedItem as SetCBB).id;
-            if(ID == -1)
+            try
             {
-                adBllProduct.Add(product);
+                product.NameProduct = txtNameProduct.Text == "" ? throw new Exception("Bạn Chưa Nhập Tên Sản Phẩm") : txtNameProduct.Text;
+                try
+                {
+                    product.ID_Unit = (cbbUnit.SelectedItem as SetCBB).id;
+                }
+                catch
+                {
+                    throw new Exception("Bạn Chưa Chọn Đơn Vị");
+                }
+                try
+                {
+                    product.ID_Category = (cbbCategory.SelectedItem as SetCBB).id;
+                }catch
+                {
+                    throw new Exception("Bạn Chưa Chọn Danh Mục Cho Sản Phẩm");
+                }
+                try
+                {
+                    if (ID == -1)
+                    {
+                        adBllProduct.Add(product);
+                      
+                    }
+                    else
+                    {
+                        product.ID_Product = ID;
+                        adBllProduct.UpDate(product);
+                    }
+                }
+                catch
+                {
+                    //throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                    throw;
+                }
             }
-            else
+            catch ( Exception mess)
             {
-                product.ID_Product = ID;
-                adBllProduct.UpDate(product);
+
+                DialogResult result = NetMessageBox.Show(mess.Message,
+               "Important Message");
+                return;
             }
             action(null);
             this.Dispose();

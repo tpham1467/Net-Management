@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using NetManagement.BLL;
-using NetManagement.Model;
-
+﻿using NetManagement.BLL;
 using NetManagement.Helper;
+using NetManagement.Model;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Windows.Forms;
+
 namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddUpShift : Form
@@ -48,8 +43,9 @@ namespace NetManagement.View.FormAdmin
                 Shift sh = adShi.GetShiById(id);
                 dtpWD.Value = System.Convert.ToDateTime(sh.WorkedDate);
                 cbbNameE.SelectedIndex = indexCommobox;
-                mTbStartTime.Text = sh.ShiftStartTime.ToString("hh:mm");
-                mTbEndTime.Text = sh.ShiftEndTime.ToString("hh:mm");
+                CultureInfo.CurrentCulture = new CultureInfo("Fr-fr");
+                mTbStartTime.Text = sh.ShiftStartTime.ToString("t");
+                mTbEndTime.Text = sh.ShiftEndTime.ToString("t");
                 if(sh.ID_StatusShift == 2 )
                 {
                     cbbStatus.SelectedIndex = 0;
@@ -116,14 +112,8 @@ namespace NetManagement.View.FormAdmin
                 if (starttime.Minute != 0 || endtime.Minute != 0) throw new Exception("Giờ Bắt Đầu Làm Hoặc Kết Thúc Phải Chẵn");
 
                 sh.Hour = endtime.Hour - starttime.Hour;
-                try
-                {
-                    sh.ID_Employee = (cbbNameE.SelectedItem as SetCBB).id;
-                }
-                catch
-                {
-                    throw new Exception("Bạn Chưa Chọn Nhân Viên");
-                }
+                    sh.ID_Employee = (cbbNameE.SelectedItem as SetCBB) == null ? throw new Exception("Bạn Chưa Chọn Nhân Viên") : (cbbNameE.SelectedItem as SetCBB).id;
+      
                 sh.WorkedDate = workDate;
 
                 if (cbbStatus.SelectedIndex == 0)
@@ -142,7 +132,8 @@ namespace NetManagement.View.FormAdmin
                         adShi.UpDate(sh, id);
                 } catch
                 {
-                    throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                    throw;
+                    //throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
                 }
             }catch( Exception mess)
             {

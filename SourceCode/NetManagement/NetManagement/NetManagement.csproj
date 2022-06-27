@@ -109,7 +109,6 @@
     <Compile Include="BLL\BLLAdmin\AdminBLL_Timekeeping.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_Cus.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_Em.cs" />
-    <Compile Include="BLL\BLLAdmin\AdminBLL_MerMana.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_OrderHis.cs" />
     <Compile Include="BLL\BLLAdmin\AdminBLL_UseCPHis.cs" />
     <Compile Include="BLL\BLLAdmin\BLL_Product.cs" />

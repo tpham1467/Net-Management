@@ -23,7 +23,7 @@ namespace NetManagement.Model
         public virtual ICollection<Product> Products { get; set; }
         [Required]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Tên từ 3 đến  100 ký tự")]
-        [DataType(DataType.Text)]
+
         public string NameUnit { get; set; }
     }
 }

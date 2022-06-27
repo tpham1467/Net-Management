@@ -11,6 +11,7 @@ using NetManagement.Model;
 using NetManagement.BLL;
 using NetManagement.BLL.BLLAdmin;
 using NetManagement.DTO;
+using NetManagement.Helper;
 
 namespace NetManagement.View.FormAdmin
 {
@@ -54,20 +55,29 @@ namespace NetManagement.View.FormAdmin
 
         private void btnDelCTR_Click(object sender, EventArgs e)
         {
-            string s;
-            foreach (DataGridViewRow i in dgvShowCTR.SelectedRows)
+            int s;
+            if (dgvShowCTR.SelectedRows.Count > 0)
             {
-                s = i.Cells["ID_Category"].Value.ToString();
-                adManaCategory.Del(s);
+                foreach (DataGridViewRow i in dgvShowCTR.SelectedRows)
+                {
+                    s = System.Convert.ToInt32( i.Cells["ID_Category"].Value.ToString() );
+                    adManaCategory.Del(s);
+                }
+                ReloadCategory();
             }
-            ReloadCategory();
+            else
+            {
+                DialogResult result = NetMessageBox.Show("Bạn Chưa Chọn !!!",
+              "Important Message");
+                return;
+            }
         }
 
         private void btnUpCTR_Click(object sender, EventArgs e)
         {
             if (dgvShowCTR.SelectedRows.Count == 1)
             {
-                int s = Convert.ToInt32( dgvShowCTR.SelectedRows[0].Cells["ID_Category"].Value );
+                int s = System.Convert.ToInt32( dgvShowCTR.SelectedRows[0].Cells["ID_Category"].Value );
                 FormUpdateAdd_CTR f = new FormUpdateAdd_CTR(s);
                 f.action = ReloadCategory;
                 f.Show();
@@ -124,7 +134,7 @@ namespace NetManagement.View.FormAdmin
         {
             if (dgvUnit.SelectedRows.Count == 1)
             {
-                int s = Convert.ToInt32(dgvUnit.SelectedRows[0].Cells["ID_Unit"].Value);
+                int s = System.Convert.ToInt32(dgvUnit.SelectedRows[0].Cells["ID_Unit"].Value);
                 AddUpUnit_Form addUpUnit_Form = new AddUpUnit_Form(s);
                 addUpUnit_Form.d = new AddUpUnit_Form.MyDel(ReloadUnit);
                 addUpUnit_Form.Show();
@@ -133,7 +143,22 @@ namespace NetManagement.View.FormAdmin
 
         private void btnDeleteUnit_Click(object sender, EventArgs e)
         {
-
+            int s;
+            if (dgvUnit.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow i in dgvUnit.SelectedRows)
+                {
+                    s = System.Convert.ToInt32(i.Cells["ID_Unit"].Value.ToString());
+                    adUnit.DelUnit(s);
+                }
+                ReloadCategory();
+            }
+            else
+            {
+                DialogResult result = NetMessageBox.Show("Bạn Chưa Chọn !!!",
+              "Important Message");
+                return;
+            }
         }
 
         private void tbCategory_SelectedIndexChanged(object sender, EventArgs e)

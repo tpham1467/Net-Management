@@ -53,7 +53,8 @@ namespace NetManagement.View.FormAdmin
                 }
                 catch
                 {
-                    throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                    throw;
+                    //throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
                 }
             }
             catch( Exception mess)

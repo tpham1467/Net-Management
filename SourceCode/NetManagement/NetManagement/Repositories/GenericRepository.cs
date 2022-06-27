@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Linq.Expressions;
 using NetManagement.DTO;
+using System.Data.Entity.Infrastructure;
 
 namespace NetManagement.Repositories
 {
@@ -17,6 +18,7 @@ namespace NetManagement.Repositories
         private readonly DbSet<T> table;
         public GenericRepository()
         {
+         
             //  this._context = new NetManagemetnContext();
             this.table = _context.Set<T>();
 
@@ -56,28 +58,27 @@ namespace NetManagement.Repositories
             try
             {
                 int status = _context.SaveChanges();
-
             }
-            catch
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
             {
-                throw new Exception();
+
+                string s = "Bạn Vui Lòng Kiểm Tra Lại Các Thuộc Tính Sau :" + '\n';
+                foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    {
+                        s += "Property:   " + validationError.PropertyName + "   Error:   " + validationError.ErrorMessage + "   Giá Trị :" + entityValidationErrors.Entry.CurrentValues.GetValue<object>(validationError.PropertyName) + '\n';         
+                    }
+                    DbEntityEntry entityEntry = entityValidationErrors.Entry;
+                    entityEntry.State = EntityState.Detached;
+                }                
+                throw new Exception(s);
             }
         }
 
         public void Reload(T entity)
         {
-            Type s = entity.GetType();
-            if (entity.GetType().BaseType.Name == "Customer")
-            {
-                Customer customer = entity as Customer;
-                var result = _context.Database.SqlQuery<int>("select _Money from Customer where ID_User = @id ", new SqlParameter("@id", customer.ID_User)).FirstOrDefault();
-                customer.Money = Convert.ToInt32(result);
-            }
-            else
-            {
-                _context.Entry(entity).Reload();
-            }
-
+            _context.Entry(entity).Reload();
         }
 
         public IEnumerable<T> Sort<Tkey>(SortEnum sort, System.Linq.Expressions.Expression<Func<T, Tkey>> expression, IComparer<Tkey> action_compare = null)

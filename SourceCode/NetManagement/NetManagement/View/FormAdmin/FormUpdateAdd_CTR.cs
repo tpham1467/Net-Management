@@ -28,10 +28,10 @@ namespace NetManagement.View.FormAdmin
         {
             if (id != -1)
             {
-                int i = System.Convert.ToInt32(id);
-                Category s = adBLL.GetCTRById(i);
-                txtNameCTR.Text = s.CategoryName.ToString();
-                txtDesCTR.Text = s.Description.ToString();
+            
+                Category s = adBLL.GetCTRById(id);
+                txtNameCTR.Text = s.CategoryName;
+                txtDesCTR.Text = s.Description;
             }
         }
 
@@ -39,23 +39,24 @@ namespace NetManagement.View.FormAdmin
         {
             try
             {
-                Category ctr = new Category
-                {
-                    CategoryName = txtNameCTR.Text == "" ? throw new Exception("Bạn Chưa Nhập Tên Danh Mục") : txtNameCTR.Text,
-                    Description = txtDesCTR.Text == "" ? throw new Exception("Bạn Chưa Nhập Mô Tả Cho Danh Mục") : txtDesCTR.Text,
-                };
+                Category ctr = adBLL.Create();
+
+                ctr.CategoryName = txtNameCTR.Text == "" ? throw new Exception("Bạn Chưa Nhập Tên Danh Mục") : txtNameCTR.Text;
+                ctr.Description = txtDesCTR.Text == "" ? throw new Exception("Bạn Chưa Nhập Mô Tả Cho Danh Mục") : txtDesCTR.Text;
+                
                 try
                 {
                     adBLL.UpdateAdd(ctr, id);
                 }
                 catch
                 {
-                    throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                    // throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                    throw;
                 }
             }
-            catch(Exception mess)
+            catch (Exception mess)
             {
-                DialogResult result = NetMessageBox.Show(mess.Message ,
+                DialogResult result = NetMessageBox.Show(mess.Message,
                 "Important Message");
                 return;
             }

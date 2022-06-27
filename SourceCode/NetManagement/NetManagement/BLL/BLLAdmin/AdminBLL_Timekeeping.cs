@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using NetManagement.Model;
 using NetManagement.Repositories;
 using NetManagement.DTO;
+using System.Globalization;
+
 namespace NetManagement.BLL
 {
     public class AdminBLL_Timekeeping
@@ -24,12 +26,12 @@ namespace NetManagement.BLL
         public IEnumerable<Shift> GetAll()
         {
             IEnumerable<Shift> data = repository.GetAll().ToList();
-            repository.Save();
             return data;
         }
 
         public IEnumerable<object> Filter(StatusShift statusShift ,  IEnumerable<Shift> sh = null)
         {
+            CultureInfo.CurrentCulture = new CultureInfo("Fr-fr");
             if (sh == null) sh = GetAll();
             var data = sh.Where(p => (statusShift != null )?p.ID_StatusShift == statusShift.ID_StatusShift : (p.ID_StatusShift == 4 ? false : true) )
                 .Select(
@@ -40,8 +42,8 @@ namespace NetManagement.BLL
                             p.Employee.FirstName,
                             p.Employee.LastName,
                             WorkDate =  p.WorkedDate.ToString("MM/dd/yyyy"),
-                            StartTime =  p.ShiftStartTime.ToString("hh: mm tt"),
-                            EndTime = p.ShiftEndTime.ToString("hh: mm tt"),
+                            StartTime =  p.ShiftStartTime.ToString("t"),
+                            EndTime = p.ShiftEndTime.ToString("t"),
                             p.StatusShift.Description
                         }
                 );

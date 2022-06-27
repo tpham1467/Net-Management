@@ -27,7 +27,7 @@ namespace NetManagement.Model
         public virtual SalaryEmployee SalaryEmployee { get; set; }
 
         [Required]
-   //     [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến  100 ký tự")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Từ 3 đến  100 ký tự")]
         [Column("_Identify")]
         public string Identify { get; set; }
         public virtual ICollection<HistoryAccountUser> HistoryAccountUsers { get; set; }

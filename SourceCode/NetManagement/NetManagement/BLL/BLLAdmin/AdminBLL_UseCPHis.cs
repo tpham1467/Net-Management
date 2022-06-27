@@ -25,11 +25,6 @@ namespace NetManagement.BLL
         public IEnumerable<UseComputerHistory> GetAll()
         {
             IEnumerable<UseComputerHistory> data = repository.GetAll().ToList();
-            foreach (UseComputerHistory i in data)
-            {
-                i.HourUsed = Convert.ToInt32(i._LogOut.Hour - i._LogIn.Hour);
-            }
-            repository.Save();
             return data;
         }
         public IEnumerable<object> Filter(IEnumerable<UseComputerHistory> UsedCP = null)

@@ -85,7 +85,6 @@ namespace NetManagement.View.FormAdmin
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.cbbSortby);
-            this.panel1.Controls.Add(this.btnUp);
             this.panel1.Controls.Add(this.cbbSortProperty);
             this.panel1.Controls.Add(this.cbbSearch);
             this.panel1.Controls.Add(this.btnSearch);
@@ -106,7 +105,7 @@ namespace NetManagement.View.FormAdmin
             this.cbbSortby.Items.AddRange(new object[] {
             "Asc",
             "Desc"});
-            this.cbbSortby.Location = new System.Drawing.Point(1027, 29);
+            this.cbbSortby.Location = new System.Drawing.Point(992, 30);
             this.cbbSortby.Name = "cbbSortby";
             this.cbbSortby.Size = new System.Drawing.Size(90, 39);
             this.cbbSortby.TabIndex = 13;
@@ -177,7 +176,7 @@ namespace NetManagement.View.FormAdmin
             this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnUp.Location = new System.Drawing.Point(681, 30);
+            this.btnUp.Location = new System.Drawing.Point(553, 453);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(106, 40);
             this.btnUp.TabIndex = 8;
@@ -271,6 +270,7 @@ namespace NetManagement.View.FormAdmin
             // 
             this.tbCusMana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(99)))));
             this.tbCusMana.Controls.Add(this.dgvShowCus);
+            this.tbCusMana.Controls.Add(this.btnUp);
             this.tbCusMana.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.tbCusMana.Location = new System.Drawing.Point(4, 25);
             this.tbCusMana.Name = "tbCusMana";

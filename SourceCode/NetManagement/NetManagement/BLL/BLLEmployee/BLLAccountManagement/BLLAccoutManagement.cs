@@ -150,8 +150,8 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
 
             Account account = repository.Create();
             account.UserName_Acc = username;
-            account.Password_Acc = "123456";
-            account.ID_Role = 1; account.Id_User = user.ID_User;
+            account.Password_Acc = "12345678";
+            account.ID_Role = 3; account.Id_User = user.ID_User;
             repository.Insert(account);
             repository.Save();
 

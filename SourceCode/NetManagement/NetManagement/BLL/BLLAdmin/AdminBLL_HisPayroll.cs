@@ -70,7 +70,7 @@ namespace NetManagement.BLL
             List<HistoryPayroll> list = GetHisPayrollById(id);
             if (txtcbb == "WorkHour")
             {
-                //list = list.OrderBy(p=>p.Shift.WorkedHour).ToList();
+                //list = list.OrderBy(p=>p..WorkedHour).ToList();
             }
             return list;
         }
@@ -80,9 +80,9 @@ namespace NetManagement.BLL
         }
 
 
-        public IEnumerable<object> PayRoll(List<int> id_employee , bool ModeSave)
+        public IEnumerable<object> PayRoll(List<int> id_employee, bool ModeSave)
         {
-            if(id_employee == null)
+            if (id_employee == null)
             {
                 id_employee = repository_employee.GetAll().Select(p => p.ID_User).ToList();
             }
@@ -95,21 +95,21 @@ namespace NetManagement.BLL
                     historyPayroll.Employee = repository_employee.GetById(j);
                     historyPayrolls.Add(historyPayroll);
                 }
-              
+
 
             }
             if (ModeSave)
                 return new List<object>();
             else
             {
-                var data  =  historyPayrolls.Select(p =>
-  new
-  {
-        p.Employee.ID_User, 
-      p.Salary ,
-      Name = p.Employee.FirstName + p.Employee.LastName,
-      p.Employee.SalaryEmployee.CoSalary,
-  });
+                var data = historyPayrolls.Select(p =>
+new
+{
+    p.Employee.ID_User,
+    p.Salary,
+    Name = p.Employee.FirstName + p.Employee.LastName,
+    p.Employee.SalaryEmployee.CoSalary,
+});
                 return data.ToList();
             }
         }
@@ -136,7 +136,7 @@ namespace NetManagement.BLL
          
             if (ModeSave)
             {
-
+                if (historyPayroll.Salary == 0) return null;
                 repository.Insert(historyPayroll);
                 repository.Save();
                 repository_shift.Save();

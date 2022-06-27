@@ -91,23 +91,16 @@ namespace NetManagement.BLL.BLLAdmin
         }
         public void Add(Category cus)
         {
-            try
-            {
-                repository.Insert(cus);
-                repository.Save();
-            }
-            catch
-            {
-                throw new Exception();
-            }
+            repository.Insert(cus);
+            repository.Save();
         }
         public void UpdateDelegate(Category c1, Category c2)
         {
             c1.CategoryName = c2.CategoryName; c1.Description = c2.Description;
         }
-        public void Del(string id)
+        public void Del(int id)
         {
-            repository.Delete(Convert.ToInt32(id));
+            repository.Delete(id);
             repository.Save();
         }
         public IEnumerable<object> Sort(SortEnum sort, string by)
@@ -116,6 +109,10 @@ namespace NetManagement.BLL.BLLAdmin
             if (string.Compare(by, "Name Category") == 0)
                 return Filter(repository.Sort<string>(sort, a => a.CategoryName));
             else return Filter(repository.Sort<int>(sort, a => a.ID_Category));
+        }
+        public Category Create()
+        {
+            return repository.Create();
         }
 
     }
