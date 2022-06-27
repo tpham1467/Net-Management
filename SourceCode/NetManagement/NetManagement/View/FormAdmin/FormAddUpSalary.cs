@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.BLL;
 using NetManagement.Model;
-
+using NetManagement.Helper;
 namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddUpSalary : Form
@@ -28,7 +28,7 @@ namespace NetManagement.View.FormAdmin
         {
             if (id != -1)
             {
-                int i = Convert.ToInt32(id);
+                int i = System.Convert.ToInt32(id);
                 SalaryEmployee s = _AdminBLL_Salary.GetSalaryById(i);
                 txtSalary.Text = s.CoSalary.ToString();
             }
@@ -41,11 +41,27 @@ namespace NetManagement.View.FormAdmin
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SalaryEmployee sal = _AdminBLL_Salary.CreateSal();
-            sal.CoSalary = Convert.ToInt32(txtSalary.Text);
-            if (id == -1) _AdminBLL_Salary.Add(sal);
-            else
-            _AdminBLL_Salary.UpDate( sal , id);
+            try
+            {
+                SalaryEmployee sal = _AdminBLL_Salary.CreateSal();
+                sal.CoSalary = System.Convert.ToInt32(txtSalary.Text == "" ? throw new Exception("Bạn Chưa Nhập Số Tiền") : txtSalary.Text);
+                try
+                {
+                    if (id == -1) _AdminBLL_Salary.Add(sal);
+                    else
+                        _AdminBLL_Salary.UpDate(sal, id);
+                }
+                catch
+                {
+                    throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                }
+            }
+            catch( Exception mess)
+            {
+                DialogResult result = NetMessageBox.Show(mess.Message,
+                               "Important Message");
+                return;
+            }
             action(null);
             this.Dispose();
         }

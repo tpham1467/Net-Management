@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using NetManagement.BLL;
 using NetManagement.Model;
 
+using NetManagement.Helper;
 namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddUpShift : Form
@@ -45,7 +46,7 @@ namespace NetManagement.View.FormAdmin
                 cbbStatus.Enabled = true;
 
                 Shift sh = adShi.GetShiById(id);
-                dtpWD.Value = Convert.ToDateTime(sh.WorkedDate);
+                dtpWD.Value = System.Convert.ToDateTime(sh.WorkedDate);
                 cbbNameE.SelectedIndex = indexCommobox;
                 mTbStartTime.Text = sh.ShiftStartTime.ToString("hh:mm");
                 mTbEndTime.Text = sh.ShiftEndTime.ToString("hh:mm");
@@ -91,44 +92,64 @@ namespace NetManagement.View.FormAdmin
 
             Shift sh = adShi.Create();
 
-        
+
 
             try
             {
-                DateTime starttime = new DateTime(2022, 8, 12, Convert.ToInt32(mTbStartTime.Text.Split(':')[0]), Convert.ToInt32(mTbStartTime.Text.Split(':')[1]), 23);
+                DateTime starttime;
+                DateTime endtime;
+                try
+                {
+                    starttime = new DateTime(2022, 8, 12, System.Convert.ToInt32(mTbStartTime.Text.Split(':')[0]), System.Convert.ToInt32(mTbStartTime.Text.Split(':')[1]), 23);
 
-                DateTime endtime = new DateTime(2022, 8, 12, Convert.ToInt32(mTbEndTime.Text.Split(':')[0]), Convert.ToInt32(mTbEndTime.Text.Split(':')[1]), 23); ;
-                DateTime.Parse(starttime.ToString());
-                DateTime.Parse(endtime.ToString());
+                     endtime = new DateTime(2022, 8, 12, System.Convert.ToInt32(mTbEndTime.Text.Split(':')[0]), System.Convert.ToInt32(mTbEndTime.Text.Split(':')[1]), 23); ;
+                    DateTime.Parse(starttime.ToString());
+                    DateTime.Parse(endtime.ToString());
 
-                sh.ShiftStartTime = starttime;
-                sh.ShiftEndTime = endtime;
-                if (starttime.Minute != 0 || endtime.Minute != 0) throw new Exception();
+                    sh.ShiftStartTime = starttime;
+                    sh.ShiftEndTime = endtime;
+                }
+                catch
+                {
+                    throw new Exception("Bạn Chưa nhập giờ Hoặc Giờ Sai");
+                }
+                if (starttime.Minute != 0 || endtime.Minute != 0) throw new Exception("Giờ Bắt Đầu Làm Hoặc Kết Thúc Phải Chẵn");
+
                 sh.Hour = endtime.Hour - starttime.Hour;
-                sh.ID_Employee = (cbbNameE.SelectedItem as SetCBB).id;
-                
-            }
-            catch
+                try
+                {
+                    sh.ID_Employee = (cbbNameE.SelectedItem as SetCBB).id;
+                }
+                catch
+                {
+                    throw new Exception("Bạn Chưa Chọn Nhân Viên");
+                }
+                sh.WorkedDate = workDate;
+
+                if (cbbStatus.SelectedIndex == 0)
+                    sh.ID_StatusShift = 2;
+                else if (cbbStatus.SelectedIndex == 1)
+                    sh.ID_StatusShift = 1;
+                else sh.ID_StatusShift = 3;
+                try
+                {
+                    if (id == -1)
+                    {
+                        sh.ID_StatusShift = 1;
+                        adShi.Add(sh);
+                    }
+                    else
+                        adShi.UpDate(sh, id);
+                } catch
+                {
+                    throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                }
+            }catch( Exception mess)
             {
-                MessageBox.Show("Sai Du Lieu");
+                DialogResult result = NetMessageBox.Show(mess.Message,
+                "Important Message");
                 return;
             }
-        
-            sh.WorkedDate = workDate;
-
-            if (cbbStatus.SelectedIndex == 0)
-                sh.ID_StatusShift = 2;
-            else if (cbbStatus.SelectedIndex == 1)
-                sh.ID_StatusShift = 1;
-            else sh.ID_StatusShift = 3;
-
-            if (id == -1)
-            {
-                sh.ID_StatusShift = 1;
-                adShi.Add(sh);
-            }
-            else
-                adShi.UpDate(sh, id);
             action(null , null);
             this.Dispose();
         }

@@ -47,7 +47,7 @@ namespace NetManagement.View.FormAdmin
 
         private void btnAddCTR_Click_1(object sender, EventArgs e)
         {
-            FormUpdateAdd_CTR f = new FormUpdateAdd_CTR("");
+            FormUpdateAdd_CTR f = new FormUpdateAdd_CTR(-1);
             f.action = ReloadCategory;
             f.Show();
         }
@@ -67,7 +67,7 @@ namespace NetManagement.View.FormAdmin
         {
             if (dgvShowCTR.SelectedRows.Count == 1)
             {
-                string s = dgvShowCTR.SelectedRows[0].Cells["ID_Category"].Value.ToString();
+                int s = Convert.ToInt32( dgvShowCTR.SelectedRows[0].Cells["ID_Category"].Value );
                 FormUpdateAdd_CTR f = new FormUpdateAdd_CTR(s);
                 f.action = ReloadCategory;
                 f.Show();

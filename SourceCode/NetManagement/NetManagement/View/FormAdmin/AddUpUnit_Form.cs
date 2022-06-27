@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.BLL.BLLAdmin;
 using NetManagement.Model;
-
+using NetManagement.Helper;
 namespace NetManagement.View.FormAdmin
 {
     public partial class AddUpUnit_Form : Form
@@ -32,15 +32,30 @@ namespace NetManagement.View.FormAdmin
                 
                 Unit unit = BLL_Unit.GetbyID(ID);
                 txtNameUnit.Text = unit.NameUnit;
-                txtNameUnit.Modified = true;
             }
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
             Unit unit = BLL_Unit.Create();
-            unit.NameUnit = txtNameUnit.Text;
-            unit.ID_Unit = ID;
-            BLL_Unit.UpdateAdd(ID,unit);
+            try
+            {
+                unit.NameUnit = txtNameUnit.Text =="" ? throw new Exception("Bạn Chưa Nhập Tên Đơn Vị"):txtNameUnit.Text;
+                try
+                {
+                    BLL_Unit.UpdateAdd(ID, unit);
+                }
+                catch
+                {
+                    throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                }
+            }
+            catch (Exception mess)
+            {
+                DialogResult result = NetMessageBox.Show(mess.Message,
+                "Important Message");
+                return;
+            }
+           
             d();
             this.Dispose();
         }

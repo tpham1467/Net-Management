@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.Model;
 using NetManagement.BLL;
-
+using NetManagement.Helper;
 namespace NetManagement.View.FormAdmin
 {
     public partial class FormCusAdd_Up : Form
@@ -35,7 +35,7 @@ namespace NetManagement.View.FormAdmin
 
             if (id != -1)
             {
-                int i = Convert.ToInt32(id);
+                int i = System.Convert.ToInt32(id);
                 Customer s = adBLLCus.GetCusById(i);
                 txtFirstN.Text = s.FirstName.ToString();
                 txtLastN.Text = s.LastName.ToString();
@@ -43,7 +43,7 @@ namespace NetManagement.View.FormAdmin
                 txtEmail.Text = s.Email.ToString();
                 dtpDOB.Text = s.DateOfBirth.ToLongDateString();
                 txtMoney.Text = s.Money.ToString();
-               
+                textBoxemploy.Text = s.Employee.FirstName + s.Employee.LastName;
                 if (s.Gender == true) rdMale.Checked = true;
                 else rdFemale.Checked = true;
                 dt = s.Day_Create;
@@ -55,23 +55,38 @@ namespace NetManagement.View.FormAdmin
             bool check;
             if (rdMale.Checked) check = true;
             else check = false;
-            Customer cus = adBLLCus.CreateCus();
-            cus.FirstName = txtFirstN.Text;
-            cus.LastName = txtLastN.Text;
-            cus.Phone = txtPhone.Text;
-            cus.Email = txtEmail.Text;
-            cus.DateOfBirth = dtpDOB.Value;
-            cus.Money = Convert.ToInt32(txtMoney.Text);
-            cus.Gender = check;
-            if(id != -1)
+            try
             {
-                
-                adBLLCus.UpDate(cus, id, dt);
-            }
-            else
+                Customer cus = adBLLCus.CreateCus();
+                cus.FirstName = txtFirstN.Text == "" ? throw new Exception("Bạn Chưa Nhập Họ") : txtFirstN.Text;
+                cus.LastName = txtLastN.Text == "" ? throw new Exception("Bạn Chưa Nhập Tên Lót và Tên") : txtLastN.Text;
+                cus.Phone = txtPhone.Text == "" ? throw new Exception("Bạn Chưa Nhập Số Điện Thoại") : txtPhone.Text;
+                cus.Email = txtEmail.Text == "" ? throw new Exception("Bạn Chưa Nhập Email") : txtEmail.Text;
+                cus.DateOfBirth = dtpDOB.Value;
+                cus.Money = System.Convert.ToInt32(txtMoney.Text == "" ? throw new Exception("Bạn Chưa Nhập Số Tiền") : txtMoney.Text);
+                cus.Gender = check;
+                try
+                {
+                    if (id != -1)
+                    {
+
+                        adBLLCus.UpDate(cus, id, dt);
+                    }
+                    else
+                    {
+
+                        adBLLCus.Add(cus);
+                    }
+                }
+                catch
+                {
+                    throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                }
+            } catch(Exception mess)
             {
-                
-                adBLLCus.Add(cus);
+                DialogResult result = NetMessageBox.Show(mess.Message,
+                "Important Message");
+                return;
             }
             d();
             this.Dispose();

@@ -58,9 +58,9 @@ namespace NetManagement.Repositories
                 int status = _context.SaveChanges();
 
             }
-            catch (Exception e)
+            catch
             {
-                MessageBox.Show(e.ToString());
+                throw new Exception();
             }
         }
 

@@ -137,6 +137,13 @@
     </Compile>
     <Compile Include="DTO\SortEnum.cs" />
     <Compile Include="Helper\Convert.cs" />
+    <Compile Include="Helper\FormMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper\FormMessageBox.designer.cs">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\NetMessageBox.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Computer.cs" />
@@ -356,6 +363,9 @@
     <Compile Include="View\FormEmployee\TopUp.Designer.cs">
       <DependentUpon>TopUp.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Helper\FormMessageBox.resx">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -479,6 +489,9 @@
     <None Include="Resources\customer-management.png" />
     <None Include="Resources\btnbackground.jpg" />
     <None Include="Resources\color-background.png" />
+    <None Include="Resources\chat.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\exclamation.png" />
     <Content Include="Resources\gmail-4561841_1280.png" />
     <None Include="Resources\HistoryUsed.png" />
     <None Include="Resources\icon-add-8.jpg" />
@@ -487,6 +500,7 @@
     <None Include="Resources\images.jpg" />
     <None Include="Resources\images1.jpg" />
     <None Include="Resources\imagesButton.jpg" />
+    <None Include="Resources\information.png" />
     <Content Include="Resources\Logo.jpg" />
     <Content Include="Resources\Logo.png" />
     <Content Include="Resources\Logo1.jpg" />
@@ -500,6 +514,7 @@
     <None Include="Resources\mainBACKGROUND2.jpg" />
     <Content Include="Resources\PC.png" />
     <None Include="Resources\redBackground.jpg" />
+    <None Include="Resources\question.png" />
     <Content Include="Resources\Remini20220408094410404.jpg" />
     <None Include="Resources\Shift.png" />
     <Content Include="Resources\Thiết kế chưa có tên %284%29.png" />

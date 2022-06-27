@@ -31,12 +31,12 @@ namespace NetManagement.View.FormAdmin
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCustommer));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbbSortProperty = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbbSortby = new System.Windows.Forms.ComboBox();
@@ -73,18 +73,19 @@ namespace NetManagement.View.FormAdmin
             // cbbSortProperty
             // 
             this.cbbSortProperty.DropDownWidth = 200;
-            this.cbbSortProperty.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbSortProperty.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbSortProperty.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbbSortProperty.ItemHeight = 29;
+            this.cbbSortProperty.ItemHeight = 31;
             this.cbbSortProperty.Location = new System.Drawing.Point(1112, 30);
             this.cbbSortProperty.Name = "cbbSortProperty";
-            this.cbbSortProperty.Size = new System.Drawing.Size(192, 37);
+            this.cbbSortProperty.Size = new System.Drawing.Size(192, 39);
             this.cbbSortProperty.TabIndex = 10;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.cbbSortby);
+            this.panel1.Controls.Add(this.btnUp);
             this.panel1.Controls.Add(this.cbbSortProperty);
             this.panel1.Controls.Add(this.cbbSearch);
             this.panel1.Controls.Add(this.btnSearch);
@@ -99,26 +100,26 @@ namespace NetManagement.View.FormAdmin
             // cbbSortby
             // 
             this.cbbSortby.DropDownWidth = 200;
-            this.cbbSortby.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbSortby.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbSortby.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbbSortby.ItemHeight = 29;
+            this.cbbSortby.ItemHeight = 31;
             this.cbbSortby.Items.AddRange(new object[] {
             "Asc",
             "Desc"});
             this.cbbSortby.Location = new System.Drawing.Point(1027, 29);
             this.cbbSortby.Name = "cbbSortby";
-            this.cbbSortby.Size = new System.Drawing.Size(90, 37);
+            this.cbbSortby.Size = new System.Drawing.Size(90, 39);
             this.cbbSortby.TabIndex = 13;
             // 
             // cbbSearch
             // 
             this.cbbSearch.DropDownWidth = 200;
-            this.cbbSearch.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbSearch.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cbbSearch.ItemHeight = 29;
+            this.cbbSearch.ItemHeight = 31;
             this.cbbSearch.Location = new System.Drawing.Point(414, 29);
             this.cbbSearch.Name = "cbbSearch";
-            this.cbbSearch.Size = new System.Drawing.Size(212, 40);
+            this.cbbSearch.Size = new System.Drawing.Size(212, 39);
             this.cbbSearch.TabIndex = 11;
             // 
             // btnSearch
@@ -128,7 +129,7 @@ namespace NetManagement.View.FormAdmin
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
             this.btnSearch.Location = new System.Drawing.Point(302, 26);
             this.btnSearch.Name = "btnSearch";
@@ -145,7 +146,7 @@ namespace NetManagement.View.FormAdmin
             this.btnSort.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnSort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSort.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSort.Location = new System.Drawing.Point(863, 29);
             this.btnSort.Name = "btnSort";
@@ -174,9 +175,9 @@ namespace NetManagement.View.FormAdmin
             this.btnUp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUp.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnUp.Location = new System.Drawing.Point(810, 452);
+            this.btnUp.Location = new System.Drawing.Point(681, 30);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(106, 40);
             this.btnUp.TabIndex = 8;
@@ -210,7 +211,7 @@ namespace NetManagement.View.FormAdmin
             this.btnDel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.btnDel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDel.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnDel.Location = new System.Drawing.Point(484, 453);
             this.btnDel.Name = "btnDel";
@@ -226,8 +227,8 @@ namespace NetManagement.View.FormAdmin
             this.dgvHUse.AllowUserToDeleteRows = false;
             this.dgvHUse.AllowUserToOrderColumns = true;
             this.dgvHUse.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver;
-            this.dgvHUse.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.dgvHUse.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvHUse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -235,14 +236,14 @@ namespace NetManagement.View.FormAdmin
             this.dgvHUse.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvHUse.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHUse.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHUse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHUse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHUse.ColumnHeadersHeight = 36;
             this.dgvHUse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvHUse.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -270,7 +271,6 @@ namespace NetManagement.View.FormAdmin
             // 
             this.tbCusMana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(99)))));
             this.tbCusMana.Controls.Add(this.dgvShowCus);
-            this.tbCusMana.Controls.Add(this.btnUp);
             this.tbCusMana.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.tbCusMana.Location = new System.Drawing.Point(4, 25);
             this.tbCusMana.Name = "tbCusMana";
@@ -285,8 +285,8 @@ namespace NetManagement.View.FormAdmin
             this.dgvShowCus.AllowUserToDeleteRows = false;
             this.dgvShowCus.AllowUserToOrderColumns = true;
             this.dgvShowCus.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Silver;
-            this.dgvShowCus.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            this.dgvShowCus.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvShowCus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -294,14 +294,14 @@ namespace NetManagement.View.FormAdmin
             this.dgvShowCus.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvShowCus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvShowCus.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShowCus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShowCus.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvShowCus.ColumnHeadersHeight = 36;
             this.dgvShowCus.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvShowCus.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -351,23 +351,23 @@ namespace NetManagement.View.FormAdmin
             // 
             // cbbTypeView
             // 
-            this.cbbTypeView.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTypeView.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTypeView.ForeColor = System.Drawing.Color.Salmon;
             this.cbbTypeView.FormattingEnabled = true;
             this.cbbTypeView.Location = new System.Drawing.Point(306, 13);
             this.cbbTypeView.Name = "cbbTypeView";
-            this.cbbTypeView.Size = new System.Drawing.Size(174, 33);
+            this.cbbTypeView.Size = new System.Drawing.Size(174, 37);
             this.cbbTypeView.TabIndex = 7;
             this.cbbTypeView.SelectedIndexChanged += new System.EventHandler(this.cbbTypeView_SelectedIndexChanged);
             // 
             // lbView
             // 
             this.lbView.AutoSize = true;
-            this.lbView.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbView.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbView.ForeColor = System.Drawing.Color.Salmon;
             this.lbView.Location = new System.Drawing.Point(10, 16);
             this.lbView.Name = "lbView";
-            this.lbView.Size = new System.Drawing.Size(279, 25);
+            this.lbView.Size = new System.Drawing.Size(317, 29);
             this.lbView.TabIndex = 6;
             this.lbView.Text = "Xem Theo Loại Sản Phẩm";
             // 
@@ -377,8 +377,8 @@ namespace NetManagement.View.FormAdmin
             this.dgvOrHis.AllowUserToDeleteRows = false;
             this.dgvOrHis.AllowUserToOrderColumns = true;
             this.dgvOrHis.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Silver;
-            this.dgvOrHis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
+            this.dgvOrHis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvOrHis.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -386,14 +386,14 @@ namespace NetManagement.View.FormAdmin
             this.dgvOrHis.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvOrHis.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvOrHis.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrHis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrHis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvOrHis.ColumnHeadersHeight = 36;
             this.dgvOrHis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvOrHis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

@@ -9,16 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.BLL.BLLAdmin;
 using NetManagement.Model;
-
+using NetManagement.Helper;
 namespace NetManagement.View.FormAdmin
 {
     public partial class FormUpdateAdd_CTR : Form
     {
         public Action<List<object>> action;
         AdminBLL_Category adBLL = new AdminBLL_Category();
-        string id;
-        int k;
-        public FormUpdateAdd_CTR(string m)
+        int  id;
+        public FormUpdateAdd_CTR(int m)
         {
             id = m;
             this.AutoScaleMode = AutoScaleMode.None;
@@ -27,24 +26,39 @@ namespace NetManagement.View.FormAdmin
         }
         void GUI()
         {
-            if (id != "")
+            if (id != -1)
             {
-                int i = Convert.ToInt32(id);
+                int i = System.Convert.ToInt32(id);
                 Category s = adBLL.GetCTRById(i);
                 txtNameCTR.Text = s.CategoryName.ToString();
                 txtDesCTR.Text = s.Description.ToString();
-                k = s.ID_Category;
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Category ctr = new Category
+            try
             {
-                CategoryName = txtNameCTR.Text,
-                Description = txtDesCTR.Text,
-            };
-            adBLL.UpdateAdd(ctr, k);
+                Category ctr = new Category
+                {
+                    CategoryName = txtNameCTR.Text == "" ? throw new Exception("Bạn Chưa Nhập Tên Danh Mục") : txtNameCTR.Text,
+                    Description = txtDesCTR.Text == "" ? throw new Exception("Bạn Chưa Nhập Mô Tả Cho Danh Mục") : txtDesCTR.Text,
+                };
+                try
+                {
+                    adBLL.UpdateAdd(ctr, id);
+                }
+                catch
+                {
+                    throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                }
+            }
+            catch(Exception mess)
+            {
+                DialogResult result = NetMessageBox.Show(mess.Message ,
+                "Important Message");
+                return;
+            }
             action(null);
             this.Dispose();
         }

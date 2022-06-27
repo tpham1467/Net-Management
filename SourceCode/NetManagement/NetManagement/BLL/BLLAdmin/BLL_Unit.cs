@@ -56,6 +56,7 @@ namespace NetManagement.BLL.BLLAdmin
             }
             else
             {
+                unit.ID_Unit = id;
                 Update(unit);
             }
         }
@@ -71,11 +72,12 @@ namespace NetManagement.BLL.BLLAdmin
         public void Update(Unit unit)
         {
             repository.Update(unit, unit.ID_Unit, UpdateDelegate);
-            List<string> navigation = new List<string>(); navigation.Add("Unit");
-            foreach(var i in repository_product.Search(unit.ID_Unit.ToString(), p => p.ID_Unit.ToString(),
-                false, false).ToList())
+            foreach (var i in repository_product.GetAll())
             {
-                repository_product.Reload(i);
+                if(i.ID_Unit == unit.ID_Unit)
+                {
+                    i.Unit.NameUnit = unit.NameUnit;
+                }
             }
             repository_product.Save();
             repository.Save();

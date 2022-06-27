@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using NetManagement.BLL;
 using NetManagement.Model;
 using NetManagement.DTO;
+using NetManagement.Helper;
 namespace NetManagement.View.FormAdmin
 {
     public partial class FormAddUpEm : Form
@@ -74,38 +75,52 @@ namespace NetManagement.View.FormAdmin
             if (rdMale.Checked) checkgd = true;
             else checkgd = false;
             Employee emp = adBLLEm.CreateEm();
-
-            ConvertSalarytoVND convertSalarytoVND = cbbSalary.SelectedItem as ConvertSalarytoVND;
-            if (convertSalarytoVND == null )
+            try
             {
-                if(id == -1)
+                ConvertSalarytoVND convertSalarytoVND = cbbSalary.SelectedItem as ConvertSalarytoVND;
+                if (convertSalarytoVND == null)
                 {
-                    MessageBox.Show("Vui Long Nhap Du Thong tin");
-                    return;
-                }
-                emp.ID_SalaryEmployee = id_salary;
-               
-            }
-            else
-                emp.ID_SalaryEmployee = convertSalarytoVND.id;
-            emp.FirstName = txtFirstN.Text;
-            emp.LastName = txtLastN.Text;
-            emp.Phone = txtPhone.Text;
-            emp.Email = txtEmail.Text;
-            emp.DateOfBirth = dtpDOB.Value;
-            emp.Identify = txtIndentify.Text;
-            emp.Gender = checkgd;
-            Account account = adBLLEm.CreateAcoount();
-            account.UserName_Acc = textBoxUserName.Text;
-            account.Password_Acc = textBoxPassword.Text;
-            if (id == -1)
-            {
-             
+                    if (id == -1)
+                    {
+                        throw new Exception("Bạn Chưa Chọn Lương Cho Nhân Viên");
+                    }
+                    emp.ID_SalaryEmployee = id_salary;
 
-                adBLLEm.Add(account , emp );
+                }
+                else
+                    emp.ID_SalaryEmployee = convertSalarytoVND.id;
+                emp.FirstName = txtFirstN.Text == "" ? throw new Exception("Bạn Chưa Nhập Họ") : txtFirstN.Text;
+                emp.LastName = txtLastN.Text == "" ? throw new Exception("Bạn Chưa Nhập Tên lót và Tên") : txtLastN.Text;
+                emp.Phone = txtPhone.Text == "" ? throw new Exception("Bạn Chưa Nhập Số Điện Thoại") : txtPhone.Text;
+                emp.Email = txtEmail.Text == "" ? throw new Exception("Bạn Chưa Nhập Email") : txtEmail.Text;
+                emp.DateOfBirth = dtpDOB.Value;
+                emp.Identify = txtIndentify.Text == "" ? throw new Exception("Bạn Chưa Nhập Số Chứng Minh") : txtIndentify.Text;
+                emp.Gender = checkgd;
+                Account account = adBLLEm.CreateAcoount();
+                account.UserName_Acc = textBoxUserName.Text == "" ? throw new Exception("Bạn Chưa Nhập Tên Đăng Nhập") : textBoxUserName.Text;
+                account.Password_Acc = textBoxPassword.Text == "" ? throw new Exception("Bạn Chưa Nhập Mật Khẩu") : textBoxPassword.Text;
+                try
+                {
+                    if (id == -1)
+                    {
+
+
+                        adBLLEm.Add(account, emp);
+                    }
+                    else
+                        adBLLEm.UpDate(emp, id, account);
+                }
+                catch
+                {
+                    throw new Exception("Opp !!! . Xin lỗi Bạn hiện hệ thống không thể hoạt động . Vui Lòng Thử Lại");
+                }
             }
-            else
-                adBLLEm.UpDate(emp, id ,account);
+            catch (Exception mess)
+            {
+                DialogResult result = NetMessageBox.Show(mess.Message,
+                "Important Message");
+                return;
+            }
             action(null);
             this.Dispose();
         }

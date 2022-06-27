@@ -46,7 +46,7 @@
             this.btnSend = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
-            this.cbbEm = new System.Windows.Forms.ComboBox();
+            this.textBoxemploy = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,10 +54,10 @@
             // 
             this.lbname.AutoSize = true;
             this.lbname.BackColor = System.Drawing.Color.Transparent;
-            this.lbname.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbname.Location = new System.Drawing.Point(41, 37);
             this.lbname.Name = "lbname";
-            this.lbname.Size = new System.Drawing.Size(81, 30);
+            this.lbname.Size = new System.Drawing.Size(94, 32);
             this.lbname.TabIndex = 0;
             this.lbname.Text = "Name";
             // 
@@ -65,10 +65,10 @@
             // 
             this.lbGender.AutoSize = true;
             this.lbGender.BackColor = System.Drawing.Color.Transparent;
-            this.lbGender.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbGender.Location = new System.Drawing.Point(238, 308);
             this.lbGender.Name = "lbGender";
-            this.lbGender.Size = new System.Drawing.Size(100, 30);
+            this.lbGender.Size = new System.Drawing.Size(116, 32);
             this.lbGender.TabIndex = 1;
             this.lbGender.Text = "Gender";
             // 
@@ -76,10 +76,10 @@
             // 
             this.lbNameE.AutoSize = true;
             this.lbNameE.BackColor = System.Drawing.Color.Transparent;
-            this.lbNameE.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbNameE.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbNameE.Location = new System.Drawing.Point(238, 215);
             this.lbNameE.Name = "lbNameE";
-            this.lbNameE.Size = new System.Drawing.Size(132, 30);
+            this.lbNameE.Size = new System.Drawing.Size(150, 32);
             this.lbNameE.TabIndex = 2;
             this.lbNameE.Text = "Employee";
             // 
@@ -87,10 +87,10 @@
             // 
             this.lbMoney.AutoSize = true;
             this.lbMoney.BackColor = System.Drawing.Color.Transparent;
-            this.lbMoney.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbMoney.Location = new System.Drawing.Point(41, 308);
             this.lbMoney.Name = "lbMoney";
-            this.lbMoney.Size = new System.Drawing.Size(94, 30);
+            this.lbMoney.Size = new System.Drawing.Size(105, 32);
             this.lbMoney.TabIndex = 3;
             this.lbMoney.Text = "Money";
             // 
@@ -98,10 +98,10 @@
             // 
             this.lbDOB.AutoSize = true;
             this.lbDOB.BackColor = System.Drawing.Color.Transparent;
-            this.lbDOB.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbDOB.Location = new System.Drawing.Point(41, 215);
             this.lbDOB.Name = "lbDOB";
-            this.lbDOB.Size = new System.Drawing.Size(170, 30);
+            this.lbDOB.Size = new System.Drawing.Size(175, 32);
             this.lbDOB.TabIndex = 5;
             this.lbDOB.Text = "DateOfBirth";
             // 
@@ -109,10 +109,10 @@
             // 
             this.lbEmail.AutoSize = true;
             this.lbEmail.BackColor = System.Drawing.Color.Transparent;
-            this.lbEmail.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbEmail.Location = new System.Drawing.Point(237, 126);
             this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(89, 30);
+            this.lbEmail.Size = new System.Drawing.Size(92, 32);
             this.lbEmail.TabIndex = 6;
             this.lbEmail.Text = "Email";
             // 
@@ -120,10 +120,10 @@
             // 
             this.lbPhone.AutoSize = true;
             this.lbPhone.BackColor = System.Drawing.Color.Transparent;
-            this.lbPhone.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbPhone.Location = new System.Drawing.Point(41, 126);
             this.lbPhone.Name = "lbPhone";
-            this.lbPhone.Size = new System.Drawing.Size(91, 30);
+            this.lbPhone.Size = new System.Drawing.Size(103, 32);
             this.lbPhone.TabIndex = 7;
             this.lbPhone.Text = "Phone";
             // 
@@ -186,10 +186,10 @@
             // rdFemale
             // 
             this.rdFemale.AutoSize = true;
-            this.rdFemale.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdFemale.Location = new System.Drawing.Point(49, 53);
             this.rdFemale.Name = "rdFemale";
-            this.rdFemale.Size = new System.Drawing.Size(95, 26);
+            this.rdFemale.Size = new System.Drawing.Size(104, 29);
             this.rdFemale.TabIndex = 1;
             this.rdFemale.Text = "Female";
             this.rdFemale.UseVisualStyleBackColor = true;
@@ -198,10 +198,10 @@
             // 
             this.rdMale.AutoSize = true;
             this.rdMale.Checked = true;
-            this.rdMale.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdMale.Location = new System.Drawing.Point(49, 21);
             this.rdMale.Name = "rdMale";
-            this.rdMale.Size = new System.Drawing.Size(75, 26);
+            this.rdMale.Size = new System.Drawing.Size(80, 29);
             this.rdMale.TabIndex = 0;
             this.rdMale.TabStop = true;
             this.rdMale.Text = "Male";
@@ -210,7 +210,7 @@
             // btnSend
             // 
             this.btnSend.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnSend.Font = new System.Drawing.Font("Stencil", 10.2F);
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.btnSend.ForeColor = System.Drawing.Color.MistyRose;
             this.btnSend.Location = new System.Drawing.Point(74, 500);
             this.btnSend.Name = "btnSend";
@@ -223,7 +223,7 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.Font = new System.Drawing.Font("Stencil", 10.2F);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.btnCancel.ForeColor = System.Drawing.Color.MistyRose;
             this.btnCancel.Location = new System.Drawing.Point(242, 500);
             this.btnCancel.Name = "btnCancel";
@@ -235,23 +235,22 @@
             // 
             // dtpDOB
             // 
-            this.dtpDOB.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDOB.Location = new System.Drawing.Point(46, 258);
             this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(190, 26);
+            this.dtpDOB.Size = new System.Drawing.Size(190, 27);
             this.dtpDOB.TabIndex = 21;
             this.dtpDOB.Value = new System.DateTime(2022, 6, 9, 0, 0, 0, 0);
             // 
-            // cbbEm
+            // textBoxemploy
             // 
-            this.cbbEm.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbbEm.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbEm.FormattingEnabled = true;
-            this.cbbEm.Location = new System.Drawing.Point(243, 258);
-            this.cbbEm.Name = "cbbEm";
-            this.cbbEm.Size = new System.Drawing.Size(189, 38);
-            this.cbbEm.TabIndex = 22;
-            this.cbbEm.SelectedIndexChanged += new System.EventHandler(this.cbbEm_SelectedIndexChanged);
+            this.textBoxemploy.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxemploy.Enabled = false;
+            this.textBoxemploy.Font = new System.Drawing.Font("Tahoma", 13.8F);
+            this.textBoxemploy.Location = new System.Drawing.Point(244, 258);
+            this.textBoxemploy.Name = "textBoxemploy";
+            this.textBoxemploy.Size = new System.Drawing.Size(190, 35);
+            this.textBoxemploy.TabIndex = 22;
             // 
             // FormCusAdd_Up
             // 
@@ -260,7 +259,7 @@
             this.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(487, 623);
-            this.Controls.Add(this.cbbEm);
+            this.Controls.Add(this.textBoxemploy);
             this.Controls.Add(this.dtpDOB);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSend);
@@ -306,6 +305,6 @@
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DateTimePicker dtpDOB;
-        private System.Windows.Forms.ComboBox cbbEm;
+        private System.Windows.Forms.TextBox textBoxemploy;
     }
 }

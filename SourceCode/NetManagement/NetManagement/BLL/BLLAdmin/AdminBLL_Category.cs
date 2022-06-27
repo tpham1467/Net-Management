@@ -12,15 +12,16 @@ namespace NetManagement.BLL.BLLAdmin
     public class AdminBLL_Category
     {
         private IRepository<Category> repository;
-
-        public AdminBLL_Category() : this(new GenericRepository<Category>())
+        private IRepository<Product> repository_product;
+        public AdminBLL_Category() : this(new GenericRepository<Category>()  , new GenericRepository<Product>() ) 
         {
 
         }
 
-        public AdminBLL_Category(IRepository<Category> _repository)
+        public AdminBLL_Category(IRepository<Category> _repository, IRepository<Product> _repository_product)
         {
             repository = _repository;
+            repository_product = _repository_product;
         }
         public Category GetCTRById(int id)
         {
@@ -56,16 +57,7 @@ namespace NetManagement.BLL.BLLAdmin
 
         public void UpdateAdd(Category ctr, int k)
         {
-            bool add = true;
-            foreach (Category i in GetAll())
-            {
-                if (i.ID_Category == k)
-                {
-                    add = false;
-                    break;
-                }
-            }
-            if (add)
+            if (k == -1)
             {
                 Add(ctr);
 
@@ -80,13 +72,34 @@ namespace NetManagement.BLL.BLLAdmin
         }
         public void UpDate(Category category)
         {
-            repository.Update(category, category.ID_Category, UpdateDelegate);
-            repository.Save();
+            try
+            {   foreach(var i in repository_product.GetAll())
+                {
+                    if(i.ID_Category == category.ID_Category)
+                    {
+                        i.Category.CategoryName = category.CategoryName;
+                    }
+                }
+                repository_product.Save();
+                repository.Update(category, category.ID_Category, UpdateDelegate);
+                repository.Save();
+            }
+            catch
+            {
+                throw new Exception();
+            }
         }
         public void Add(Category cus)
         {
-            repository.Insert(cus);
-            repository.Save();
+            try
+            {
+                repository.Insert(cus);
+                repository.Save();
+            }
+            catch
+            {
+                throw new Exception();
+            }
         }
         public void UpdateDelegate(Category c1, Category c2)
         {
