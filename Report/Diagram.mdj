@@ -189,8 +189,6 @@
 								"$ref": "AAAAAAF/w+ubeodvQno="
 							},
 							"font": "Arial;13;0",
-							"left": 64,
-							"top": 88,
 							"width": 1641,
 							"height": 3089
 						},
@@ -993,7 +991,7 @@
 											"top": 291.5,
 											"width": 112,
 											"height": 13,
-											"text": "Choose Computer"
+											"text": "Chat Support"
 										},
 										{
 											"_type": "LabelView",
@@ -1026,7 +1024,7 @@
 									"font": "Arial;13;0",
 									"left": 417.5,
 									"top": 284.5,
-									"width": 122.6708984375,
+									"width": 122,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF/w/53UaQ+VyU="
@@ -14244,7 +14242,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF/w+MHiOLMDTw="
 					},
-					"name": "Choose Computer",
+					"name": "Chat Support",
 					"ownedElements": [
 						{
 							"_type": "UMLInclude",

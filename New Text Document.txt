@@ -34,6 +34,14 @@
   + Trả Lương 
 *********************************
 
+
+
+
+
+
+
+
+
 - Quản lý sản phẩm:
 	(-) Quản lý giá :  + Gía sản phẩm nhập
 					+ Gía sản phẩm xuất
@@ -45,7 +53,19 @@
 					+ Ngày nhập sản phẩm
 					+ Hạn sử dụng
 		(+) Sửa tên, Thêm sản phẩm khi nhập hàng
-					
+
+
+
+
+
+
+
+
+
+
+
+
+Quản lí lịch sử sử dụng
 + Số thứ tự
 + Tên khách hàng sử dụng
 + Ngày sử dụng

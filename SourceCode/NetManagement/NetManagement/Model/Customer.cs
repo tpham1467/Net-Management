@@ -11,17 +11,16 @@ using System.Threading.Tasks;
 namespace NetManagement.Model
 {
     [Table("Customer")]
-    public class Customer : User
+    public class Customer : User 
     {
 
        public Customer()
        {
-           Orders = new HashSet<Order>();
-           HistoryAccountUsers = new HashSet<HistoryAccountUser>();
+            Orders = new HashSet<Order>();
+            HistoryAccountUsers = new HashSet<HistoryAccountUser>();
             UseComputerHistories = new HashSet<UseComputerHistory>();
        }
-      
-        [Column("_Money")]
+        [Column("_Money")]  [Display( Name = "Tiền" )]
         public int Money { get; set; }
         [Required]
         public int ID_Employee { get; set; }

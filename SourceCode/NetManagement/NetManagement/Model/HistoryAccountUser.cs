@@ -16,8 +16,7 @@ namespace NetManagement.Model
         public int ID_Customer { get; set; }
         [Required]
         public int ID_Employee { get; set; }
-        [Required]
-        public int ID_Computer { get; set; }
+        public int? ID_Computer { get; set; }
         [Required]
         public bool Direct {get; set;}
         [Required] [DataType(DataType.Currency)] [Column("_Money")]

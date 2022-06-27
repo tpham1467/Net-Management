@@ -30,19 +30,21 @@
         {
             this.btnPayment = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnfill = new System.Windows.Forms.Button();
+            this.buttonReload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPayment
             // 
             this.btnPayment.BackColor = System.Drawing.Color.Green;
-            this.btnPayment.Location = new System.Drawing.Point(561, 394);
+            this.btnPayment.Location = new System.Drawing.Point(426, 399);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(195, 33);
             this.btnPayment.TabIndex = 0;
             this.btnPayment.Text = "Payment";
             this.btnPayment.UseVisualStyleBackColor = false;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // dataGridView1
             // 
@@ -54,15 +56,26 @@
             this.dataGridView1.Size = new System.Drawing.Size(733, 369);
             this.dataGridView1.TabIndex = 1;
             // 
-            // btnDelete
+            // btnfill
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Red;
-            this.btnDelete.Location = new System.Drawing.Point(23, 403);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(115, 23);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnfill.BackColor = System.Drawing.Color.Red;
+            this.btnfill.Location = new System.Drawing.Point(129, 404);
+            this.btnfill.Name = "btnfill";
+            this.btnfill.Size = new System.Drawing.Size(115, 23);
+            this.btnfill.TabIndex = 2;
+            this.btnfill.Text = "fill ";
+            this.btnfill.UseVisualStyleBackColor = false;
+            this.btnfill.Click += new System.EventHandler(this.btnfill_Click);
+            // 
+            // buttonReload
+            // 
+            this.buttonReload.Location = new System.Drawing.Point(293, 403);
+            this.buttonReload.Name = "buttonReload";
+            this.buttonReload.Size = new System.Drawing.Size(75, 23);
+            this.buttonReload.TabIndex = 3;
+            this.buttonReload.Text = "Reload";
+            this.buttonReload.UseVisualStyleBackColor = true;
+            this.buttonReload.Click += new System.EventHandler(this.buttonReload_Click);
             // 
             // ServicePay_Form
             // 
@@ -70,7 +83,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.buttonReload);
+            this.Controls.Add(this.btnfill);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnPayment);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -85,6 +99,7 @@
 
         private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnfill;
+        private System.Windows.Forms.Button buttonReload;
     }
 }

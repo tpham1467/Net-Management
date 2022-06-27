@@ -1,5 +1,4 @@
-﻿using System.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,6 +11,10 @@ namespace NetManagement.Model
     [Table("Product")]
     public class Product
     {
+        public Product()
+        {
+            Inventories = new HashSet<Inventory>();
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID_Product { get; set; }
@@ -22,11 +25,11 @@ namespace NetManagement.Model
         public string NameProduct { get; set; }
         [Required]
         public int ID_Unit { get; set; }
-        public int Amount { get; set; }
-        public float Price { get; set; }
         [ForeignKey("ID_Unit")]
         public virtual Unit Unit { get; set; }
-       [ForeignKey("ID_Category")]
+        [ForeignKey("ID_Category")]
         public virtual Category Category { get; set; }
+        public virtual ICollection<Inventory> Inventories { get; set; }
+
     }
 }

@@ -7,13 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using NetManagement.BLL.BLLEmployee;
+using NetManagement.DTO;
+using NetManagement.Helper;
+using NetManagement.Model;
 namespace NetManagement.View.FormEmployee
 {
+    
     public partial class Mainform_Employee : Form
     {
-        public Mainform_Employee()
+        private int Id_Employee;
+        public Action action;
+        public Mainform_Employee(int id)
         {
+            Id_Employee = id;
+            using(CheckIO_Form getshift = new CheckIO_Form(Id_Employee))
+            {
+                CheckIO_Form.id_shift = getshift.GetshiftCur();
+            }
             InitializeComponent();
         }
         private Form currentFormBody;
@@ -34,19 +45,19 @@ namespace NetManagement.View.FormEmployee
         }
         private void butAccManager_Click(object sender, EventArgs e)
         {
-            OpenFormBody(new AccManagement_Form());
+            OpenFormBody(new AccManagement_Form(Id_Employee));
             labelTop.Text = butAccManager.Text;
         }
 
         private void butServicePay_Click(object sender, EventArgs e)
         {
-            OpenFormBody(new ServicePay_Form());
+            OpenFormBody(new ServicePay_Form(Id_Employee ));
             labelTop.Text = butServicePay.Text;
         }
 
         private void butCheckIO_Click(object sender, EventArgs e)
         {
-            OpenFormBody(new CheckIO_Form());
+            OpenFormBody(new CheckIO_Form(Id_Employee));
             labelTop.Text = butCheckIO.Text;
         }
 
@@ -57,6 +68,19 @@ namespace NetManagement.View.FormEmployee
                 currentFormBody.Close();
             }
             labelTop.Text = null;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            action();
+        }
+
+        private void butSpMailbox_Click(object sender, EventArgs e)
+        {
+            OpenFormBody(new Chat());
+            labelTop.Text = butSpMailbox.Text;
+            
         }
     }
 }
