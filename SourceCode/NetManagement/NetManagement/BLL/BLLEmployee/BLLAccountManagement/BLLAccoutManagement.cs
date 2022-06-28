@@ -59,14 +59,14 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
         {
 
             Status status = repository_status.GetById(3);
-            repository_status.Reload(status);
+          //  repository_status.Reload(status);
             if(status.status == false)
             {
                 status.status = true;
                 repository_status.Save();
 
                 Customer customer = repository_Customer.GetById(id);
-                repository_Customer.Reload(customer);
+             //   repository_Customer.Reload(customer);
                 customer.Money += money;
 
                 repository_Customer.Save();
@@ -82,14 +82,14 @@ namespace NetManagement.BLL.BLLEmployee.BLLAccoutManagement
             {
                 while(status.status == true)
                 {
-                    repository_status.Reload(status);
+                   // repository_status.Reload(status);
                 }
 
                 status.status = true ;
                 repository_status.Save();
 
                 Customer customer = repository_Customer.GetById(id);
-                repository_Customer.Reload(customer);
+                //repository_Customer.Reload(customer);
                 customer.Money += money;
                 repository_Customer.Save();
                 Account account = repository.Search(id.ToString(), p => p.Id_User.ToString(), false, true).Single();

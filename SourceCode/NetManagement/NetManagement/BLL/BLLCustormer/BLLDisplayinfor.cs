@@ -30,14 +30,14 @@ namespace NetManagement.BLL.BLLCustormer
         public void UpDate(int money , int Id)
         {
             Status status = repository_Status.GetById(3);
-            repository_Status.Reload(status);
+            //repository_Status.Reload(status);
             if (status.status == false)
             {
                 status.status = true;
                 repository_Status.Save();
 
                 int _money = GetCustomerById(Id).Money;
-                repository.Reload(GetCustomerById(Id));
+              //  repository.Reload(GetCustomerById(Id));
                 Customer customer = GetCustomerById(Id);
                 if (_money != customer.Money)
                 {
@@ -55,13 +55,13 @@ namespace NetManagement.BLL.BLLCustormer
             {
                 while (status.status == true)
                 {
-                    repository_Status.Reload(status);
+                   // repository_Status.Reload(status);
                 }
                 status.status = true;
                 repository_Status.Save();
 
 
-                repository.Reload(GetCustomerById(Id));
+                //repository.Reload(GetCustomerById(Id));
               
                 status.status = false;
                 repository_Status.Save();

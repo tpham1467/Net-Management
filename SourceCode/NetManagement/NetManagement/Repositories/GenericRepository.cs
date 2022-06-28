@@ -76,9 +76,15 @@ namespace NetManagement.Repositories
             }
         }
 
-        public void Reload(T entity)
+        public void Reload(T entity, Action<object> action = null ,string navigation = null )
         {
-            _context.Entry(entity).Reload();
+            if (action != null)
+            {
+                var _object = _context.Entry(entity).Reference(navigation).CurrentValue;
+                action(_object);
+            }
+            else
+            _context.Entry(entity).Reload();    
         }
 
         public IEnumerable<T> Sort<Tkey>(SortEnum sort, System.Linq.Expressions.Expression<Func<T, Tkey>> expression, IComparer<Tkey> action_compare = null)
@@ -141,38 +147,5 @@ namespace NetManagement.Repositories
             }
         }
 
-        public void Reload(List<string> navigation, bool IsColection, List<T> data = null)
-        {
-            if (data == null)
-            {
-                data = table.ToList();
-            }
-            for (int i = 0; i < data.Count; i++)
-            {
-
-                if (data[i].GetType().BaseType == typeof(Employee))
-                {
-                    Employee employee = data[i] as Employee;
-                    var result = _context.Database.SqlQuery<int>("select CoSalary from SalaryEmployee where ID_SalaryEmployee = @id ", new SqlParameter("@id", employee.ID_SalaryEmployee)).FirstOrDefault();
-                    employee.SalaryEmployee.CoSalary = result;
-                }
-                else
-                {
-                    foreach (var j in navigation)
-                    {
-                        if (!IsColection)
-                        {
-                            var reference = _context.Entry(data[i]).Reference(j);
-                            reference.Load();
-                        }
-                        else
-                            _context.Entry(data[i]).Collection(j).Load();
-                    }
-                }
-                Save();
-            }
-
-
-        }
     }
 }

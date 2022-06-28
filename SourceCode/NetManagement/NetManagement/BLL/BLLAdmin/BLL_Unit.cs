@@ -13,16 +13,17 @@ namespace NetManagement.BLL.BLLAdmin
     {
         private IRepository<Unit> repository;
         private IRepository<Product> repository_product;
-
-        public BLL_Unit() : this(new GenericRepository<Unit>() , new GenericRepository<Product>())
+        private IRepository<Inventory> repository_inventory;
+        public BLL_Unit() : this(new GenericRepository<Unit>() , new GenericRepository<Product>() , new GenericRepository<Inventory>())
         {
 
         }
 
-        public BLL_Unit(IRepository<Unit> _repository, IRepository<Product> _repository_product)
+        public BLL_Unit(IRepository<Unit> _repository, IRepository<Product> _repository_product , IRepository<Inventory> _repository_inventory)
         {
             repository = _repository;
             repository_product = _repository_product;
+            repository_inventory = _repository_inventory;
         }
         public IEnumerable<Unit> GetAll()
         {
@@ -72,15 +73,28 @@ namespace NetManagement.BLL.BLLAdmin
         public void Update(Unit unit)
         {
             repository.Update(unit, unit.ID_Unit, UpdateDelegate);
-            foreach (var i in repository_product.GetAll())
+            repository.Save();
+            foreach (var i in repository_product.Search(unit.ID_Unit.ToString() , p => p.ID_Unit.ToString() , false , false ) )
             {
-                if(i.ID_Unit == unit.ID_Unit)
-                {
-                    i.Unit.NameUnit = unit.NameUnit;
-                }
+                repository_product.Reload(i, p => {
+                    if (p is Unit unit1)
+                    {
+                        unit1.NameUnit = unit.NameUnit;
+                    }
+                }, "Unit");
             }
             repository_product.Save();
-            repository.Save();
+            foreach (var i in repository_inventory.Search(unit.ID_Unit.ToString(), p => p.Product.ID_Unit.ToString(), false, false))
+            {
+                repository_inventory.Reload(i, p => {
+                    if (p is Product product)
+                    {
+                        product.Unit.NameUnit = unit.NameUnit;
+                    }
+                } , "Product");
+            }
+            repository_inventory.Save();
+
         }
         public void DelUnit(int id)
         {

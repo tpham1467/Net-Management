@@ -205,7 +205,7 @@ namespace NetManagement.BLL.BLLEmployee.BLLOrder
         public int PaymentAccount(int id , int money , int id_emloyee)
         {
             Customer customer = repository_Customer.GetById(id);
-            repository_Customer.Reload(customer);
+         //   repository_Customer.Reload(customer);
             if (money > customer.Money) return -1;
             else
             {

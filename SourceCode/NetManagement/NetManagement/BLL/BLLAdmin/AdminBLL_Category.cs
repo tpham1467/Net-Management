@@ -73,16 +73,22 @@ namespace NetManagement.BLL.BLLAdmin
         public void UpDate(Category category)
         {
             try
-            {   foreach(var i in repository_product.GetAll())
-                {
-                    if(i.ID_Category == category.ID_Category)
-                    {
-                        i.Category.CategoryName = category.CategoryName;
-                    }
-                }
-                repository_product.Save();
+            {
                 repository.Update(category, category.ID_Category, UpdateDelegate);
                 repository.Save();
+                foreach (var i in repository_product.Search(category.ID_Category.ToString(), p => p.ID_Category.ToString(), false, false))
+                {
+                    repository_product.Reload(i , p => {
+                        if (p is Category category1)
+                        {
+                            {
+                                category1.CategoryName = category.CategoryName;
+                                category1.Description = category.Description;
+                            }
+                        }
+                    } , "Category" );
+                }
+                repository_product.Save();
             }
             catch
             {

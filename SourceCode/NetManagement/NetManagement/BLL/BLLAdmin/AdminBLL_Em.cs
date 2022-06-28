@@ -12,14 +12,17 @@ namespace NetManagement.BLL
     {
         private IRepository<Employee> repository;
         private IRepository<Account> repository_account;
+        private IRepository<Customer> repository_customer;
         #region Contructor
-        public AdminBLL_Em() : this(new GenericRepository<Employee>() , new GenericRepository<Account>())
+        public AdminBLL_Em() : this(new GenericRepository<Employee>() , new GenericRepository<Account>() , new GenericRepository<Customer>())
         {
         }
-        public AdminBLL_Em(IRepository<Employee> _repository , IRepository<Account> _repository_account)
+        public AdminBLL_Em(IRepository<Employee> _repository , IRepository<Account> _repository_account ,
+            IRepository<Customer> _repository_customer)
         {
             repository = _repository;
             repository_account = _repository_account;
+            repository_customer = _repository_customer;
         }
         public Employee CreateEm()
         {
@@ -110,6 +113,19 @@ namespace NetManagement.BLL
             employee2.Phone = employee1.Phone; employee2.Gender = employee1.Gender;  employee2.Identify = employee1.Identify;
             employee2.ID_SalaryEmployee = employee1.ID_SalaryEmployee; employee2.Email = employee1.Email; employee2.Accounts.ToList().ElementAt(0).Password_Acc = account.Password_Acc;
             employee2.Accounts.ToList().ElementAt(0).UserName_Acc = account.UserName_Acc; 
+
+            foreach(var i in repository_customer.Search(id.ToString() , p => p.ID_Employee.ToString() , false , false))
+            {
+                repository_customer.Reload(i, p =>
+               {
+                   if (p is Employee employee)
+                   {
+                       employee.FirstName = employee2.FirstName;
+                       employee.LastName = employee2.LastName;
+                   }
+
+               } , "Employee");
+            }
             repository.Save();
         }
 

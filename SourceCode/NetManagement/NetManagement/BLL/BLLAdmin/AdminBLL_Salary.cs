@@ -56,11 +56,16 @@ namespace NetManagement.BLL
         {
             SalaryEmployee salaryEmployee = GetSalaryById(id);
             salaryEmployee.CoSalary = salary.CoSalary;
+            repository.Save();
             foreach (var i in repository_empl.Search(id.ToString(), p => p.ID_SalaryEmployee.ToString(), false, false))
             {
-                repository_empl.Reload(i);
-            } 
-            repository.Save();
+                repository_empl.Reload(i, (p) =>
+                {
+                    if (p is SalaryEmployee salary1)
+                        salary1.CoSalary = salaryEmployee.CoSalary;
+                } , "SalaryEmployee");
+            }
+            repository_empl.Save();
         }
      
     }

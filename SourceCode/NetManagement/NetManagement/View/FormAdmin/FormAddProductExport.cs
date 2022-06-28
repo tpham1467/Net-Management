@@ -74,14 +74,8 @@ namespace NetManagement.View.FormAdmin
             Inventory pro = adminBLL_ExProduct.CreateIn();
             try
             {
-                try
-                {
-                    pro.ID_Product = (cbbProduct.SelectedItem as SetCBB).id;
-                }
-                catch
-                {
 
-                }
+                pro.ID_Product = (cbbProduct.SelectedItem as SetCBB) == null ? throw new Exception("Bạn Chưa Chọn Sản phẩm") : (cbbProduct.SelectedItem as SetCBB).id;
                 try
                 {
                     pro.ImportPrices = Convert.ToInt32(txtImport.Text == "" ? throw new Exception("Bạn Chưa Nhập Giá Nhập") : txtImport.Text);
@@ -122,7 +116,7 @@ namespace NetManagement.View.FormAdmin
                 }
 
             }
-            catch(Exception mess)
+            catch (Exception mess)
             {
                 DialogResult result = NetMessageBox.Show(mess.Message,
                "Important Message");
