@@ -119,19 +119,19 @@
 
 
 Quản lý ca làm việc :
-	(-) Sửa lại class Shift:
+	+ Sửa lại class Shift:
 		+ StartDateTime : giờ bắt đầu của ca
 		+ EndDatetime : giờ kết thúc của ca
 		+ WorkedHour : số giờ làm của ca
 
 
-	(-) Thuộc tính trong cột :
+	+ Thuộc tính trong cột :
 		+ ID_Employee
 		+ NameEmployee
 		+ StartDateTime
 		+ EndDatetime
 		+ WorkedHour
-	(-) Chức năng :
+	+ Chức năng :
 		+ View All, theo từng nhân viên, Theo ngày chọn (theo combobox addRange Dictinc)
 		+ Sort theo số giờ ca làm
 		+ Delete ca làm
