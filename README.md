@@ -112,13 +112,13 @@
 		+ EndDatetime : giờ nhân viên kết thúc làm việc
 		+ WorkedHour : số giờ đã làm
 		+ TotalWorking : bằng tổng tất cả giờ trong cột WorkedHour tính từ hiện tại trở lên
-	(-) Chức năng :
+	+ Chức năng :
 		+ Tự động thêm khi nhân viên đăng nhập vào hệ thống
 		+ View theo ngày (theo combobox addRange Dictinc), theo nhân viên
 		+ Sort theo số giờ làm trong 1 ngày, số giờ làm trong 1 tháng
 
 
-Quản lý ca làm việc :
+### Quản lý ca làm việc :
 	+ Sửa lại class Shift:
 		+ StartDateTime : giờ bắt đầu của ca
 		+ EndDatetime : giờ kết thúc của ca
