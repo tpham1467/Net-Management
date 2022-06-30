@@ -39,12 +39,18 @@ namespace NetManagement.View.FormDashBoard
             lblNumcomputer.Text = BllDashBoard.CountTotalComputer().ToString();
             lblNumemployee.Text = BllDashBoard.CountTotalEmployee().ToString();
 
-            chartsoluongtiennapmoitaikhoa.DataSource = BllDashBoard.CountTotalTopUpAccount();
-            chartsoluongtiennapmoitaikhoa.Series[0].XValueMember = "Account";
-            chartsoluongtiennapmoitaikhoa.Series[0].YValueMembers = "Total Top Up";
-            chartsoluongtiennapmoitaikhoa.DataBind();
+            List<KeyValuePair<String, int>> ps = new List<KeyValuePair<String, int>>();
+            ps.Add(new KeyValuePair<String, int>("Truong",   4 ));
+            ps.Add(new KeyValuePair<String, int>("Truong1", 5));
+            ps.Add(new KeyValuePair<String, int>("Truong2", 6));
+            ps.Add(new KeyValuePair<String, int>("Truong3", 433));
+            ps.Add(new KeyValuePair<String, int>("Truong4", 433));
+            //chartsoluongtiennapmoitaikhoa.DataSource = ps;//BllDashBoard.CountTotalTopUpAccount();
+            //chartsoluongtiennapmoitaikhoa.Series[0].XValueMember = "Account";
+            //chartsoluongtiennapmoitaikhoa.Series[0].YValueMembers = "Total Top Up";
+            //chartsoluongtiennapmoitaikhoa.DataBind();
 
-            chartTopProducts.DataSource = BllDashBoard.CountTotalProductSale();
+            chartTopProducts.DataSource =/* BllDashBoard.CountTotalProductSale()*/ps;
             chartTopProducts.Series[0].XValueMember = "ProDuct";
             chartTopProducts.Series[0].YValueMembers = "So Luong";
             chartTopProducts.DataBind();
@@ -62,9 +68,9 @@ namespace NetManagement.View.FormDashBoard
         }
         private void DisableCustomDates()
         {
-            dtpStartDate.Enabled = false;
-            dtpEndDate.Enabled = false;
-            btnOkCustomDate.Visible = false;
+            //dtpStartDate.Enabled = false;
+            //dtpEndDate.Enabled = false;
+          //  btnOkCustomDate.Enabled = false;
         }
 
         //Event methods
@@ -98,13 +104,6 @@ namespace NetManagement.View.FormDashBoard
             dtpEndDate.Value = DateTime.Now;
             LoadData();
             DisableCustomDates();
-        }
-
-        private void btnCustomDate_Click(object sender, EventArgs e)
-        {
-            dtpStartDate.Enabled = true;
-            dtpEndDate.Enabled = true;
-            btnOkCustomDate.Visible = true;
         }
 
         private void btnOkCustomDate_Click(object sender, EventArgs e)

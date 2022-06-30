@@ -73,112 +73,72 @@ namespace NetManagement.BLL.BLlDashBoard
             var data = repository_historyaccountuser.GetAll().Where(p => (!IsAll) ?p.Description != "Thanh Toan order" :true && p.Direct == true &&
             DateTime.Compare(p.Date, starttime) >= 0 &&
              DateTime.Compare(p.Date, starttime) <=0 );
-            int total = 0;
-            foreach(var i in data)
-            {
-                total += Convert.ToInt32( i.Money );
-            }
+            int total = (int)data.Sum(p => p.Money);
             return total;
         }
         public int TotalPaySalary()
         {
             var data = repository_historypayroll.GetAll().Where(p => DateTime.Compare(p.PayrollDate, starttime) >= 0 &&
-             DateTime.Compare(p.PayrollDate, starttime) <= 0);
-            int total = 0;
-            foreach (var i in data)
-            {
-                total += i.Salary;
-            }
+             DateTime.Compare(p.PayrollDate, endtime) <= 0);
+            int total = data.Sum(p => p.Salary);
             return total;
         }
         public float TotalUseComputer()
         {
             var data = repository_UseComputerHistory.GetAll().Where(p => DateTime.Compare(p._LogIn, starttime) >= 0 &&
-             DateTime.Compare(p._LogIn, starttime) <= 0);
-            float total = 0;
-            foreach (var i in data)
-            {
-                total += i.HourUsed;
-            }
+             DateTime.Compare(p._LogIn, endtime) <= 0);
+            float total = data.Sum(p => p.HourUsed);
             return total;
         }
         public int TotaImportMoney()
         {
             var data = repository_Inventory.GetAll().Where(p => DateTime.Compare(p.ImportDay, starttime) >= 0 &&
-            DateTime.Compare(p.ImportDay, starttime) <= 0);
-            int total = 0;
-            foreach (var i in data)
-            {
-                total += i.ImportPrices * i.Init;
-            }
+            DateTime.Compare(p.ImportDay, endtime) <= 0);
+            int total = data.Sum(p => p.Init * p.ImportPrices);
             return total;
         }
         public int TotalSaleproduct()
         {
             var data = repository_order.GetAll().Where(p => p.status == true && DateTime.Compare(p.DateOfOrder, starttime) >= 0 &&
-             DateTime.Compare(p.DateOfOrder, starttime) <= 0);
-            float total = 0;
-            foreach (var i in data)
-            {
-                total += i.Total;
-            }
+             DateTime.Compare(p.DateOfOrder, endtime) <= 0);
+            float total = data.Sum(p => p.Total);
             return (int)total;
         }
         public List<(string, int)> CountTotalProductSale()
         {
             var data = repository_OrderDetail.GetAll().Where(p =>p.Order.status == true && p.status == true && DateTime.Compare(p.Order.DateOfOrder, starttime) >= 0 &&
-            DateTime.Compare(p.Order.DateOfOrder, starttime) <= 0);
-
+            DateTime.Compare(p.Order.DateOfOrder, endtime) <= 0);
+            var result = data.GroupBy(p => p.ID_Product);
             List<(string, int)> output = new List<(string, int)>();
-            foreach (var i in data)
-            {
-                if(CheckContainProduct(output, i.Product.NameProduct) != ("" , 0))
-                {
-                    (string, int) value = CheckContainProduct(output, i.Product.NameProduct);
-                    value.Item2++;
-                }
-                else
-                {
-                    (string, int) value ;
-                    value.Item1 = i.Product.NameProduct;
-                    value.Item2 = 1;
-                    output.Add(value);
-                }
-            }
+            //foreach (var i in result.ToList())
+            //{
+            //   .// output.Add((i.Select(g => g.Product.NameProduct).Where() ,  )
+            //}
+
+
             return output;
 
-        }
-        public (string , int) CheckContainProduct(List<(string , int)> data ,string s)
-        {
-            foreach(var i in data)
-            {
-                if(i.Item1 == s)
-                {
-                    return i;
-                }
-            }
-            return ("" , 0);
         }
         public List<(string, int)> CountTotalTopUpAccount()
         {
             var data = repository_historyaccountuser.GetAll().Where(p => p.Description != "Thanh Toan order" && p.Direct == true &&
             DateTime.Compare(p.Date, starttime) >= 0 &&
-             DateTime.Compare(p.Date, starttime) <= 0);
+             DateTime.Compare(p.Date, endtime) <= 0);
             List<(string, int)> output = new List<(string, int)>();
             foreach (var i in data)
             {
-                if (CheckContainProduct(output, i.customer.FirstName + i.customer.LastName) != ("", 0))
-                {
-                    (string, int) value = CheckContainProduct(output, i.customer.FirstName + i.customer.LastName);
-                    value.Item2++;
-                }
-                else
-                {
-                    (string, int) value;
-                    value.Item1 = i.customer.FirstName +i.customer.LastName;
-                    value.Item2 = 1;
-                    output.Add(value);
-                }
+                //if (CheckContainProduct(output, i.customer.FirstName + i.customer.LastName) != ("", 0))
+                //{
+                //    (string, int) value = CheckContainProduct(output, i.customer.FirstName + i.customer.LastName);
+                //    value.Item2++;
+                //}
+                //else
+                //{
+                //    (string, int) value;
+                //    value.Item1 = i.customer.FirstName +i.customer.LastName;
+                //    value.Item2 = 1;
+                //    output.Add(value);
+                //}
             }
             return output;
         }
@@ -187,22 +147,22 @@ namespace NetManagement.BLL.BLlDashBoard
         {
             var data = repository_UseComputerHistory.GetAll().Where(p => 
             DateTime.Compare(p._LogIn, starttime) >= 0 &&
-             DateTime.Compare(p._LogOut, starttime) <= 0);
+             DateTime.Compare(p._LogOut, endtime) <= 0);
             List<(string, int)> output = new List<(string, int)>();
             foreach (var i in data)
             {
-                if (CheckContainProduct(output, i.ID_Computer.ToString()) != ("", 0))
-                {
-                    (string, int) value = CheckContainProduct(output, i.ID_Computer.ToString());
-                    value.Item2++;
-                }
-                else
-                {
-                    (string, int) value;
-                    value.Item1 = i.ID_Computer.ToString();
-                    value.Item2 = 1;
-                    output.Add(value);
-                }
+                //if (CheckContainProduct(output, i.ID_Computer.ToString()) != ("", 0))
+                //{
+                //    (string, int) value = CheckContainProduct(output, i.ID_Computer.ToString());
+                //    value.Item2++;
+                //}
+                //else
+                //{
+                //    (string, int) value;
+                //    value.Item1 = i.ID_Computer.ToString();
+                //    value.Item2 = 1;
+                //    output.Add(value);
+                //}
             }
             return output;
         }

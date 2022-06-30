@@ -37,6 +37,18 @@ namespace NetManagement.View.FormEmployee
             }
             return data;
         }
+        private List<string> GetDesOrderDetail()
+        {
+
+            List<string> data = new List<string>();
+            foreach (DataGridViewRow i in dataGridView1.Rows)
+            {
+                string id = i.Cells["Status"].Value.ToString();
+                data.Add(id);
+            }
+            return data;
+        }
+
         private void buttonOk_Click(object sender, EventArgs e)
         {
             if ((comboBoxmethod.SelectedItem as string) == "Tài Khoản")

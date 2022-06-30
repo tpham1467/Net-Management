@@ -78,7 +78,7 @@ namespace NetManagement.BLL.BLLLogin
             {
                 if(i.ID_Computer == id)
                 {
-                   // repository.Reload(i);
+                   repository.Reload(i);
                     if (i.Status) return false;
                     else return true;
                 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetManagement.BLL.BLLEmployee.BLLAccoutManagement;
 using NetManagement.DTO;
+using NetMessageBox = NetManagement.Helper.NetMessageBox;
 namespace NetManagement.View.FormEmployee
 {
     public partial class AccManagement_Form : Form
@@ -38,7 +39,9 @@ namespace NetManagement.View.FormEmployee
             }
             else
             {
-                MessageBox.Show("Vui Long Chon");
+                DialogResult result = NetMessageBox.Show("Bạn Chưa Chọn Tài Khoản Nào",
+          "Important Message");
+                return;
             }
         }
 
@@ -57,7 +60,10 @@ namespace NetManagement.View.FormEmployee
             }
             else
             {
-                MessageBox.Show("Vui Long Chon");
+
+                DialogResult result = NetMessageBox.Show("Bạn Chưa Chọn Tài Khoản Nào",
+          "Important Message");
+                return;
             }
         }
 
@@ -71,7 +77,10 @@ namespace NetManagement.View.FormEmployee
             }
             else
             {
-                MessageBox.Show("Vui Long Chon");
+
+                DialogResult result = NetMessageBox.Show("Bạn Chưa Chọn Tài Khoản Nào",
+          "Important Message");
+                return;
             }
         }
 
@@ -149,7 +158,10 @@ namespace NetManagement.View.FormEmployee
             }
             else
             {
-                MessageBox.Show("Vui Long Chon");
+
+                DialogResult result = NetMessageBox.Show("Bạn Chưa Chọn Tài Khoản Nào",
+          "Important Message");
+                return;
             }
         }
      

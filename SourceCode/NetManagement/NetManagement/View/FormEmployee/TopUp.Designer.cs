@@ -38,7 +38,7 @@ namespace NetManagement.View.FormEmployee
             // comboBoxmoney
             // 
             this.comboBoxmoney.FormattingEnabled = true;
-            this.comboBoxmoney.Location = new System.Drawing.Point(169, 71);
+            this.comboBoxmoney.Location = new System.Drawing.Point(156, 89);
             this.comboBoxmoney.Name = "comboBoxmoney";
             this.comboBoxmoney.Size = new System.Drawing.Size(121, 24);
             this.comboBoxmoney.TabIndex = 0;
@@ -46,7 +46,7 @@ namespace NetManagement.View.FormEmployee
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 78);
+            this.label2.Location = new System.Drawing.Point(51, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 17);
             this.label2.TabIndex = 2;

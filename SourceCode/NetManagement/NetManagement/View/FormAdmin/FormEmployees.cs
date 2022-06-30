@@ -307,7 +307,7 @@ namespace NetManagement.View.FormAdmin
         private void btnAddSala_Click(object sender, EventArgs e)
         {
             FormAddUpSalary formAddUpSalary = new FormAddUpSalary(-1);
-            formAddUpSalary.action = ReloadEm;
+            formAddUpSalary.action = ReloadSalaryEmployee;
             formAddUpSalary.Show();
         }
 

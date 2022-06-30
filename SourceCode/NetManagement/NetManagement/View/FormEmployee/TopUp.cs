@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using NetManagement.DTO;
 using NetManagement.Model;
 using NetManagement.BLL.BLLEmployee.BLLAccoutManagement;
+using NetMessageBox = NetManagement.Helper.NetMessageBox;
 namespace NetManagement.View.FormEmployee
 {
     public partial class TopUp : Form
@@ -43,19 +44,54 @@ namespace NetManagement.View.FormEmployee
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            MoneyTopUp money = comboBoxmoney.SelectedItem as MoneyTopUp;
-            foreach (var i in id)
+            int _money = 0;
+            try
             {
-                HistoryAccountUser historyAccountUser = _BLLAccoutManagement.CreateHistoryAccountUser();
-                historyAccountUser.Date = DateTime.Now;
-                historyAccountUser.Description = "Nap Tien";
-                historyAccountUser.Direct = false;
-                historyAccountUser.ID_Customer = i;
-                historyAccountUser.ID_Employee = Id_Employee;
-                historyAccountUser.Money = money.Money;
-                _BLLAccoutManagement.LogHistoryAccountUser(historyAccountUser);
-                _BLLAccoutManagement.TopUpAccount(money.Money, i);
+                MoneyTopUp money = comboBoxmoney.SelectedItem as MoneyTopUp;
+                if (money == null)
+                {
+                    if (comboBoxmoney.Text is string s)
+                    {
+                        s = s.ToLower();
+                        try
+                        {
+                            _money = Convert.ToInt32(s);
+                        }
+                        catch
+                        {
+                            s = s.Replace("vnd", "");
+                            s = s.Replace(" ", "");
+                            try
+                            {
+                                _money = Convert.ToInt32(s);
+                            }
+                            catch
+                            {
+                                throw new Exception("Bạn vui Long kiểm Tra Lại Số Tiền");
+                            }
+                        }
+                    }
+                }
+                else _money = money.Money;
+                foreach (var i in id)
+                {
+                    HistoryAccountUser historyAccountUser = _BLLAccoutManagement.CreateHistoryAccountUser();
+                    historyAccountUser.Date = DateTime.Now;
+                    historyAccountUser.Description = "Nap Tien";
+                    historyAccountUser.Direct = false;
+                    historyAccountUser.ID_Customer = i;
+                    historyAccountUser.ID_Employee = Id_Employee;
+                    historyAccountUser.Money = _money ;
+                    _BLLAccoutManagement.LogHistoryAccountUser(historyAccountUser);
+                    _BLLAccoutManagement.TopUpAccount(money.Money, i);
+                }
             }
+            catch(Exception mess)
+            {
+                    DialogResult result = NetMessageBox.Show(mess.Message,
+               "Important Message");
+                    return;
+                }
             action(null);
             this.Dispose();
         }

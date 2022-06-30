@@ -124,6 +124,12 @@ namespace NetManagement.View.FormEmployee
                 }
                 Reload(_BllCheckIncheckOut.Filter(id ,new StatusShift { ID_StatusShift = 1 }) );
             }
+            else
+            {
+                DialogResult result = NetMessageBox.Show( "Bạn Chưa Chọn Ca Nào",
+          "Important Message");
+                return;
+            }
         }
 
         private void checkBoxDalam_CheckedChanged(object sender, EventArgs e)

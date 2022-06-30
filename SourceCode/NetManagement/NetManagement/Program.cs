@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NetManagement.View.FormAdmin;
+using NetManagement.View.Login;
 namespace NetManagement
 {
     static class Program
@@ -16,7 +16,7 @@ namespace NetManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_Form());
+            Application.Run(new Login_Form());
         }
 
     }

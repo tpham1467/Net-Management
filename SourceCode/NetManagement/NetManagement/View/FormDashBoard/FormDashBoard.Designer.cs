@@ -101,10 +101,9 @@ namespace NetManagement.View.FormDashBoard
             // dtpStartDate
             // 
             this.dtpStartDate.CustomFormat = "MMM dd, yyyy";
-            this.dtpStartDate.Enabled = false;
             this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(218, 18);
+            this.dtpStartDate.Location = new System.Drawing.Point(202, 18);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(122, 23);
             this.dtpStartDate.TabIndex = 1;
@@ -112,10 +111,9 @@ namespace NetManagement.View.FormDashBoard
             // dtpEndDate
             // 
             this.dtpEndDate.CustomFormat = "MMM dd, yyyy";
-            this.dtpEndDate.Enabled = false;
             this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDate.Location = new System.Drawing.Point(364, 18);
+            this.dtpEndDate.Location = new System.Drawing.Point(341, 18);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(122, 23);
             this.dtpEndDate.TabIndex = 2;
@@ -166,14 +164,13 @@ namespace NetManagement.View.FormDashBoard
             // 
             // btnOkCustomDate
             // 
-            this.btnOkCustomDate.Location = new System.Drawing.Point(494, 10);
+            this.btnOkCustomDate.Location = new System.Drawing.Point(498, 13);
             this.btnOkCustomDate.Margin = new System.Windows.Forms.Padding(5);
             this.btnOkCustomDate.Name = "btnOkCustomDate";
             this.btnOkCustomDate.Size = new System.Drawing.Size(39, 35);
             this.btnOkCustomDate.TabIndex = 8;
             this.btnOkCustomDate.Text = "Ok";
             this.btnOkCustomDate.UseVisualStyleBackColor = true;
-            this.btnOkCustomDate.Visible = false;
             this.btnOkCustomDate.Click += new System.EventHandler(this.btnOkCustomDate_Click);
             // 
             // panel1
