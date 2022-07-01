@@ -33,9 +33,9 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPayroll = new System.Windows.Forms.Button();
             this.dgvShow = new System.Windows.Forms.DataGridView();
+            this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btnPayrollAll = new System.Windows.Forms.Button();
-            this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,30 +102,6 @@
             this.dgvShow.Size = new System.Drawing.Size(555, 301);
             this.dgvShow.TabIndex = 5;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(533, 14);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(26, 36);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = " ";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // btnPayrollAll
-            // 
-            this.btnPayrollAll.Enabled = false;
-            this.btnPayrollAll.Location = new System.Drawing.Point(422, 12);
-            this.btnPayrollAll.Name = "btnPayrollAll";
-            this.btnPayrollAll.Size = new System.Drawing.Size(105, 38);
-            this.btnPayrollAll.TabIndex = 1;
-            this.btnPayrollAll.Text = "Payroll All";
-            this.btnPayrollAll.UseVisualStyleBackColor = true;
-            // 
             // Column8
             // 
             this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -140,6 +116,31 @@
             this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column8.Visible = false;
             this.Column8.Width = 6;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(533, 14);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(25, 36);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Text = " ";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // btnPayrollAll
+            // 
+            this.btnPayrollAll.Enabled = false;
+            this.btnPayrollAll.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayrollAll.Location = new System.Drawing.Point(422, 12);
+            this.btnPayrollAll.Name = "btnPayrollAll";
+            this.btnPayrollAll.Size = new System.Drawing.Size(105, 38);
+            this.btnPayrollAll.TabIndex = 1;
+            this.btnPayrollAll.Text = "Payroll All";
+            this.btnPayrollAll.UseVisualStyleBackColor = true;
             // 
             // FormPayroll
             // 

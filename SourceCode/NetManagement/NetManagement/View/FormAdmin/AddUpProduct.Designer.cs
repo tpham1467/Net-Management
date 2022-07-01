@@ -73,6 +73,7 @@
             // 
             // cbbCategory
             // 
+            this.cbbCategory.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbCategory.FormattingEnabled = true;
             this.cbbCategory.Location = new System.Drawing.Point(220, 85);
             this.cbbCategory.Name = "cbbCategory";
@@ -81,6 +82,7 @@
             // 
             // cbbUnit
             // 
+            this.cbbUnit.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbUnit.FormattingEnabled = true;
             this.cbbUnit.Location = new System.Drawing.Point(463, 85);
             this.cbbUnit.Name = "cbbUnit";
@@ -89,6 +91,7 @@
             // 
             // txtNameProduct
             // 
+            this.txtNameProduct.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNameProduct.Location = new System.Drawing.Point(13, 86);
             this.txtNameProduct.Name = "txtNameProduct";
             this.txtNameProduct.Size = new System.Drawing.Size(183, 22);
@@ -138,6 +141,7 @@
             this.Text = "AddUpProduct";
             this.ResumeLayout(false);
             this.PerformLayout();
+
     }
 
 

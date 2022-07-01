@@ -48,9 +48,13 @@ namespace NetManagement.View.FormEmployee
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(126, 451);
+            this.buttonCancel.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.buttonCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.Color.Firebrick;
+            this.buttonCancel.Location = new System.Drawing.Point(130, 444);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(155, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(155, 30);
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -58,9 +62,13 @@ namespace NetManagement.View.FormEmployee
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(537, 451);
+            this.buttonOk.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.buttonOk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOk.ForeColor = System.Drawing.Color.Firebrick;
+            this.buttonOk.Location = new System.Drawing.Point(537, 444);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(171, 23);
+            this.buttonOk.Size = new System.Drawing.Size(171, 30);
             this.buttonOk.TabIndex = 2;
             this.buttonOk.Text = "Ok";
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -82,6 +90,7 @@ namespace NetManagement.View.FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(895, 486);
             this.Controls.Add(this.comboBoxmethod);
             this.Controls.Add(this.buttonOk);

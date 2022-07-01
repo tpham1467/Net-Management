@@ -47,6 +47,7 @@
             // 
             // txtNameUnit
             // 
+            this.txtNameUnit.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNameUnit.Location = new System.Drawing.Point(138, 22);
             this.txtNameUnit.Name = "txtNameUnit";
             this.txtNameUnit.Size = new System.Drawing.Size(215, 22);
@@ -56,6 +57,8 @@
             // 
             this.btnSave.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSave.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnSave.Location = new System.Drawing.Point(56, 77);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(85, 29);
@@ -68,6 +71,8 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancel.Location = new System.Drawing.Point(230, 77);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(85, 29);
@@ -86,12 +91,12 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtNameUnit);
             this.Controls.Add(this.lbNameUnit);
-
             this.Name = "AddUpUnit_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUpUnit_Form";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

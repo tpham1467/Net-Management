@@ -424,11 +424,17 @@
     <EmbeddedResource Include="View\FormChoosePC\FormChoosePc.resx">
       <DependentUpon>FormChoosePc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormCustomer\Chat_Form.resx">
+      <DependentUpon>Chat_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormCustomer\MainForm_User.resx">
       <DependentUpon>MainForm_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormCustomer\OrderCust_Form.resx">
       <DependentUpon>OrderCust_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormCustomer\PersonalInfor_Form.resx">
+      <DependentUpon>PersonalInfor_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormDashBoard\FormDashBoard.resx">
       <DependentUpon>FormDashBoard.cs</DependentUpon>
@@ -485,12 +491,22 @@
     <Content Include="Resources\0af3c9613761d2d2394d99312aeba397.gif" />
     <Content Include="Resources\avt.png" />
     <Content Include="Resources\backgroud.png" />
+    <None Include="Resources\Vietel50k.jpg" />
+    <None Include="Resources\Vietel10k.jpg" />
+    <None Include="Resources\XucXich.jpg" />
     <None Include="Resources\customer-management.png" />
     <None Include="Resources\btnbackground.jpg" />
     <None Include="Resources\color-background.png" />
     <None Include="Resources\chat.png" />
     <None Include="Resources\error.png" />
     <None Include="Resources\exclamation.png" />
+    <None Include="Resources\BanhMi.jpg" />
+    <None Include="Resources\Comga.jpg" />
+    <None Include="Resources\bimbim.jpg" />
+    <None Include="Resources\BoCung.jpg" />
+    <None Include="Resources\Cocacola.jpg" />
+    <None Include="Resources\Garena10k.png" />
+    <None Include="Resources\Garena50k.jpg" />
     <Content Include="Resources\gmail-4561841_1280.png" />
     <None Include="Resources\HistoryUsed.png" />
     <None Include="Resources\icon-add-8.jpg" />
@@ -511,11 +527,20 @@
     <None Include="Resources\Logo11.jpg" />
     <None Include="Resources\Logo2_remove.png" />
     <None Include="Resources\mainBACKGROUND2.jpg" />
+    <None Include="Resources\LogoMainformAdmin.png" />
+    <None Include="Resources\Mi-tom-hao-hao.jpg" />
+    <None Include="Resources\MiTomTrung.jpg" />
+    <None Include="Resources\nuoc-tinh-khiet.jpg" />
+    <None Include="Resources\NutiFood.jpg" />
+    <None Include="Resources\Mobiphone10k.jpg" />
     <Content Include="Resources\PC.png" />
     <None Include="Resources\redBackground.jpg" />
     <None Include="Resources\question.png" />
     <Content Include="Resources\Remini20220408094410404.jpg" />
     <None Include="Resources\Shift.png" />
+    <None Include="Resources\StingDo.jpg" />
+    <None Include="Resources\StingVang.jpg" />
+    <None Include="Resources\the-vinaphone.png" />
     <Content Include="Resources\Thiết kế chưa có tên %284%29.png" />
     <Content Include="Resources\Thiết kế chưa có tên %285%29.png" />
     <Content Include="Resources\Thiết kế chưa có tên %286%29.png" />

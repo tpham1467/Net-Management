@@ -46,10 +46,10 @@
             // 
             this.lbStartTime.AutoSize = true;
             this.lbStartTime.BackColor = System.Drawing.Color.Transparent;
-            this.lbStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbStartTime.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold);
             this.lbStartTime.Location = new System.Drawing.Point(56, 166);
             this.lbStartTime.Name = "lbStartTime";
-            this.lbStartTime.Size = new System.Drawing.Size(226, 32);
+            this.lbStartTime.Size = new System.Drawing.Size(230, 31);
             this.lbStartTime.TabIndex = 4;
             this.lbStartTime.Text = "Shift Start Time";
             // 
@@ -57,10 +57,10 @@
             // 
             this.lbWorkday.AutoSize = true;
             this.lbWorkday.BackColor = System.Drawing.Color.Transparent;
-            this.lbWorkday.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbWorkday.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold);
             this.lbWorkday.Location = new System.Drawing.Point(41, 53);
             this.lbWorkday.Name = "lbWorkday";
-            this.lbWorkday.Size = new System.Drawing.Size(137, 32);
+            this.lbWorkday.Size = new System.Drawing.Size(140, 31);
             this.lbWorkday.TabIndex = 5;
             this.lbWorkday.Text = "WorkDay";
             // 
@@ -68,38 +68,38 @@
             // 
             this.lbPhone.AutoSize = true;
             this.lbPhone.BackColor = System.Drawing.Color.Transparent;
-            this.lbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbPhone.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold);
             this.lbPhone.Location = new System.Drawing.Point(296, 53);
             this.lbPhone.Name = "lbPhone";
-            this.lbPhone.Size = new System.Drawing.Size(150, 32);
+            this.lbPhone.Size = new System.Drawing.Size(140, 31);
             this.lbPhone.TabIndex = 7;
             this.lbPhone.Text = "Employee";
             // 
             // btnSend
             // 
-            this.btnSend.BackgroundImage = global::NetManagement.Properties.Resources.imagesButton;
+            this.btnSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.btnSend.Font = new System.Drawing.Font("Stencil", 10.2F);
             this.btnSend.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnSend.Location = new System.Drawing.Point(102, 317);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(128, 44);
             this.btnSend.TabIndex = 19;
             this.btnSend.Text = "SEND";
-            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.UseVisualStyleBackColor = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.BackgroundImage = global::NetManagement.Properties.Resources.redBackground;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.Font = new System.Drawing.Font("Stencil", 10.2F);
             this.btnCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancel.Location = new System.Drawing.Point(343, 317);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(128, 44);
             this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // dtpWD
@@ -115,6 +115,7 @@
             // 
             // cbbNameE
             // 
+            this.cbbNameE.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbNameE.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbNameE.FormattingEnabled = true;
             this.cbbNameE.Location = new System.Drawing.Point(301, 86);
@@ -124,6 +125,7 @@
             // 
             // mTbStartTime
             // 
+            this.mTbStartTime.BackColor = System.Drawing.Color.WhiteSmoke;
             this.mTbStartTime.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mTbStartTime.Location = new System.Drawing.Point(103, 216);
             this.mTbStartTime.Mask = "00:00";
@@ -134,6 +136,7 @@
             // 
             // mTbEndTime
             // 
+            this.mTbEndTime.BackColor = System.Drawing.Color.WhiteSmoke;
             this.mTbEndTime.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mTbEndTime.Location = new System.Drawing.Point(343, 169);
             this.mTbEndTime.Mask = "00:00";
@@ -146,15 +149,16 @@
             // 
             this.lbEndTime.AutoSize = true;
             this.lbEndTime.BackColor = System.Drawing.Color.Transparent;
-            this.lbEndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbEndTime.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold);
             this.lbEndTime.Location = new System.Drawing.Point(296, 136);
             this.lbEndTime.Name = "lbEndTime";
-            this.lbEndTime.Size = new System.Drawing.Size(215, 32);
+            this.lbEndTime.Size = new System.Drawing.Size(220, 31);
             this.lbEndTime.TabIndex = 28;
             this.lbEndTime.Text = "Shift End Time";
             // 
             // cbbStatus
             // 
+            this.cbbStatus.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbStatus.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbStatus.FormattingEnabled = true;
             this.cbbStatus.Items.AddRange(new object[] {
@@ -170,10 +174,10 @@
             // 
             this.lbstatus.AutoSize = true;
             this.lbstatus.BackColor = System.Drawing.Color.Transparent;
-            this.lbstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbstatus.Font = new System.Drawing.Font("Modern No. 20", 18F, System.Drawing.FontStyle.Bold);
             this.lbstatus.Location = new System.Drawing.Point(296, 220);
             this.lbstatus.Name = "lbstatus";
-            this.lbstatus.Size = new System.Drawing.Size(102, 32);
+            this.lbstatus.Size = new System.Drawing.Size(94, 31);
             this.lbstatus.TabIndex = 30;
             this.lbstatus.Text = "Status";
             // 
@@ -182,7 +186,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
-            this.BackgroundImage = global::NetManagement.Properties.Resources.images1;
+            this.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(584, 392);
             this.Controls.Add(this.lbstatus);
