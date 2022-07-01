@@ -65,15 +65,7 @@ namespace NetManagement.BLL
             return data2;
         }
         #endregion
-        public List<HistoryPayroll> Sort(List<int> id,string txtcbb)
-        {
-            List<HistoryPayroll> list = GetHisPayrollById(id);
-            if (txtcbb == "WorkHour")
-            {
-                //list = list.OrderBy(p=>p..WorkedHour).ToList();
-            }
-            return list;
-        }
+        
         public void SaveChange()
         {
             repository.Save();

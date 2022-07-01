@@ -22,11 +22,10 @@ namespace NetManagement.BLL
         {
             repository = _repository;
         }
-        
 
+        #region Get Object
         public IEnumerable<Customer> GetAll()
         {
-            
             List<Customer> data = repository.GetAll().ToList();
             return data;
         }
@@ -55,7 +54,7 @@ namespace NetManagement.BLL
             return cus;
 
         }
-        
+        #endregion
         public void Add(Customer cus)
         {
             cus.Day_Create = DateTime.Now;

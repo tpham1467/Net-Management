@@ -510,12 +510,15 @@
     <Content Include="Resources\gmail-4561841_1280.png" />
     <None Include="Resources\HistoryUsed.png" />
     <None Include="Resources\icon-add-8.jpg" />
+    <None Include="Resources\gray.jpg" />
+    <None Include="Resources\green.jpg" />
     <Content Include="Resources\Image1.png" />
     <None Include="Resources\light-blue-green.jpg" />
     <None Include="Resources\images.jpg" />
     <None Include="Resources\images1.jpg" />
     <None Include="Resources\imagesButton.jpg" />
     <None Include="Resources\information.png" />
+    <None Include="Resources\light-green.jpg" />
     <Content Include="Resources\Logo.jpg" />
     <Content Include="Resources\Logo.png" />
     <Content Include="Resources\Logo1.jpg" />
@@ -536,6 +539,7 @@
     <Content Include="Resources\PC.png" />
     <None Include="Resources\redBackground.jpg" />
     <None Include="Resources\question.png" />
+    <None Include="Resources\red.jpg" />
     <Content Include="Resources\Remini20220408094410404.jpg" />
     <None Include="Resources\Shift.png" />
     <None Include="Resources\StingDo.jpg" />
