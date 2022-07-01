@@ -31,8 +31,8 @@ namespace NetManagement.View.FormEmployee
         {
             this.comboBoxmoney = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxmoney
@@ -46,25 +46,14 @@ namespace NetManagement.View.FormEmployee
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkRed;
             this.label2.Location = new System.Drawing.Point(51, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Số Tiền ";
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
-            this.buttonCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonCancel.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.ForeColor = System.Drawing.Color.Firebrick;
-            this.buttonCancel.Location = new System.Drawing.Point(36, 265);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(93, 33);
-            this.buttonCancel.TabIndex = 3;
-            this.buttonCancel.Text = "Hủy";
-            this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonOk
             // 
@@ -80,11 +69,26 @@ namespace NetManagement.View.FormEmployee
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.buttonCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCancel.Font = new System.Drawing.Font("Modern No. 20", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.Color.Firebrick;
+            this.buttonCancel.Location = new System.Drawing.Point(36, 265);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(93, 33);
+            this.buttonCancel.TabIndex = 3;
+            this.buttonCancel.Text = "Hủy";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
             // TopUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
+            this.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(305, 321);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.buttonCancel);

@@ -57,6 +57,12 @@
             // 
             // btnCheckin
             // 
+            this.btnCheckin.BackgroundImage = global::NetManagement.Properties.Resources.green;
+            this.btnCheckin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheckin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheckin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCheckin.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckin.ForeColor = System.Drawing.Color.Yellow;
             this.btnCheckin.Location = new System.Drawing.Point(495, 25);
             this.btnCheckin.Name = "btnCheckin";
             this.btnCheckin.Size = new System.Drawing.Size(115, 39);
@@ -67,6 +73,12 @@
             // 
             // btnCheckout
             // 
+            this.btnCheckout.BackgroundImage = global::NetManagement.Properties.Resources.red;
+            this.btnCheckout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheckout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCheckout.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckout.ForeColor = System.Drawing.Color.Yellow;
             this.btnCheckout.Location = new System.Drawing.Point(633, 23);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(115, 39);
@@ -78,8 +90,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label1.Location = new System.Drawing.Point(23, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 18);
@@ -89,8 +102,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.label2.Location = new System.Drawing.Point(23, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(165, 18);
@@ -110,80 +124,94 @@
             // labelAveWorkingTime
             // 
             this.labelAveWorkingTime.AutoSize = true;
+            this.labelAveWorkingTime.BackColor = System.Drawing.Color.Transparent;
             this.labelAveWorkingTime.Location = new System.Drawing.Point(630, 100);
             this.labelAveWorkingTime.Name = "labelAveWorkingTime";
-            this.labelAveWorkingTime.Size = new System.Drawing.Size(28, 17);
+            this.labelAveWorkingTime.Size = new System.Drawing.Size(24, 16);
             this.labelAveWorkingTime.TabIndex = 7;
             this.labelAveWorkingTime.Text = "6.8";
             // 
             // labeAveWorkingTimelable
             // 
             this.labeAveWorkingTimelable.AutoSize = true;
+            this.labeAveWorkingTimelable.BackColor = System.Drawing.Color.Transparent;
             this.labeAveWorkingTimelable.Location = new System.Drawing.Point(462, 100);
             this.labeAveWorkingTimelable.Name = "labeAveWorkingTimelable";
-            this.labeAveWorkingTimelable.Size = new System.Drawing.Size(123, 17);
+            this.labeAveWorkingTimelable.Size = new System.Drawing.Size(118, 16);
             this.labeAveWorkingTimelable.TabIndex = 8;
             this.labeAveWorkingTimelable.Text = "AveWorkingTime :";
             // 
             // labeltotalworkingtime
             // 
             this.labeltotalworkingtime.AutoSize = true;
+            this.labeltotalworkingtime.BackColor = System.Drawing.Color.Transparent;
             this.labeltotalworkingtime.Location = new System.Drawing.Point(379, 100);
             this.labeltotalworkingtime.Name = "labeltotalworkingtime";
-            this.labeltotalworkingtime.Size = new System.Drawing.Size(24, 17);
+            this.labeltotalworkingtime.Size = new System.Drawing.Size(21, 16);
             this.labeltotalworkingtime.TabIndex = 9;
             this.labeltotalworkingtime.Text = "50";
             // 
             // labelTotalWorkingTimelabel
             // 
             this.labelTotalWorkingTimelabel.AutoSize = true;
+            this.labelTotalWorkingTimelabel.BackColor = System.Drawing.Color.Transparent;
             this.labelTotalWorkingTimelabel.Location = new System.Drawing.Point(225, 100);
             this.labelTotalWorkingTimelabel.Name = "labelTotalWorkingTimelabel";
-            this.labelTotalWorkingTimelabel.Size = new System.Drawing.Size(131, 17);
+            this.labelTotalWorkingTimelabel.Size = new System.Drawing.Size(125, 16);
             this.labelTotalWorkingTimelabel.TabIndex = 10;
             this.labelTotalWorkingTimelabel.Text = "TotalWorkingTime :";
             // 
             // labelTotal_WorkingDay
             // 
             this.labelTotal_WorkingDay.AutoSize = true;
+            this.labelTotal_WorkingDay.BackColor = System.Drawing.Color.Transparent;
             this.labelTotal_WorkingDay.Location = new System.Drawing.Point(140, 100);
             this.labelTotal_WorkingDay.Name = "labelTotal_WorkingDay";
-            this.labelTotal_WorkingDay.Size = new System.Drawing.Size(24, 17);
+            this.labelTotal_WorkingDay.Size = new System.Drawing.Size(21, 16);
             this.labelTotal_WorkingDay.TabIndex = 11;
             this.labelTotal_WorkingDay.Text = "10";
             // 
             // labelTotal_WorkingDaylable
             // 
             this.labelTotal_WorkingDaylable.AutoSize = true;
+            this.labelTotal_WorkingDaylable.BackColor = System.Drawing.Color.Transparent;
             this.labelTotal_WorkingDaylable.Location = new System.Drawing.Point(1, 100);
             this.labelTotal_WorkingDaylable.Name = "labelTotal_WorkingDaylable";
-            this.labelTotal_WorkingDaylable.Size = new System.Drawing.Size(133, 17);
+            this.labelTotal_WorkingDaylable.Size = new System.Drawing.Size(126, 16);
             this.labelTotal_WorkingDaylable.TabIndex = 12;
             this.labelTotal_WorkingDaylable.Text = "Total_WorkingDay :";
             // 
             // labelTimeStart
             // 
             this.labelTimeStart.AutoSize = true;
+            this.labelTimeStart.BackColor = System.Drawing.Color.Transparent;
+            this.labelTimeStart.ForeColor = System.Drawing.Color.Indigo;
             this.labelTimeStart.Location = new System.Drawing.Point(239, 25);
             this.labelTimeStart.Name = "labelTimeStart";
-            this.labelTimeStart.Size = new System.Drawing.Size(64, 17);
+            this.labelTimeStart.Size = new System.Drawing.Size(55, 16);
             this.labelTimeStart.TabIndex = 13;
             this.labelTimeStart.Text = "13:11:12";
             // 
             // labelTimEnd
             // 
             this.labelTimEnd.AutoSize = true;
+            this.labelTimEnd.BackColor = System.Drawing.Color.Transparent;
+            this.labelTimEnd.ForeColor = System.Drawing.Color.Indigo;
             this.labelTimEnd.Location = new System.Drawing.Point(239, 55);
             this.labelTimEnd.Name = "labelTimEnd";
-            this.labelTimEnd.Size = new System.Drawing.Size(64, 17);
+            this.labelTimEnd.Size = new System.Drawing.Size(55, 16);
             this.labelTimEnd.TabIndex = 14;
             this.labelTimEnd.Text = "14:34:10";
             // 
             // buttonSetoff
             // 
+            this.buttonSetoff.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.buttonSetoff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSetoff.Font = new System.Drawing.Font("Modern No. 20", 12F);
+            this.buttonSetoff.ForeColor = System.Drawing.Color.DarkRed;
             this.buttonSetoff.Location = new System.Drawing.Point(4, 407);
             this.buttonSetoff.Name = "buttonSetoff";
-            this.buttonSetoff.Size = new System.Drawing.Size(80, 31);
+            this.buttonSetoff.Size = new System.Drawing.Size(102, 31);
             this.buttonSetoff.TabIndex = 15;
             this.buttonSetoff.Text = "Set Off";
             this.buttonSetoff.UseVisualStyleBackColor = true;
@@ -191,9 +219,13 @@
             // 
             // buttonSort
             // 
+            this.buttonSort.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.buttonSort.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSort.Font = new System.Drawing.Font("Modern No. 20", 12F);
+            this.buttonSort.ForeColor = System.Drawing.Color.DarkRed;
             this.buttonSort.Location = new System.Drawing.Point(112, 407);
             this.buttonSort.Name = "buttonSort";
-            this.buttonSort.Size = new System.Drawing.Size(120, 31);
+            this.buttonSort.Size = new System.Drawing.Size(137, 31);
             this.buttonSort.TabIndex = 16;
             this.buttonSort.Text = "Sort";
             this.buttonSort.UseVisualStyleBackColor = true;
@@ -224,12 +256,13 @@
             // checkBoxDalam
             // 
             this.checkBoxDalam.AutoSize = true;
+            this.checkBoxDalam.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxDalam.Location = new System.Drawing.Point(12, 131);
             this.checkBoxDalam.Name = "checkBoxDalam";
-            this.checkBoxDalam.Size = new System.Drawing.Size(79, 21);
+            this.checkBoxDalam.Size = new System.Drawing.Size(76, 20);
             this.checkBoxDalam.TabIndex = 21;
             this.checkBoxDalam.Text = "Da Lam";
-            this.checkBoxDalam.UseVisualStyleBackColor = true;
+            this.checkBoxDalam.UseVisualStyleBackColor = false;
             this.checkBoxDalam.CheckedChanged += new System.EventHandler(this.checkBoxDalam_CheckedChanged);
             // 
             // buttonFilter
@@ -259,23 +292,29 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(239, 132);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.Size = new System.Drawing.Size(38, 16);
             this.label3.TabIndex = 25;
             this.label3.Text = "From";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(508, 131);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 17);
+            this.label4.Size = new System.Drawing.Size(24, 16);
             this.label4.TabIndex = 26;
             this.label4.Text = "To";
             // 
             // buttonAll
             // 
+            this.buttonAll.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.buttonAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAll.Font = new System.Drawing.Font("Modern No. 20", 12F);
+            this.buttonAll.ForeColor = System.Drawing.Color.DarkRed;
             this.buttonAll.Location = new System.Drawing.Point(563, 404);
             this.buttonAll.Name = "buttonAll";
             this.buttonAll.Size = new System.Drawing.Size(120, 31);
@@ -289,6 +328,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
+            this.BackgroundImage = global::NetManagement.Properties.Resources.light_green;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonAll);
             this.Controls.Add(this.label4);
