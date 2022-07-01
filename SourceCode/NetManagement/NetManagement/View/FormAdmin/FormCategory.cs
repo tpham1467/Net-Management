@@ -28,12 +28,26 @@ namespace NetManagement.View.FormAdmin
         }
         public void Create_CBB()
         {
-            cbbSortProperty.Items.Add("Name Category");
-            cbbSortProperty.Items.Add("ID_Category");
-            cbbSearch.Items.Add("All");
-            cbbSearch.Items.Add("Name Category");
-            cbbSearch.Items.Add("ID_Category");
+            cbbSortProperty.Items.Clear();
+            cbbSearch.Items.Clear();
+            if (tbCategory.SelectedIndex == 0)
+            {
+            
+                cbbSortProperty.Items.Add("Name Category");
+                cbbSortProperty.Items.Add("ID_Category");
+                cbbSearch.Items.Add("All");
+                cbbSearch.Items.Add("Name Category");
+                cbbSearch.Items.Add("ID_Category");
+            }
+            else
+            {
+                cbbSearch.Items.Clear();
+                cbbSearch.Items.Add("All");
+                cbbSearch.Items.Add("Name Unit");
+                cbbSearch.Items.Add("ID_Unit");
+            }
         }
+
 
         public void ReloadCategory(List<object> data = null)
         {
@@ -103,19 +117,33 @@ namespace NetManagement.View.FormAdmin
             string txt = txtSearch.Text;
             string s = cbbSearch.Text;
             List<object> list = new List<object>();
-            if (s == "All")
+            if (tbCategory.SelectedIndex == 0)
             {
-                list = adManaCategory.Search(txt, SearchAcoountEnum.All);
-            }
-            else if (s == "ID_Category")
-            {
-                list = adManaCategory.Search(txt, SearchAcoountEnum.Id);
+                if (s == "All")
+                {
+                    list = adManaCategory.Search(txt, SearchAcoountEnum.All);
+                }
+                else if (s == "ID_Category")
+                {
+                    list = adManaCategory.Search(txt, SearchAcoountEnum.Id);
+                }
+                else list = adManaCategory.Search(txt, SearchAcoountEnum.Name);
+                ReloadCategory(list);
             }
             else
             {
-                list = adManaCategory.Search(txt, SearchAcoountEnum.Name);
+                if (s == "All")
+                {
+                    list = adUnit.Search(txt, SearchAcoountEnum.All);
+                }
+                else if (s == "ID_Unit")
+                {
+                    list = adUnit.Search(txt, SearchAcoountEnum.Id);
+                }
+                else list = adUnit.Search(txt, SearchAcoountEnum.Name);
+                ReloadUnit(list);
             }
-            ReloadCategory(list);
+
         }
 
         private void btnAll_Click(object sender, EventArgs e)
@@ -126,7 +154,7 @@ namespace NetManagement.View.FormAdmin
         private void btnUnitAdd_Click(object sender, EventArgs e)
         {
             AddUpUnit_Form addUpUnit_Form = new AddUpUnit_Form(-1);
-            addUpUnit_Form.d = new AddUpUnit_Form.MyDel(ReloadUnit);
+            addUpUnit_Form.action = ReloadUnit;
             addUpUnit_Form.Show();
         }
 
@@ -136,7 +164,7 @@ namespace NetManagement.View.FormAdmin
             {
                 int s = System.Convert.ToInt32(dgvUnit.SelectedRows[0].Cells["ID_Unit"].Value);
                 AddUpUnit_Form addUpUnit_Form = new AddUpUnit_Form(s);
-                addUpUnit_Form.d = new AddUpUnit_Form.MyDel(ReloadUnit);
+                addUpUnit_Form.action = ReloadUnit;
                 addUpUnit_Form.Show();
             }
         }
@@ -165,12 +193,15 @@ namespace NetManagement.View.FormAdmin
         {
             if(tbCategory.SelectedIndex == 0)
             {
+
                 ReloadCategory();
             }
             else
             {
                 ReloadUnit();
+
             }
+            Create_CBB();
 
         }
 

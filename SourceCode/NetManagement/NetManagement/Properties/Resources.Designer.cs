@@ -19,7 +19,7 @@ namespace NetManagement.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -445,7 +445,7 @@ namespace NetManagement.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Mi_tom_hao_hao {
             get {
-                object obj = ResourceManager.GetObject("Mi-tom-hao-hao", resourceCulture);
+                object obj = ResourceManager.GetObject("Mi_tom_hao_hao", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -475,7 +475,7 @@ namespace NetManagement.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap nuoc_tinh_khiet {
             get {
-                object obj = ResourceManager.GetObject("nuoc-tinh-khiet", resourceCulture);
+                object obj = ResourceManager.GetObject("nuoc_tinh_khiet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -615,7 +615,7 @@ namespace NetManagement.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap the_vinaphone {
             get {
-                object obj = ResourceManager.GetObject("the-vinaphone", resourceCulture);
+                object obj = ResourceManager.GetObject("the_vinaphone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

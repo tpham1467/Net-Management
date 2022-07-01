@@ -14,8 +14,7 @@ namespace NetManagement.View.FormAdmin
 {
     public partial class AddUpUnit_Form : Form
     {
-        public delegate void MyDel(List<object> data = null);
-        public MyDel d;
+        public Action<List<object>> action;
         public int ID;
         BLL_Unit BLL_Unit = new BLL_Unit();
         public AddUpUnit_Form(int id)
@@ -56,8 +55,8 @@ namespace NetManagement.View.FormAdmin
                 "Important Message");
                 return;
             }
-           
-            d();
+
+            action(null);
             this.Dispose();
         }
 
