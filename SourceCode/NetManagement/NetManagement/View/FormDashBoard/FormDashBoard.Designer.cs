@@ -78,12 +78,12 @@ namespace NetManagement.View.FormDashBoard
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.chartmaysudung = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox6 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox4 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox5 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPictureBox6 = new FontAwesome.Sharp.IconPictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -92,12 +92,12 @@ namespace NetManagement.View.FormDashBoard
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartmaysudung)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -134,6 +134,9 @@ namespace NetManagement.View.FormDashBoard
             // btnThisMonth
             // 
             this.btnThisMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnThisMonth.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.btnThisMonth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnThisMonth.Font = new System.Drawing.Font("Modern No. 20", 10.2F);
             this.btnThisMonth.Location = new System.Drawing.Point(1024, 10);
             this.btnThisMonth.Margin = new System.Windows.Forms.Padding(5);
             this.btnThisMonth.Name = "btnThisMonth";
@@ -146,6 +149,9 @@ namespace NetManagement.View.FormDashBoard
             // btnLast30Days
             // 
             this.btnLast30Days.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnLast30Days.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.btnLast30Days.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLast30Days.Font = new System.Drawing.Font("Modern No. 20", 10.2F);
             this.btnLast30Days.Location = new System.Drawing.Point(870, 13);
             this.btnLast30Days.Margin = new System.Windows.Forms.Padding(5);
             this.btnLast30Days.Name = "btnLast30Days";
@@ -158,6 +164,9 @@ namespace NetManagement.View.FormDashBoard
             // btnLast7Days
             // 
             this.btnLast7Days.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnLast7Days.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.btnLast7Days.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLast7Days.Font = new System.Drawing.Font("Modern No. 20", 10.2F);
             this.btnLast7Days.Location = new System.Drawing.Point(713, 14);
             this.btnLast7Days.Margin = new System.Windows.Forms.Padding(5);
             this.btnLast7Days.Name = "btnLast7Days";
@@ -170,6 +179,9 @@ namespace NetManagement.View.FormDashBoard
             // btnToday
             // 
             this.btnToday.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnToday.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.btnToday.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnToday.Font = new System.Drawing.Font("Modern No. 20", 10.2F);
             this.btnToday.Location = new System.Drawing.Point(559, 13);
             this.btnToday.Margin = new System.Windows.Forms.Padding(5);
             this.btnToday.Name = "btnToday";
@@ -182,6 +194,9 @@ namespace NetManagement.View.FormDashBoard
             // btnOkCustomDate
             // 
             this.btnOkCustomDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnOkCustomDate.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.btnOkCustomDate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOkCustomDate.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOkCustomDate.Location = new System.Drawing.Point(498, 13);
             this.btnOkCustomDate.Margin = new System.Windows.Forms.Padding(5);
             this.btnOkCustomDate.Name = "btnOkCustomDate";
@@ -573,19 +588,21 @@ namespace NetManagement.View.FormDashBoard
             title3.Text = "Số Giờ Sử Dụng Của Mỗi Máy";
             this.chartmaysudung.Titles.Add(title3);
             // 
-            // iconPictureBox1
+            // iconPictureBox3
             // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.LightCoral;
-            this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.iconPictureBox1.IconColor = System.Drawing.SystemColors.Control;
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.Location = new System.Drawing.Point(15, 45);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox1.TabIndex = 7;
-            this.iconPictureBox1.TabStop = false;
+            this.iconPictureBox3.BackColor = System.Drawing.Color.LightCoral;
+            this.iconPictureBox3.BackgroundImage = global::NetManagement.Properties.Resources.btnbackground;
+            this.iconPictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.iconPictureBox3.ForeColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.iconPictureBox3.IconColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox3.Location = new System.Drawing.Point(15, 166);
+            this.iconPictureBox3.Name = "iconPictureBox3";
+            this.iconPictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox3.TabIndex = 9;
+            this.iconPictureBox3.TabStop = false;
             // 
             // iconPictureBox2
             // 
@@ -603,21 +620,34 @@ namespace NetManagement.View.FormDashBoard
             this.iconPictureBox2.TabIndex = 8;
             this.iconPictureBox2.TabStop = false;
             // 
-            // iconPictureBox3
+            // iconPictureBox1
             // 
-            this.iconPictureBox3.BackColor = System.Drawing.Color.LightCoral;
-            this.iconPictureBox3.BackgroundImage = global::NetManagement.Properties.Resources.btnbackground;
-            this.iconPictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.iconPictureBox3.ForeColor = System.Drawing.SystemColors.Control;
-            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.iconPictureBox3.IconColor = System.Drawing.SystemColors.Control;
-            this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox3.Location = new System.Drawing.Point(15, 166);
-            this.iconPictureBox3.Name = "iconPictureBox3";
-            this.iconPictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox3.TabIndex = 9;
-            this.iconPictureBox3.TabStop = false;
+            this.iconPictureBox1.BackColor = System.Drawing.Color.LightCoral;
+            this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconPictureBox1.IconColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.Location = new System.Drawing.Point(15, 45);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox1.TabIndex = 7;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // iconPictureBox6
+            // 
+            this.iconPictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.iconPictureBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.iconPictureBox6.IconChar = FontAwesome.Sharp.IconChar.HandHoldingUsd;
+            this.iconPictureBox6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.iconPictureBox6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox6.IconSize = 73;
+            this.iconPictureBox6.Location = new System.Drawing.Point(116, 0);
+            this.iconPictureBox6.Name = "iconPictureBox6";
+            this.iconPictureBox6.Size = new System.Drawing.Size(73, 73);
+            this.iconPictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox6.TabIndex = 9;
+            this.iconPictureBox6.TabStop = false;
             // 
             // iconPictureBox4
             // 
@@ -648,21 +678,6 @@ namespace NetManagement.View.FormDashBoard
             this.iconPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconPictureBox5.TabIndex = 9;
             this.iconPictureBox5.TabStop = false;
-            // 
-            // iconPictureBox6
-            // 
-            this.iconPictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.iconPictureBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.iconPictureBox6.IconChar = FontAwesome.Sharp.IconChar.HandHoldingUsd;
-            this.iconPictureBox6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.iconPictureBox6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox6.IconSize = 73;
-            this.iconPictureBox6.Location = new System.Drawing.Point(116, 0);
-            this.iconPictureBox6.Name = "iconPictureBox6";
-            this.iconPictureBox6.Size = new System.Drawing.Size(73, 73);
-            this.iconPictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox6.TabIndex = 9;
-            this.iconPictureBox6.TabStop = false;
             // 
             // FormDashBoard
             // 
@@ -702,12 +717,12 @@ namespace NetManagement.View.FormDashBoard
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartmaysudung)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
