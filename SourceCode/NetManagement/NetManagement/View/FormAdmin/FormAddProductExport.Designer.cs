@@ -48,10 +48,10 @@
             // 
             this.lbidPro.AutoSize = true;
             this.lbidPro.BackColor = System.Drawing.Color.Transparent;
-            this.lbidPro.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbidPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbidPro.Location = new System.Drawing.Point(41, 20);
             this.lbidPro.Name = "lbidPro";
-            this.lbidPro.Size = new System.Drawing.Size(111, 30);
+            this.lbidPro.Size = new System.Drawing.Size(120, 32);
             this.lbidPro.TabIndex = 0;
             this.lbidPro.Text = "Product";
             // 
@@ -59,10 +59,10 @@
             // 
             this.lbDC.AutoSize = true;
             this.lbDC.BackColor = System.Drawing.Color.Transparent;
-            this.lbDC.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbDC.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbDC.Location = new System.Drawing.Point(41, 211);
             this.lbDC.Name = "lbDC";
-            this.lbDC.Size = new System.Drawing.Size(155, 30);
+            this.lbDC.Size = new System.Drawing.Size(164, 32);
             this.lbDC.TabIndex = 4;
             this.lbDC.Text = "ExpiryDate";
             // 
@@ -70,10 +70,10 @@
             // 
             this.lbDOB.AutoSize = true;
             this.lbDOB.BackColor = System.Drawing.Color.Transparent;
-            this.lbDOB.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbDOB.Location = new System.Drawing.Point(41, 119);
             this.lbDOB.Name = "lbDOB";
-            this.lbDOB.Size = new System.Drawing.Size(148, 30);
+            this.lbDOB.Size = new System.Drawing.Size(153, 32);
             this.lbDOB.TabIndex = 5;
             this.lbDOB.Text = "ImportDay";
             // 
@@ -81,10 +81,10 @@
             // 
             this.lbEmail.AutoSize = true;
             this.lbEmail.BackColor = System.Drawing.Color.Transparent;
-            this.lbEmail.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbEmail.Location = new System.Drawing.Point(296, 211);
             this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(130, 30);
+            this.lbEmail.Size = new System.Drawing.Size(147, 32);
             this.lbEmail.TabIndex = 6;
             this.lbEmail.Text = "SalePrice";
             // 
@@ -92,10 +92,10 @@
             // 
             this.lbPhone.AutoSize = true;
             this.lbPhone.BackColor = System.Drawing.Color.Transparent;
-            this.lbPhone.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.lbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.lbPhone.Location = new System.Drawing.Point(296, 119);
             this.lbPhone.Name = "lbPhone";
-            this.lbPhone.Size = new System.Drawing.Size(175, 30);
+            this.lbPhone.Size = new System.Drawing.Size(185, 32);
             this.lbPhone.TabIndex = 7;
             this.lbPhone.Text = "ImportPrices";
             // 
@@ -121,7 +121,7 @@
             // 
             this.btnSend.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSend.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSend.Font = new System.Drawing.Font("Stencil", 10.2F);
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.btnSend.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnSend.Location = new System.Drawing.Point(98, 430);
             this.btnSend.Name = "btnSend";
@@ -134,7 +134,7 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.Font = new System.Drawing.Font("Stencil", 10.2F);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.btnCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnCancel.Location = new System.Drawing.Point(343, 430);
             this.btnCancel.Name = "btnCancel";
@@ -148,10 +148,10 @@
             // 
             this.dtpIm.CalendarMonthBackground = System.Drawing.Color.MistyRose;
             this.dtpIm.CalendarTitleBackColor = System.Drawing.Color.MistyRose;
-            this.dtpIm.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
+            this.dtpIm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
             this.dtpIm.Location = new System.Drawing.Point(38, 157);
             this.dtpIm.Name = "dtpIm";
-            this.dtpIm.Size = new System.Drawing.Size(240, 32);
+            this.dtpIm.Size = new System.Drawing.Size(240, 34);
             this.dtpIm.TabIndex = 21;
             this.dtpIm.Value = new System.DateTime(2022, 6, 9, 0, 0, 0, 0);
             // 
@@ -159,18 +159,18 @@
             // 
             this.dtpEx.CalendarMonthBackground = System.Drawing.Color.MistyRose;
             this.dtpEx.CalendarTitleBackColor = System.Drawing.Color.MistyRose;
-            this.dtpEx.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
+            this.dtpEx.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold);
             this.dtpEx.Location = new System.Drawing.Point(38, 256);
             this.dtpEx.Name = "dtpEx";
-            this.dtpEx.Size = new System.Drawing.Size(240, 32);
+            this.dtpEx.Size = new System.Drawing.Size(240, 34);
             this.dtpEx.TabIndex = 22;
             this.dtpEx.Value = new System.DateTime(2022, 6, 9, 0, 0, 0, 0);
             // 
             // cbbProduct
             // 
-            this.cbbProduct.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbbProduct.BackColor = System.Drawing.Color.White;
             this.cbbProduct.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbProduct.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.cbbProduct.ForeColor = System.Drawing.Color.Black;
             this.cbbProduct.FormattingEnabled = true;
             this.cbbProduct.Location = new System.Drawing.Point(38, 64);
             this.cbbProduct.Name = "cbbProduct";
@@ -181,10 +181,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(296, 315);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 30);
+            this.label1.Size = new System.Drawing.Size(119, 32);
             this.label1.TabIndex = 24;
             this.label1.Text = "Amount";
             // 

@@ -19,7 +19,7 @@ namespace NetManagement.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -233,6 +233,26 @@ namespace NetManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gray {
+            get {
+                object obj = ResourceManager.GetObject("gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap green {
+            get {
+                object obj = ResourceManager.GetObject("green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HistoryUsed {
             get {
                 object obj = ResourceManager.GetObject("HistoryUsed", resourceCulture);
@@ -333,6 +353,16 @@ namespace NetManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap light_green {
+            get {
+                object obj = ResourceManager.GetObject("light_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
@@ -415,7 +445,7 @@ namespace NetManagement.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Mi_tom_hao_hao {
             get {
-                object obj = ResourceManager.GetObject("Mi-tom-hao-hao", resourceCulture);
+                object obj = ResourceManager.GetObject("Mi_tom_hao_hao", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -445,7 +475,7 @@ namespace NetManagement.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap nuoc_tinh_khiet {
             get {
-                object obj = ResourceManager.GetObject("nuoc-tinh-khiet", resourceCulture);
+                object obj = ResourceManager.GetObject("nuoc_tinh_khiet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -523,6 +553,16 @@ namespace NetManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap red {
+            get {
+                object obj = ResourceManager.GetObject("red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap redBackground {
             get {
                 object obj = ResourceManager.GetObject("redBackground", resourceCulture);
@@ -575,7 +615,7 @@ namespace NetManagement.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap the_vinaphone {
             get {
-                object obj = ResourceManager.GetObject("the-vinaphone", resourceCulture);
+                object obj = ResourceManager.GetObject("the_vinaphone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
