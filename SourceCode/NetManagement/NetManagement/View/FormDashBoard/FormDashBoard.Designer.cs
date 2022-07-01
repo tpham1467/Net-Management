@@ -29,18 +29,18 @@ namespace NetManagement.View.FormDashBoard
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
@@ -78,6 +78,12 @@ namespace NetManagement.View.FormDashBoard
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.chartmaysudung = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox4 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox5 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox6 = new FontAwesome.Sharp.IconPictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -86,15 +92,22 @@ namespace NetManagement.View.FormDashBoard
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartmaysudung)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label1.Location = new System.Drawing.Point(-1, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 39);
+            this.label1.Size = new System.Drawing.Size(203, 41);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dashboard";
             // 
@@ -120,62 +133,68 @@ namespace NetManagement.View.FormDashBoard
             // 
             // btnThisMonth
             // 
+            this.btnThisMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnThisMonth.Location = new System.Drawing.Point(1024, 10);
             this.btnThisMonth.Margin = new System.Windows.Forms.Padding(5);
             this.btnThisMonth.Name = "btnThisMonth";
             this.btnThisMonth.Size = new System.Drawing.Size(130, 35);
             this.btnThisMonth.TabIndex = 3;
             this.btnThisMonth.Text = "Tháng Này";
-            this.btnThisMonth.UseVisualStyleBackColor = true;
+            this.btnThisMonth.UseVisualStyleBackColor = false;
             this.btnThisMonth.Click += new System.EventHandler(this.btnThisMonth_Click);
             // 
             // btnLast30Days
             // 
+            this.btnLast30Days.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLast30Days.Location = new System.Drawing.Point(870, 13);
             this.btnLast30Days.Margin = new System.Windows.Forms.Padding(5);
             this.btnLast30Days.Name = "btnLast30Days";
             this.btnLast30Days.Size = new System.Drawing.Size(130, 35);
             this.btnLast30Days.TabIndex = 4;
             this.btnLast30Days.Text = "30 Ngày Trước ";
-            this.btnLast30Days.UseVisualStyleBackColor = true;
+            this.btnLast30Days.UseVisualStyleBackColor = false;
             this.btnLast30Days.Click += new System.EventHandler(this.btnLast30Days_Click);
             // 
             // btnLast7Days
             // 
+            this.btnLast7Days.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLast7Days.Location = new System.Drawing.Point(713, 14);
             this.btnLast7Days.Margin = new System.Windows.Forms.Padding(5);
             this.btnLast7Days.Name = "btnLast7Days";
             this.btnLast7Days.Size = new System.Drawing.Size(130, 35);
             this.btnLast7Days.TabIndex = 5;
             this.btnLast7Days.Text = "Bảy Ngày Trước";
-            this.btnLast7Days.UseVisualStyleBackColor = true;
+            this.btnLast7Days.UseVisualStyleBackColor = false;
             this.btnLast7Days.Click += new System.EventHandler(this.btnLast7Days_Click);
             // 
             // btnToday
             // 
+            this.btnToday.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnToday.Location = new System.Drawing.Point(559, 13);
             this.btnToday.Margin = new System.Windows.Forms.Padding(5);
             this.btnToday.Name = "btnToday";
             this.btnToday.Size = new System.Drawing.Size(130, 35);
             this.btnToday.TabIndex = 6;
             this.btnToday.Text = "Hôm Nay";
-            this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.UseVisualStyleBackColor = false;
             this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // btnOkCustomDate
             // 
+            this.btnOkCustomDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnOkCustomDate.Location = new System.Drawing.Point(498, 13);
             this.btnOkCustomDate.Margin = new System.Windows.Forms.Padding(5);
             this.btnOkCustomDate.Name = "btnOkCustomDate";
             this.btnOkCustomDate.Size = new System.Drawing.Size(39, 35);
             this.btnOkCustomDate.TabIndex = 8;
             this.btnOkCustomDate.Text = "Ok";
-            this.btnOkCustomDate.UseVisualStyleBackColor = true;
+            this.btnOkCustomDate.UseVisualStyleBackColor = false;
             this.btnOkCustomDate.Click += new System.EventHandler(this.btnOkCustomDate_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.iconPictureBox5);
             this.panel1.Controls.Add(this.lblNumOrders);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(14, 55);
@@ -188,7 +207,7 @@ namespace NetManagement.View.FormDashBoard
             // 
             this.lblNumOrders.AutoSize = true;
             this.lblNumOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumOrders.Location = new System.Drawing.Point(67, 38);
+            this.lblNumOrders.Location = new System.Drawing.Point(119, 38);
             this.lblNumOrders.Name = "lblNumOrders";
             this.lblNumOrders.Size = new System.Drawing.Size(97, 29);
             this.lblNumOrders.TabIndex = 1;
@@ -199,7 +218,7 @@ namespace NetManagement.View.FormDashBoard
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(141)))), ((int)(((byte)(181)))));
-            this.label2.Location = new System.Drawing.Point(50, 9);
+            this.label2.Location = new System.Drawing.Point(99, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(149, 25);
             this.label2.TabIndex = 0;
@@ -207,7 +226,8 @@ namespace NetManagement.View.FormDashBoard
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel2.Controls.Add(this.iconPictureBox4);
             this.panel2.Controls.Add(this.lblTotalRevenue);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(302, 55);
@@ -220,7 +240,7 @@ namespace NetManagement.View.FormDashBoard
             // 
             this.lblTotalRevenue.AutoSize = true;
             this.lblTotalRevenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalRevenue.Location = new System.Drawing.Point(74, 34);
+            this.lblTotalRevenue.Location = new System.Drawing.Point(176, 34);
             this.lblTotalRevenue.Name = "lblTotalRevenue";
             this.lblTotalRevenue.Size = new System.Drawing.Size(97, 29);
             this.lblTotalRevenue.TabIndex = 1;
@@ -231,7 +251,7 @@ namespace NetManagement.View.FormDashBoard
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(141)))), ((int)(((byte)(181)))));
-            this.label4.Location = new System.Drawing.Point(74, 9);
+            this.label4.Location = new System.Drawing.Point(148, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(161, 25);
             this.label4.TabIndex = 0;
@@ -239,7 +259,8 @@ namespace NetManagement.View.FormDashBoard
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.panel3.Controls.Add(this.iconPictureBox6);
             this.panel3.Controls.Add(this.lblTotalProfit);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Location = new System.Drawing.Point(770, 55);
@@ -252,7 +273,7 @@ namespace NetManagement.View.FormDashBoard
             // 
             this.lblTotalProfit.AutoSize = true;
             this.lblTotalProfit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalProfit.Location = new System.Drawing.Point(74, 34);
+            this.lblTotalProfit.Location = new System.Drawing.Point(195, 34);
             this.lblTotalProfit.Name = "lblTotalProfit";
             this.lblTotalProfit.Size = new System.Drawing.Size(97, 29);
             this.lblTotalProfit.TabIndex = 1;
@@ -263,7 +284,7 @@ namespace NetManagement.View.FormDashBoard
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(141)))), ((int)(((byte)(181)))));
-            this.label5.Location = new System.Drawing.Point(74, 9);
+            this.label5.Location = new System.Drawing.Point(198, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 25);
             this.label5.TabIndex = 0;
@@ -272,62 +293,71 @@ namespace NetManagement.View.FormDashBoard
             // 
             // chartsoluongtiennapmoitaikhoa
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartsoluongtiennapmoitaikhoa.ChartAreas.Add(chartArea4);
-            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            legend4.IsTextAutoFit = false;
-            legend4.Name = "Legend1";
-            this.chartsoluongtiennapmoitaikhoa.Legends.Add(legend4);
+            this.chartsoluongtiennapmoitaikhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.chartsoluongtiennapmoitaikhoa.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            chartArea1.Name = "ChartArea1";
+            this.chartsoluongtiennapmoitaikhoa.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.chartsoluongtiennapmoitaikhoa.Legends.Add(legend1);
             this.chartsoluongtiennapmoitaikhoa.Location = new System.Drawing.Point(14, 138);
             this.chartsoluongtiennapmoitaikhoa.Margin = new System.Windows.Forms.Padding(5);
             this.chartsoluongtiennapmoitaikhoa.Name = "chartsoluongtiennapmoitaikhoa";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chartsoluongtiennapmoitaikhoa.Series.Add(series4);
+            this.chartsoluongtiennapmoitaikhoa.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartsoluongtiennapmoitaikhoa.Series.Add(series1);
             this.chartsoluongtiennapmoitaikhoa.Size = new System.Drawing.Size(449, 277);
             this.chartsoluongtiennapmoitaikhoa.TabIndex = 12;
             this.chartsoluongtiennapmoitaikhoa.Text = "chartGrossRevenue";
-            title4.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title4.Name = "Title1";
-            title4.Text = "Tổng Số Tiền Nạp Mỗi Tài Khoản";
-            this.chartsoluongtiennapmoitaikhoa.Titles.Add(title4);
+            title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            title1.Name = "Title1";
+            title1.Text = "Tổng Số Tiền Nạp Mỗi Tài Khoản";
+            this.chartsoluongtiennapmoitaikhoa.Titles.Add(title1);
             this.chartsoluongtiennapmoitaikhoa.Click += new System.EventHandler(this.chartGrossRevenue_Click);
             // 
             // chartTopProducts
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chartTopProducts.ChartAreas.Add(chartArea5);
-            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            legend5.IsTextAutoFit = false;
-            legend5.Name = "Legend1";
-            this.chartTopProducts.Legends.Add(legend5);
+            this.chartTopProducts.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.chartTopProducts.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            chartArea2.Name = "ChartArea1";
+            this.chartTopProducts.ChartAreas.Add(chartArea2);
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chartTopProducts.Legends.Add(legend2);
             this.chartTopProducts.Location = new System.Drawing.Point(870, 138);
             this.chartTopProducts.Margin = new System.Windows.Forms.Padding(5);
             this.chartTopProducts.Name = "chartTopProducts";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            series5.IsValueShownAsLabel = true;
-            series5.LabelForeColor = System.Drawing.Color.White;
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chartTopProducts.Series.Add(series5);
+            this.chartTopProducts.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            series2.IsValueShownAsLabel = true;
+            series2.LabelForeColor = System.Drawing.Color.White;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartTopProducts.Series.Add(series2);
             this.chartTopProducts.Size = new System.Drawing.Size(320, 495);
             this.chartTopProducts.TabIndex = 13;
             this.chartTopProducts.Text = "chartTopProducts";
-            title5.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title5.Name = "Title1";
-            title5.Text = "Các Sản Phẩm Bán Chạy";
-            this.chartTopProducts.Titles.Add(title5);
+            title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            title2.Name = "Title1";
+            title2.Text = "Các Sản Phẩm Bán Chạy";
+            this.chartTopProducts.Titles.Add(title2);
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel4.Controls.Add(this.iconPictureBox3);
+            this.panel4.Controls.Add(this.iconPictureBox2);
+            this.panel4.Controls.Add(this.iconPictureBox1);
             this.panel4.Controls.Add(this.lblNumemployee);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.lblNumcomputer);
@@ -416,7 +446,7 @@ namespace NetManagement.View.FormDashBoard
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel5.Controls.Add(this.labeltongsogiosudungmay);
             this.panel5.Controls.Add(this.labeltongsotienbanhang);
             this.panel5.Controls.Add(this.labeltongsotientraluong);
@@ -517,28 +547,122 @@ namespace NetManagement.View.FormDashBoard
             // 
             // chartmaysudung
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chartmaysudung.ChartAreas.Add(chartArea6);
-            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            legend6.IsTextAutoFit = false;
-            legend6.Name = "Legend1";
-            this.chartmaysudung.Legends.Add(legend6);
+            this.chartmaysudung.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.chartmaysudung.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            chartArea3.Name = "ChartArea1";
+            this.chartmaysudung.ChartAreas.Add(chartArea3);
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend1";
+            this.chartmaysudung.Legends.Add(legend3);
             this.chartmaysudung.Location = new System.Drawing.Point(473, 138);
             this.chartmaysudung.Margin = new System.Windows.Forms.Padding(5);
             this.chartmaysudung.Name = "chartmaysudung";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chartmaysudung.Series.Add(series6);
+            this.chartmaysudung.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartmaysudung.Series.Add(series3);
             this.chartmaysudung.Size = new System.Drawing.Size(388, 277);
             this.chartmaysudung.TabIndex = 14;
             this.chartmaysudung.Text = "chart1";
-            title6.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            title6.Name = "Title1";
-            title6.Text = "Số Giờ Sử Dụng Của Mỗi Máy";
-            this.chartmaysudung.Titles.Add(title6);
+            title3.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            title3.Name = "Title1";
+            title3.Text = "Số Giờ Sử Dụng Của Mỗi Máy";
+            this.chartmaysudung.Titles.Add(title3);
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.LightCoral;
+            this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconPictureBox1.IconColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.Location = new System.Drawing.Point(15, 45);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox1.TabIndex = 7;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.BackColor = System.Drawing.Color.LightCoral;
+            this.iconPictureBox2.BackgroundImage = global::NetManagement.Properties.Resources.green;
+            this.iconPictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.iconPictureBox2.ForeColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Desktop;
+            this.iconPictureBox2.IconColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox2.Location = new System.Drawing.Point(15, 105);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox2.TabIndex = 8;
+            this.iconPictureBox2.TabStop = false;
+            // 
+            // iconPictureBox3
+            // 
+            this.iconPictureBox3.BackColor = System.Drawing.Color.LightCoral;
+            this.iconPictureBox3.BackgroundImage = global::NetManagement.Properties.Resources.btnbackground;
+            this.iconPictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.iconPictureBox3.ForeColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.iconPictureBox3.IconColor = System.Drawing.SystemColors.Control;
+            this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox3.Location = new System.Drawing.Point(15, 166);
+            this.iconPictureBox3.Name = "iconPictureBox3";
+            this.iconPictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox3.TabIndex = 9;
+            this.iconPictureBox3.TabStop = false;
+            // 
+            // iconPictureBox4
+            // 
+            this.iconPictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.iconPictureBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.iconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.DollarSign;
+            this.iconPictureBox4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.iconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox4.IconSize = 58;
+            this.iconPictureBox4.Location = new System.Drawing.Point(84, 7);
+            this.iconPictureBox4.Name = "iconPictureBox4";
+            this.iconPictureBox4.Size = new System.Drawing.Size(58, 60);
+            this.iconPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox4.TabIndex = 8;
+            this.iconPictureBox4.TabStop = false;
+            // 
+            // iconPictureBox5
+            // 
+            this.iconPictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.iconPictureBox5.ForeColor = System.Drawing.Color.SeaGreen;
+            this.iconPictureBox5.IconChar = FontAwesome.Sharp.IconChar.CartPlus;
+            this.iconPictureBox5.IconColor = System.Drawing.Color.SeaGreen;
+            this.iconPictureBox5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox5.IconSize = 60;
+            this.iconPictureBox5.Location = new System.Drawing.Point(36, 9);
+            this.iconPictureBox5.Name = "iconPictureBox5";
+            this.iconPictureBox5.Size = new System.Drawing.Size(66, 60);
+            this.iconPictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox5.TabIndex = 9;
+            this.iconPictureBox5.TabStop = false;
+            // 
+            // iconPictureBox6
+            // 
+            this.iconPictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.iconPictureBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.iconPictureBox6.IconChar = FontAwesome.Sharp.IconChar.HandHoldingUsd;
+            this.iconPictureBox6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.iconPictureBox6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox6.IconSize = 73;
+            this.iconPictureBox6.Location = new System.Drawing.Point(116, 0);
+            this.iconPictureBox6.Name = "iconPictureBox6";
+            this.iconPictureBox6.Size = new System.Drawing.Size(73, 73);
+            this.iconPictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox6.TabIndex = 9;
+            this.iconPictureBox6.TabStop = false;
             // 
             // FormDashBoard
             // 
@@ -578,6 +702,12 @@ namespace NetManagement.View.FormDashBoard
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartmaysudung)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,5 +752,11 @@ namespace NetManagement.View.FormDashBoard
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartmaysudung;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox5;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox4;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox6;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
     }
 }
