@@ -19,7 +19,7 @@ namespace NetManagement.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -273,6 +273,16 @@ namespace NetManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_for_customer {
+            get {
+                object obj = ResourceManager.GetObject("icon-for-customer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_eye_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8_eye_50", resourceCulture);
@@ -403,16 +413,6 @@ namespace NetManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logo12 {
-            get {
-                object obj = ResourceManager.GetObject("Logo12", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Logo2_remove {
             get {
                 object obj = ResourceManager.GetObject("Logo2_remove", resourceCulture);
@@ -445,7 +445,7 @@ namespace NetManagement.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Mi_tom_hao_hao {
             get {
-                object obj = ResourceManager.GetObject("Mi_tom_hao_hao", resourceCulture);
+                object obj = ResourceManager.GetObject("Mi-tom-hao-hao", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -475,7 +475,7 @@ namespace NetManagement.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap nuoc_tinh_khiet {
             get {
-                object obj = ResourceManager.GetObject("nuoc_tinh_khiet", resourceCulture);
+                object obj = ResourceManager.GetObject("nuoc-tinh-khiet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -615,7 +615,7 @@ namespace NetManagement.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap the_vinaphone {
             get {
-                object obj = ResourceManager.GetObject("the_vinaphone", resourceCulture);
+                object obj = ResourceManager.GetObject("the-vinaphone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

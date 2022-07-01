@@ -36,18 +36,18 @@
             this.comboBoxtype = new System.Windows.Forms.ComboBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnView = new System.Windows.Forms.Button();
-            this.lbView = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.dgvShift = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Picture = new System.Windows.Forms.DataGridViewImageColumn();
             this.buttonAll = new System.Windows.Forms.Button();
             this.btnUp = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnadd = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.dgvShift = new System.Windows.Forms.DataGridView();
-            this.Picture = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnView = new System.Windows.Forms.Button();
+            this.lbView = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShift)).BeginInit();
@@ -97,42 +97,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(203, 27);
             this.dateTimePicker1.TabIndex = 14;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = global::NetManagement.Properties.Resources.btnbackground;
-            this.label1.Location = new System.Drawing.Point(835, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 31);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "     To     ";
-            // 
-            // btnView
-            // 
-            this.btnView.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
-            this.btnView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.btnView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnView.Location = new System.Drawing.Point(23, 34);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(100, 37);
-            this.btnView.TabIndex = 12;
-            this.btnView.Text = "   View  ";
-            this.btnView.UseVisualStyleBackColor = true;
-            this.btnView.Click += new System.EventHandler(this.btnViewAll_Click);
-            // 
-            // lbView
-            // 
-            this.lbView.AutoSize = true;
-            this.lbView.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbView.Image = global::NetManagement.Properties.Resources.btnbackground;
-            this.lbView.Location = new System.Drawing.Point(385, 40);
-            this.lbView.Name = "lbView";
-            this.lbView.Size = new System.Drawing.Size(117, 31);
-            this.lbView.TabIndex = 0;
-            this.lbView.Text = "   From   ";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.buttonAll);
@@ -144,6 +108,65 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1320, 86);
             this.panel2.TabIndex = 1;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "userTimer.png");
+            // 
+            // dgvShift
+            // 
+            this.dgvShift.AllowUserToAddRows = false;
+            this.dgvShift.AllowUserToDeleteRows = false;
+            this.dgvShift.AllowUserToOrderColumns = true;
+            this.dgvShift.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.dgvShift.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvShift.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvShift.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.dgvShift.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvShift.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShift.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvShift.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvShift.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Picture});
+            this.dgvShift.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvShift.EnableHeadersVisualStyles = false;
+            this.dgvShift.Location = new System.Drawing.Point(0, 90);
+            this.dgvShift.Name = "dgvShift";
+            this.dgvShift.RowHeadersVisible = false;
+            this.dgvShift.RowHeadersWidth = 51;
+            this.dgvShift.RowTemplate.Height = 40;
+            this.dgvShift.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvShift.Size = new System.Drawing.Size(1320, 529);
+            this.dgvShift.TabIndex = 5;
+            this.dgvShift.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShift_CellContentClick);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.FillWeight = 25F;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::NetManagement.Properties.Resources.Shift;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 1246;
+            // 
+            // Picture
+            // 
+            this.Picture.HeaderText = "";
+            this.Picture.Image = global::NetManagement.Properties.Resources.Shift;
+            this.Picture.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Picture.MinimumWidth = 6;
+            this.Picture.Name = "Picture";
             // 
             // buttonAll
             // 
@@ -201,65 +224,41 @@
             this.btnadd.UseVisualStyleBackColor = true;
             this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
-            // imageList1
+            // label1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "userTimer.png");
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Image = global::NetManagement.Properties.Resources.btnbackground;
+            this.label1.Location = new System.Drawing.Point(835, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 31);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "     To     ";
             // 
-            // dgvShift
+            // btnView
             // 
-            this.dgvShift.AllowUserToAddRows = false;
-            this.dgvShift.AllowUserToDeleteRows = false;
-            this.dgvShift.AllowUserToOrderColumns = true;
-            this.dgvShift.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            this.dgvShift.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvShift.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvShift.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
-            this.dgvShift.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvShift.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShift.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvShift.ColumnHeadersHeight = 36;
-            this.dgvShift.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvShift.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Picture});
-            this.dgvShift.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvShift.EnableHeadersVisualStyles = false;
-            this.dgvShift.Location = new System.Drawing.Point(0, 90);
-            this.dgvShift.Name = "dgvShift";
-            this.dgvShift.RowHeadersVisible = false;
-            this.dgvShift.RowHeadersWidth = 51;
-            this.dgvShift.RowTemplate.Height = 40;
-            this.dgvShift.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvShift.Size = new System.Drawing.Size(1320, 529);
-            this.dgvShift.TabIndex = 5;
-            this.dgvShift.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShift_CellContentClick);
+            this.btnView.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.btnView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnView.Location = new System.Drawing.Point(23, 34);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(100, 37);
+            this.btnView.TabIndex = 12;
+            this.btnView.Text = "   View  ";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnViewAll_Click);
             // 
-            // Picture
+            // lbView
             // 
-            this.Picture.HeaderText = "";
-            this.Picture.Image = global::NetManagement.Properties.Resources.Shift;
-            this.Picture.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Picture.MinimumWidth = 6;
-            this.Picture.Name = "Picture";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.FillWeight = 25F;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::NetManagement.Properties.Resources.Shift;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 1246;
+            this.lbView.AutoSize = true;
+            this.lbView.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbView.Image = global::NetManagement.Properties.Resources.btnbackground;
+            this.lbView.Location = new System.Drawing.Point(385, 40);
+            this.lbView.Name = "lbView";
+            this.lbView.Size = new System.Drawing.Size(117, 31);
+            this.lbView.TabIndex = 0;
+            this.lbView.Text = "   From   ";
             // 
             // FormShift
             // 

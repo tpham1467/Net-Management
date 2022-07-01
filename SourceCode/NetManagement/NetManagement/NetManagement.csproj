@@ -512,6 +512,7 @@
     <None Include="Resources\icon-add-8.jpg" />
     <None Include="Resources\gray.jpg" />
     <None Include="Resources\green.jpg" />
+    <None Include="Resources\icon-for-customer.jpg" />
     <Content Include="Resources\Image1.png" />
     <None Include="Resources\light-blue-green.jpg" />
     <None Include="Resources\images.jpg" />

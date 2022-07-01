@@ -229,7 +229,7 @@
             this.buttonSetoff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonSetoff.Font = new System.Drawing.Font("Modern No. 20", 12F);
             this.buttonSetoff.ForeColor = System.Drawing.Color.DarkRed;
-            this.buttonSetoff.Location = new System.Drawing.Point(4, 407);
+            this.buttonSetoff.Location = new System.Drawing.Point(4, 404);
             this.buttonSetoff.Name = "buttonSetoff";
             this.buttonSetoff.Size = new System.Drawing.Size(102, 31);
             this.buttonSetoff.TabIndex = 15;
@@ -243,7 +243,7 @@
             this.buttonSort.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonSort.Font = new System.Drawing.Font("Modern No. 20", 12F);
             this.buttonSort.ForeColor = System.Drawing.Color.DarkRed;
-            this.buttonSort.Location = new System.Drawing.Point(112, 407);
+            this.buttonSort.Location = new System.Drawing.Point(112, 404);
             this.buttonSort.Name = "buttonSort";
             this.buttonSort.Size = new System.Drawing.Size(137, 31);
             this.buttonSort.TabIndex = 16;
@@ -257,7 +257,7 @@
             this.comboBoxmode.Items.AddRange(new object[] {
             "Asc",
             "Desc"});
-            this.comboBoxmode.Location = new System.Drawing.Point(255, 411);
+            this.comboBoxmode.Location = new System.Drawing.Point(255, 407);
             this.comboBoxmode.Name = "comboBoxmode";
             this.comboBoxmode.Size = new System.Drawing.Size(121, 24);
             this.comboBoxmode.TabIndex = 17;
@@ -268,7 +268,7 @@
             this.comboBoxProperty.Items.AddRange(new object[] {
             "Id",
             "Date Work"});
-            this.comboBoxProperty.Location = new System.Drawing.Point(401, 411);
+            this.comboBoxProperty.Location = new System.Drawing.Point(401, 407);
             this.comboBoxProperty.Name = "comboBoxProperty";
             this.comboBoxProperty.Size = new System.Drawing.Size(121, 24);
             this.comboBoxProperty.TabIndex = 18;
@@ -287,9 +287,13 @@
             // 
             // buttonFilter
             // 
-            this.buttonFilter.Location = new System.Drawing.Point(143, 127);
+            this.buttonFilter.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.buttonFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonFilter.Font = new System.Drawing.Font("Modern No. 20", 12F);
+            this.buttonFilter.ForeColor = System.Drawing.Color.DarkRed;
+            this.buttonFilter.Location = new System.Drawing.Point(143, 124);
             this.buttonFilter.Name = "buttonFilter";
-            this.buttonFilter.Size = new System.Drawing.Size(80, 25);
+            this.buttonFilter.Size = new System.Drawing.Size(90, 29);
             this.buttonFilter.TabIndex = 22;
             this.buttonFilter.Text = "Filter";
             this.buttonFilter.UseVisualStyleBackColor = true;
