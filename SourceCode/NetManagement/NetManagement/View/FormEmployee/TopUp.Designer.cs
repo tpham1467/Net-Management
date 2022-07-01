@@ -84,8 +84,8 @@ namespace NetManagement.View.FormEmployee
             // 
             // TopUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Teal;
             this.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

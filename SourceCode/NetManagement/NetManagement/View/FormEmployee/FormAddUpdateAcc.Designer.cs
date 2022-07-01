@@ -264,8 +264,7 @@
             // 
             // FormAddUpdateAcc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
