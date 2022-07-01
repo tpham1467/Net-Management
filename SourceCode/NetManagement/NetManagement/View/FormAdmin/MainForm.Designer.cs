@@ -32,6 +32,14 @@ namespace NetManagement.View.FormAdmin
         {
             this.components = new System.ComponentModel.Container();
             this.pnMenu = new System.Windows.Forms.Panel();
+            this.pnLogo = new System.Windows.Forms.Panel();
+            this.pnTitle = new System.Windows.Forms.Panel();
+            this.lbTitle = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pnDesktop = new System.Windows.Forms.Panel();
+            this.lbTime = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.icPtHome = new FontAwesome.Sharp.IconPictureBox();
             this.icBtnLogOut = new FontAwesome.Sharp.IconButton();
             this.icCategory = new FontAwesome.Sharp.IconButton();
             this.icBtnPro = new FontAwesome.Sharp.IconButton();
@@ -39,22 +47,14 @@ namespace NetManagement.View.FormAdmin
             this.icBtnSh = new FontAwesome.Sharp.IconButton();
             this.icBtnE = new FontAwesome.Sharp.IconButton();
             this.icBtnDB = new FontAwesome.Sharp.IconButton();
-            this.pnLogo = new System.Windows.Forms.Panel();
             this.LogoHome = new System.Windows.Forms.PictureBox();
-            this.pnTitle = new System.Windows.Forms.Panel();
-            this.lbTitle = new System.Windows.Forms.Label();
-            this.icPtHome = new FontAwesome.Sharp.IconPictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pnDesktop = new System.Windows.Forms.Panel();
-            this.lbTime = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnMenu.SuspendLayout();
             this.pnLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoHome)).BeginInit();
             this.pnTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icPtHome)).BeginInit();
             this.pnDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icPtHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoHome)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMenu
@@ -73,6 +73,97 @@ namespace NetManagement.View.FormAdmin
             this.pnMenu.Name = "pnMenu";
             this.pnMenu.Size = new System.Drawing.Size(220, 845);
             this.pnMenu.TabIndex = 0;
+            // 
+            // pnLogo
+            // 
+            this.pnLogo.BackColor = System.Drawing.Color.SeaGreen;
+            this.pnLogo.Controls.Add(this.LogoHome);
+            this.pnLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnLogo.Name = "pnLogo";
+            this.pnLogo.Size = new System.Drawing.Size(220, 140);
+            this.pnLogo.TabIndex = 0;
+            // 
+            // pnTitle
+            // 
+            this.pnTitle.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pnTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnTitle.Controls.Add(this.lbTitle);
+            this.pnTitle.Controls.Add(this.icPtHome);
+            this.pnTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTitle.Location = new System.Drawing.Point(220, 0);
+            this.pnTitle.Name = "pnTitle";
+            this.pnTitle.Size = new System.Drawing.Size(1320, 140);
+            this.pnTitle.TabIndex = 1;
+            // 
+            // lbTitle
+            // 
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 31.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.lbTitle.Location = new System.Drawing.Point(81, 59);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(171, 61);
+            this.lbTitle.TabIndex = 0;
+            this.lbTitle.Text = "Home";
+            this.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
+            // pnDesktop
+            // 
+            this.pnDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(60)))));
+            this.pnDesktop.BackgroundImage = global::NetManagement.Properties.Resources.mainBACKGROUND2;
+            this.pnDesktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnDesktop.Controls.Add(this.lbTime);
+            this.pnDesktop.Controls.Add(this.pictureBox1);
+            this.pnDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnDesktop.Location = new System.Drawing.Point(220, 140);
+            this.pnDesktop.Name = "pnDesktop";
+            this.pnDesktop.Size = new System.Drawing.Size(1320, 705);
+            this.pnDesktop.TabIndex = 3;
+            // 
+            // lbTime
+            // 
+            this.lbTime.AutoSize = true;
+            this.lbTime.BackColor = System.Drawing.Color.Transparent;
+            this.lbTime.Enabled = false;
+            this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.ForeColor = System.Drawing.Color.Aqua;
+            this.lbTime.Location = new System.Drawing.Point(616, 496);
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(159, 32);
+            this.lbTime.TabIndex = 2;
+            this.lbTime.Text = "9:05:21 PM";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::NetManagement.Properties.Resources.LogoMainformAdmin;
+            this.pictureBox1.Location = new System.Drawing.Point(378, 192);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(610, 405);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // icPtHome
+            // 
+            this.icPtHome.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.icPtHome.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.icPtHome.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.icPtHome.IconChar = FontAwesome.Sharp.IconChar.Home;
+            this.icPtHome.IconColor = System.Drawing.Color.LightSteelBlue;
+            this.icPtHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icPtHome.IconSize = 51;
+            this.icPtHome.Location = new System.Drawing.Point(24, 59);
+            this.icPtHome.Name = "icPtHome";
+            this.icPtHome.Size = new System.Drawing.Size(51, 62);
+            this.icPtHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.icPtHome.TabIndex = 1;
+            this.icPtHome.TabStop = false;
             // 
             // icBtnLogOut
             // 
@@ -226,20 +317,10 @@ namespace NetManagement.View.FormAdmin
             this.icBtnDB.UseVisualStyleBackColor = false;
             this.icBtnDB.Click += new System.EventHandler(this.icBtnDB_Click);
             // 
-            // pnLogo
-            // 
-            this.pnLogo.BackColor = System.Drawing.Color.SeaGreen;
-            this.pnLogo.Controls.Add(this.LogoHome);
-            this.pnLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnLogo.Name = "pnLogo";
-            this.pnLogo.Size = new System.Drawing.Size(220, 140);
-            this.pnLogo.TabIndex = 0;
-            // 
             // LogoHome
             // 
             this.LogoHome.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.LogoHome.Image = global::NetManagement.Properties.Resources.Logo1;
+            this.LogoHome.Image = global::NetManagement.Properties.Resources.Logo2_remove;
             this.LogoHome.Location = new System.Drawing.Point(3, 3);
             this.LogoHome.Name = "LogoHome";
             this.LogoHome.Size = new System.Drawing.Size(214, 134);
@@ -247,88 +328,6 @@ namespace NetManagement.View.FormAdmin
             this.LogoHome.TabIndex = 0;
             this.LogoHome.TabStop = false;
             this.LogoHome.Click += new System.EventHandler(this.LogoHome_Click);
-            // 
-            // pnTitle
-            // 
-            this.pnTitle.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.pnTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnTitle.Controls.Add(this.lbTitle);
-            this.pnTitle.Controls.Add(this.icPtHome);
-            this.pnTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTitle.Location = new System.Drawing.Point(220, 0);
-            this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(1320, 140);
-            this.pnTitle.TabIndex = 1;
-            this.pnTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.pnTitle_Paint);
-            // 
-            // lbTitle
-            // 
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 31.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.lbTitle.Location = new System.Drawing.Point(81, 59);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(171, 61);
-            this.lbTitle.TabIndex = 0;
-            this.lbTitle.Text = "Home";
-            this.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // icPtHome
-            // 
-            this.icPtHome.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.icPtHome.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
-            this.icPtHome.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.icPtHome.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.icPtHome.IconColor = System.Drawing.Color.LightSteelBlue;
-            this.icPtHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icPtHome.IconSize = 51;
-            this.icPtHome.Location = new System.Drawing.Point(24, 59);
-            this.icPtHome.Name = "icPtHome";
-            this.icPtHome.Size = new System.Drawing.Size(51, 62);
-            this.icPtHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.icPtHome.TabIndex = 1;
-            this.icPtHome.TabStop = false;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
-            // 
-            // pnDesktop
-            // 
-            this.pnDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(70)))), ((int)(((byte)(60)))));
-            this.pnDesktop.BackgroundImage = global::NetManagement.Properties.Resources.mainBACKGROUND2;
-            this.pnDesktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnDesktop.Controls.Add(this.lbTime);
-            this.pnDesktop.Controls.Add(this.pictureBox1);
-            this.pnDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnDesktop.Location = new System.Drawing.Point(220, 140);
-            this.pnDesktop.Name = "pnDesktop";
-            this.pnDesktop.Size = new System.Drawing.Size(1320, 705);
-            this.pnDesktop.TabIndex = 3;
-            // 
-            // lbTime
-            // 
-            this.lbTime.AutoSize = true;
-            this.lbTime.BackColor = System.Drawing.Color.Transparent;
-            this.lbTime.Enabled = false;
-            this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTime.ForeColor = System.Drawing.Color.Aqua;
-            this.lbTime.Location = new System.Drawing.Point(582, 499);
-            this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(160, 32);
-            this.lbTime.TabIndex = 2;
-            this.lbTime.Text = "9:05:21 PM";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::NetManagement.Properties.Resources.Logo2_remove;
-            this.pictureBox1.Location = new System.Drawing.Point(394, 211);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(569, 345);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // Main_Form
             // 
@@ -343,13 +342,13 @@ namespace NetManagement.View.FormAdmin
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.pnMenu.ResumeLayout(false);
             this.pnLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LogoHome)).EndInit();
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icPtHome)).EndInit();
             this.pnDesktop.ResumeLayout(false);
             this.pnDesktop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icPtHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoHome)).EndInit();
             this.ResumeLayout(false);
 
         }

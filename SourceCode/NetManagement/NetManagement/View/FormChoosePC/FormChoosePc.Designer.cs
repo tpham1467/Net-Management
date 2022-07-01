@@ -46,9 +46,9 @@ namespace NetManagement.View.FormChoosePC
             this.panel1.Controls.Add(this.panelLogo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1152, 85);
+            this.panel1.Size = new System.Drawing.Size(1536, 105);
             this.panel1.TabIndex = 1;
             // 
             // lbName
@@ -56,10 +56,9 @@ namespace NetManagement.View.FormChoosePC
             this.lbName.AutoSize = true;
             this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 31.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbName.ForeColor = System.Drawing.Color.YellowGreen;
-            this.lbName.Location = new System.Drawing.Point(381, 9);
-            this.lbName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbName.Location = new System.Drawing.Point(508, 11);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(419, 51);
+            this.lbName.Size = new System.Drawing.Size(505, 61);
             this.lbName.TabIndex = 1;
             this.lbName.Text = "Quán Net Sinh Viên";
             // 
@@ -69,20 +68,20 @@ namespace NetManagement.View.FormChoosePC
             this.panelLogo.Controls.Add(this.pictureBox1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(150, 85);
+            this.panelLogo.Size = new System.Drawing.Size(200, 105);
             this.panelLogo.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.DarkCyan;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::NetManagement.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::NetManagement.Properties.Resources.backgroud;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(148, 85);
+            this.pictureBox1.Size = new System.Drawing.Size(197, 105);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -94,22 +93,22 @@ namespace NetManagement.View.FormChoosePC
             this.flpListPC.AutoSize = true;
             this.flpListPC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpListPC.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.flpListPC.Location = new System.Drawing.Point(0, 85);
-            this.flpListPC.Margin = new System.Windows.Forms.Padding(2);
+            this.flpListPC.Location = new System.Drawing.Point(0, 105);
+            this.flpListPC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpListPC.Name = "flpListPC";
-            this.flpListPC.Size = new System.Drawing.Size(1152, 598);
+            this.flpListPC.Size = new System.Drawing.Size(1536, 736);
             this.flpListPC.TabIndex = 3;
             // 
-            // Form1
+            // FormChoosePc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 683);
+            this.ClientSize = new System.Drawing.Size(1536, 841);
             this.Controls.Add(this.flpListPC);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "FormChoosePc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);

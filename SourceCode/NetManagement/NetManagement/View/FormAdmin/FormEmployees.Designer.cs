@@ -42,8 +42,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBoxSortBy = new System.Windows.Forms.ComboBox();
             this.cbbSearch = new System.Windows.Forms.ComboBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnSort = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tbMana = new System.Windows.Forms.TabControl();
@@ -65,6 +63,8 @@
             this.btnAddSala = new FontAwesome.Sharp.IconButton();
             this.dgvCosalaryEm = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSort = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.tbMana.SuspendLayout();
@@ -91,7 +91,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
+            this.panel1.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.panel1.Controls.Add(this.comboBoxSortBy);
             this.panel1.Controls.Add(this.cbbSearch);
             this.panel1.Controls.Add(this.cbbProperty);
@@ -128,40 +128,6 @@
             this.cbbSearch.TabIndex = 11;
             this.cbbSearch.SelectedIndexChanged += new System.EventHandler(this.cbbSearch_SelectedIndexChanged);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.Location = new System.Drawing.Point(302, 26);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(129, 40);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnSort
-            // 
-            this.btnSort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
-            this.btnSort.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSort.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnSort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnSort.Location = new System.Drawing.Point(707, 28);
-            this.btnSort.Name = "btnSort";
-            this.btnSort.Size = new System.Drawing.Size(106, 40);
-            this.btnSort.TabIndex = 9;
-            this.btnSort.Text = "Sort";
-            this.btnSort.UseVisualStyleBackColor = false;
-            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
-            // 
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(64)))));
@@ -182,10 +148,14 @@
             // 
             // tbMana
             // 
+            this.tbMana.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tbMana.Controls.Add(this.tbManaEm);
             this.tbMana.Controls.Add(this.tbTimeKeeping);
             this.tbMana.Controls.Add(this.tbPay);
             this.tbMana.Controls.Add(this.tbCosalaryEm);
+            this.tbMana.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tbMana.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMana.ItemSize = new System.Drawing.Size(156, 40);
             this.tbMana.Location = new System.Drawing.Point(26, 96);
             this.tbMana.Name = "tbMana";
             this.tbMana.SelectedIndex = 0;
@@ -200,9 +170,9 @@
             this.tbManaEm.Controls.Add(this.btnUpdateEmp);
             this.tbManaEm.Controls.Add(this.btnAddEmp);
             this.tbManaEm.Controls.Add(this.dgvManaEmployee);
-            this.tbManaEm.Location = new System.Drawing.Point(4, 25);
+            this.tbManaEm.Location = new System.Drawing.Point(4, 44);
             this.tbManaEm.Name = "tbManaEm";
-            this.tbManaEm.Size = new System.Drawing.Size(1274, 509);
+            this.tbManaEm.Size = new System.Drawing.Size(1274, 490);
             this.tbManaEm.TabIndex = 2;
             this.tbManaEm.Text = "Employee Management";
             this.tbManaEm.UseVisualStyleBackColor = true;
@@ -211,12 +181,12 @@
             // 
             this.btnUpdateEmp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdateEmp.BackgroundImage")));
             this.btnUpdateEmp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUpdateEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateEmp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnUpdateEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUpdateEmp.ForeColor = System.Drawing.Color.Firebrick;
             this.btnUpdateEmp.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnUpdateEmp.IconColor = System.Drawing.Color.Black;
             this.btnUpdateEmp.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUpdateEmp.Location = new System.Drawing.Point(349, 446);
+            this.btnUpdateEmp.Location = new System.Drawing.Point(360, 427);
             this.btnUpdateEmp.Name = "btnUpdateEmp";
             this.btnUpdateEmp.Size = new System.Drawing.Size(171, 44);
             this.btnUpdateEmp.TabIndex = 13;
@@ -228,12 +198,12 @@
             // 
             this.btnAddEmp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddEmp.BackgroundImage")));
             this.btnAddEmp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddEmp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAddEmp.ForeColor = System.Drawing.Color.Firebrick;
             this.btnAddEmp.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnAddEmp.IconColor = System.Drawing.Color.Black;
             this.btnAddEmp.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAddEmp.Location = new System.Drawing.Point(172, 446);
+            this.btnAddEmp.Location = new System.Drawing.Point(172, 427);
             this.btnAddEmp.Name = "btnAddEmp";
             this.btnAddEmp.Size = new System.Drawing.Size(171, 44);
             this.btnAddEmp.TabIndex = 12;
@@ -258,7 +228,7 @@
             this.dgvManaEmployee.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -275,7 +245,7 @@
             this.dgvManaEmployee.RowHeadersWidth = 51;
             this.dgvManaEmployee.RowTemplate.Height = 40;
             this.dgvManaEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvManaEmployee.Size = new System.Drawing.Size(1225, 427);
+            this.dgvManaEmployee.Size = new System.Drawing.Size(1225, 408);
             this.dgvManaEmployee.TabIndex = 6;
             // 
             // dataGridViewImageColumn3
@@ -296,10 +266,10 @@
             this.tbTimeKeeping.Controls.Add(this.btnPayroll);
             this.tbTimeKeeping.Controls.Add(this.dgvShowTimeKeeping);
             this.tbTimeKeeping.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.tbTimeKeeping.Location = new System.Drawing.Point(4, 25);
+            this.tbTimeKeeping.Location = new System.Drawing.Point(4, 44);
             this.tbTimeKeeping.Name = "tbTimeKeeping";
             this.tbTimeKeeping.Padding = new System.Windows.Forms.Padding(3);
-            this.tbTimeKeeping.Size = new System.Drawing.Size(1274, 509);
+            this.tbTimeKeeping.Size = new System.Drawing.Size(1274, 490);
             this.tbTimeKeeping.TabIndex = 0;
             this.tbTimeKeeping.Text = "TimeKeeping";
             // 
@@ -326,7 +296,7 @@
             this.btnPayroll.ForeColor = System.Drawing.Color.Maroon;
             this.btnPayroll.Image = ((System.Drawing.Image)(resources.GetObject("btnPayroll.Image")));
             this.btnPayroll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPayroll.Location = new System.Drawing.Point(566, 443);
+            this.btnPayroll.Location = new System.Drawing.Point(572, 421);
             this.btnPayroll.Name = "btnPayroll";
             this.btnPayroll.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnPayroll.Size = new System.Drawing.Size(165, 63);
@@ -370,7 +340,7 @@
             this.dgvShowTimeKeeping.RowHeadersWidth = 51;
             this.dgvShowTimeKeeping.RowTemplate.Height = 40;
             this.dgvShowTimeKeeping.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvShowTimeKeeping.Size = new System.Drawing.Size(1193, 388);
+            this.dgvShowTimeKeeping.Size = new System.Drawing.Size(1193, 369);
             this.dgvShowTimeKeeping.TabIndex = 4;
             // 
             // Column8
@@ -388,9 +358,9 @@
             this.tbPay.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbPay.BackgroundImage")));
             this.tbPay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tbPay.Controls.Add(this.dgvShowPayroll);
-            this.tbPay.Location = new System.Drawing.Point(4, 25);
+            this.tbPay.Location = new System.Drawing.Point(4, 44);
             this.tbPay.Name = "tbPay";
-            this.tbPay.Size = new System.Drawing.Size(1274, 509);
+            this.tbPay.Size = new System.Drawing.Size(1274, 490);
             this.tbPay.TabIndex = 1;
             this.tbPay.Text = "Payroll";
             // 
@@ -411,7 +381,7 @@
             this.dgvShowPayroll.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Brown;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SkyBlue;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -428,7 +398,7 @@
             this.dgvShowPayroll.RowHeadersWidth = 51;
             this.dgvShowPayroll.RowTemplate.Height = 40;
             this.dgvShowPayroll.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvShowPayroll.Size = new System.Drawing.Size(1183, 466);
+            this.dgvShowPayroll.Size = new System.Drawing.Size(1183, 447);
             this.dgvShowPayroll.TabIndex = 5;
             // 
             // dataGridViewImageColumn1
@@ -447,20 +417,24 @@
             this.tbCosalaryEm.Controls.Add(this.btnUpdateSal);
             this.tbCosalaryEm.Controls.Add(this.btnAddSala);
             this.tbCosalaryEm.Controls.Add(this.dgvCosalaryEm);
-            this.tbCosalaryEm.Location = new System.Drawing.Point(4, 25);
+            this.tbCosalaryEm.Location = new System.Drawing.Point(4, 44);
             this.tbCosalaryEm.Name = "tbCosalaryEm";
             this.tbCosalaryEm.Padding = new System.Windows.Forms.Padding(3);
-            this.tbCosalaryEm.Size = new System.Drawing.Size(1274, 509);
+            this.tbCosalaryEm.Size = new System.Drawing.Size(1274, 490);
             this.tbCosalaryEm.TabIndex = 3;
             this.tbCosalaryEm.Text = "CoSalary Employee";
             this.tbCosalaryEm.UseVisualStyleBackColor = true;
             // 
             // btnUpdateSal
             // 
+            this.btnUpdateSal.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.btnUpdateSal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdateSal.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUpdateSal.ForeColor = System.Drawing.Color.Firebrick;
             this.btnUpdateSal.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnUpdateSal.IconColor = System.Drawing.Color.Black;
             this.btnUpdateSal.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUpdateSal.Location = new System.Drawing.Point(262, 449);
+            this.btnUpdateSal.Location = new System.Drawing.Point(272, 440);
             this.btnUpdateSal.Name = "btnUpdateSal";
             this.btnUpdateSal.Size = new System.Drawing.Size(171, 44);
             this.btnUpdateSal.TabIndex = 12;
@@ -470,10 +444,14 @@
             // 
             // btnAddSala
             // 
+            this.btnAddSala.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.btnAddSala.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddSala.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSala.ForeColor = System.Drawing.Color.Firebrick;
             this.btnAddSala.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnAddSala.IconColor = System.Drawing.Color.Black;
             this.btnAddSala.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAddSala.Location = new System.Drawing.Point(85, 449);
+            this.btnAddSala.Location = new System.Drawing.Point(85, 440);
             this.btnAddSala.Name = "btnAddSala";
             this.btnAddSala.Size = new System.Drawing.Size(171, 44);
             this.btnAddSala.TabIndex = 11;
@@ -498,7 +476,7 @@
             this.dgvCosalaryEm.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Brown;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SkyBlue;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -515,7 +493,7 @@
             this.dgvCosalaryEm.RowHeadersWidth = 51;
             this.dgvCosalaryEm.RowTemplate.Height = 40;
             this.dgvCosalaryEm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCosalaryEm.Size = new System.Drawing.Size(1225, 427);
+            this.dgvCosalaryEm.Size = new System.Drawing.Size(1225, 408);
             this.dgvCosalaryEm.TabIndex = 7;
             // 
             // dataGridViewImageColumn4
@@ -526,6 +504,44 @@
             this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn4.MinimumWidth = 6;
             this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnSearch.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(100)))));
+            this.btnSearch.Location = new System.Drawing.Point(302, 26);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(129, 40);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnSort
+            // 
+            this.btnSort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
+            this.btnSort.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.btnSort.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSort.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSort.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnSort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(100)))));
+            this.btnSort.Location = new System.Drawing.Point(707, 28);
+            this.btnSort.Name = "btnSort";
+            this.btnSort.Size = new System.Drawing.Size(106, 40);
+            this.btnSort.TabIndex = 9;
+            this.btnSort.Text = "Sort";
+            this.btnSort.UseVisualStyleBackColor = false;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // dataGridViewImageColumn2
             // 
@@ -540,7 +556,7 @@
             // FormEmployees
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(1323, 646);
             this.Controls.Add(this.tbMana);
             this.Controls.Add(this.panel1);

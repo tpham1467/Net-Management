@@ -145,7 +145,7 @@
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // dtpIm
-            //
+            // 
             this.dtpIm.CalendarMonthBackground = System.Drawing.Color.MistyRose;
             this.dtpIm.CalendarTitleBackColor = System.Drawing.Color.MistyRose;
             this.dtpIm.Font = new System.Drawing.Font("Modern No. 20", 13.8F, System.Drawing.FontStyle.Bold);
@@ -168,7 +168,9 @@
             // 
             // cbbProduct
             // 
+            this.cbbProduct.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cbbProduct.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbProduct.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.cbbProduct.FormattingEnabled = true;
             this.cbbProduct.Location = new System.Drawing.Point(38, 64);
             this.cbbProduct.Name = "cbbProduct";

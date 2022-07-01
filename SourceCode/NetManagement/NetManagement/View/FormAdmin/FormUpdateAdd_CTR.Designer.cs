@@ -39,6 +39,8 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.Lime;
+            this.btnSave.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSave.Location = new System.Drawing.Point(237, 193);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(89, 37);
@@ -50,6 +52,8 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
+            this.btnCancel.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCancel.Location = new System.Drawing.Point(332, 193);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(89, 37);
@@ -60,6 +64,7 @@
             // 
             // txtDesCTR
             // 
+            this.txtDesCTR.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtDesCTR.Location = new System.Drawing.Point(83, 130);
             this.txtDesCTR.Name = "txtDesCTR";
             this.txtDesCTR.Size = new System.Drawing.Size(350, 22);
@@ -68,15 +73,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(57, 97);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 16);
+            this.label2.Size = new System.Drawing.Size(204, 22);
             this.label2.TabIndex = 20;
             this.label2.Text = "Description Category:";
             // 
             // txtNameCTR
             // 
+            this.txtNameCTR.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNameCTR.Location = new System.Drawing.Point(83, 62);
             this.txtNameCTR.Name = "txtNameCTR";
             this.txtNameCTR.Size = new System.Drawing.Size(350, 22);
@@ -85,10 +93,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(57, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 16);
+            this.label1.Size = new System.Drawing.Size(149, 22);
             this.label1.TabIndex = 18;
             this.label1.Text = "Name Category:";
             // 
@@ -97,6 +107,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
+            this.BackgroundImage = global::NetManagement.Properties.Resources.color_background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(490, 263);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);

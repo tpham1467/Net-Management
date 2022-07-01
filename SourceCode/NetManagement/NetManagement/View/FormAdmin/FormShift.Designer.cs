@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormShift));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBoxtype = new System.Windows.Forms.ComboBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -55,7 +55,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(45)))), ((int)(((byte)(64)))));
+            this.panel1.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.panel1.Controls.Add(this.comboBoxtype);
             this.panel1.Controls.Add(this.dateTimePicker2);
             this.panel1.Controls.Add(this.dateTimePicker1);
@@ -76,7 +76,7 @@
             "Đã Làm",
             "Xin Nghỉ",
             "Chưa Làm"});
-            this.comboBoxtype.Location = new System.Drawing.Point(148, 47);
+            this.comboBoxtype.Location = new System.Drawing.Point(169, 40);
             this.comboBoxtype.Name = "comboBoxtype";
             this.comboBoxtype.Size = new System.Drawing.Size(173, 24);
             this.comboBoxtype.TabIndex = 16;
@@ -104,7 +104,7 @@
             this.label1.Image = global::NetManagement.Properties.Resources.btnbackground;
             this.label1.Location = new System.Drawing.Point(835, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 31);
+            this.label1.Size = new System.Drawing.Size(113, 31);
             this.label1.TabIndex = 13;
             this.label1.Text = "     To     ";
             // 
@@ -114,7 +114,7 @@
             this.btnView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnView.Location = new System.Drawing.Point(12, 38);
+            this.btnView.Location = new System.Drawing.Point(23, 34);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(100, 37);
             this.btnView.TabIndex = 12;
@@ -129,7 +129,7 @@
             this.lbView.Image = global::NetManagement.Properties.Resources.btnbackground;
             this.lbView.Location = new System.Drawing.Point(385, 40);
             this.lbView.Name = "lbView";
-            this.lbView.Size = new System.Drawing.Size(119, 31);
+            this.lbView.Size = new System.Drawing.Size(117, 31);
             this.lbView.TabIndex = 0;
             this.lbView.Text = "   From   ";
             // 
@@ -151,9 +151,9 @@
             this.buttonAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonAll.Location = new System.Drawing.Point(104, 26);
+            this.buttonAll.Location = new System.Drawing.Point(104, 20);
             this.buttonAll.Name = "buttonAll";
-            this.buttonAll.Size = new System.Drawing.Size(100, 37);
+            this.buttonAll.Size = new System.Drawing.Size(100, 49);
             this.buttonAll.TabIndex = 17;
             this.buttonAll.Text = "All";
             this.buttonAll.UseVisualStyleBackColor = true;
@@ -193,7 +193,7 @@
             this.btnadd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.btnadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnadd.Location = new System.Drawing.Point(448, 20);
+            this.btnadd.Location = new System.Drawing.Point(391, 20);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(124, 49);
             this.btnadd.TabIndex = 11;
@@ -213,35 +213,33 @@
             this.dgvShift.AllowUserToDeleteRows = false;
             this.dgvShift.AllowUserToOrderColumns = true;
             this.dgvShift.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
-            this.dgvShift.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvShift.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
+            this.dgvShift.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvShift.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvShift.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
             this.dgvShift.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvShift.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SkyBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvShift.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvShift.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvShift.ColumnHeadersHeight = 36;
             this.dgvShift.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvShift.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Picture});
+            this.dgvShift.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvShift.EnableHeadersVisualStyles = false;
-            this.dgvShift.Location = new System.Drawing.Point(35, 108);
+            this.dgvShift.Location = new System.Drawing.Point(0, 90);
             this.dgvShift.Name = "dgvShift";
             this.dgvShift.RowHeadersVisible = false;
             this.dgvShift.RowHeadersWidth = 51;
             this.dgvShift.RowTemplate.Height = 40;
             this.dgvShift.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvShift.Size = new System.Drawing.Size(1247, 494);
+            this.dgvShift.Size = new System.Drawing.Size(1320, 529);
             this.dgvShift.TabIndex = 5;
             this.dgvShift.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShift_CellContentClick);
             // 
@@ -266,7 +264,7 @@
             // FormShift
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
+            this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(1320, 705);
             this.Controls.Add(this.dgvShift);
             this.Controls.Add(this.panel2);

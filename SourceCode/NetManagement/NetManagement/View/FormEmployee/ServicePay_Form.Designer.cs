@@ -37,10 +37,12 @@
             // 
             // btnPayment
             // 
-            this.btnPayment.BackColor = System.Drawing.Color.Green;
-            this.btnPayment.Location = new System.Drawing.Point(426, 399);
+            this.btnPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnPayment.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayment.ForeColor = System.Drawing.Color.MistyRose;
+            this.btnPayment.Location = new System.Drawing.Point(426, 395);
             this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(195, 33);
+            this.btnPayment.Size = new System.Drawing.Size(211, 39);
             this.btnPayment.TabIndex = 0;
             this.btnPayment.Text = "Payment";
             this.btnPayment.UseVisualStyleBackColor = false;
@@ -53,25 +55,28 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(733, 369);
+            this.dataGridView1.Size = new System.Drawing.Size(746, 369);
             this.dataGridView1.TabIndex = 1;
             // 
             // btnfill
             // 
             this.btnfill.BackColor = System.Drawing.Color.Red;
-            this.btnfill.Location = new System.Drawing.Point(129, 404);
+            this.btnfill.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnfill.ForeColor = System.Drawing.Color.MistyRose;
+            this.btnfill.Location = new System.Drawing.Point(100, 395);
             this.btnfill.Name = "btnfill";
-            this.btnfill.Size = new System.Drawing.Size(115, 23);
+            this.btnfill.Size = new System.Drawing.Size(146, 39);
             this.btnfill.TabIndex = 2;
-            this.btnfill.Text = "fill ";
+            this.btnfill.Text = "Fill ";
             this.btnfill.UseVisualStyleBackColor = false;
             this.btnfill.Click += new System.EventHandler(this.btnfill_Click);
             // 
             // buttonReload
             // 
-            this.buttonReload.Location = new System.Drawing.Point(293, 403);
+            this.buttonReload.Font = new System.Drawing.Font("Modern No. 20", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReload.Location = new System.Drawing.Point(292, 399);
             this.buttonReload.Name = "buttonReload";
-            this.buttonReload.Size = new System.Drawing.Size(75, 23);
+            this.buttonReload.Size = new System.Drawing.Size(76, 31);
             this.buttonReload.TabIndex = 3;
             this.buttonReload.Text = "Reload";
             this.buttonReload.UseVisualStyleBackColor = true;
@@ -82,6 +87,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
+            this.BackgroundImage = global::NetManagement.Properties.Resources.green;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonReload);
             this.Controls.Add(this.btnfill);
