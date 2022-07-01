@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NetManagement.BLL;
+using NetManagement.DTO;
 using NetManagement.Model;
 using NetManagement.Repositories;
 
@@ -101,5 +102,19 @@ namespace NetManagement.BLL.BLLAdmin
             repository.Delete(id);
             repository.Save();
         }
+        public List<object> Search(string search, SearchAcoountEnum searchby)
+        {
+
+            if (searchby == SearchAcoountEnum.All)
+            {
+                return Filter(repository.GetAll()).ToList();
+            }
+            else if (searchby == SearchAcoountEnum.Name)
+            {
+                return Filter(repository.Search(search, p => p.NameUnit, true, false)).ToList();
+            }
+            else return Filter(repository.Search(search, p => p.ID_Unit.ToString(), true, true)).ToList();
+        }
+
     }
 }

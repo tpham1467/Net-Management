@@ -1,0 +1,10 @@
+Thời Gian 
+Giá Cả 
+Local hay server 
+Giá cả , thanh toán .
+
+Logic giữ nguyên , UI thay đổi 1 ít 
+
+Cánh thanh toán 
+
+
